@@ -106,7 +106,6 @@ public class TransparentActivity extends AppCompatActivity implements GoogleApiC
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-
         inAnimation = AnimationUtils.loadAnimation(this, R.anim.slide_bottom_in_2);
         outAnimation = AnimationUtils.loadAnimation(this, R.anim.slide_bottom_out_2);
         mListner = this;
