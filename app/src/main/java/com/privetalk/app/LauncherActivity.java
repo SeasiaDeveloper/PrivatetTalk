@@ -16,6 +16,7 @@ public class LauncherActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
+        //first Commit
         super.onCreate(savedInstanceState);
         setContentView(com.privetalk.app.R.layout.activity_launcher);
 
