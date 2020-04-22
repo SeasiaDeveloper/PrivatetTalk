@@ -528,7 +528,6 @@ public class TransparentActivity extends AppCompatActivity implements GoogleApiC
                 }
             });
 
-
             //   RequestToken(obj);
         } catch (JSONException e) {
             e.printStackTrace();
