@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/white"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="15dp">
+
+            <com.privetalk.app.utilities.PriveTalkTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/privacy_settings"
+                android:textColor="@color/welcome_text"
+                android:textSize="22sp"
+                app:ttf_name="@string/roboto_light" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:orientation="vertical"
+                android:background="@drawable/settings_dotted_line"
+                android:padding="15dp">
+
+                <com.privetalk.app.utilities.PrivacySettingContainer
+                    android:layout_marginTop="-15dp"
+                    android:id="@+id/switch1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <!--<net.cocooncreations.privetalk.utilities.PrivacySettingContainer-->
+                    <!--android:id="@+id/switch2"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"/>-->
+
+                <com.privetalk.app.utilities.PrivacySettingContainer
+                    android:id="@+id/switch3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <com.privetalk.app.utilities.PrivacySettingContainer
+                    android:id="@+id/switch4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <com.privetalk.app.utilities.PrivacySettingContainer
+                    android:id="@+id/switch5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+
+            <com.privetalk.app.utilities.PriveTalkTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/notification_settings"
+                android:textColor="@color/welcome_text"
+                android:textSize="22sp"
+                app:ttf_name="@string/roboto_light" />
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/settings_dotted_line"
+                android:padding="15dp">
+
+
+                <ImageView
+                    android:id="@+id/folder"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="12.5dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/settings_folder_icon" />
+
+                <ImageView
+                    android:id="@+id/phone"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="12.5dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_toLeftOf="@+id/folder"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/settings_phone_icon" />
+
+
+                <LinearLayout
+                    android:layout_below="@+id/folder"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.privetalk.app.utilities.NotificationSettingContainer
+                        android:id="@+id/messagesNotifications"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                    <com.privetalk.app.utilities.NotificationSettingContainer
+                        android:id="@+id/visitorsNotifications"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                    <com.privetalk.app.utilities.NotificationSettingContainer
+                        android:id="@+id/flamesNotifications"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                    <com.privetalk.app.utilities.NotificationSettingContainer
+                        android:id="@+id/matchesNotifications"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                    <com.privetalk.app.utilities.NotificationSettingContainer
+                        android:id="@+id/favoriteNotifications"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                    <!--<net.cocooncreations.privetalk.utilities.NotificationSettingContainer-->
+                        <!--android:id="@+id/alertsNotifications"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"/>-->
+
+                    <com.privetalk.app.utilities.NotificationSettingContainer
+                        android:id="@+id/newsNotifications"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                    <com.privetalk.app.utilities.NotificationSettingContainer
+                        android:id="@+id/rewardsNotifications"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+
+            </RelativeLayout>
+
+
+
+            <com.privetalk.app.utilities.PriveTalkTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/account_settings"
+                android:textColor="@color/welcome_text"
+                android:textSize="22sp"
+                app:ttf_name="@string/roboto_light" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/settings_dotted_line"
+                android:padding="15dp">
+
+                <RelativeLayout
+                    android:id="@+id/switch14"
+                    android:layout_width="45dp"
+                    android:layout_height="25dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:background="@drawable/switch_button_border"
+                    android:gravity="center">
+
+                    <com.privetalk.app.utilities.MySwitch
+                        android:id="@+id/deactivateAccount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentTop="true" />
+                </RelativeLayout>
+
+
+                <com.privetalk.app.utilities.PriveTalkTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/switch14"
+                    android:layout_alignTop="@+id/switch14"
+                    android:gravity="center"
+                    android:text="@string/dedactivate_account"
+                    android:textColor="@color/welcome_text"
+                    android:textSize="16sp"
+                    app:ttf_name="@string/roboto_light" />
+            </RelativeLayout>
+
+
+            <TextView
+                android:id="@+id/deleteAccount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:text="@string/delete_account"
+                android:textColor="@android:color/holo_red_dark"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

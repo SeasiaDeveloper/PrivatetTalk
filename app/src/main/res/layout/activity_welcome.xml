@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/welcomeActivityRootView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical">
+
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </androidx.viewpager.widget.ViewPager>
+
+
+    <LinearLayout
+        android:visibility="gone"
+        android:layout_width="170dp"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:gravity="top"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/pageOne"
+            android:layout_width="18dp"
+            android:layout_height="20dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/welcome_pager_selected" />
+
+        <ImageView
+            android:id="@+id/pageTwo"
+            android:layout_width="18dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="5dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/welcome_pager_unselected" />
+
+        <ImageView
+            android:id="@+id/pageThree"
+            android:layout_width="18dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="5dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/welcome_pager_unselected" />
+
+        <ImageView
+            android:id="@+id/pageFour"
+            android:layout_width="18dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="5dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/welcome_pager_unselected" />
+
+        <ImageView
+            android:id="@+id/pageFive"
+            android:layout_width="18dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="5dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/welcome_pager_unselected" />
+
+        <ImageView
+            android:id="@+id/pageSix"
+            android:layout_width="18dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="5dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/welcome_pager_unselected" />
+
+        <ImageView
+            android:id="@+id/pageSeven"
+            android:layout_width="18dp"
+            android:layout_height="20dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginLeft="5dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/welcome_pager_unselected" />
+
+    </LinearLayout>
+
+
+    <!--<include-->
+        <!--android:id="@+id/myDialog"-->
+        <!--layout="@layout/dialog_create_account" />-->
+
+    <!--<include-->
+        <!--android:id="@+id/signInDialog"-->
+        <!--layout="@layout/dialog_sign_in" />-->
+
+</RelativeLayout>

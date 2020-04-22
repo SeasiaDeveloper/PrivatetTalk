@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:background="@android:color/white"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/profileImageview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/dummy_img" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profileCircleImageview"
+        android:layout_width="match_parent"
+        android:visibility="invisible"
+        android:clickable="false"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        app:civ_border_color="#00000000"
+        app:civ_border_width="0dp" />
+
+    <ImageView
+        android:id="@+id/alphaFlame"
+        android:layout_width="60dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:layout_marginTop="32dp"
+        android:alpha="0"
+        android:adjustViewBounds="false"
+        android:src="@drawable/alpha_flame" />
+
+    <ImageView
+        android:id="@+id/alphaSnow"
+        android:layout_width="75dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:layout_marginBottom="40dp"
+        android:adjustViewBounds="false"
+        android:alpha="0"
+        android:src="@drawable/alpha_snow" />
+
+</FrameLayout>

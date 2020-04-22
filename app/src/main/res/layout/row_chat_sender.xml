@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <RelativeLayout
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginRight="5dp"
+            android:background="@drawable/oval_blue_border_2dp">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/chatSenderProfilePicture"
+                android:layout_width="68dp"
+                android:layout_height="68dp"
+                android:layout_centerInParent="true"
+                android:scaleType="centerCrop"
+                app:civ_border_color="@android:color/transparent"
+                app:civ_border_overlay="false"
+                app:civ_border_width="0dp" />
+
+        </RelativeLayout>
+
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/chatSenderMessageLayout"
+            android:layout_alignRight="@+id/chatSenderMessageLayout"
+            android:layout_alignTop="@+id/chatSenderMessageLayout"
+            android:layout_marginLeft="75dp"
+            android:background="@drawable/chat_left_background" />
+
+        <ImageView
+            android:id="@+id/royalMessageIcon"
+            android:layout_width="22dp"
+            android:layout_height="20dp"
+            android:layout_alignLeft="@+id/chatSenderMessageLayout"
+            android:layout_below="@+id/chatSenderMessageLayout"
+            android:layout_marginTop="5dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/fast_mail_icon" />
+
+        <FrameLayout
+            android:id="@+id/chatSenderMessageLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="96dp"
+            android:layout_marginRight="10dp"
+            android:gravity="center"
+            android:minHeight="44dp"
+            android:orientation="vertical"
+            android:padding="5dp">
+
+            <com.privetalk.app.utilities.PriveTalkTextView
+                android:id="@+id/chatTextMessage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|left"
+                android:padding="2dp"
+                android:textColor="@color/welcome_text"
+                android:textSize="17sp"
+                app:ttf_name="@string/roboto_regular" />
+
+            <ImageView
+
+                android:id="@+id/chatImageMessage"
+                android:layout_width="@dimen/chat_photo"
+                android:layout_height="@dimen/chat_photo"
+                android:layout_gravity="center" />
+
+            <!--<ImageView-->
+            <!--android:id="@+id/chatImageMessage"-->
+            <!--android:layout_width="140dp"-->
+            <!--android:layout_height="140dp"-->
+            <!--android:layout_marginBottom="10dp"-->
+            <!--android:layout_marginTop="10dp"-->
+            <!--android:visibility="gone" />-->
+
+            <!--<ImageView-->
+            <!--android:id="@+id/chatGiftMessage"-->
+            <!--android:layout_width="50dp"-->
+            <!--android:layout_height="50dp"-->
+            <!--android:layout_gravity="left"-->
+            <!--android:layout_marginBottom="10dp"-->
+            <!--android:layout_marginTop="10dp"-->
+            <!--android:scaleType="fitCenter"-->
+            <!--android:visibility="gone" />-->
+
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@+id/chatSenderMessageLayout"
+            android:layout_below="@+id/chatSenderMessageLayout"
+            android:layout_marginTop="5dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:padding="2dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/chat_message_time_passed" />
+
+            <com.privetalk.app.utilities.PriveTalkTextView
+                android:id="@+id/messageTimePassed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:textColor="@color/dark_blue_button"
+                android:textSize="14sp"
+                app:ttf_name="@string/roboto_light" />
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+    <androidx.legacy.widget.Space
+        android:id="@+id/underSpace"
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
+</LinearLayout>

@@ -1,0 +1,665 @@
+<resources>
+
+
+    <!--DON'T CHANGE ANYTHING HERE-->
+    <string name="flurry_key">H8CBZRWZSMH765V8F3YQ</string>
+    <string name="privetalk_scheme">privetalk</string>
+    <string name="privetalk_namespace">http://schemas.android.com/apk/res-auto</string>
+    <string name="roboto_regular">RobotoCondensed-Regular.ttf</string>
+    <string name="roboto_light">RobotoCondensed-Light.ttf</string>
+    <string name="roboto_bold">RobotoCondensed-Bold.ttf</string>
+    <string name="app_name">PriveTalk</string>
+    <string name="google_api_key">AIzaSyA2lR8ZYNmapLFWT_Ess-0rBp5h-JBioJE</string>
+
+
+    <!-- stringies-->
+    <string name="action_settings">Ρυθμίσεις</string>
+    <string name="honest_message">real people, honest dating!</string>
+    <string name="loading">Loading...</string>
+    <string name="welcome">Καλωσόρισες!</string>
+    <string name="welcome_thank_you">και ευχαριστούμε που επέλεξες το\nPriveTalk</string>
+    <string name="privetalk">PriveTalk</string>
+    <string name="privetalk_is">Το PriveTalk είναι</string>
+    <string name="different">Διαφορετικό!</string>
+    <string name="verify">Verified profiles\nfor all users</string>
+    <string name="friendliness">Friendliness promoted\n&amp;rewarded </string>
+    <string name="secure">Secure, self-expiring\nmessages</string>Ch
+    <string name="no_photo">Απαγόρευση λήψης\nΣτιγμιότυπου οθόνης</string>
+    <string name="honest">real people, honest dating!</string>
+    <string name="what_are_you_waiting">Τι Περιμένεις?</string>
+    <string name="create_account">Δημιουργία Λογαριασμού</string>
+    <string name="sign_in">Σύνδεση</string>
+    <string name="forgot_password">Ξέχασα τον κωδικό μου</string>
+    <string name="back">Πίσω</string>
+
+    <!-- stringies O.o o.O -->
+    <!-- stringies with html-->
+    <!-- stringies o.O O.o-->
+    <string name="my_birthday">Η ημερομηνία {b}γέννησης{/b} μου είναι</string>
+    <string name="my_location">Που {b}μένω{/b}</string>
+    <string name="my_genre">{b}Είμαι{/b} </string>
+    <string name="looking_for">{b}Ψάχνω{/b}\nγια</string>
+    <string name="my_mail">Το {b}e-mail{/b} μου είναι</string>
+    <string name="password_note">{b}*Προσοχή:{/b} Χρησιμοποίησε ένα μοναδικό κωδικό</string>
+    <string name="application_password">Κωδικός {b}Σύνδεσης{/b}</string>
+    <string name="confirm_password">Ο {b}κωδικός{/b} μου ξανά</string>
+    <string name="verification_code">Αποστολή {b}κωδικού{/b} Επαλήθευσης</string>
+    <string name="terms_and_conditions">Έχω διαβάσει και αποδέχομαι τους {b}<a href="http://www.example.com/"><u><b>Όρους &amp; Προϋποθέσεις, την Πολιτική Απορρήτου</b></u></a> &amp; <u> τον Οδηγό Ασφαλείας </u>{/b}</string>
+    <string name="start_dating">{b}Ολοκλήρωση{/b}</string>
+    <string name="stringie">{l}Δημιουργία {/l}{b}Λογαριασμού{/b}</string>
+    <string name="thanks_for_choosing">και {b}ευχαριστούμε{/b} που επέλεξες το PriveTalk</string>
+    <string name="verified_profiles">{b}Πιστοποιημένες{/b} Φωτογραφίες\n</string>
+    <string name="friendliness_promoted"><![CDATA[Εβδομαδιαία\n {l}Δώρα \n{/l}]]></string>
+    <string name="secure_messaging">{b}Αυτοκαταστρεφόμενα{/b}\nΜηνύματα</string>
+    <string name="no_screenshots">{b}Απαγόρευση λήψης{/b} \nΣτιγμιότυπου οθόνης</string>
+    <string name="real_people">{b}real{/b} people, {b}honest{/b} dating!</string>
+    <string name="what_you_waiting">Τι {b}Περιμένεις?{/b}</string>
+    <string name="create_new_account">{b}Δημιουργία {/b}Λογαριασμού</string>
+    <string name="use_one_of_the_following">Συνδέσου με ένα από τα ακόλουθα*</string>
+    <string name="verification_credit">Έπαινος Πιστοποίησης</string>
+    <string name="email_account">{b}Λογαριασμός {/b}με\n e-mail</string>
+    <string name="sing_in">{b}Σύνδεση {/b}</string>
+    <string name="we_never_post">{b}Ποτέ{/b} δεν δημοσιεύουμε στο κοινωνικό σας δίκτυο χωρίς την έγκριση σας</string>
+    <string name="sign_in_2">{b}Σύνδεση {/b}</string>
+    <string name="my_name_is">Το {b}Όνομά{/b} μου είναι</string>
+    <string name="weak">Αδύναμος</string>
+    <string name="strong">Δυνατός</string>
+    <string name="title_facebook_login">facebookLogin</string>
+    <string name="connections">Connections</string>
+    <string name="notifications">Notifications</string>
+    <string name="coins_lowercase">Κέρματα</string>
+    <string name="profilePersonalInfo">Τα στοιχεία μου</string>
+    <string name="not_yet_set">Δεν Καθορίστηκε</string>
+    <string name="not_set_yet">Δεν Καθορίστηκε</string>
+    <string name="profile_location">Τοποθεσία</string>
+    <string name="profile_age">Ηλικία</string>
+    <string name="profile_relationship">Σχέση</string>
+    <string name="profile_sexuality">Σεξουαλικ.</string>
+    <string name="facebook_app_id">1223656987651000</string>
+    <string name="profile_appearance">Appearance</string>
+    <string name="profileWork">Επάγγελμα</string>
+    <string name="profileEducation">Μόρφωση</string>
+    <string name="profileDrinking">Κατ. Αλκοόλ</string>
+    <string name="profileSmoking">Κάπνισμα</string>
+    <string name="profileLanguage">Γλώσσες</string>
+    <string name="profile_religion">Θρησκεία</string>
+    <string name="profileZodiac">Ζώδιο</string>
+    <string name="profileInterests">Ενδιαφέροντα</string>
+    <string name="profilePlaces">Μέρη Επίσκεψης</string>
+    <string name="profileLiterature">Βιβλιογραφία</string>
+    <string name="profileMovies">Ταινίες</string>
+    <string name="profileMusics">Μουσική</string>
+    <string name="profileActivities">Δραστηριότητες</string>
+    <string name="fewThingsAboutMe">Λίγα λόγια για μένα</string>
+    <string name="verified_profile_pictures">{b}Πιστοποιημένες{/b} Φωτογραφίες\n</string>
+    <string name="chat_with_real_people">Μίλησε με άτομα που έχουν πιστοποιημένη\n φωτογραφία χρήστη</string>
+    <string name="weekly_personality_rewards">{b}Εβδομαδιαία\n{/b} Δώρα</string>
+    <string name="get_rewarded_and_promoted">Ανταμείψου με δώρα γιατί απλά είσαι\nφιλικός και ενεργός χρήστης</string>
+    <string name="exprees_yourself_freely">Εκφράσου ελεύθερα με τα αυτοκαταστρεφόμενα μηνύματα και εικόνες</string>
+    <string name="no_photo_allowed">{b}Απαγόρευση λήψης{/b}\n Στιγμιότυπου οθόνης</string>
+    <string name="enter_verification">Ο {b}Κωδικός{/b} επαλήθευσης είναι</string>
+    <string name="thisWeek">Αυτή την Εβδομάδα</string>
+    <string name="weeklyAwards">Εβδομαδιαία Δώρα</string>
+    <string name="usePurchaseBonus">{b}Χρήση {/b}Μπόνους Αγοράς</string>
+    <string name="your_favorites">{b}Τα{/b} {l}Αγαπημένα μου{/l}</string>
+    <string name="who_favoried_you">{b}Ποιός{/b} {l} σε έχει στα Αγαπημένα του{/l}</string>
+    <string name="todays_visitors">{l}Σημερινοί{/l} {b}Επισκέπτες{/b}</string>
+    <string name="week_visitors">{b}Επισκέπτες{/b} {l}αυτής της εβδομάδας{/l}</string>
+    <string name="profile_height">Ύψος</string>
+    <string name="profile_weight">Βάρος</string>
+    <string name="profile_hair">Μαλλιά</string>
+    <string name="profile_eyes">Μάτια</string>
+    <string name="profile_body_type">Σωματότυπος</string>
+
+    <string name="myProfile">Το Προφίλ μου</string>
+    <string name="line">line</string>
+    <string name="community">Κοινότητα</string>
+    <string name="hotWheel">Hot Wheel</string>
+    <string name="messages">Μηνύματα</string>
+    <string name="profileVisitors">Επισκέπτες Προφίλ</string>
+    <string name="flamesIgnited">Flames Ignited</string>
+    <string name="hotMatches">Hot Matches</string>
+    <string name="favorites">Αγαπημένα</string>
+    <string name="beRoyalUser">Γίνε Royal Χρήστης</string>
+    <string name="addPTCoins">PriveTalk (PT) Κέρματα</string>
+    <string name="settings">Ρυθμίσεις</string>
+    <string name="logOut">Αποσύνδεση</string>
+
+    <string-array name="rowAwardsTitles">
+
+        <!--<item>Popular (%s, %s)</item>-->
+        <!--<item>Friendly (%s, %s)</item>-->
+        <!--<item>Ice Breaker (%s, %s)</item>-->
+        <!--<item>Impression Voter (%s, %s)</item>-->
+        <!--<item>Angel (%s, %s)</item>-->
+
+    </string-array>
+
+    <string-array name="settings_language">
+        <item>Ελληνικά</item>
+        <item>English</item>
+        <item>Русский</item>
+    </string-array>
+
+    <string-array name="interests_array">
+        <item>Activity</item>
+        <item>Literature</item>
+        <item>Music</item>
+        <item>Places</item>
+        <item>Movies</item>
+    </string-array>
+
+
+    <string-array name="settings_languages_codes">
+        <item>el</item>
+        <item>en</item>
+        <item>ru</item>
+    </string-array>
+
+
+    <string name="name">Όνομα:</string>
+    <string name="age">Ηλικία:</string>
+    <string name="location">Τοποθεσία:</string>
+    <string name="relationship">Σχέση:</string>
+    <string name="sexuality">Σεξουαλικότητα:</string>
+    <string name="height">Ύψος:</string>
+    <string name="weight">Βάρος:</string>
+    <string name="body_type">Σωματότυπος:</string>
+    <string name="colour_fo_hair">Χρώμα Μαλλιών:</string>
+    <string name="colour_of_eyes">Χρώμα Ματιών:</string>
+    <string name="smoking">Κάπνισμα:</string>
+    <string name="drinking">Κατ. Αλκοόλ:</string>
+    <string name="education">Μόρφωση:</string>
+    <string name="work">Επάγγελμα:</string>
+    <string name="languages">Γλώσσες:</string>
+    <string name="religion">Θρησκεία:</string>
+
+
+    <string name="previous">Προηγούμενο</string>
+    <string name="next">Επόμενο</string>
+    <string name="done">Τέλος</string>
+    <string name="boost_your_popularity">Ενίσχυσε την δημοτικότητα σου</string>
+    <string name="boost_your_popularity_message">{b}Ενίσχυσε{/b} την δημοτικότητα σου</string>
+    <string name="seen_by_thousands">Προώθησε το προφίλ σου σε άλλους χρήστες.</string>
+    <string name="chose_one_of_the_below">Επέλεξε την φωτογραφία που θα διαφημίσεις:</string>
+    <string name="promotion_cost">Αυτή η προώθηση θα κοστίσει 100 PT κέρματα</string>
+    <string name="women_will_see_this">{b}1500{/b} Women will see this directly</string>
+    <string name="see_directly">{r}Θα το δουν άμεσα{/r}</string>
+    <string name="privacy_settings">{b}Ρυθμίσεις{/b} Ασφαλείας</string>
+    <string name="show_distance">Εμφάνιση {b}Απόστασης{/b}</string>
+    <string name="show_weekly_rewards">Εμφάνιση Εβδομαδιαίων {b}Δώρων{/b}</string>
+    <string name="show_online_status">Εμφάνιση κατάσταση {b}σύνδεσής{/b}</string>
+    <string name="hide_from_public_search">Απόκρυψη από {b}Δημόσια Αναζήτηση{/b}</string>
+    <string name="hide_from_hot_wheel">Απόκρυψη από το {b}Hot Wheel{/b}</string>
+    <string name="settings_messages">Μηνύματα</string>
+    <string name="settings_profile_visitors">Επισκέπτες Προφίλ</string>
+    <string name="settings_flames_ignited">Flames Ignited</string>
+    <string name="settings_hot_matches">Hot Matches</string>
+    <string name="settings_favorite_you">Σε έχει στα Αγαπημένα</string>
+    <string name="settings_alerts">Ειδοποιήσεις</string>
+    <string name="settings_news">Νέα</string>
+    <string name="settings_weekly_awards">Εβδομαδιαία Δώρα</string>
+    <string name="notification_settings">{b}Ρυθμίσεις{/b} Ειδοποιήσεων</string>
+    <string name="language_selection">{b}Επιλογή{/b} Γλώσσας</string>
+    <string name="account_settings">{b}Ρυθμίσεις{/b} Λογαριασμού</string>
+    <string name="dedactivate_account">Απενεργοποίηση {b}Λογαριασμού{/b}</string>
+    <string name="delete_account"><u>Διαγραφή Λογαριασμού</u></string>
+    <string name="hot_match_deleted">Διαγράφηκε</string>
+    <string name="deleted_match">Διαγράφηκε</string>
+    <string name="search_in_location">{b}στην{/b} {l}Περιοχή{/l}</string>
+    <string name="search_looking_for">{b}Ψάχνω{/b} για</string>
+    <string name="personalInfoEdit">Επεξ. στοιχείων</string>
+    <string name="search_filter_within">σε ακτίνα\n</string>
+    <string name="age_from">{b}Ηλικία{/b} {l}από{/l}</string>
+    <string name="age_to">{l}μέχρι{/l}</string>
+    <string name="height_from">{b}Ύψος{/b} {l}από{/l}</string>
+    <string name="weight_from">{b}Βάρος{/b} {l}από{/l}</string>
+    <string name="edit_interests">Επεξεργασία Ενδιαφερόντων</string>
+    <string name="body_type_filter">{b}Σωματότυπος{/b}</string>
+    <string name="hair_colour">Χρώμα {b}Μαλλιών{/b}</string>
+    <string name="eyes_colour">Χρώμα {b}Ματιών{/b}</string>
+    <string name="education_level">{b}Επίπεδο{/b} Εκπαίδευσης</string>
+    <string name="smoking_habit">{b}Συνήθεια{/b} Καπνίσματος</string>
+    <string name="drinking_habit">{b}Κατανάλωση{/b} Αλκοόλ</string>
+    <string name="zodiac_sign">{b}Ζώδιο{/b}</string>
+    <string name="who_speaks">Που να {b}Μιλά{/b}</string>
+    <string name="filter_faith">Θρησκεία</string>
+    <string name="pick_body_type">Επιλέξετε Σωματότυπο</string>
+    <string name="colour_of_hair">Χρώμα Μαλλιών</string>
+    <string name="colour_of_eyes2">Χρώμα Ματιών</string>
+    <string name="education_level2">Επίπεδο Εκπαίδευσης</string>
+    <string name="smoking_habit2">Συνήθεια Καπνίσματος</string>
+    <string name="zodiac_sign2">Ζώδιο</string>
+    <string name="interests">Ενδιαφέροντα</string>
+    <string name="zodiac_sign3">Ζώδιο</string>
+    <string name="drinkin_habit">Κατανάλωση Αλκοόλ</string>
+    <string name="search_filter_action_bar">Αναζήτηση</string>
+    <string name="activate_now">{b}Ενεργοποίηση!{/b}</string>
+    <string name="what_you_get_as_royal">Τι παίρνεις ως {b}Royal Χρήστης{/b}</string>
+    <string name="see_everything_message"><![CDATA[Δες ποιός επισκέφτηκε το προφίλ σου, ποιός σε έχει βάλει στα αγαπημένα του και ποιός έχει πει ότι είσαι Hot στο Flames Ignited.]]></string>
+    <string name="see_everything">Δες τα Πάντα</string>
+    <string name="trust_and_higher_rank">Αποκτήστε εμπιστοσύνη και υψηλότερη βαθμολογία</string>
+    <string name="trust_and_higher_rank_desc">Λάβετε ένα επιπλέον σήμα επαλήθευσης και βαθμολογήστε το προφίλ σας υψηλότερα στην Κοινότητα</string>
+    <string name="set_expiration_timers">Όρισε Χρόνους Αυτοκαταστροφής</string>
+    <string name="expiration_timers_message">Επέλεξε για πόση ώρα το κείμενο και η εικόνα που έχεις στείλει είναι ορατή (από 3 δευτερόλεπτα μέχρι 7 μέρες).</string>
+    <string name="priority_messages">Μηνύματα Προτεραιότητας</string>
+    <string name="priority_messages_message">Τα μηνύματα που στέλνεις μπαίνουν πάνω από τους άλλους χρήστες και έχουν περισσότερες πιθανότητες να διαβαστούν πιο γρήγορα.</string>
+    <string name="talk_first_to_newbies">Μίλησε Πρώτος σε Νέους Χρήστες</string>
+    <string name="talk_to_newbies_message">Μίλησε με νέους χρήστες που έχουν κάνει λογαριασμό καταργώντας τους χρόνους αναμονής.</string>
+    <string name="advnced_custom_search">Προσαρμοσμένη Αναζήτηση</string>
+    <string name="advanced_custom_search_message">Κάνε σύνθετη αναζήτηση χρησιμοποιώντας το ύψος, ζώδιο, χρώμα ματιών, επίπεδο μόρφωσης, γλώσσα κ.α</string>
+    <string name="hidden_mode">Αόρατη Λειτουργία</string>
+    <string name="hidden_mode_message"><![CDATA[Μείνε ανώνυμος επιλέγοντας να κρύψεις το προφίλ σου από την Κοινότητα, το Hot Wheel και την κατάσταση σύνδεσης σου.]]></string>
+    <string name="one_month">1 Μήνας</string>
+    <string name="three_months">3 Μήνες</string>
+    <string name="six_months">6 Μήνες</string>
+    <string name="twelve_months">12 Μήνες</string>
+    <string name="royal_user_plans_action_bar">Συνδρομές Royal Χρήστη</string>
+    <string name="balance">Υπόλοιπο</string>
+    <string name="how_to_use_coins">Πώς θα {b}χρησιμοποιήσεις τα Κέρματα{/b}</string>
+    <string name="get_featured_and_promoted">Προώθησε το Προφίλ σου</string>
+    <string name="get_featured_and_promoted_message">Διαφήμισε το προφίλ σου σε άλλους χρήστες στην περιοχή σου.</string>
+    <string name="give_virtual_gifts">Στείλε Εικονικά Δώρα</string>
+    <string name="virtual_gifts_message">Φλέρταρε με στύλ ξεκινώντας την συνομιλία σου με ένα εικονικό Δώρο.</string>
+    <string name="starts_more_chats">Περισσότερες Συνομιλίες Κάθε</string>
+    <string name="starts_more_chats_message">Ξεκίνησε 20 νέες συνομιλίες μόλις φτάσεις το ημερήσιο όριο.</string>
+    <string name="more_chances_message">Get more plays and get shown more on the Hot Wheel©, giving you more chances to get a hot match.</string>
+    <string name="more_chances">Get More Chances on the Hot Wheel©</string>
+    <string name="add_more_pt_coins">Πρόσθεσε κέρματα PT</string>
+    <string name="something_went_wrong">Κάτι πήγε στραβά.</string>
+    <string name="pleaseTryAgain">Παρακαλώ δοκιμάστε ξανά</string>
+    <string name="log_out_dialog">{b}Αποσύνδεση{/b}</string>
+    <string name="yes_string">Ναι</string>
+    <string name="no_string">Όχι</string>
+    <string name="prive_inbox_action_bar">Prive Inbox</string>
+    <string name="expires_in_seven_days">"Λήγει σε 7 ημέρες"</string>
+    <string name="chat_add_more">{b}Πρόσθεσε{/b}</string>
+    <string name="tablytics_key">20d38e02e67e34f0177e0d45d09d63553c4a55e1</string>
+    <string name="stringie_block">Φραγή</string>
+    <string name="stringie_report">Αναφορά</string>
+    <string name="rude_abusive_behavior">Αγενής Συμπεριφορά</string>
+    <string name="idecent_content">Άσεμνο Περιεχόμενο</string>
+    <string name="scam_account">Ψεύτικος Λογαριασμός</string>
+    <string name="spam_account">Διαφημιστικό Περιεχόμενο</string>
+    <string name="details_for_reporting">{b}Λεπτομέρειες{/b} για αναφορά</string>
+    <string name="unspecified">Δεν Καθορίστηκε</string>
+    <string name="single">Single</string>
+    <string name="open">00</string>
+    <string name="divorced">Divorced</string>
+    <string name="widowed">Widowed</string>
+    <string name="straight">Straight</string>
+    <string name="gay">Gay</string>
+    <string name="bisexual">Bisexual</string>
+    <string name="never">Never</string>
+    <string name="occasionally">Occasionally</string>
+    <string name="often">Often</string>
+    <string name="heavySmoker">Heavy Smoker</string>
+    <string name="daily">Daily</string>
+    <string name="noDegree">No Degree</string>
+    <string name="highSchool">High School</string>
+    <string name="technicalSchool">Technical School</string>
+    <string name="bachelorsDegree">Bachelor\'s Degree</string>
+    <string name="mastersDegree">Master\'s Degree</string>
+    <string name="doctoralDegree">Doctoral Degree</string>
+    <string name="professionalDegree">Professional Degree</string>
+    <string name="universityStudent">University Student</string>
+    <string name="aries">Aries</string>
+    <string name="taurus">Taurus</string>
+    <string name="gemini">Gemini</string>
+    <string name="cancer">Cancer</string>
+    <string name="leo">Leo</string>
+    <string name="virgo">Virgo</string>
+    <string name="libra">Libra</string>
+    <string name="scorpio">Scorpio</string>
+    <string name="sagitarius">Sagitarius</string>
+    <string name="capricorn">Capricorn</string>
+    <string name="aquarius">Aquarius</string>
+    <string name="pisces">Pisces</string>
+    <string name="average">Average</string>
+    <string name="slim">Slim</string>
+    <string name="athletic">Athletic</string>
+    <string name="someExtraWeight">Some Extra Weight</string>
+    <string name="plusSizes">Plus-Sized</string>
+    <string name="black">Black</string>
+    <string name="brown">Brown</string>
+    <string name="blond">Blond</string>
+    <string name="select_photo">Select Photo</string>
+    <string name="cancel">Όχι</string>
+    <string name="picture_uploaded">Η φωτογραφία έχει ανεβεί</string>
+    <string name="okay">ΟΚ</string>
+    <string name="uploading_picture">Ανέβασμα φωτογραφίας</string>
+    <string name="uploading_picture_failed">Υπήρξε πρόβλημα κατά το ανέβασμα της εικόνας σας</string>
+    <string name="common_friends">{b}Κοινοί{/b} Φίλοι</string>
+    <string name="error_updating_settings_message">Σφάλμα Ενημέρωσης Ρυθμίσεων</string>
+    <string name="appearance">Εμφάνιση</string>
+    <string name="verifications">Πιστοποιήσεις</string>
+    <string name="profile_picture">Φωτ. Προφίλ</string>
+    <string name="verifyString">Verify</string>
+    <string name="verify_only">Πιστοποίηση</string>
+    <string name="social_media">Κοιν. Δίκτυο</string>
+    <string name="royal_user">Royal Χρήστης</string>
+    <string name="step_one">Βήμα 1</string>
+    <string name="match_outlines">Ταίριαξε με το περίγραμμα το πρόσωπο σου</string>
+    <string name="press_camera">Πάτησε το είκονίδιο της κάμερας.</string>
+    <string name="step_two">Βήμα 2</string>
+    <string name="turn_face_left">Γύρισε το κεφάλι σου αριστερά</string>
+    <string name="wait_for_click_sound">Περίμενε τον ήχο να τελειώσει.</string>
+    <string name="step_three">Βήμα 3</string>
+    <string name="turn_face_right">Γύρισε το κεφάλι σου δεξιά</string>
+    <string name="review_and_submit">Αξιολόγησε και κάνε Υποβολή*</string>
+    <string name="review_and_submit_faq">*Οι φωτογραφίες αυτές θα χρησιμοποιηθούν για την πιστοποίηση μόνο. Κανένας άλλος χρήστης δεν θα τις δει.</string>
+    <string name="step_four">Βήμα 4</string>
+    <string name="go">GO</string>
+    <string name="profilePictureVerification">Πιστοποίηση Φωτογραφίας προφίλ</string>
+    <string name="step_one_text">Βήμα 1: Ταίριαξε με το περίγραμμα το πρόσωπο σου</string>
+    <string name="step_two_text">Βήμα 2: Γύρισε το κεφάλι σου αριστερά</string>
+    <string name="step_three_text">Βήμα 3: Γύρισε το κεφάλι σου δεξιά</string>
+    <string name="step_four_text">Βήμα 4: Αξιολόγησε και κάνε Υποβολή*</string>
+    <string name="tryAgain">Ακύρωση</string>
+    <string name="submit">Υποβολή</string>
+    <string name="uploading_pictures">Ανέβασμα φωτογραφιών</string>
+    <string name="cm">cm</string>
+    <string name="kg">kg</string>
+    <string name="interests_sket">Ενδιαφέροντα</string>
+    <string name="total">σύνολο</string>
+    <string name="uploading_profile_pictures_failed">Υπήρξε πρόβλημα κατά το ανέβασμα φωτογραφιών επαλήθευσης σας</string>
+    <string name="profile_pictures_uploaded">Επιτυχής ανέβασμα φωτογραφιών</string>
+    <string name="verify_account">Πιστοποίηση Κοινωνικού Δικτύου</string>
+    <string name="popular">Δημοφιλής</string>
+    <string name="visitors">Επισκέπτες</string>
+    <string name="friendly">Φιλικός</string>
+    <string name="reply">Απάντηση %</string>
+    <string name="icebreaker">Σπάσε τον Πάγο</string>
+    <string name="talks">Συνομιλίες</string>
+    <string name="impression_voter">Ψήφιση Μηνυμάτων</string>
+    <string name="votes">Ψήφοι</string>
+    <string name="angel">Angel</string>
+    <string name="positive_impressions">Ψήφοι</string>
+
+    <string name="centimeters">cm</string>
+    <string name="feet">ft</string>
+    <string name="kilos">kg</string>
+    <string name="libres">lb</string>
+    <string name="hide_match_problemo">Υπήρξε ένα σφάλμα κατά την αφαίρεση του χρήστη από τα Hot Matches</string>
+    <string name="freeCoins">Δωρεάν Κέρματα</string>
+    <string name="five_coins">5c</string>
+    <string name="ten_coins">10c</string>
+    <string name="twenty_coins">20c</string>
+    <string name="purchaseBonus">Μπόνους Αγοράς</string>
+    <string name="howPopularYourprofileIs" formatted="false">Πόσοι χρήστες έχουν επισκεφτεί το προφίλ σου.\nΜέχρι 20 δωρεάν κέρματα και 8% μπόνους αγοράς.</string>
+    <string name="pick_something">Επιλέξετε κάτι</string>
+    <string name="save">Αποθήκευση</string>
+    <string name="are_you_sure">Είστε βέβαιοι ότι θέλετε να πάτε πίσω;</string>
+    <string name="will_be_lost">Όλες οι μη αποθηκευμένες αλλαγές θα χαθούν</string>
+    <string name="save_used_completed">Τα δεδομένα ενημερώθηκαν!</string>
+    <string name="failed_to_save_user">Υπήρξε ένα σφάλμα κατά την ενημέρωση των δεδομένων σας</string>
+    <string name="preferences">preferences</string>
+    <string name="or">ή</string>
+    <string name="name_change">Το όνομα σας μπορεί να αλλάξει μόνο μια φορά. Αυτή θα είναι η τελική επεξεργασία.</string>
+    <string name="you_cannot_edit_name">Δεν μπορείς να επεξεργαστείς ξανά αυτό</string>
+    <string name="edit_birthday_once">Η ημερομηνία γέννησης μπορεί να αλλάξει μόνο μια φορά. Αυτή θα είναι η τελική επεξεργασία.</string>
+    <string name="not_royal_user">Δεν είσαι Royal χρήστης</string>
+    <string name="in_order_visible_hidden_mode">In order to use visible/hidden feature you should be a Royal User. Would you like to try it now?</string>
+    <string name="in_order_visible">Πρέπει να είσαι Royal χρήστης για να χρησιμοποιήσεις αυτήν τη λειτουργία. Θέλεις να δεις τα Royal πακέτα μας;</string>
+    <string name="later">Αργότερα</string>
+    <string name="reportUser">Αναφορά ή Αποκλεισμός χρήστη</string>
+    <string name="not_all_fields">Θα πρέπει να επιλέξετε όλα τα απαιτούμενα πεδία</string>
+    <string name="user_blocked">Έχεις ανώνυμα μπλοκάρει αυτόν τον χρήστη.</string>
+    <string name="user_reported">Έχεις ανώνυμα αναφέρει αυτόν τον χρήστη.</string>
+    <string name="block_failed">Υπήρξε ένα πρόβλημα κατά το μπλοκάρισμα του χρήστη.</string>
+    <string name="report_failed">Υπήρξε ένα πρόβλημα κατά την αναφορά του χρήστη.</string>
+    <string name="request_send">Αποστολή αιτήματος μπλοκ</string>
+    <string name="report_request_is_send">Αποστολή αιτήματος αναφοράς</string>
+    <string name="add_me">Πρόσθεσε με</string>
+    <string name="profile_photo">Θα ήθελες να κάνεις αυτή τη φωτογραφία ως κύρια φωτογραφία του προφίλ σου;</string>
+    <string name="loading_picture_failed">Υπήρξε ένα πρόβλημα κατά το ανέβασμα της φωτογραφίας</string>
+    <string name="thanks_for_subscribing">Thanks for subscribing to Privetalk!</string>
+    <string name="attemptin_to_change">Γίνετε αλλαγή στην ορατότητα του προφίλ σου</string>
+    <string name="succesfully_changed_visibility">Η ορατότητα σας έχει αλλάξη με επιτυχία</string>
+    <string name="coins_uppercase">Κέρματα</string>
+    <string name="coin_balance">%s Κέρματα</string>
+    <string name="coin_balance_2">{b}Υπόλοιπο{/b} %s Κέρματα</string>
+    <string name="voucher_code">Κωδικός Κουπονιού</string>
+    <string name="use">Χρήση</string>Περασμένης Εβδομάδας
+    <string name="last_weeks_bonus">{b}Μπόνους Αγοράς{/b}\nΠερασμένης Εβδομάδας </string>
+    <string name="faith_bold">{b}Θρησκεία{/b}</string>
+    <string name="interest_bold">{b}Ενδιαφέροντα{/b}</string>
+    <string name="faith">Θρησκεία</string>
+    <string name="could_not_inapp_coins">Δεν ήταν δυνατή η προετοιμασία Κέρμάτων απο την εφαρμογή..</string>
+    <string name="succesfully_added_new_coins">Συγχαρητήρια! Τα κέρματα προστέθηκαν με επιτυχία</string>
+    <string name="not_enough_bonus">Δεν υπάρχουν αρκετά μπόνους Αγοράς</string>
+    <string name="undo">Αναίρεση</string>
+    <string name="enter_voucher_code">Προσθέστε τομ κωδικό του κουπονιού</string>
+    <string name="add_pt_coins">{b}%s{/b} Κέρματα</string>
+    <string name="sexy_flames_ignited_msg" formatted="false">{b}%s,{/b} είπε οτι είστε {b}hot!{/b} Τι νομίζετε %s;</string>
+    <string name="him">αυτού</string>
+    <string name="her">αυτής</string>
+    <string name="him_her">αυτού/αυτής</string>
+    <string name="chosen_level">Επιλεγμένο Επίπεδο</string>
+    <string name="version_placeholder">v%s</string>
+    <string name="privetalk_property">Το PriveTalk είναι ιδιοκτησία της\n{b}SocioBright Ltd{/b}</string>
+    <string name="developed_by">Υλοποίηση από\n{b}Cocoon Creations Ltd{/b}</string>
+    <string name="privacy_policy">Προστασία</string>
+    <string name="terms_conditions_about"><![CDATA[Terms & Conditions]]></string>
+    <string name="dating_safety_guide">Ασφάλεια</string>
+    <string name="contact_us">Επικοινωνία</string>
+    <string name="people">{b}Άνθρωποι{/b}</string>
+    <string name="recoverPassword">Επαναφορά Κωδικού</string>
+    <string name="pleaseCheckEmail">Παρακαλώ ελέγξτε το email σας για περαιτέρω οδηγίες για το πώς να ανακτήσετε τον κωδικό σας.</string>
+    <string name="royal_user_filter">Πρέπει να είσαι Royal χρήστης για να χρησιμοποιήσεις αυτήν τη λειτουργία.</string>
+    <string name="checkPlans">Check Plans</string>
+    <string name="add_new">Προσθήκη νέου</string>
+    <string name="make_as_profile">Είστε βέβαιοι ότι θέλετε να κάνετε αυτήν την φωτογραφία ως φωτογραφία του προφίλ σας;</string>
+    <string name="please_confirm">Παρακαλώ Επιβεβαιώστε</string>
+    <string name="delete_picture">Είστε σίγουροι ότι θέλετε να διαγράψετε αυτή τη φωτογραφία;</string>
+    <string name="confirm_deletion">Επιβεβαιώση Διαγραφής</string>
+    <string name="make_this_priority_message">Στείλε το μήνυμα σου με προτεραιότητα</string>
+    <string name="later_only">Αργότερα</string>
+    <string name="not_verified_message">Για να στείλεις μηνύματα θα πρέπει να πιστοποιήσετε την εικόνα του προφίλ σας πρώτα</string>
+    <string name="conversation_deleted">Η Συνομιλία Διαγράφτηκε</string>
+    <string name="could_not_find_conversation">Δεν βρέθηκε συνομιλία</string>
+
+    <string name="how_many_visited" formatted="false">Πόσοι χρήστες έχουν επισκεφτεί το προφίλ σου. \nΜέχρι 20 δωρεάν κέρματα &amp; 8% μπόνους αγοράς</string>
+    <string name="how_often_reply" formatted="false">Πόσο συχνά απαντάς στα πρώτα σου μηνύματα.\nΜέχρι 20 δωρεάν κέρματα &amp; 8% μπόνους Αγοράς.</string>
+    <string name="how_many_times_initiated_chat" formatted="false">Πόσες φορές ξεκίνησες μια κανούρια συνομιλία.\nΜέχρι 20 δωρεάν κέρματα &amp; 8% μπόνους Αγοράς.</string>
+    <string name="how_many_times_casted_secret_vote" formatted="false">Πόσες φορές έχεις ψηφήσει ανώνυμα μια συνομιλία.\nΜέχρι 20 δωρεάν κέρματα &amp; 8% μπόνους αγοράς.</string>
+    <string name="how_many_times_received_positive_vote" formatted="false">Πόσες φορές έχεις πάρει θετική Ψήφο στα μηνύματα.\nΜέχρι 20 δωρεάν κέρματα &amp; 8% μπόνους Αγοράς.</string>
+
+    <string name="up_to_freecoins">Μέχρι 20 δωρεάν κέρματα &amp; 8% μπόνους αγοράς.</string>
+
+    <string name="chooseLocation">Επιλέξτε την τοποθεσία σας</string>
+    <string name="you_are_about_deactivate_title">Απενεργοποίηση Λογαριασμού</string>
+    <string name="are_you_sure_deactivate">Μπορεί να χάσεις όλα τα PriveTalk πλεονεκτήματα μόνιμα. Είσαι σίγουρος?</string>
+    <string name="only_available">Δεν είστε Royal χρήστης</string>
+    <string name="royal_user_plans">Θα θέλατε να δείτε τις συνδρομές Royal Χρήστη?</string>
+    <string name="royal_user_plans_hidden_mode">Πρέπει να είσαι Royal χρήστης για να ενεργοποιήσεις την κρυφή λειτουργία. Θέλεις να δεις τα Royal πακέτα μας;</string>
+    <string name="verification_pending">Η πιστοποίηση της Φωτογραφίας σας έχει πάρει σειρά. Θα επικοινωνήσουμε μαζί σας σύντομα</string>
+    <string name="you_have_to_be_a_royal_user_message">Για να αλλάξετε αυτή την ρύθμιση, θα πρέπει να είστε Royal χρήστης. Δείτε τις συνδρομές μας.</string>
+    <string name="chat_limit_message">Έχεις φτάσει το ημερήσιο όριο για τις συνομιλίες σας. Χρησιμοποίησε 100 PT κέρματα και {b}μήλησε με 20 ακόμα χρήστες{/b} για σήμερα!</string>
+    <string name="common_facebook_friends">Κοινοί Φίλοι Facebook</string>
+    <string name="common_interests">Κοινά Ενδιαφέροντα</string>
+    <string name="tap_once_map">Πατήστε μία φορά για να επιλέξτε την τοποθεσία σας</string>
+    <string name="you_must_be_eighteen">Πρέπει να είσαι 18+</string>
+    <string name="no_profile_photo_message">Για να στείλεις μηνύματα θα πρέπει να ανεβάσεις μια εικόνα στο προφίλ σου και να την πιστοποιήσεις</string>
+    <string name="must_upload_profile_picture">Για να πιστοποιήσετε την εικόνα του προφίλ σας θα πρέπει να:\n1) να ανεβάσετε μια φωτογραφία &amp;\n2) θέσετε την ως προφίλ</string>
+    <string name="common_interest_dialog_title">{b}Κοινά{/b} Ενδιαφέροντα</string>
+    <string name="no_common_interests">Δεν βρέθηκαν κοινά ενδιαφέροντα</string>
+    <string name="no_common_friends">Δεν βρέθηκαν κοινοί φίλοι</string>
+    <string name="close_to">περιοχή</string>
+    <string name="application_name">PriveTalk</string>
+    <string name="social_media_account_connected">Ο λογαριασμό Social Media συνδέθηκε</string>
+    <string name="no_more_users_to_show">Δεν υπάρχουν άλλοι χρήστες αυτή την στιγμή. Δοκιμάστε Αργότερα</string>
+    <string name="must_select_one_gender">Πρέπει να επιλέξετε το φύλο</string>
+    <string name="men">{b}Άντρες{/b}</string>
+    <string name="women">{b}Γυναίκες{/b}</string>
+    <string name="enable_gps_message">Παρακαλώ ελέγξτε οτι έχετε ενεργοποιημένο το GPS</string>
+    <string name="pick_language">Επιλέξτε γλώσσα</string>
+    <string name="choose_interest">Επιλέξτε ενδιαφέρον</string>
+    <string name="you_have_voted_up">"Έχετε ψηφίσει ανώνυμα αυτόν τον χρήστη"</string>
+    <string name="you_have_voted_down">"Έχετε ψηφίσει ανώνυμα αυτόν τον χρήστη"</string>
+    <string name="reached_chat_limit">Έχεις φτάσει το ημερήσιο όριο για τις συνομιλίες σας. Χρησιμοποίησε 100 PT κέρματα και &lt;b&gt;μήλησε με 20 ακόμα χρήστες για σήμερα!</string>
+    <string name="purchase">Αγορά Κερμάτων</string>
+    <string name="succesfully_added_chats">Επιπλέον συζητήσεις έχουν προστεθεί!</string>
+    <string name="or_less">ή λιγότερο</string>
+    <string name="or_more">ή περισσότερο</string>
+    <string name="self_expiring_message">{b}Αυτοκαταστρεφόμενα{/b}\nΜηνύματα</string>
+    <string name="about_terms">Όροι</string>
+    <string name="last_login">τελευταία σύνδεση:</string>
+    <string name="impress_her_with_gift">Εντυπωσίασε την στέλνοντας ένα Δώρο</string>
+    <string name="impress_him_with_gift">Εντυπωσίασε τον στέλνοντας ένα Δώρο</string>
+    <string name="impress_with_gift">Εντυπωσίασε στέλνοντας ένα Δώρο</string>
+    <string name="delete">Διαγραφή;</string>
+    <string name="profile_photo_delete">Πιστοποιημένη φωτογραφία. Με την διαγραφή της θα χάσεις την πιστοποίηση σου. Να διαγραφεί?</string>
+    <string name="are_you_sure_selete_account">Διαγραφή λογαριασμού ?</string>
+    <string name="not_able_to_recover">Δεν μπορείτε να επαναφέρεται τον λογαριασμό ποτέ ξανά</string>
+    <string name="deleting_account">Διαγραφή Λογαριασμού</string>
+    <string name="please_wait">Παρακαλώ περιμένετε</string>
+    <string name="my">My</string>
+    <string name="your_account_deactivated">Ο λογαριασμός σου έχει απενεργοποιηθεί</string>
+    <string name="reactivate">Για να ενεργοποιήσετε ξανά το λογαριασμό σας, παρακαλούμε επικοινωνήστε μαζί μας στο support@privetalk.com</string>
+    <string name="added_to_favorites">Προστέθηκε στα Αγαπημένα</string>
+    <string name="removed_favorite">Αφαιρέθηκε απο τα Αγαπημένα</string>
+    <string name="you_are_about_to">"Πρόκειται να αγοράσετε "</string>
+    <string name="are_you_sure_purchase">"Είστε σίγουροι οτι θέλετε να αγοράσετε "</string>
+    <string name="coins_question">" κέρματα?"</string>
+    <string name="coins_skett">" κέρματα."</string>
+    <string name="read_and_accept">Έχω διαβάσει και αποδέχομαι τους <b><a style="text-decoration:none" href="http://app.privetalk.com/doc/privetalk-terms-&amp;-conditions.pdf">Όρους &#38; Προϋποθέσεις, </a></b>  <b><a href="http://app.privetalk.com/doc/privetalk-privacy-policy.pdf">την Πολιτική Απορρήτου</a></b> και <b><a href="http://app.privetalk.com/doc/privetalk-dating-safety-guide.pdf">τον Οδηγό Ασφαλείας</a></b></string>
+    <string name="terms">{b}Όρους Προστασίας &#38; Ασφάλειας,{/b}\u0020</string>
+    <string name="and">" "</string>
+    <string name="safety_guide">" "</string>
+    <string name="privacy_and_policy">{b}Privacy Policy{/b}</string>
+    <string name="already_have_code">Έχετε ήδη κωδικό πιστοποίησης</string>
+    <string name="problem_verifying_email">Υπήρξε ένα πρόβλημα με την επιβεβαίωση του email</string>
+    <string name="enable_gps_msg">Παρακαλώ ελέγξτε οτι έχετε ενεργοποιημένο το GPS</string>
+    <string name="must_accept_terms_and_contitions">Πρέπει να συμπληρώσετε όλα τα πεδία και να αποδεχτείτε τους όρους πρώτα</string>
+    <string name="error_getting_img">Υπήρξε ένα πρόβλημα κατά το άνοιγμα της φωτογραφίας</string>
+    <string name="already_royal_user">Είσαστε ήδη Royal User.</string>
+    <string name="error_while_opening_img">Υπήρξε ένα πρόβλημα κατά το άνοιγμα της φωτογραφίας</string>
+    <string name="enjoy_enhanced_privacy">Ασφάλεια κατά της λήψης\n στιγμιότυπου οθόνης</string>
+    <string name="warning">Προσοχή</string>
+    <string name="username_is_case_sensitive">*Ο Κωδικός είναι ευαίσθητος σε πεζά &amp; κεφαλαία</string>
+    <string name="purchase_sketo">Αγορά</string>
+    <string name="close">Έξοδος</string>
+    <string name="you_have_reach_daily_limit">"Έχεις φτάσει το ημερήσιο όριο για τις συνομιλίες σας. Χρησιμοποίησε "</string>
+    <string name="daily_limit_2">" PT κέρματα και {b}μήλησε με "</string>
+    <string name="daily_limit_3">ακόμα χρήστες για σήμερα!{/b}</string>
+    <string name="something_went_wrong_with_ver_code">Κάτι πήγε στραβά tτον κωδικό επιβεβαίωσης</string>
+    <string name="verification_code_wrong">Ο κωδικός είναι λανθασμένος ή έχει λήξη </string>
+    <string name="i_got_it">{l}Το{/l} κατάλαβα </string>
+    <string name="error">Σφάλμα</string>
+    <string name="yes">Ναί</string>
+    <string name="no">ΌΧι</string>
+    <string name="wrong_username_or_password">Λανθασμένος κωδικός ή όνομα χρήστη</string>
+    <string name="user_info">Στοιχεία χρήστη</string>
+    <string name="hot">Θετική ψήφος</string>
+    <string name="full_screen_photo">Άλμπουμ\n Φωτογραφιών</string>
+    <string name="previous_photo">Προηγούμενη\n φωτογραφία</string>
+    <string name="next_photo">Eπόμενη\n φωτογραφία</string>
+    <string name="skip_voting">Επόμενος\n Χρήστης</string>
+    <string name="verified_picture">Πιστοποιημένη Φωτογραφία</string>
+    <string name="email_send">Ο Κωδικός Επαλήθευσης έχει σταλεί στο e-mail σας.\nΣιγουρευτείτε να ελέγξετε επίσης τους φακέλους  "Σκουπίδια" ή "Ανεπιθύμητα" ή "Προωθήσεις".</string>
+    <string name="verification_code_already_Send">"Ο Κωδικός Επαλήθευσης έχει ήδη σταλεί. Παρακαλούμε περιμένετε "</string>
+    <string name="try_again">" για να ξαναπροσπαθήστε."</string>
+    <string name="free">Δωρεάν</string>
+    <string name="share_privetalk">Κοινοποίηση PriveTalk</string>
+    <string name="coins">"Πείρατε ακόμη 50 κέρματα!"</string>
+    <string name="choose_a_plan">Επιλέξτε μια {b}Συνδρομή{/b}</string>
+    <string name="wait">Περιμένετε</string>
+    <string name="unread_messages">Αδιάβαστα Μηνύματα</string>
+    <string name="promote_cost">Αυτή η υπηρεσία κοστίζει 100 PT κέρματα. Θέλετε να συνεχίσετε?</string>
+    <string name="promote_photo">Πρόκειται να προωθήσετε την φωτογραφία σας.</string>
+    <string name="problem_loading_user_info">Δεν ήταν δυνατή η ανάκτηση των πληροφοριών του χρήστη</string>
+    <string name="royal_user_plans_favourite">Για να δεις ποιος σε έχει βάλε στα Αγαπημένα του πρέπει να είσαι Royal χρήστης. Δείτε τα πακέτα μας!</string>
+    <string name="royal_user_plans_flames_ignited">Για να χρησιμοποιήσεις το Flames Ignited πρέπει να είσαι Royal χρήστης. Δες τα πακέτα μας!</string>
+    <string name="royal_user_plans_hidden_community">Για να κρύψετε το προφίλ σας από την Κοινότητα (Hidden Mode), θα πρέπει να είσαι Royal χρήστης. Δες τις συνδρομές μας!</string>
+    <string name="about_to_purchase_1_month_royal_user">Πρόκειται να αγοράσετε 1 μήνα συνδρομή Royal. Θέλετε να προχωρήσετε;</string>
+    <string name="about_to_purchase_3_month_royal_user">Πρόκειται να αγοράσετε 3 μήνες συνδρομή Royal. Θέλετε να προχωρήσετε;</string>
+    <string name="about_to_purchase_6_month_royal_user">Πρόκειται να αγοράσετε 6 μήνες συνδρομή Royal. Θέλετε να προχωρήσετε;</string>
+    <string name="about_to_purchase_12_month_royal_user">Πρόκειται να αγοράσετε 12 μήνες συνδρομή Royal. Θέλετε να προχωρήσετε;</string>
+    <string name="are_you_sure_this_plan">Είστε σίγουροι ότι θέλετε να αγοράσετε αυτή την συνδρομή?</string>
+    <string name="royal_user_plans_search_filters">Πρέπει να είσαι Royal χρήστης για να προσαρμόσεις τα φίλτρα αναζήτησης. Θέλεις να δεις τα Royal πακέτα μας;</string>
+    <string name="for_b">για {b}</string>
+    <string name="per_month">{/b} ανά μήνα</string>
+    <string name="profile_picture_verification">Πιστοποίηση Φωτογραφίας προφίλ</string>
+    <string name="hidden_mode_on">Το προφίλ σας είναι αόρατο</string>
+    <string name="hedden_mode_off">Το προφίλ σας είναι ορατό</string>
+    <string name="view_our_plans">Για να δείτε ποιος σας επισκέφθηκε, θα πρέπει να είστε Royal χρήστης. Δείτε τις συνδρομές μας.</string>
+    <string name="one_month_royal_plan">Συνδρομή Royal για 1 Μήνα</string>
+    <string name="three_months_royal_plan">Συνδρομή Royal για 3 Μήνες</string>
+    <string name="six_months_royal_plan">Συνδρομή Royal για 6 Μήνες</string>
+    <string name="twelve_months_royal_plan">Συνδρομή Royal για 12Μήνες</string>
+    <string name="warning_">Προσοχή!</string>
+    <string name="please_wait_until_review_your_photos">Παρακαλώ περιμένετε μέχρι να πιστοποιηθεί η φωτογραφία σας. Ευχαριστούμε για την υπομονή σας.</string>
+    <string name="please_check_your_internet_connection">Η ρύθμιση δεν ενημερώθηκε. Ελέγξτε τη σύνδεσή σας στο internet και δοκιμάστε ξανά.</string>
+    <string name="set_by_user">Ορισμός από το χρήστη</string>
+    <string name="delete_account_message">Ο λογαριασμός σας έχει απενεργοποιηθεί και θα διαγραφεί σύντομα.\n\nΣε περίπτωση που αυτό έχει γίνει κατά λάθος παρακαλώ επικοινωνήστε μαζί μας στο support@privetalk.com για να επαναφέρουμε τον λογαριασμό σας προτού ολοκληρωθεί η διαγραφή.</string>
+    <string name="user_cancelled">Ο χρήστης ακυρώθηκε</string>
+    <string name="error_purchasing_coins">Σφάλμα κατα την αγορά κερμάτων.</string>
+    <string name="try_again_">Δοκιμάστε αργότερα</string>
+    <string name="to_use_hot_wheel_blah_blah">Για να κάνετε hot wheel, πρέπει να ανεβάσετε φωτογραφία προφίλ πρώτα.</string>
+    <string name="permission_login">Δεν έχετε την άδεια να συνδεθείτε.\nΓια βοήθεια επικοινωνήστε μαζί μας μέσω της ιστοσελίδας μας.</string>
+    <string name="password">κωδικός</string>
+    <string name="create_an_account">Δημιουργία {b}Λογαριασμού{/b}</string>
+    <string name="share_prive">{b}Κοινοποίηση{/b} PriveTalk</string>
+    <string name="earn_bonus">Κέρδισε \n{b}50 Κέρματα{/b}</string>
+    <string name="break_the_ice_speak_about">{b}Σπάσε τον πάγο! Μίλησε για...{/b}</string>
+    <string name="basic">{b}Βασική{/b}</string>
+    <string name="plan">Συνδρομή</string>
+    <string name="discount">Έκπτωση</string>
+    <string name="add_more"> {b}Πρόσθεσε{/b}</string>
+    <string name="search_filter"> {b}Αναζήτηση{/b}</string>
+    <string name="log_out">Θέλετε να αποσυνδεθείτε;</string>
+    <string name="my_profile">Το προφίλ μου</string>
+    <string name="promote">Προώθησε</string>
+    <string name="add_more_re_sugar">{b}Πρόσθεσε{/b}</string>
+    <string name="view">Δες</string>
+    <string name="more">Δες</string>
+    <string name="within_km">σε ακτίνα\n{b}30 km{/b}</string>
+    <string name="royal_user_filters">Φίλτρα {b}Royal χρήστη{/b}</string>
+    <string name="expires_in">"Λήγει σε"</string>
+    <string name="day_letter">"{b}M{/b} "</string>
+    <string name="hour_letter">"{b}ω{/b} "</string>
+    <string name="minute_letter">"{b}λ{/b} "</string>
+    <string name="second_letter">{b}δ{/b}</string>
+    <string name="message_time_day">"ημέρ"</string>
+    <string name="message_time_day_end">"α"</string>
+    <string name="message_time_days_end">"ες"</string>
+    <string name="message_hour">" ώρ"</string>
+    <string name="message_minute">" λεπτ"</string>
+    <string name="message_time_minute_end">ό</string>
+    <string name="message_time_minutes_end">ά</string>
+    <string name="seconds_message">" δευτερόλεπτα"</string>
+    <string name="search_stringie">Αναζήτηση</string>
+    <string name="country_code_error">Αποτυχία ανάκτησης απαραίτητων δεδομένων τοποθεσίας για εγγραφή. Παρακαλώ επιλέξτε ένα απο τα πιό κάτω</string>
+    <string name="try_again_country_code">Δοκίμασε ξανά</string>
+    <string name="reposition">ΕΠΑΤΑΤΟΠΟΘΕΤΗΣΗ</string>
+    <string name="vote_your_impression">{b}Ψήφισε{/b} την εντύπωση σου</string>
+    <string name="hide_profile">Απόκρυψη του προφίλ σας</string>
+    <string name="hide_profile_message">Είστε σίγουροι ότι θέλετε να ενεργοποιήσετε την αόρατη λειτουργεία; Αυτό θα κρύψει το προφίλ σας απο το Hot Wheel και την Κοινότητα, το οποίο σας δίνει λιγότερη αλληλεπίδραση.</string>
+    <string name="already_profile">Αυτή η φωτογραφία έχει ήδη οριστεί ως εικόνα προφίλ.</string>
+
+
+    <string-array name="rowAwardsSubtitles">
+        <item>Visitors</item>
+        <item>Reply%</item>
+        <item>Talks</item>
+        <item>Votes</item>
+        <item>Positive impressions</item>
+    </string-array>
+
+    <!-- Pushbots Application ID  -->
+    <!--<string name="pb_appid">570b92754a9efa84a38b456a</string>-->
+    <string name="pb_appid">570b91b44a9efa84a38b4567</string>
+    <!-- Project Number in Google console -->
+    <!--<string name="pb_senderid">233669124453</string>-->
+    <string name="pb_senderid">72800006454</string>
+    <!-- Pushbots Log Level  log Tag "PB2" -->
+    <string name="pb_logLevel">DEBUG</string>
+    <string name="how_to_verify_your_profile">Πώς να πιστοποιήσεις το προφίλ σου!</string>
+    <string name="tap_the_three_chekmarks_verification_message">Πάτησε το κουμπί δίπλα από το προφίλ με τα τρία σημάδια ελέγχου.\nΔες που βρίσκεται!</string>
+    <string name="purchase_another_plan">Δεν μπορείτε να αγοράσετε άλλη συνδρομή. Είστε ήδη Royal χρήστης.</string>
+    <string name="block_report_user_title">{b}Φραγή - Αναφορά{/b} χρήστη</string>
+    <string name="no_results">Δεν βρέθηκαν αποτέλεσμα</string>
+
+</resources>
+

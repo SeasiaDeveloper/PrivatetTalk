@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clickable="true"
+    android:focusableInTouchMode="true"
+    android:gravity="center">
+
+    <View
+        android:id="@+id/outsideArea"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <RelativeLayout
+        android:id="@+id/myDialog"
+        android:layout_width="320dp"
+        android:layout_height="320dp"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="2dp"
+        android:background="@android:color/transparent">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="7dp"
+            android:background="@android:drawable/dialog_holo_light_frame" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="15dp"
+            android:background="@drawable/gradient_rectangle_border" />
+
+        <com.privetalk.app.utilities.PriveTalkTextView
+            android:id="@+id/view1"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:gravity="center"
+            android:text="@string/sing_in"
+            android:textColor="@color/welcome_text"
+            android:textSize="27sp"
+            app:ttf_name="@string/roboto_light" />
+
+
+        <com.privetalk.app.utilities.PriveTalkEditText
+            android:id="@+id/signInEmailEditText"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_below="@+id/view1"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:inputType="textEmailAddress"
+            android:layout_marginTop="-10dp"
+            android:background="@drawable/gradient_rectangle_border"
+            android:hint="e-mail"
+            android:paddingLeft="5dp"
+            android:singleLine="true"
+            android:textColor="@color/welcome_text"
+            android:textColorHint="@android:color/darker_gray"
+            app:ttf_name="@string/roboto_light" />
+
+
+        <com.privetalk.app.utilities.PriveTalkEditText
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_below="@+id/signInEmailEditText"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/gradient_rectangle_border"
+            android:hint="@string/password"
+            android:paddingLeft="5dp"
+            android:inputType="textPassword"
+            android:singleLine="true"
+            android:textColor="@color/welcome_text"
+            android:textColorHint="@android:color/darker_gray"
+            app:ttf_name="@string/roboto_light" />
+
+
+        <com.privetalk.app.utilities.PriveTalkTextView
+            android:id="@+id/caseS"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/password"
+            android:layout_centerHorizontal="true"
+            android:padding="5dp"
+            android:gravity="center"
+            android:layout_margin="10dp"
+            android:text="@string/username_is_case_sensitive"
+            android:textColor="@android:color/holo_red_light"
+            android:textSize="15sp"
+            app:ttf_name="@string/roboto_regular" />
+
+
+        <!--<CheckBox-->
+            <!--android:id="@+id/checkbox"-->
+            <!--android:layout_width="32dp"-->
+            <!--android:layout_height="32dp"-->
+            <!--android:layout_alignRight="@+id/password"-->
+            <!--android:layout_below="@+id/password"-->
+            <!--android:layout_marginRight="-6dp"-->
+            <!--android:buttonTint="@color/check_box"-->
+            <!--android:visibility="invisible" />-->
+
+
+        <!--<net.cocooncreations.privetalk.utilities.PriveTalkTextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignBottom="@+id/checkbox"-->
+            <!--android:layout_alignTop="@+id/checkbox"-->
+            <!--android:layout_marginRight="-5dp"-->
+            <!--android:layout_toLeftOf="@+id/checkbox"-->
+            <!--android:gravity="center"-->
+            <!--android:text="remember account"-->
+            <!--android:textColor="@color/welcome_text"-->
+            <!--android:textSize="15sp"-->
+            <!--android:visibility="invisible"-->
+            <!--app:ttf_name="@string/roboto_light" />-->
+
+        <ImageView
+            android:id="@+id/startDating"
+            android:layout_width="160dp"
+            android:layout_height="46dp"
+            android:layout_below="@+id/caseS"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/rounded_blue_button" />
+
+        <com.privetalk.app.utilities.PriveTalkTextView
+            android:id="@+id/dialgogSignInButton"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/startDating"
+            android:layout_alignTop="@+id/startDating"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:text="@string/sign_in_2"
+            android:textColor="@android:color/white"
+            android:textSize="21sp"
+            app:ttf_name="@string/roboto_light" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/dialgogSignInButton"
+            android:layout_alignRight="@+id/password"
+            android:layout_alignTop="@+id/dialgogSignInButton"
+            android:layout_toRightOf="@+id/dialgogSignInButton"
+            android:gravity="center">
+
+            <ProgressBar
+                android:id="@+id/loginProgressBar"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:backgroundTint="@color/dark_blue_button"
+                android:visibility="gone" />
+        </LinearLayout>
+
+
+        <com.privetalk.app.utilities.PriveTalkTextView
+            android:id="@+id/forgotPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/startDating"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:padding="5dp"
+            android:text="@string/forgot_password"
+            android:textColor="@color/welcome_text"
+            android:textSize="15sp"
+            app:ttf_name="@string/roboto_light" />
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/closeDialog"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_alignRight="@+id/myDialog"
+        android:layout_alignTop="@+id/myDialog"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="7dp"
+        android:src="@drawable/close_dialog_icon" />
+
+</RelativeLayout>

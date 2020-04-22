@@ -1,0 +1,51 @@
+{
+  "project_info": {
+    "project_id": "privetalk",
+    "project_number": "72800006454",
+    "name": "PriveTalk"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:72800006454:android:b11dacf3722ea5f4",
+        "client_id": "android:com.privetalk.app",
+        "client_type": 1,
+        "android_client_info": {
+          "package_name": "com.privetalk.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "72800006454-ko9skq00nimnapi7o36349cg8979hpns.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.privetalk.app",
+            "certificate_hash": "CC08DD348A09B8465C7A8EDB4B0A2F3E6B527A95"
+          }
+        }
+      ],
+      "api_key": [{ "current_key": "" }],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "cloud_messaging_service": {
+          "status": 1,
+          "apns_config": []
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "google_signin_service": {
+          "status": 2
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "client_info": [],
+  "ARTIFACT_VERSION": "1"
+}

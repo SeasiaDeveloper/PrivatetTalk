@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:paddingBottom="6dp"
+    android:orientation="horizontal">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_marginLeft="10dp"
+        android:id="@+id/commonFriendsDialogProfilePicture"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="5dp"
+        android:scaleType="centerCrop"
+        app:civ_border_color="@color/dark_blue_button"
+        app:civ_border_width="1dp" />
+
+    <com.privetalk.app.utilities.PriveTalkTextView
+        android:id="@+id/commonFriendsDialogUserName"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="10dp"
+        android:textColor="@android:color/black"
+        android:textSize="14sp"
+        app:ttf_name="@string/roboto_regular"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent" />
+
+    <com.privetalk.app.utilities.PriveTalkTextView
+        android:id="@+id/commonFriendsDialogRowTitle"
+        android:gravity="center_vertical"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        app:ttf_name="@string/roboto_regular"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
+
+</LinearLayout>

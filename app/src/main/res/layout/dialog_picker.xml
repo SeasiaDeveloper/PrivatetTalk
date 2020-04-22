@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/parentView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clickable="true"
+    android:gravity="center">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center">
+
+        <RelativeLayout
+            android:id="@+id/myDialog"
+            android:layout_width="290dp"
+            android:layout_height="330dp"
+            android:layout_marginLeft="2dp"
+            android:background="@android:drawable/dialog_holo_light_frame">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/gradient_rectangle_border" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <com.privetalk.app.utilities.PriveTalkTextView
+                    android:id="@+id/dialogTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/welcome_text"
+                    android:textSize="16sp"
+                    app:ttf_name="@string/roboto_light" />
+
+                <NumberPicker
+                    android:id="@+id/dialogPicker"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:theme="@style/AppTheme.Picker" />
+
+
+                <com.privetalk.app.utilities.PriveTalkTextView
+                    android:id="@+id/doneButton"
+                    android:layout_width="80dp"
+                    android:layout_height="35dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/gradient_rounded_button"
+                    android:gravity="center"
+                    android:text="@string/done"
+                    android:textColor="@android:color/white"
+                    android:textSize="16sp"
+                    app:ttf_name="@string/roboto_light" />
+
+
+            </LinearLayout>
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/closeDialog"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_alignRight="@+id/myDialog"
+            android:layout_marginRight="-4dp"
+            android:layout_marginTop="-4dp"
+            android:padding="2dp"
+            android:src="@drawable/close_dialog_icon" />
+    </RelativeLayout>
+</LinearLayout>

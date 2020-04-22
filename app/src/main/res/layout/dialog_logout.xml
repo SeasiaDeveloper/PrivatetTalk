@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clickable="false"
+    android:id="@+id/parentView"
+    android:gravity="center">
+
+    <RelativeLayout
+        android:id="@+id/outsideArea"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/myDialog"
+            android:layout_width="320dp"
+            android:layout_height="220dp"
+            android:layout_marginLeft="2dp"
+            android:background="@android:color/transparent">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="7dp"
+                android:background="@android:drawable/dialog_holo_light_frame" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="15dp"
+                android:background="@drawable/gradient_rectangle_border" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <com.privetalk.app.utilities.PriveTalkTextView
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/dialogTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/log_out_dialog"
+                    android:textColor="@color/welcome_text"
+                    android:textSize="25sp"
+                    app:ttf_name="@string/roboto_light" />
+
+
+                <com.privetalk.app.utilities.PriveTalkTextView
+                    app:ttf_name="@string/roboto_regular"
+                    android:textSize="16sp"
+                    android:textColor="@color/welcome_text"
+                    android:layout_marginTop="30dp"
+                    android:text="@string/log_out"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+
+                <RelativeLayout
+                    android:layout_margin="30dp"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <com.privetalk.app.utilities.PriveTalkTextView
+                        android:id="@+id/noButton"
+                        android:layout_width="80dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/gradient_rounded_button"
+                        android:gravity="center"
+                        android:layout_alignParentLeft="true"
+                        android:text="@string/no_string"
+                        android:textColor="@android:color/white"
+                        android:textSize="18sp"
+                        app:ttf_name="@string/roboto_bold" />
+
+                    <com.privetalk.app.utilities.PriveTalkTextView
+                        android:id="@+id/yesButton"
+                        android:layout_width="80dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/gradient_rounded_button"
+                        android:gravity="center"
+                        android:layout_alignParentRight="true"
+                        android:text="@string/yes_string"
+                        android:textColor="@android:color/white"
+                        android:textSize="18sp"
+                        app:ttf_name="@string/roboto_bold" />
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/closeDialog"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignRight="@+id/myDialog"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="2dp"
+            android:padding="5dp"
+            android:src="@drawable/close_dialog_icon" />
+    </RelativeLayout>
+</LinearLayout>

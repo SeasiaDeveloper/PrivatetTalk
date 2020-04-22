@@ -1,0 +1,19 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <item
+        android:id="@+id/action_messages"
+        android:icon="@drawable/new_message_icon"
+        android:orderInCategory="100"
+        android:title="@string/unread_messages"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/action_notifications"
+        android:icon="@drawable/notification_icon"
+        android:orderInCategory="100"
+        android:title="@string/notifications"
+        app:showAsAction="always" />
+
+</menu>

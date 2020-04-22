@@ -1,0 +1,72 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorControlNormal">@android:color/white</item>
+        <item name="colorPrimaryDark">@color/progressbar_tint</item>
+        <item name="colorAccent">@android:color/holo_blue_light</item>
+        <item name="android:homeAsUpIndicator">@android:color/white</item>
+        <item name="colorControlActivated">@android:color/holo_blue_light</item>
+        <item name="android:windowBackground">@color/colorPrimary</item>
+        <item name="android:textColorPrimary">@android:color/black</item>
+        <item name="drawerArrowStyle">@style/MyDrawerArrowToggle</item>
+        <item name="android:actionMenuTextAppearance">@style/customActionBar</item>
+        <item name="actionMenuTextAppearance">@style/customActionBar</item>
+        <item name="android:actionMenuTextColor">@android:color/white</item>
+        <item name="actionMenuTextColor">@android:color/white</item>
+    </style>
+
+    <style name="myDialog" parent="Theme.AppCompat.Dialog">
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="AppTheme" >
+        <item name="android:textColorSecondary">#ffffff</item>
+    </style>
+
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" >
+        <item name="android:textColorSecondary">@android:color/white</item>
+    </style>
+
+    <style name="AppTheme.Picker" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:textColorPrimary">@android:color/black</item>
+        <item name="colorPrimaryDark">@android:color/darker_gray</item>
+        <item name="colorAccent">@android:color/darker_gray</item>
+        <item name="colorControlActivated">@android:color/darker_gray</item>
+    </style>
+
+    <style name="MyDrawerArrowToggle" parent="Widget.AppCompat.DrawerArrowToggle">
+        <item name="color">@android:color/white</item>
+    </style>
+
+    <style name="MyRadioButton" parent="Theme.AppCompat">
+        <item name="colorAccent">@color/verification_green</item>
+        <item name="android:textColorSecondary">@color/verification_green</item>
+    </style>
+
+    <style name="PopupWindowAnimationStyle">
+        <item name="android:windowEnterAnimation">@anim/scale_from_right</item>
+        <item name="android:windowExitAnimation">@anim/scale_out_to_right</item>
+    </style>
+
+    <style name="Theme.AppCompat.Translucent"  parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation</item>
+    </style>
+
+    <style name="customActionBar" parent="@android:style/TextAppearance.Holo.Widget.ActionBar.Menu">
+        <item name="android:textSize">17sp</item>
+
+    </style>
+
+    <style name="AppDialogTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
+
+    </style>
+
+</resources>

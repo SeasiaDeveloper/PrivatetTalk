@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:top="2dp"
+        android:right="2dp"
+        android:bottom="2dp"
+        android:left="2dp"
+        android:drawable="@drawable/new_message_icon"
+        android:width="24dp"
+        android:height="24dp"/>
+    <item android:drawable="@drawable/circle_red_notifications"
+        android:width="16dp"
+        android:height="16dp"/>
+</layer-list>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clickable="true"
+    android:focusableInTouchMode="true"
+    android:gravity="center">
+
+    <FrameLayout
+        android:id="@+id/commonFriendsDialogOuterSpace"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <RelativeLayout
+        android:id="@+id/myDialog"
+        android:layout_width="260dp"
+        android:layout_height="320dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="?actionBarSize"
+        android:layout_marginLeft="2dp"
+        android:background="@android:color/transparent">
+
+        <!--<ImageView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_margin="7dp"-->
+        <!--android:background="@android:drawable/dialog_holo_light_frame" />-->
+
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="15dp"
+            android:background="@drawable/gradient_rectangle_border" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="15dp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <com.privetalk.app.utilities.PriveTalkTextView
+                android:id="@+id/view1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/common_friends"
+                android:textColor="@android:color/black"
+                android:textSize="25sp"
+                app:ttf_name="@string/roboto_light" />
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_marginTop="10dp"
+                android:id="@+id/dialogCommonFriendsRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_below="@+id/view1"
+                android:paddingBottom="5dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp" />
+
+
+        </LinearLayout>
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/closeDialog"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_alignLeft="@+id/myDialog"
+        android:layout_alignTop="@+id/myDialog"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="7dp"
+        android:src="@drawable/close_dialog_icon" />
+
+</RelativeLayout>

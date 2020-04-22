@@ -1,0 +1,461 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ViewSwitcher xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipChildren="false"
+    android:clipToPadding="false"
+    android:inAnimation="@anim/abc_fade_in"
+    android:outAnimation="@anim/abc_fade_out">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:weightSum="140">
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1200" />
+
+        <RelativeLayout
+            android:visibility="gone"
+            android:layout_width="290dp"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:id="@+id/progressBarLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true">
+
+                <ProgressBar
+                    android:id="@+id/lastWeekPurchaseBonusProgressBar"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="66dp"
+                    android:layout_height="66dp"
+                    android:background="@drawable/blue_stroke_circle"
+                    android:max="100"
+                    android:padding="2dp"
+                    android:progressDrawable="@drawable/green_bonus_circle"
+                    android:rotation="-90" />
+
+                <com.privetalk.app.utilities.PriveTalkTextView
+                    android:id="@+id/addCoinsPurchasePercentage"
+                    android:layout_width="66dp"
+                    android:layout_height="66dp"
+                    android:layout_alignRight="@+id/lastWeekPurchaseBonusProgressBar"
+                    android:layout_alignTop="@+id/lastWeekPurchaseBonusProgressBar"
+                    android:gravity="center"
+                    android:textColor="@android:color/black"
+                    android:textSize="23sp"
+                    app:ttf_name="@string/roboto_regular" />
+
+            </RelativeLayout>
+
+
+            <com.privetalk.app.utilities.PriveTalkTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/progressBarLayout"
+                android:layout_alignTop="@+id/progressBarLayout"
+                android:layout_toLeftOf="@+id/useCoins"
+                android:layout_toRightOf="@+id/progressBarLayout"
+                android:gravity="center_vertical"
+                android:paddingLeft="10dp"
+                android:text="@string/last_weeks_bonus"
+                android:textColor="@color/welcome_text"
+                android:textSize="14sp"
+                app:ttf_name="@string/roboto_light" />
+
+
+            <com.privetalk.app.utilities.PriveTalkTextView
+                android:id="@+id/useCoins"
+                android:layout_width="80dp"
+                android:layout_height="35dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/rounded_button_green"
+                android:gravity="center"
+                android:text="@string/use"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                app:ttf_name="@string/roboto_bold" />
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="22" />
+
+        <!-- 1 -->
+        <RelativeLayout
+            android:id="@+id/planCButton"
+            android:layout_width="290dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="48dp"
+                android:src="@drawable/coins_rectangle_border_blue"
+                app:layout_marginBottomPercent="13%"
+                app:layout_marginTopPercent="13%" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/circle1"
+                android:layout_width="96dp"
+                android:layout_height="96dp"
+                android:layout_alignParentRight="true"
+                android:src="@android:color/white"
+                app:civ_border_color="@color/dark_blue_button"
+                app:civ_border_width="1dp"
+                app:layout_heightPercent="100%"
+                app:layout_widthPercent="32%" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/circle1"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="52dp"
+                    android:layout_height="52dp"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/three_coins_icon" />
+
+                <com.privetalk.app.utilities.PriveTalkTextView
+                    android:id="@+id/planCPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="2dp"
+                    android:textSize="16sp"
+                    app:ttf_name="@string/roboto_regular" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="12dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <com.privetalk.app.utilities.PriveTalkTextView
+                        android:id="@+id/planCcoins"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@android:color/black"
+                        android:textSize="40sp"
+                        app:ttf_name="@string/roboto_bold" />
+
+                    <com.privetalk.app.utilities.PriveTalkTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="@string/coins_uppercase"
+                        android:textColor="@color/welcome_text"
+                        android:textSize="20sp"
+                        app:ttf_name="@string/roboto_regular" />
+
+                </LinearLayout>
+
+                <com.privetalk.app.utilities.PriveTalkTextView
+                    android:id="@+id/planCextraCoins"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="-8dp"
+                    android:textColor="@android:color/holo_red_dark"
+                    android:textSize="21sp"
+                    app:ttf_name="@string/roboto_regular" />
+
+            </LinearLayout>
+        </RelativeLayout>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="13" />
+
+        <RelativeLayout
+            android:id="@+id/planBButton"
+            android:layout_width="290dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="48dp"
+                android:src="@drawable/coins_rectangle_border_blue"
+                app:layout_marginBottomPercent="13%"
+                app:layout_marginTopPercent="13%" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/circle2"
+                android:layout_width="96dp"
+                android:layout_height="96dp"
+                android:layout_alignParentRight="true"
+                android:src="@android:color/white"
+                app:civ_border_color="@color/dark_blue_button"
+                app:civ_border_width="1dp"
+                app:layout_heightPercent="100%"
+                app:layout_widthPercent="32%" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/circle2"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="47dp"
+
+                    android:layout_height="47dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginTop="4dp"
+                    android:src="@drawable/two_coins" />
+
+                <com.privetalk.app.utilities.PriveTalkTextView
+                    android:id="@+id/planBprice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="4dp"
+                    android:textSize="16sp"
+                    app:ttf_name="@string/roboto_regular" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="12dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <com.privetalk.app.utilities.PriveTalkTextView
+                        android:id="@+id/planBCoins"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@android:color/black"
+                        android:textSize="40sp"
+                        app:ttf_name="@string/roboto_bold" />
+
+                    <com.privetalk.app.utilities.PriveTalkTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="@string/coins_uppercase"
+                        android:textColor="@color/welcome_text"
+                        android:textSize="20sp"
+                        app:ttf_name="@string/roboto_regular" />
+
+                </LinearLayout>
+
+                <com.privetalk.app.utilities.PriveTalkTextView
+                    android:id="@+id/planBextraCoins"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="-8dp"
+                    android:textColor="@android:color/holo_red_dark"
+                    android:textSize="16sp"
+                    app:ttf_name="@string/roboto_regular" />
+
+            </LinearLayout>
+        </RelativeLayout>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="13" />
+
+        <RelativeLayout
+            android:id="@+id/planAButton"
+            android:layout_width="290dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="75dp"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="48dp"
+                android:src="@drawable/coins_rectangle_border_blue"
+                app:layout_marginBottomPercent="13%"
+                app:layout_marginTopPercent="13%" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/circle3"
+                android:layout_width="96dp"
+                android:layout_height="96dp"
+                android:layout_alignParentRight="true"
+                android:src="@android:color/white"
+                app:civ_border_color="@color/dark_blue_button"
+                app:civ_border_width="1dp"
+                app:layout_heightPercent="100%"
+                app:layout_widthPercent="32%" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/circle3"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="38dp"
+                    android:layout_height="38dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginTop="8dp"
+                    android:src="@drawable/one_coin_icon" />
+
+                <com.privetalk.app.utilities.PriveTalkTextView
+                    android:id="@+id/planAprice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="6dp"
+                    android:textSize="16sp"
+                    app:ttf_name="@string/roboto_regular" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="12dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <com.privetalk.app.utilities.PriveTalkTextView
+                        android:id="@+id/planAcoins"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@android:color/black"
+                        android:textSize="40sp"
+                        app:ttf_name="@string/roboto_bold" />
+
+                    <com.privetalk.app.utilities.PriveTalkTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="@string/coins_uppercase"
+                        android:textColor="@color/welcome_text"
+                        android:textSize="20sp"
+                        app:ttf_name="@string/roboto_regular" />
+
+                </LinearLayout>
+
+                <com.privetalk.app.utilities.PriveTalkTextView
+                    android:id="@+id/planAextraCoins"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="-8dp"
+                    android:textColor="@android:color/holo_red_dark"
+                    android:textSize="12sp"
+                    app:ttf_name="@string/roboto_regular" />
+
+            </LinearLayout>
+        </RelativeLayout>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="40" />
+
+        <RelativeLayout
+            android:layout_width="290dp"
+            android:layout_height="wrap_content">
+
+            <com.privetalk.app.utilities.PriveTalkTextView
+                android:id="@+id/coinsBalance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/verificationViewSwitcher"
+                android:layout_alignTop="@+id/verificationViewSwitcher"
+                android:gravity="center"
+                android:text="@string/coin_balance_2"
+                android:textColor="@color/welcome_text"
+                android:textSize="18sp"
+                app:ttf_name="@string/roboto_regular" />
+
+            <com.privetalk.app.utilities.PriveTalkTextView
+                android:visibility="gone"
+                android:id="@+id/voucherCode"
+                android:layout_width="110dp"
+                android:layout_height="40dp"
+                android:layout_marginRight="10dp"
+                android:layout_toLeftOf="@+id/verificationViewSwitcher"
+                android:background="@drawable/rounded_corners_blue_border_button"
+                android:gravity="center"
+                android:hint="@string/voucher_code"
+                android:textSize="14sp"
+                app:ttf_name="@string/roboto_regular" />
+
+
+            <ViewSwitcher
+                android:visibility="gone"
+                android:id="@+id/verificationViewSwitcher"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentRight="true">
+
+                <com.privetalk.app.utilities.TintImageView
+                    android:id="@+id/verifyIcon"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/circle_gray"
+                    android:padding="8dp"
+                    android:src="@drawable/tick_icon"
+                    android:tint="@android:color/white" />
+
+                <ProgressBar
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center" />
+            </ViewSwitcher>
+
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1200" />
+    </LinearLayout>
+</ViewSwitcher>

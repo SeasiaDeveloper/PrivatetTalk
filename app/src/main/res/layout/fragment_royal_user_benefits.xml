@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:orientation="vertical"
+            android:paddingBottom="25dp">
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp">
+
+                <com.privetalk.app.utilities.PriveTalkTextView
+                    android:id="@+id/activateNow"
+                    android:layout_width="150dp"
+                    android:layout_height="50dp"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/rounded_button_green"
+                    android:gravity="center"
+                    android:text="@string/activate_now"
+                    android:textColor="@android:color/black"
+                    android:textSize="22sp"
+                    app:ttf_name="@string/roboto_regular" />
+
+            </RelativeLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/settings_dotted_line"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+
+                <com.privetalk.app.utilities.PriveTalkTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/what_you_get_as_royal"
+                    android:textColor="@color/welcome_text"
+                    android:textSize="22sp"
+                    app:ttf_name="@string/roboto_light" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:orientation="horizontal">
+
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:padding="2dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/profile_eyes" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingLeft="10sp">
+
+                        <com.privetalk.app.utilities.PriveTalkTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="32dp"
+                            android:gravity="center_vertical"
+                            android:text="@string/trust_and_higher_rank"
+                            android:textColor="@color/welcome_text"
+                            android:textSize="18sp"
+                            app:ttf_name="@string/roboto_bold" />
+
+
+                        <com.privetalk.app.utilities.PriveTalkTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/trust_and_higher_rank_desc"
+                            app:ttf_name="@string/roboto_light" />
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <!-- ************** -->
+                <!-- See Everything -->
+                <!-- ************** -->
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:orientation="horizontal">
+
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:padding="2dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/profile_eyes" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingLeft="10sp">
+
+                        <com.privetalk.app.utilities.PriveTalkTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="32dp"
+                            android:gravity="center_vertical"
+                            android:text="@string/see_everything"
+                            android:textColor="@color/welcome_text"
+                            android:textSize="18sp"
+                            app:ttf_name="@string/roboto_bold" />
+
+
+                        <com.privetalk.app.utilities.PriveTalkTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/see_everything_message"
+                            app:ttf_name="@string/roboto_light" />
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+                <!-- ***************** -->
+                <!-- Expiration Timers -->
+                <!-- ***************** -->
+
+                <LinearLayout
+                    android:visibility="gone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal">
+
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:padding="2dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/expiration_timer" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingLeft="10sp">
+
+                        <com.privetalk.app.utilities.PriveTalkTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="32dp"
+                            android:gravity="center_vertical"
+                            android:text="@string/set_expiration_timers"
+                            android:textColor="@color/welcome_text"
+                            android:textSize="18sp"
+                            app:ttf_name="@string/roboto_bold" />
+
+
+                        <com.privetalk.app.utilities.PriveTalkTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/expiration_timers_message"
+                            app:ttf_name="@string/roboto_light" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+                <!-- ***************** -->
+                <!-- Priority Messages -->
+                <!-- ***************** -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal">
+
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/fast_mail_icon" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingLeft="10sp">
+
+                        <com.privetalk.app.utilities.PriveTalkTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="32dp"
+                            android:gravity="center_vertical"
+                            android:text="@string/priority_messages"
+                            android:textColor="@color/welcome_text"
+                            android:textSize="18sp"
+                            app:ttf_name="@string/roboto_bold" />
+
+
+                        <com.privetalk.app.utilities.PriveTalkTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/priority_messages_message"
+                            app:ttf_name="@string/roboto_light" />
+                    </LinearLayout>
+                </LinearLayout>
+
+
+                <!-- ***************** -->
+                <!-- Talk First -->
+                <!-- ***************** -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:visibility="gone"
+                    android:orientation="horizontal">
+
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:padding="2dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/flames_icon" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingLeft="10sp">
+
+                        <com.privetalk.app.utilities.PriveTalkTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="32dp"
+                            android:gravity="center_vertical"
+                            android:text="@string/talk_first_to_newbies"
+                            android:textColor="@color/welcome_text"
+                            android:textSize="18sp"
+                            app:ttf_name="@string/roboto_bold" />
+
+
+                        <com.privetalk.app.utilities.PriveTalkTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/talk_to_newbies_message"
+                            app:ttf_name="@string/roboto_light" />
+                    </LinearLayout>
+                </LinearLayout>
+
+
+                <!-- ***************** -->
+                <!-- Advanced C.Search -->
+                <!-- ***************** -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:visibility="gone"
+                    android:orientation="horizontal">
+
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:padding="5dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/search_icon" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingLeft="10sp">
+
+                        <com.privetalk.app.utilities.PriveTalkTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="32dp"
+                            android:gravity="center_vertical"
+                            android:text="@string/advnced_custom_search"
+                            android:textColor="@color/welcome_text"
+                            android:textSize="18sp"
+                            app:ttf_name="@string/roboto_bold" />
+
+
+                        <com.privetalk.app.utilities.PriveTalkTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/advanced_custom_search_message"
+                            app:ttf_name="@string/roboto_light" />
+                    </LinearLayout>
+                </LinearLayout>
+
+
+                <!-- ***************** -->
+                <!--    Hidden Mode    -->
+                <!-- ***************** -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal"
+                    android:paddingBottom="15dp">
+
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:padding="2dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/icognito_icon" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingLeft="10sp">
+
+                        <com.privetalk.app.utilities.PriveTalkTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="32dp"
+                            android:gravity="center_vertical"
+                            android:text="@string/hidden_mode"
+                            android:textColor="@color/welcome_text"
+                            android:textSize="18sp"
+                            app:ttf_name="@string/roboto_bold" />
+
+
+                        <com.privetalk.app.utilities.PriveTalkTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/hidden_mode_message"
+                            app:ttf_name="@string/roboto_light" />
+                    </LinearLayout>
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</LinearLayout>

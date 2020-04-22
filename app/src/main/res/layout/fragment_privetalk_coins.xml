@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp">
+
+        <com.privetalk.app.utilities.PriveTalkTextView
+            android:id="@+id/addMoreCoins"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15dp"
+            android:background="@drawable/rounded_button_green"
+            android:gravity="center"
+            android:text="@string/add_more"
+            android:textColor="@android:color/black"
+            android:textSize="22sp"
+            app:ttf_name="@string/roboto_regular" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <com.privetalk.app.utilities.PriveTalkTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/balance"
+                android:textColor="@color/welcome_text"
+                android:textSize="25sp"
+                app:ttf_name="@string/roboto_bold" />
+
+            <com.privetalk.app.utilities.PriveTalkTextView
+                android:id="@+id/coinsBalance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/add_pt_coins"
+                android:textColor="@color/welcome_text"
+                android:textSize="18sp"
+                app:ttf_name="@string/roboto_light" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:background="@drawable/settings_dotted_line"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+
+            <com.privetalk.app.utilities.PriveTalkTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/how_to_use_coins"
+                android:textColor="@color/welcome_text"
+                android:textSize="22sp"
+                app:ttf_name="@string/roboto_light" />
+
+
+            <!-- ************** -->
+            <!-- Get Promoted   -->
+            <!-- ************** -->
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/pt_coins"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+
+                <ImageView
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:padding="2dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/coins_star" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingLeft="10sp">
+
+                    <com.privetalk.app.utilities.PriveTalkTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="32dp"
+                        android:gravity="center_vertical"
+                        android:text="@string/get_featured_and_promoted"
+                        android:textColor="@color/welcome_text"
+                        android:textSize="18sp"
+                        app:ttf_name="@string/roboto_bold" />
+
+
+                    <com.privetalk.app.utilities.PriveTalkTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/get_featured_and_promoted_message"
+                        app:ttf_name="@string/roboto_light" />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+            <!-- ***************** -->
+            <!-- Virtual Gifts     -->
+            <!-- ***************** -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal">
+
+
+                <ImageView
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/coins_gift" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingLeft="10sp">
+
+                    <com.privetalk.app.utilities.PriveTalkTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="32dp"
+                        android:gravity="center_vertical"
+                        android:text="@string/give_virtual_gifts"
+                        android:textColor="@color/welcome_text"
+                        android:textSize="18sp"
+                        app:ttf_name="@string/roboto_bold" />
+
+
+                    <com.privetalk.app.utilities.PriveTalkTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/virtual_gifts_message"
+                        app:ttf_name="@string/roboto_light" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+            <!-- ***************** -->
+            <!-- More Chats perday -->
+            <!-- ***************** -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal">
+
+
+                <ImageView
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/coins_message" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingLeft="10sp">
+
+                    <com.privetalk.app.utilities.PriveTalkTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="32dp"
+                        android:gravity="center_vertical"
+                        android:text="@string/starts_more_chats"
+                        android:textColor="@color/welcome_text"
+                        android:textSize="18sp"
+                        app:ttf_name="@string/roboto_bold" />
+
+
+                    <com.privetalk.app.utilities.PriveTalkTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/starts_more_chats_message"
+                        app:ttf_name="@string/roboto_light" />
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <!-- ***************** -->
+            <!-- More Chances M.F. -->
+            <!-- ***************** -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal">
+
+
+                <!--<ImageView-->
+                    <!--android:layout_width="32dp"-->
+                    <!--android:layout_height="32dp"-->
+                    <!--android:scaleType="fitCenter"-->
+                    <!--android:src="@drawable/coins_flame" />-->
+
+                <!--<LinearLayout-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:orientation="vertical"-->
+                    <!--android:paddingLeft="10sp">-->
+
+                    <!--<net.cocooncreations.privetalk.utilities.PriveTalkTextView-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:gravity="center_vertical"-->
+                        <!--android:text="@string/more_chances"-->
+                        <!--android:textColor="@color/welcome_text"-->
+                        <!--android:textSize="18sp"-->
+                        <!--app:ttf_name="@string/roboto_bold" />-->
+
+
+                    <!--<net.cocooncreations.privetalk.utilities.PriveTalkTextView-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:text="@string/more_chances_message"-->
+                        <!--app:ttf_name="@string/roboto_light" />-->
+                <!--</LinearLayout>-->
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+
+</LinearLayout>

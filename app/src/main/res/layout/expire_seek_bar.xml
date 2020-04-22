@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="90dp"
+    android:padding="5dp">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/rounded_corners_blue_border_button">
+
+        <androidx.percentlayout.widget.PercentRelativeLayout
+            android:id="@+id/distanceParentLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignBottom="@+id/searchWithin"
+            android:layout_alignParentLeft="true"
+            android:layout_alignTop="@+id/searchWithin"
+            android:layout_gravity="center"
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            android:paddingRight="@dimen/expiration_time_seek_bar_margin"
+            android:paddingLeft="@dimen/expiration_time_seek_bar_margin">
+
+            <ImageView
+                android:id="@+id/chatExpirationTimeBarDisabledTrack"
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:layout_centerVertical="true"
+                android:src="@drawable/rounded_bar" />
+
+            <ImageView
+                android:id="@+id/chatExpirationTimeBarTrack"
+                android:layout_width="wrap_content"
+                android:layout_height="10dp"
+                android:layout_alignLeft="@id/chatExpirationTimeBarDisabledTrack"
+                android:layout_centerVertical="true"
+                android:src="@drawable/gradeint_rounded_bar" />
+
+            <ImageView
+                android:id="@+id/chatExpirationTimeBarThumb"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="-16dp"
+                android:layout_marginRight="-16dp"
+                android:layout_toRightOf="@+id/chatExpirationTimeBarTrack"
+                android:padding="6dp"
+                android:src="@drawable/switch_normal" />
+
+        </androidx.percentlayout.widget.PercentRelativeLayout>
+
+    </LinearLayout>
+
+
+    <com.privetalk.app.utilities.PriveTalkTextView
+        android:id="@+id/chatExpirationTimeText"
+        android:layout_width="150dp"
+        android:layout_height="35dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="1dp"
+        android:background="@drawable/stroke_three_sides"
+        android:gravity="center"
+        android:text="7{b}D{/b} 00{b}h{/b} 00{b}m{/b} 00{b}s{/b}"
+        android:textColor="@color/welcome_text"
+        android:textSize="18sp"
+        app:ttf_name="@string/roboto_regular" />
+
+</RelativeLayout>

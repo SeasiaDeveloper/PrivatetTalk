@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?><!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"--><!--xmlns:app="http://schemas.android.com/apk/res-auto"--><!--android:layout_width="match_parent"--><!--android:layout_height="match_parent"--><!--android:clickable="false"--><!--android:id="@+id/parentView"--><!--android:gravity="center">-->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/outsideArea"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center">
+
+    <!--<View-->
+        <!--android:id="@+id/shadowView"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:alpha="0"-->
+        <!--android:background="@color/dialog_shadow" />-->
+
+    <RelativeLayout
+        android:layout_marginBottom="?actionBarSize"
+        android:id="@+id/myDialog"
+        android:layout_width="290dp"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="2dp"
+        android:background="@android:color/transparent">
+
+        <!--<ImageView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_margin="7dp"-->
+        <!--android:background="@android:drawable/dialog_holo_light_frame" />-->
+
+        <!--<ImageView-->
+        <!--android:elevation="5dp"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_margin="15dp"-->
+        <!--android:background="@drawable/gradient_rectangle_border" />-->
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/gradient_rectangle_border"
+            android:elevation="5dp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <!--<net.cocooncreations.privetalk.utilities.PriveTalkTextView-->
+            <!--android:layout_marginTop="10dp"-->
+            <!--android:id="@+id/dialogTitle"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="@string/log_out_dialog"-->
+            <!--android:textColor="@color/welcome_text"-->
+            <!--android:textSize="25sp"-->
+            <!--app:ttf_name="@string/roboto_light" />-->
+
+
+            <com.privetalk.app.utilities.PriveTalkTextView
+                android:id="@+id/dialogMessage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:gravity="center"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:textColor="@color/welcome_text"
+                android:textSize="16sp"
+                app:ttf_name="@string/roboto_regular" />
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:orientation="horizontal">
+
+
+                <com.privetalk.app.utilities.PriveTalkTextView
+                    android:id="@+id/use"
+                    android:layout_width="80dp"
+                    android:layout_height="37dp"
+                    android:layout_alignParentLeft="true"
+                    android:background="@drawable/switch_button_border"
+                    android:gravity="center"
+                    android:text="Use"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    app:ttf_name="@string/roboto_regular" />
+
+                <com.privetalk.app.utilities.PriveTalkTextView
+                    android:id="@+id/purchase"
+                    android:layout_width="100dp"
+                    android:layout_height="37dp"
+                    android:layout_alignParentRight="true"
+                    android:background="@drawable/rounded_button_green"
+                    android:gravity="center"
+                    android:text="@string/purchase_sketo"
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    app:ttf_name="@string/roboto_regular" />
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/closeDialog"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignRight="@+id/myDialog"
+        android:layout_alignTop="@+id/myDialog"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="4dp"
+        android:padding="5dp"
+        android:src="@drawable/close_dialog_icon" />
+</RelativeLayout><!--</LinearLayout>-->

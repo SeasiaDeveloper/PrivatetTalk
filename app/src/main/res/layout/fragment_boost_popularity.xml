@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical">
+
+    <androidx.percentlayout.widget.PercentRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.privetalk.app.utilities.PriveTalkTextView
+            android:id="@+id/text1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:gravity="center"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:text="@string/boost_your_popularity_message"
+            android:textColor="@android:color/black"
+            android:textSize="25sp"
+            app:ttf_name="@string/roboto_regular" />
+
+        <com.privetalk.app.utilities.PriveTalkTextView
+            android:id="@+id/text2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/text1"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:padding="10dp"
+            android:text="@string/seen_by_thousands"
+            android:textColor="@android:color/black"
+            android:textSize="14sp"
+            app:ttf_name="@string/roboto_regular" />
+
+
+        <com.privetalk.app.utilities.PriveTalkTextView
+            android:id="@+id/textSmila"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/text2"
+            android:layout_marginTop="15dp"
+            android:padding="10dp"
+            android:gravity="center"
+            android:visibility="gone"
+            android:text="@string/chose_one_of_the_below"
+            android:textColor="@android:color/black"
+            android:textSize="14sp"
+            app:ttf_name="@string/roboto_regular" />
+
+
+        <com.privetalk.app.utilities.MyViewPager
+            android:id="@+id/boostPopularityProfiles"
+            android:layout_width="match_parent"
+            android:layout_marginTop="15dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textSmila"
+            app:layout_heightPercent="33%"/>
+
+
+        <com.privetalk.app.utilities.PriveTalkTextView
+            android:id="@+id/text3"
+            android:layout_marginTop="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/boostPopularityProfiles"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="@string/promotion_cost"
+            android:textColor="@android:color/black"
+            android:textSize="14sp"
+            app:ttf_name="@string/roboto_regular" />
+
+        <androidx.percentlayout.widget.PercentRelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_below="@+id/text3"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            app:layout_marginLeftPercent="10%"
+            app:layout_marginRightPercent="10%">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:paddingBottom="10dp"
+                app:layout_heightPercent="50%"
+                app:layout_widthPercent="50%">
+
+                <com.privetalk.app.utilities.PriveTalkTextView
+                    android:id="@+id/matchesCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/willSee"
+                    android:layout_marginLeft="5dp"
+                    android:text="0"
+                    android:textColor="@android:color/black"
+                    android:textSize="21sp"
+                    app:ttf_name="@string/roboto_bold" />
+
+                <com.privetalk.app.utilities.PriveTalkTextView
+                    android:id="@+id/matchGenre"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/matchesCount"
+                    android:layout_marginLeft="5dp"
+                    android:layout_toRightOf="@+id/matchesCount"
+                    android:gravity="center_vertical"
+                    android:text="@string/people"
+                    android:layout_marginBottom="4dp"
+                    android:textColor="@android:color/black"
+                    android:textSize="15sp"
+                    app:ttf_name="@string/roboto_regular" />
+
+                <com.privetalk.app.utilities.PriveTalkTextView
+                    android:id="@+id/willSee"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="5dp"
+                    android:gravity="center_vertical"
+                    android:text="@string/see_directly"
+                    android:textColor="@android:color/black"
+                    android:textSize="15sp"
+                    app:ttf_name="@string/roboto_regular" />
+
+
+            </RelativeLayout>
+
+
+            <androidx.percentlayout.widget.PercentRelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                app:layout_heightPercent="50%"
+                app:layout_widthPercent="50%">
+
+                <com.privetalk.app.utilities.PriveTalkTextView
+                    android:id="@+id/promotePicture"
+                    android:layout_width="110dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    android:background="@drawable/gradient_rounded_button"
+                    android:gravity="center"
+                    android:text="@string/promote"
+                    android:textColor="@android:color/white"
+                    android:textSize="20sp"
+                    app:ttf_name="@string/roboto_bold" />
+
+            </androidx.percentlayout.widget.PercentRelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/myCoins"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true"
+                android:paddingTop="10dp"
+                app:layout_heightPercent="50%"
+                app:layout_widthPercent="60%">
+
+                <LinearLayout
+                    android:layout_width="165dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/gradient_rounded_border"
+                    android:gravity="center">
+
+
+                    <com.privetalk.app.utilities.PriveTalkTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="8sp"
+                        android:text="@string/my"
+                        android:textColor="@android:color/black"
+                        android:textSize="18sp"
+                        app:ttf_name="@string/roboto_regular" />
+
+                    <com.privetalk.app.utilities.SquareImageView
+                        android:layout_width="20dp"
+                        android:layout_height="0dp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="5dp"
+                        android:layout_toRightOf="@+id/textMy"
+                        android:src="@drawable/profile_pt" />
+
+
+                    <com.privetalk.app.utilities.PriveTalkTextView
+                        android:id="@+id/textMyCoins"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="5dp"
+                        android:layout_toRightOf="@+id/ptIcon"
+                        android:textColor="@android:color/black"
+                        android:textSize="18sp"
+                        app:ttf_name="@string/roboto_regular" />
+
+                </LinearLayout>
+
+
+            </RelativeLayout>
+
+            <androidx.percentlayout.widget.PercentRelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:paddingLeft="5dp"
+                android:paddingTop="10dp"
+                app:layout_heightPercent="50%"
+                app:layout_widthPercent="40%">
+
+                <com.privetalk.app.utilities.PriveTalkTextView
+                    android:id="@+id/addMoreCoins"
+                    android:layout_width="120dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentRight="true"
+                    android:background="@drawable/rounded_button_green"
+                    android:gravity="center"
+                    android:text="@string/add_more_re_sugar"
+                    android:textColor="@android:color/black"
+                    android:textSize="20sp"
+                    app:ttf_name="@string/roboto_light" />
+
+
+            </androidx.percentlayout.widget.PercentRelativeLayout>
+
+        </androidx.percentlayout.widget.PercentRelativeLayout>
+
+
+    </androidx.percentlayout.widget.PercentRelativeLayout>
+
+</LinearLayout>

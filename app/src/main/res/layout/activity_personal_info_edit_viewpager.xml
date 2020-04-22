@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.privetalk.app.utilities.NoSwipeViewPager
+        android:id="@+id/profileEditViewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/scrollingButtonsContainer" />
+
+    <RelativeLayout
+        android:id="@+id/scrollingButtonsContainer"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/edit_pager_footer"
+        android:layout_alignParentBottom="true">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentTop="true"
+            android:alpha="0.4"
+            android:background="@android:color/black" />
+
+        <com.privetalk.app.utilities.PriveTalkTextView
+            android:id="@+id/scrolling_previous"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="8dp"
+            android:background="@drawable/gradient_rounded_border"
+            android:gravity="center"
+            android:paddingRight="10dp"
+            android:paddingLeft="10dp"
+            android:paddingBottom="6dp"
+            android:paddingTop="6dp"
+            android:text="@string/previous"
+            android:textColor="@android:color/black"
+            android:textSize="15sp"
+            app:ttf_name="@string/roboto_bold" />
+
+        <com.privetalk.app.utilities.PriveTalkTextView
+            android:id="@+id/scrolling_next"
+            android:layout_width="75dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="8dp"
+            android:layout_toRightOf="@+id/scrolling_previous"
+            android:background="@drawable/gradient_rounded_border"
+            android:gravity="center"
+            android:paddingBottom="6dp"
+            android:paddingTop="6dp"
+            android:text="@string/next"
+            android:textColor="@android:color/black"
+            android:textSize="15sp"
+            app:ttf_name="@string/roboto_bold" />
+
+        <com.privetalk.app.utilities.PriveTalkTextView
+            android:id="@+id/scrolling_done"
+            android:layout_width="75dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="8dp"
+            android:background="@drawable/gradient_rounded_border"
+            android:gravity="center"
+            android:paddingBottom="6dp"
+            android:paddingTop="6dp"
+            android:text="@string/done"
+            android:textColor="@android:color/black"
+            android:textSize="15sp"
+            app:ttf_name="@string/roboto_bold" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

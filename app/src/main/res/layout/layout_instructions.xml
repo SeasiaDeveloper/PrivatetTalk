@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#B5ffffff"
+    android:clickable="true">
+
+
+    <!--<ImageView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_centerInParent="true"-->
+        <!--android:adjustViewBounds="true"-->
+        <!--android:padding="15dp"-->
+        <!--android:src="@drawable/walkthrough_flames_screen" />-->
+
+
+    <com.privetalk.app.utilities.SquarePercentageLayout
+        android:paddingTop="40dp"
+        android:paddingBottom="40dp"
+        android:layout_centerInParent="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <ImageView
+            android:id="@+id/slideRight"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            app:layout_marginRightPercent="11%"
+            android:adjustViewBounds="true"
+            android:layout_width="40dp"
+            android:layout_height="65dp" />
+
+        <com.privetalk.app.utilities.PriveTalkTextView
+            android:layout_width="wrap_content"
+            android:gravity="center"
+            app:layout_marginRightPercent="5%"
+            app:ttf_name="@string/roboto_bold"
+            android:text="@string/next_photo"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/slideRight"
+            android:layout_height="wrap_content" />
+
+
+        <ImageView
+            app:layout_marginLeftPercent="13%"
+            android:id="@+id/slideLeft"
+            android:layout_centerVertical="true"
+            android:adjustViewBounds="true"
+            android:layout_width="40dp"
+            android:layout_height="65dp" />
+
+        <com.privetalk.app.utilities.PriveTalkTextView
+            android:layout_width="wrap_content"
+            android:gravity="center"
+            app:ttf_name="@string/roboto_bold"
+            android:text="@string/previous_photo"
+            app:layout_marginLeftPercent="6.5%"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            android:layout_below="@+id/slideLeft"
+            android:layout_height="wrap_content" />
+
+        <ImageView
+            android:id="@+id/slideUp"
+            android:layout_centerHorizontal="true"
+            android:adjustViewBounds="true"
+            android:layout_width="45dp"
+            android:layout_height="65dp" />
+
+        <com.privetalk.app.utilities.PriveTalkTextView
+            android:layout_width="wrap_content"
+            android:gravity="center"
+            app:ttf_name="@string/roboto_bold"
+            android:text="@string/hot"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            android:paddingTop="15dp"
+            android:layout_toRightOf="@+id/slideUp"
+            android:layout_alignTop="@+id/slideUp"
+            android:layout_alignBottom="@+id/slideUp"
+            android:layout_height="wrap_content" />
+
+
+        <ImageView
+            android:id="@+id/slideDown"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:adjustViewBounds="true"
+            android:layout_width="45dp"
+            android:layout_height="65dp" />
+
+        <com.privetalk.app.utilities.PriveTalkTextView
+            android:layout_width="wrap_content"
+            android:gravity="center"
+            app:ttf_name="@string/roboto_bold"
+            android:text="@string/skip_voting"
+            android:paddingLeft="5dp"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            android:paddingTop="15dp"
+            android:layout_toRightOf="@+id/slideDown"
+            android:layout_alignTop="@+id/slideDown"
+            android:layout_alignBottom="@+id/slideDown"
+            android:layout_height="wrap_content" />
+
+        <ImageView
+            android:id="@+id/click"
+            android:layout_centerInParent="true"
+            android:adjustViewBounds="true"
+            android:layout_width="35dp"
+            android:layout_height="65dp" />
+
+        <com.privetalk.app.utilities.PriveTalkTextView
+            android:layout_width="wrap_content"
+            android:gravity="center_vertical"
+            app:ttf_name="@string/roboto_bold"
+            android:text="@string/full_screen_photo"
+            android:textColor="@android:color/black"
+            android:textSize="13sp"
+            android:paddingTop="15dp"
+            android:layout_toRightOf="@+id/click"
+            android:layout_alignTop="@+id/click"
+            android:layout_alignBottom="@+id/click"
+            android:layout_height="wrap_content" />
+
+    </com.privetalk.app.utilities.SquarePercentageLayout>
+
+
+
+    <com.privetalk.app.utilities.PriveTalkTextView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/gotItButton"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginRight="10dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/rounded_corners_blue_border_button"
+        android:gravity="center"
+        android:text="@string/i_got_it"
+        android:textColor="@color/welcome_text"
+        android:textSize="20dp"
+        app:ttf_name="@string/roboto_bold" />
+
+</RelativeLayout>

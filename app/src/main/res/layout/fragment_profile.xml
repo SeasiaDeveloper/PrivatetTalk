@@ -1,0 +1,612 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ViewSwitcher xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:custom="http://schemas.android.com/tools"
+    android:inAnimation="@android:anim/fade_in"
+    android:outAnimation="@android:anim/fade_out">
+
+    <ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/parentScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:padding="16dp"
+        android:scrollbarStyle="outsideOverlay">
+
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipChildren="false"
+            android:clipToPadding="false">
+
+            <include
+                android:id="@+id/profileHotWheelContainer"
+                layout="@layout/layout_hotwheel" />
+
+            <com.privetalk.app.utilities.TintImageView
+                android:id="@+id/visibleInvisibleButton"
+                android:layout_width="37dp"
+                android:layout_height="37dp"
+                android:layout_alignLeft="@+id/profileHotWheelContainer"
+                android:layout_alignParentTop="true"
+                android:src="@drawable/visible_icon" />
+
+            <ImageView
+                android:id="@+id/profileSettings"
+                android:layout_width="37dp"
+                android:layout_height="37dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignRight="@+id/profileHotWheelContainer"
+                android:src="@drawable/profile_settings" />
+
+            <ImageView
+                android:id="@+id/becomeRoyalUserButton"
+                android:layout_width="37dp"
+                android:layout_height="37dp"
+                android:layout_alignBottom="@+id/profileHotWheelContainer"
+                android:layout_alignLeft="@+id/profileHotWheelContainer"
+                android:src="@drawable/profile_crown" />
+
+            <ImageView
+                android:id="@+id/profilePTicon"
+                android:layout_width="37dp"
+                android:layout_height="37dp"
+                android:layout_alignBottom="@+id/profileHotWheelContainer"
+                android:layout_alignRight="@+id/profileHotWheelContainer"
+                android:src="@drawable/profile_pt" />
+
+            <com.privetalk.app.utilities.PriveTalkTextView
+                android:id="@+id/profileNumberOfCoins"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignRight="@+id/profileHotWheelContainer"
+                android:layout_below="@+id/profilePTicon"
+                android:layout_marginRight="2dp"
+                android:layout_marginTop="4dp"
+                android:includeFontPadding="false"
+                android:text="1500"
+                android:textColor="@android:color/black"
+                android:textSize="17sp"
+                app:ttf_name="@string/roboto_regular" />
+
+            <com.privetalk.app.utilities.PriveTalkTextView
+                android:id="@+id/profileCoinsStaticView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignRight="@+id/profileHotWheelContainer"
+                android:layout_below="@+id/profileNumberOfCoins"
+                android:layout_marginRight="2dp"
+                android:layout_marginTop="-5dp"
+                android:includeFontPadding="false"
+                android:text="@string/coins_lowercase"
+                android:textColor="@android:color/black"
+                android:textSize="12sp"
+                app:ttf_name="@string/roboto_regular" />
+
+
+            <com.privetalk.app.utilities.PriveTalkTextView
+                android:id="@+id/profilePersonalInfoStatic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/profileCoinsStaticView"
+                android:text="@string/profilePersonalInfo"
+                android:textColor="@android:color/black"
+                android:textSize="17sp"
+                app:ttf_name="@string/roboto_bold" />
+
+            <include layout="@layout/layout_profile_personal_info" />
+
+            <com.privetalk.app.utilities.PriveTalkTextView
+                android:id="@+id/profilePersonalIterestsStatic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/top_cardview_container"
+                android:layout_marginTop="12dp"
+                android:text="@string/profileInterests"
+                android:textColor="@android:color/black"
+                android:textSize="17sp"
+                app:ttf_name="@string/roboto_bold" />
+
+            <include layout="@layout/layout_profile_interests" />
+
+            <com.privetalk.app.utilities.PriveTalkEditText
+                android:id="@+id/profilePersonFewThinksAboutMe"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/bottomCardContainer"
+                android:layout_marginTop="12dp"
+                android:background="@null"
+                android:clickable="false"
+                android:focusableInTouchMode="false"
+                android:inputType="none"
+                android:text="@string/fewThingsAboutMe"
+                android:textColor="@android:color/black"
+                android:textSize="17sp"
+                app:ttf_name="@string/roboto_bold" />
+
+            <FrameLayout
+                android:id="@+id/editTextContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/profilePersonFewThinksAboutMe"
+                android:layout_marginLeft="-5dp"
+                android:layout_marginRight="-5dp"
+                android:layout_marginTop="5dp"
+                android:clipChildren="false"
+                android:clipToPadding="false"
+                android:visibility="visible">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/card_view_edittext"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
+                    app:cardElevation="4dp"
+                    app:cardUseCompatPadding="true">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_alignBottom="@+id/profileEditText"
+                            android:layout_alignTop="@+id/profileEdittextEditButton"
+                            android:background="@drawable/gradient_rectangle_border" />
+
+                        <ImageView
+                            android:id="@+id/profileEdittextEditButton"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:layout_alignParentRight="true"
+                            android:adjustViewBounds="true"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:paddingTop="10dp"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/profile_edit" />
+
+                        <com.privetalk.app.utilities.PriveTalkEditText
+                            android:id="@+id/profileEditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/profileEdittextEditButton"
+                            android:background="@null"
+                            android:clickable="false"
+                            android:focusableInTouchMode="false"
+                            android:gravity="top|left"
+                            android:inputType="none"
+                            android:paddingBottom="8dp"
+                            android:paddingLeft="8dp"
+                            android:paddingRight="8dp"
+                            android:textColor="@android:color/black"
+                            app:ttf_name="@string/roboto_regular" />
+                    </RelativeLayout>
+
+                </androidx.cardview.widget.CardView>
+            </FrameLayout>
+
+            <com.privetalk.app.utilities.PriveTalkEditText
+                android:id="@+id/profileWeeklyAwardsContainer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/editTextContainer"
+                android:layout_marginTop="12dp"
+                android:background="@null"
+                android:clickable="false"
+                android:focusableInTouchMode="false"
+                android:inputType="none"
+                android:visibility="gone"
+                android:text="@string/weeklyAwards"
+                android:textColor="@android:color/black"
+                android:textSize="17sp"
+                app:ttf_name="@string/roboto_bold" />
+
+            <FrameLayout
+                android:id="@+id/trueProfileWeeklyAwardsContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/profileWeeklyAwardsContainer"
+                android:layout_marginLeft="-5dp"
+                android:layout_marginRight="-5dp"
+                android:layout_marginTop="5dp"
+                android:clipChildren="false"
+                android:clipToPadding="false">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/card_view_weekly_awards"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
+                    app:cardElevation="4dp"
+                    app:cardUseCompatPadding="true">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:clipChildren="false"
+                        android:clipToPadding="false">
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_alignBottom="@+id/weekly_awards_main_container"
+                            android:layout_alignTop="@+id/weekly_awards_main_container"
+                            android:background="@drawable/gradient_rectangle_border" />
+
+                        <RelativeLayout
+                            android:id="@+id/weekly_awards_main_container"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:clipChildren="false"
+                            android:clipToPadding="false"
+                            android:padding="10dp">
+
+                            <com.privetalk.app.utilities.PriveTalkTextView
+                                android:id="@+id/profileThisWeekTextView"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentLeft="true"
+                                android:text="@string/thisWeek"
+                                android:textColor="@android:color/black"
+                                android:textSize="17sp"
+                                app:ttf_name="@string/roboto_bold" />
+
+
+                            <LinearLayout
+                                android:id="@+id/profileAwardsRowsContainer"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/profileWeeklyAwardsMain"
+                                android:clipChildren="false"
+                                android:clipToPadding="false"
+                                android:orientation="vertical">
+
+                                <com.privetalk.app.utilities.ProfileAwardsContainer
+                                    android:id="@+id/popularAwardsContainer"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content" />
+
+                                <com.privetalk.app.utilities.ProfileAwardsContainer
+                                    android:id="@+id/friendlyAwardsContainer"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content" />
+
+                                <com.privetalk.app.utilities.ProfileAwardsContainer
+                                    android:id="@+id/iceBreakerAwardsContainer"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content" />
+
+                                <com.privetalk.app.utilities.ProfileAwardsContainer
+                                    android:id="@+id/impressionVoterAwardsContainer"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content" />
+
+                                <com.privetalk.app.utilities.ProfileAwardsContainer
+                                    android:id="@+id/angelAwardsContainer"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/profileAwardsRowsContainer"
+                                android:layout_marginTop="18dp"
+                                android:gravity="center"
+                                android:orientation="horizontal">
+
+                                <RelativeLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content">
+
+                                    <ProgressBar
+                                        android:id="@+id/latestPurchaseBonusProgressBar"
+                                        style="?android:attr/progressBarStyleHorizontal"
+                                        android:layout_width="66dp"
+                                        android:layout_height="66dp"
+                                        android:layout_marginLeft="11dp"
+                                        android:layout_marginTop="11dp"
+                                        android:background="@drawable/blue_stroke_circle"
+                                        android:max="100"
+                                        android:padding="2dp"
+                                        android:progress="75"
+                                        android:progressDrawable="@drawable/green_bonus_circle"
+                                        android:rotation="-90" />
+
+                                    <ImageView
+                                        android:id="@+id/bonus_eftomas"
+                                        android:layout_width="88dp"
+                                        android:layout_height="66dp"
+                                        android:src="@drawable/last_weeks_bonus" />
+
+                                    <ImageView
+                                        android:id="@+id/bonus_eftomas_greek"
+                                        android:layout_width="88dp"
+                                        android:layout_height="83dp"
+                                        android:visibility="gone"
+                                        android:layout_marginLeft="0.5dp"
+                                        android:src="@drawable/bonus_eftomas" />
+
+                                    <com.privetalk.app.utilities.PriveTalkTextView
+                                        android:id="@+id/lastWeekPurchaseBonusText"
+                                        android:layout_width="66dp"
+                                        android:layout_height="66dp"
+                                        android:layout_alignRight="@+id/latestPurchaseBonusProgressBar"
+                                        android:layout_alignTop="@+id/latestPurchaseBonusProgressBar"
+                                        android:gravity="center"
+                                        android:textColor="@android:color/black"
+                                        android:textSize="23sp"
+                                        app:ttf_name="@string/roboto_regular" />
+
+                                </RelativeLayout>
+
+                                <RelativeLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="16dp">
+
+                                    <com.privetalk.app.utilities.TintImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignBottom="@+id/purchaseBonusUse"
+                                        android:layout_alignLeft="@+id/purchaseBonusUse"
+                                        android:layout_alignRight="@+id/purchaseBonusUse"
+                                        android:layout_alignTop="@+id/purchaseBonusUse"
+                                        android:src="@drawable/rounded_button"
+                                        android:tint="@color/purchaseBonusGreen" />
+
+                                    <com.privetalk.app.utilities.PriveTalkTextView
+                                        android:id="@+id/purchaseBonusUse"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:padding="10dp"
+                                        android:text="@string/usePurchaseBonus"
+                                        android:textColor="@android:color/black"
+                                        android:textSize="16sp"
+                                        app:ttf_name="@string/roboto_regular" />
+
+                                </RelativeLayout>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/profileWeeklyAwardsMain"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:clipToPadding="false"
+                                android:clipChildren="false"
+                                android:orientation="horizontal"
+                                android:padding="20dp"
+                                android:layout_below="@+id/profileThisWeekTextView"
+                                android:layout_alignParentLeft="true"
+                                android:layout_alignParentStart="true">
+
+                                <RelativeLayout
+
+                                    android:layout_width="0dp"
+                                    android:layout_weight="1"
+                                    android:layout_height="wrap_content">
+
+                                    <ProgressBar
+                                        android:layout_centerInParent="true"
+                                        android:id="@+id/freeCoinsProgressBar"
+                                        style="?android:attr/progressBarStyleHorizontal"
+                                        android:layout_width="68dp"
+                                        android:layout_height="68dp"
+                                        android:background="@drawable/blue_stroke_circle"
+                                        android:max="100"
+                                        android:padding="2dp"
+                                        android:progressDrawable="@drawable/circle"
+                                        android:rotation="-90" />
+
+                                    <ImageView
+                                        android:id="@+id/free_coins"
+                                        android:layout_width="35dp"
+                                        android:layout_alignLeft="@+id/freeCoinsProgressBar"
+                                        android:layout_marginTop="-5dp"
+                                        android:layout_marginLeft="-14dp"
+                                        android:layout_height="53dp"
+                                        android:layout_gravity="top|left"
+                                        android:src="@drawable/free_bold_coins_icon" />
+
+                                    <ImageView
+                                        android:visibility="invisible"
+
+                                        android:id="@+id/free_coins_greek"
+                                        android:layout_alignLeft="@+id/freeCoinsProgressBar"
+                                        android:layout_marginTop="-20dp"
+                                        android:layout_marginLeft="-13dp"
+                                        android:layout_height="80dp"
+                                        android:layout_width="70dp"
+                                        android:layout_gravity="top|left"
+                                        android:src="@drawable/girillogrammata" />
+
+
+                                    <LinearLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignBottom="@+id/freeCoinsProgressBar"
+                                        android:layout_alignLeft="@+id/freeCoinsProgressBar"
+                                        android:layout_alignRight="@+id/freeCoinsProgressBar"
+                                        android:layout_alignTop="@+id/freeCoinsProgressBar"
+                                        android:layout_centerInParent="true"
+                                        android:gravity="center">
+
+                                        <com.privetalk.app.utilities.PriveTalkTextView
+                                            android:id="@+id/freeCoinsText"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginRight="4dp"
+                                            android:textColor="@android:color/black"
+                                            android:textSize="24dp"
+                                            app:ttf_name="@string/roboto_regular" />
+
+                                        <ImageView
+                                            android:layout_width="16dp"
+                                            android:layout_height="16dp"
+                                            android:src="@drawable/profile_pt" />
+
+                                    </LinearLayout>
+
+                                </RelativeLayout>
+
+                                <View
+                                    android:layout_width="40dp"
+                                    android:layout_height="0dp" />
+
+                                <RelativeLayout
+                                    android:layout_width="0dp"
+                                    android:layout_weight="1"
+                                    android:layout_height="wrap_content">
+
+                                    <ProgressBar
+                                        android:id="@+id/purchaseBonusProgressBar"
+                                        style="?android:attr/progressBarStyleHorizontal"
+                                        android:layout_width="68dp"
+                                        android:layout_centerInParent="true"
+                                        android:layout_height="68dp"
+                                        android:background="@drawable/blue_stroke_circle"
+                                        android:max="100"
+                                        android:padding="2dp"
+                                        android:progressDrawable="@drawable/circle"
+                                        android:rotation="-90" />
+
+                                    <ImageView
+                                        android:id="@+id/bonus"
+                                        android:layout_alignLeft="@+id/purchaseBonusProgressBar"
+                                        android:layout_width="63.3dp"
+                                        android:layout_height="55dp"
+                                        android:layout_marginTop="-9.5dp"
+                                        android:layout_marginLeft="-11dp"
+                                        android:src="@drawable/purchase_bonus_curved" />
+
+                                    <ImageView
+                                        android:visibility="invisible"
+                                        android:id="@+id/bonus_greek"
+                                        android:layout_alignLeft="@+id/purchaseBonusProgressBar"
+                                        android:layout_width="70dp"
+                                        android:layout_height="55dp"
+                                        android:layout_marginTop="-11dp"
+                                        android:layout_marginLeft="-14dp"
+                                        android:src="@drawable/bonus_greek" />
+
+                                    <com.privetalk.app.utilities.PriveTalkTextView
+                                        android:id="@+id/purchaseBonusPercentage"
+                                        android:layout_width="75dp"
+                                        android:layout_height="68dp"
+                                        android:layout_alignBottom="@+id/purchaseBonusProgressBar"
+                                        android:layout_alignLeft="@+id/purchaseBonusProgressBar"
+                                        android:layout_centerInParent="true"
+                                        android:layout_marginRight="4dp"
+                                        android:gravity="center"
+                                        android:textColor="@android:color/black"
+                                        android:textSize="24sp"
+                                        app:ttf_name="@string/roboto_regular" />
+
+                                </RelativeLayout>
+                            </LinearLayout>
+                        </RelativeLayout>
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/trueProfileWeeklyAwardsContainer"
+                android:orientation="horizontal">
+
+                <com.privetalk.app.utilities.PriveTalkTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/last_login"
+                    android:textColor="@android:color/black"
+                    android:textSize="14sp"
+                    app:ttf_name="@string/roboto_regular" />
+
+                <com.privetalk.app.utilities.PriveTalkTextView
+                    android:id="@+id/lastLogin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="2dp"
+                    android:textColor="@android:color/black"
+                    android:textSize="14sp"
+                    android:visibility="gone"
+                    app:ttf_name="@string/roboto_light" />
+            </LinearLayout>
+
+        </RelativeLayout>
+    </ScrollView>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/black">
+
+        <com.isseiaoki.simplecropview.CropImageView
+            android:id="@+id/cropImageView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="16dp"
+
+             />
+
+        <com.privetalk.app.utilities.PriveTalkTextView
+            android:id="@+id/cropCancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|left"
+            android:padding="16dp"
+            android:shadowColor="@android:color/black"
+            android:shadowRadius="2"
+            android:text="@string/cancel"
+            android:textColor="@android:color/white"
+            android:textSize="24sp" />
+
+        <com.privetalk.app.utilities.PriveTalkTextView
+            android:id="@+id/cropDone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|right"
+            android:padding="16dp"
+            android:shadowColor="@android:color/black"
+            android:shadowRadius="2"
+            android:text="@string/done"
+            android:textColor="@android:color/white"
+            android:textSize="24sp" />
+
+
+        <!--<ImageView-->
+        <!--android:id="@+id/rotateLeft"-->
+        <!--android:layout_width="32dp"-->
+        <!--android:layout_height="32dp"-->
+        <!--android:layout_gravity="top|right"-->
+        <!--android:layout_marginRight="15dp"-->
+        <!--android:layout_marginTop="15dp"-->
+        <!--android:src="@drawable/ic_rotate_left_white_24dp" />-->
+
+        <ImageView
+            android:id="@+id/rotateRight"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_gravity="top|right"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="15dp"
+            android:src="@drawable/ic_rotate_right_white_24dp" />
+
+    </FrameLayout>
+</ViewSwitcher>
+

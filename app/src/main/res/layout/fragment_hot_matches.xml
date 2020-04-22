@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?><!--<RelativeLayout  xmlns:android="http://schemas.android.com/apk/res/android"--><!--android:layout_width="match_parent"--><!--android:layout_height="match_parent"--><!--android:background="@android:color/white"--><!--xmlns:app="http://schemas.android.com/apk/res-auto">-->
+
+<androidx.percentlayout.widget.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/hotmatchesUsersProfiles"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true" />
+
+    <LinearLayout
+        android:id="@+id/addMeHolder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_heightPercent="15%">
+
+        <include
+            android:id="@+id/addMePromote"
+            layout="@layout/row_promoted_users" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/addMe"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#9AFFFFFF" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/addMeHolder"
+        android:background="#993C8DC7" />
+
+    <FrameLayout
+        android:id="@+id/shadowView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#88000000"
+        android:visibility="invisible" />
+
+    <ImageView
+        android:id="@+id/removeMatch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:scaleType="fitCenter"
+        android:src="@drawable/remove_hot_match"
+        android:visibility="gone"
+        app:layout_marginBottomPercent="10%"
+        app:layout_widthPercent="20%" />
+
+    <FrameLayout
+        android:id="@+id/progressBar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center" />
+
+    </FrameLayout>
+
+</androidx.percentlayout.widget.PercentRelativeLayout>
+
+
+    <!--</RelativeLayout>-->
+

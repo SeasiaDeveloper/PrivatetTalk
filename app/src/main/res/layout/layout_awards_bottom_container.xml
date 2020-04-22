@@ -1,0 +1,165 @@
+<androidx.percentlayout.widget.PercentRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/awardsFreeCoinsContainer"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignBottom="@+id/bottomExpandableView"
+    android:layout_alignParentLeft="true"
+    android:layout_alignTop="@+id/bottomExpandableView"
+    android:layout_marginRight="12dp"
+    android:layout_toLeftOf="@+id/circleToTheRight"
+    android:background="@android:color/white">
+
+    <com.privetalk.app.utilities.PriveTalkTextView
+        android:id="@+id/profileAwardsFreeCoinsText"
+        android:layout_width="62dp"
+        app:layout_heightPercent="100%"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/bottomDetailsContainer"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="4dp"
+        android:gravity="bottom"
+        android:text="Free Coins"
+        android:textColor="@android:color/black"
+        android:textSize="13sp"
+        app:ttf_name="@string/roboto_regular" />
+
+    <LinearLayout
+        android:id="@+id/bottomDetailsContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="46dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="|"
+                android:textSize="10sp" />
+
+            <com.privetalk.app.utilities.PriveTalkTextView
+                android:id="@+id/freeCoinsFirstColumn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="5c"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"
+                app:ttf_name="@string/roboto_regular" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="|"
+                android:textSize="10sp" />
+
+            <com.privetalk.app.utilities.PriveTalkTextView
+                android:id="@+id/freeCoinsSecondColumn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="10c"
+                android:textColor="@android:color/black"
+
+                android:textSize="16sp"
+                app:ttf_name="@string/roboto_regular" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="|"
+                android:textSize="10sp" />
+
+            <com.privetalk.app.utilities.PriveTalkTextView
+                android:id="@+id/freeCoinsThirdColumn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="20c"
+                android:textColor="@android:color/black"
+
+                android:textSize="16sp"
+                app:ttf_name="@string/roboto_regular" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <com.privetalk.app.utilities.PriveTalkTextView
+        android:id="@+id/awardsBonus"
+        android:layout_width="62dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/bottomDetailsContainer"
+        android:layout_marginTop="4dp"
+        android:text="Purchase Bonus"
+        android:textColor="@android:color/black"
+        android:textSize="13sp"
+        app:ttf_name="@string/roboto_regular" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/awardsBonus"
+        android:layout_below="@+id/bottomDetailsContainer"
+        android:layout_marginLeft="46dp"
+        android:orientation="horizontal">
+
+        <com.privetalk.app.utilities.PriveTalkTextView
+            android:id="@+id/profileAwardsPercentageFirstColumn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="3%"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            app:ttf_name="@string/roboto_regular" />
+
+        <com.privetalk.app.utilities.PriveTalkTextView
+            android:id="@+id/profileAwardsPercentageSecondColumn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="5%"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            app:ttf_name="@string/roboto_regular" />
+
+        <com.privetalk.app.utilities.PriveTalkTextView
+            android:id="@+id/profileAwardsPercentageThirdColumn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="8%"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            app:ttf_name="@string/roboto_regular" />
+
+    </LinearLayout>
+
+</androidx.percentlayout.widget.PercentRelativeLayout>

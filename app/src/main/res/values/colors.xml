@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#ffffff</color>
+    <color name="colorPrimaryDark">#ffffff</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="progressbar_tint">#3C8DC7</color>
+    <color name="check_box">#357BBE</color>
+    <color name="main_background">#FAFAFA</color>
+    <color name="welcome_text">#323133</color>
+    <color name="disable_button_gray">#C6C8C9</color>
+    <color name="tick_grey">#808285</color>
+    <color name="drawer_textcolor">#000000</color>
+    <color name="drawer_selected">#EEEEEE</color>
+    <color name="verification_green">#84BE32</color>
+    <color name="tick_green">#90C74E</color>
+    <color name="purchaseBonusGreen">#91C84D</color>
+    <color name="search_filter_cream">#a9FAFAFA</color>
+    <color name="add_me_image_tint">#600099CC</color>
+    <color name="transparent_white">#AAFFFFFF</color>
+    <color name="switch_button_blue">#9A1D75BB</color>
+    <color name="dark_blue_button">#347CBD</color>
+    <color name="border_coin_color">#414042</color>
+    <color name="dialog_shadow">#9A000000</color>
+    <color name="yellow_star">#BCA72A</color>
+    <color name="blue_border_color">#357BBE</color>
+
+    <color name="light_blue_button">#569edf</color>
+
+    <color name="dash_color">#99357BBE</color>
+
+    <color name="disabled_color">#808284</color>
+    <color name="priority_message_background">#CCECFC</color>
+    <color name="star_button_color">#ffcd40</color>
+</resources>

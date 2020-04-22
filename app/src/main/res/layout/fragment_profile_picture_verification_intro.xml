@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <RelativeLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/frontImageView"
+            android:layout_width="85dp"
+            android:layout_height="85dp"
+            android:src="@drawable/front_verification_circle" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="4dp"
+            android:layout_toRightOf="@id/frontImageView"
+            android:orientation="vertical">
+
+            <com.privetalk.app.utilities.PriveTalkTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/step_one"
+                android:textColor="@android:color/black"
+                android:textSize="21sp"
+                app:ttf_name="@string/roboto_bold" />
+
+
+            <com.privetalk.app.utilities.PriveTalkTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="2dp"
+                android:drawableLeft="@drawable/black_dot"
+                android:drawablePadding="4dp"
+                android:text="@string/match_outlines"
+                android:textColor="@android:color/black"
+                android:textSize="14sp"
+                app:ttf_name="@string/roboto_light" />
+
+
+            <com.privetalk.app.utilities.PriveTalkTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="2dp"
+                android:drawableLeft="@drawable/black_dot"
+                android:drawablePadding="4dp"
+                android:text="@string/press_camera"
+                android:textColor="@android:color/black"
+                android:textSize="14sp"
+                app:ttf_name="@string/roboto_light" />
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <RelativeLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/leftImageViewView"
+            android:layout_width="85dp"
+            android:layout_height="85dp"
+            android:src="@drawable/left_verification_circle" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="4dp"
+            android:layout_toRightOf="@id/leftImageViewView"
+            android:orientation="vertical">
+
+            <com.privetalk.app.utilities.PriveTalkTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/step_two"
+                android:textColor="@android:color/black"
+                android:textSize="21sp"
+                app:ttf_name="@string/roboto_bold" />
+
+
+            <com.privetalk.app.utilities.PriveTalkTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="2dp"
+                android:drawableLeft="@drawable/black_dot"
+                android:drawablePadding="4dp"
+                android:text="@string/turn_face_left"
+                android:textColor="@android:color/black"
+                android:textSize="14sp"
+                app:ttf_name="@string/roboto_light" />
+
+
+            <com.privetalk.app.utilities.PriveTalkTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="2dp"
+                android:drawableLeft="@drawable/black_dot"
+                android:drawablePadding="4dp"
+                android:text="@string/wait_for_click_sound"
+                android:textColor="@android:color/black"
+                android:textSize="14sp"
+                app:ttf_name="@string/roboto_light" />
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <RelativeLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/rightImageView"
+            android:layout_width="85dp"
+            android:layout_height="85dp"
+            android:src="@drawable/right_verification_circle" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="4dp"
+            android:layout_toRightOf="@id/rightImageView"
+            android:orientation="vertical">
+
+            <com.privetalk.app.utilities.PriveTalkTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/step_three"
+                android:textColor="@android:color/black"
+                android:textSize="21sp"
+                app:ttf_name="@string/roboto_bold" />
+
+
+            <com.privetalk.app.utilities.PriveTalkTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="2dp"
+                android:drawableLeft="@drawable/black_dot"
+                android:drawablePadding="4dp"
+                android:text="@string/turn_face_right"
+                android:textColor="@android:color/black"
+                android:textSize="14sp"
+                app:ttf_name="@string/roboto_light" />
+
+
+            <com.privetalk.app.utilities.PriveTalkTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="2dp"
+                android:drawableLeft="@drawable/black_dot"
+                android:drawablePadding="4dp"
+                android:text="@string/wait_for_click_sound"
+                android:textColor="@android:color/black"
+                android:textSize="14sp"
+                app:ttf_name="@string/roboto_light" />
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <RelativeLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/mailImageView"
+            android:layout_width="85dp"
+            android:layout_height="85dp"
+            android:src="@drawable/mail_verification" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="4dp"
+            android:layout_toRightOf="@id/mailImageView"
+            android:orientation="vertical">
+
+            <com.privetalk.app.utilities.PriveTalkTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/step_four"
+                android:textColor="@android:color/black"
+                android:textSize="21sp"
+                app:ttf_name="@string/roboto_bold" />
+
+
+            <com.privetalk.app.utilities.PriveTalkTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="2dp"
+                android:drawableLeft="@drawable/black_dot"
+                android:drawablePadding="4dp"
+                android:text="@string/review_and_submit"
+                android:textColor="@android:color/black"
+                android:textSize="14sp"
+                app:ttf_name="@string/roboto_light" />
+
+
+            <com.privetalk.app.utilities.PriveTalkTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:drawablePadding="4dp"
+                android:text="@string/review_and_submit_faq"
+                android:textColor="@android:color/black"
+                android:textSize="11sp"
+                app:ttf_name="@string/roboto_light" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <FrameLayout
+        android:id="@+id/verificationGoButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+
+        <com.privetalk.app.utilities.TintImageView
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:src="@drawable/circle_mask"
+            android:tint="@color/tick_green" />
+
+        <com.privetalk.app.utilities.PriveTalkTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/go"
+            android:textColor="@android:color/black"
+            android:textSize="28sp"
+            app:ttf_name="@string/roboto_bold" />
+
+    </FrameLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+</LinearLayout>

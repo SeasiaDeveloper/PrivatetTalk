@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipChildren="false"
+    android:clipToPadding="false"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+
+    <com.privetalk.app.utilities.PriveTalkEditText
+        android:id="@+id/editItem"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/gradient_rectangle_border"
+        android:padding="5dp"
+        android:singleLine="true"
+        android:textColor="@android:color/black"
+        android:textSize="15sp"
+        app:ttf_name="@string/roboto_regular" />
+
+    <LinearLayout
+        android:id="@+id/gpsView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/editItem"
+        android:layout_alignTop="@+id/editItem"
+        android:layout_toRightOf="@+id/editItem"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:gravity="center|left"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <com.privetalk.app.utilities.PriveTalkTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="6dp"
+            android:text="@string/or"
+            android:textColor="@android:color/black"
+            app:ttf_name="@string/roboto_bold" />
+
+        <ViewSwitcher
+            android:id="@+id/gpsImageContainer"
+            android:layout_width="40dp"
+            android:layout_height="40dp">
+
+            <ImageView
+                android:id="@+id/gpsImage"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:padding="4dp"
+                android:src="@drawable/register_gps" />
+
+            <ProgressBar
+                android:layout_width="40dp"
+                android:layout_height="40dp" />
+        </ViewSwitcher>
+    </LinearLayout>
+
+
+</RelativeLayout>

@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:clipToPadding="false"
+    android:clipChildren="false"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/profileAwardsRowIcon"
+        android:layout_width="30dp"
+        android:layout_height="40dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/profile_weekly_awards_ice_breaker" />
+
+    <LinearLayout
+        android:id="@+id/descriptionContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/profileAwardsRowIcon"
+        android:layout_alignTop="@+id/profileAwardsRowIcon"
+        android:layout_marginLeft="16dp"
+        android:layout_toRightOf="@+id/profileAwardsRowIcon"
+        android:gravity="center|left"
+        android:orientation="horizontal">
+
+        <com.privetalk.app.utilities.PriveTalkTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Popular (+20, +5%)"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            app:ttf_name="@string/roboto_bold" />
+
+    </LinearLayout>
+
+
+    <com.privetalk.app.utilities.PriveTalkTextView
+        android:id="@+id/profileAwardsText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/profileAwardsRowIcon"
+        android:layout_marginTop="8dp"
+        android:text="Visitors"
+        android:textColor="@android:color/black"
+        android:textSize="13sp"
+        app:ttf_name="@string/roboto_regular" />
+
+    <androidx.percentlayout.widget.PercentRelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/circleToTheRight"
+        android:layout_alignLeft="@+id/descriptionContainer"
+        android:layout_alignTop="@+id/circleToTheRight"
+        android:layout_below="@+id/profileAwardsRowIcon"
+        android:layout_marginRight="12dp"
+        android:layout_toLeftOf="@+id/circleToTheRight">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/awardsProgressBarContainer"
+            android:layout_alignLeft="@+id/awardsProgressBarContainer"
+            android:layout_alignTop="@+id/awardsProgressBarContainer"
+            android:src="@drawable/awards_bar_progress_foreground"
+            app:layout_widthPercent="65%" />
+
+        <LinearLayout
+            android:id="@+id/awardsProgressBarContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:background="@drawable/awards_bar_background"
+            android:orientation="horizontal">
+
+            <com.privetalk.app.utilities.PriveTalkTextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="66"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"
+                app:ttf_name="@string/roboto_regular" />
+
+            <com.privetalk.app.utilities.PriveTalkTextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="66"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"
+                app:ttf_name="@string/roboto_regular" />
+
+            <com.privetalk.app.utilities.PriveTalkTextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="66"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"
+                app:ttf_name="@string/roboto_regular" />
+
+        </LinearLayout>
+
+
+    </androidx.percentlayout.widget.PercentRelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/circleToTheRight"
+        android:layout_width="36dp"
+        android:clipToPadding="false"
+        android:clipChildren="false"
+        android:layout_height="36dp"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/profileAwardsRowIcon"
+        android:layout_marginTop="-8dp"
+        android:background="@drawable/circle_black_stroke">
+
+        <com.privetalk.app.utilities.PriveTalkTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="66"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            app:ttf_name="@string/roboto_regular" />
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="activities_array">
+        <item>@string/profileActivities</item>
+        <item>@string/profileMusics</item>
+        <item>@string/profileMovies</item>
+        <item>@string/profileLiterature</item>
+        <item>@string/profilePlaces</item>
+    </string-array>
+
+    <string-array name="personalInfoEditArray">
+        <item>@string/name</item>
+        <item>@string/age</item>
+        <item>@string/location</item>
+        <item>@string/relationship</item>
+        <item>@string/sexuality</item>
+        <item>@string/height</item>
+        <item>@string/weight</item>
+        <item>@string/body_type</item>
+        <item>@string/colour_fo_hair</item>
+        <item>@string/colour_of_eyes</item>
+        <item>@string/smoking</item>
+        <item>@string/drinking</item>
+        <item>@string/education</item>
+        <item>@string/work</item>
+        <item>@string/languages</item>
+        <item>@string/religion</item>
+    </string-array>
+
+ <!--   <string-array name="drawer_rows">
+        <item>@string/myProfile</item>
+            <item>@string/line</item>
+        <item>@string/community</item>
+        <item>@string/messages</item>
+        <item>@string/profileVisitors</item>
+        <item>@string/favorites</item>
+            <item>@string/line</item>
+        <item>@string/hotWheel</item>
+        <item>@string/flamesIgnited</item>
+        <item>@string/hotMatches</item>
+            <item>@string/line</item>
+        <item>@string/beRoyalUser</item>
+        <item>@string/addPTCoins</item>
+        <item>@string/settings</item>
+        <item>@string/logOut</item>
+    </string-array>-->
+
+
+    <string-array name="drawer_rows">
+        <item>@string/myProfile</item>
+        <item>@string/line</item>
+        <item>@string/community</item>
+        <item>@string/profileVisitors</item>
+        <item>@string/favorites</item>
+        <item>@string/line</item>
+        <item>@string/hotWheel</item>
+        <item>@string/messages</item>
+        <item>@string/flamesIgnited</item>
+<!--
+        <item>@string/hotMatches</item>
+-->
+        <item>@string/beRoyalUser</item>
+        <item>@string/line</item>
+        <item>@string/addPTCoins</item>
+        <item>@string/settings</item>
+        <item>@string/logOut</item>
+    </string-array>
+
+    <string-array name="rowAwardsSubtitles">
+        <item>Visitors</item>
+        <item>Reply%</item>
+        <item>Talks</item>
+        <item>Votes</item>
+        <item>Positive impressions</item>
+    </string-array>
+
+</resources>

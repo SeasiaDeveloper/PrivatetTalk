@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ViewSwitcher xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:custom="http://schemas.android.com/tools">
+
+    <androidx.percentlayout.widget.PercentRelativeLayout
+        android:id="@+id/oldRootView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/fullScreenPicturePreviewViewPager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:orientation="horizontal">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/smallPicturePreviewRecyclerView"
+                android:layout_width="180dp"
+                android:layout_height="60dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp" />
+
+            <ImageView
+                android:id="@+id/addProfilePicture"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="5dp"
+                android:layout_toRightOf="@+id/smallPicturePreviewRecyclerView"
+                android:padding="2dp"
+                android:src="@drawable/boost_popularity_plus_icon" />
+
+
+        </LinearLayout>
+
+
+        <FrameLayout
+            android:id="@+id/shadowViewFullScreenPicturesFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#88000000"
+            android:visibility="invisible" />
+
+        <ImageView
+            android:id="@+id/removePicture"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:adjustViewBounds="true"
+            android:padding="12dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/remove_hot_match" />
+
+        <ImageView
+            android:id="@+id/makeProfilePicture"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:adjustViewBounds="true"
+            android:padding="14dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/make_profile_false" />
+
+        <com.privetalk.app.utilities.PriveTalkTextView
+            android:id="@+id/verifiedPicture"
+            android:layout_width="wrap_content"
+            android:layout_height="44dp"
+            android:visibility="gone"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="14dp"
+            android:layout_marginBottom="14dp"
+            android:background="@drawable/rounded_button_green"
+            android:gravity="center"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:text="@string/verified_picture"
+            android:textColor="@color/welcome_text"
+            app:ttf_name="@string/roboto_bold" />
+
+    </androidx.percentlayout.widget.PercentRelativeLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/black">
+
+
+        <com.isseiaoki.simplecropview.CropImageView
+            android:id="@+id/cropImageView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="16dp"
+
+             />
+
+        <com.privetalk.app.utilities.PriveTalkTextView
+            android:id="@+id/cropCancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|left"
+            android:padding="16dp"
+            android:shadowColor="@android:color/black"
+            android:shadowRadius="2"
+            android:text="@string/cancel"
+            android:textColor="@android:color/white"
+            android:textSize="24sp" />
+
+        <com.privetalk.app.utilities.PriveTalkTextView
+            android:id="@+id/cropDone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|right"
+            android:padding="16dp"
+            android:shadowColor="@android:color/black"
+            android:shadowRadius="2"
+            android:text="@string/done"
+            android:textColor="@android:color/white"
+            android:textSize="24sp" />
+
+
+        <ImageView
+            android:id="@+id/rotateRight"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_gravity="top|right"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="15dp"
+            android:src="@drawable/ic_rotate_right_white_24dp" />
+
+    </FrameLayout>
+
+</ViewSwitcher>

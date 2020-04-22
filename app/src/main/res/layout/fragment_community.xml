@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?><!--<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"--><!--xmlns:app="http://schemas.android.com/apk/res-auto"--><!--android:layout_width="match_parent"--><!--android:layout_height="match_parent"--><!--android:background="@android:color/white">-->
+
+<androidx.percentlayout.widget.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/communityUsersProfiles"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentBottom="true"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_gravity="end|bottom"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/search_filter_background"
+            app:layout_behavior="com.privetalk.app.utilities.RelativeLayoutBehavior"
+            app:layout_collapseMode="pin"
+            app:layout_scrollFlags="snap">
+
+
+            <LinearLayout
+                android:id="@+id/searchFilter"
+                android:layout_width="135dp"
+                android:layout_height="35dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="1dp"
+                android:background="@drawable/gradient_rounded_border"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/search_filter" />
+
+                <com.privetalk.app.utilities.PriveTalkTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="@string/search_filter"
+                    android:textColor="@color/welcome_text"
+                    android:textSize="17sp"
+                    app:ttf_name="@string/roboto_regular" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/clearSearchFiltesButton"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/searchFilter"
+                android:padding="5dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ex_button" />
+
+            <com.privetalk.app.utilities.PriveTalkTextView
+                android:id="@+id/closeToLocationTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                android:textColor="@color/welcome_text"
+                android:textSize="17sp"
+                app:ttf_name="@string/roboto_regular" />
+
+        </RelativeLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+    <LinearLayout
+        android:id="@+id/addMeHolder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_heightPercent="15%">
+
+        <include
+            android:id="@+id/addMePromote"
+            layout="@layout/row_promoted_users" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/addMe"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#9AFFFFFF" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/addMeHolder"
+        android:background="#993C8DC7" />
+
+
+
+    <FrameLayout
+        android:id="@+id/progressBar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center" />
+
+    </FrameLayout>
+
+
+</androidx.percentlayout.widget.PercentRelativeLayout>
+
+
+    <!--</RelativeLayout>-->
+

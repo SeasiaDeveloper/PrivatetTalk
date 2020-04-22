@@ -1,0 +1,659 @@
+<resources>
+
+
+    <!--DON'T CHANGE ANYTHING HERE-->
+    <string name="flurry_key">H8CBZRWZSMH765V8F3YQ</string>
+    <string name="privetalk_scheme">privetalk</string>
+    <string name="privetalk_namespace">http://schemas.android.com/apk/res-auto</string>
+    <string name="roboto_regular">RobotoCondensed-Regular.ttf</string>
+    <string name="roboto_light">RobotoCondensed-Light.ttf</string>
+    <string name="roboto_bold">RobotoCondensed-Bold.ttf</string>
+    <string name="app_name">PriveTalk</string>
+<!--
+    <string name="google_api_key">AIzaSyA2lR8ZYNmapLFWT_Ess-0rBp5h-JBioJE</string>
+-->
+
+
+    <!-- stringies-->
+    <string name="action_settings">Settings</string>
+    <string name="honest_message">real people, honest dating!</string>
+    <string name="loading">Loading...</string>
+    <string name="welcome">Welcome</string>
+    <string name="welcome_thank_you">and thank you for choosing\nPriveTalk</string>
+    <string name="privetalk">PriveTalk</string>
+    <string name="privetalk_is">PriveTalk is</string>
+    <string name="different">different!</string>
+    <string name="verify">Verified profiles\nfor all users</string>
+    <string name="friendliness">Friendliness promoted\n&amp;rewarded </string>
+    <string name="secure">Secure, self-expiring\nmessages</string>
+    <string name="no_photo">No screenshots\nallowed</string>
+    <string name="honest">real people, honest dating!</string>
+    <string name="what_are_you_waiting">What are you waiting?</string>
+    <string name="create_account">Create account</string>
+    <string name="sign_in">Sign in</string>
+    <string name="forgot_password">Forgot your password?</string>
+    <string name="back">Back</string>
+
+    <!-- stringies O.o o.O -->
+    <!-- stringies with html-->
+    <!-- stringies o.O O.o-->
+    <string name="my_birthday">My date of {b}birth{/b} is</string>
+    <string name="my_location">I {b}live{/b} in</string>
+    <string name="my_genre">{b}I am{/b} a</string>
+    <string name="looking_for">{b}Looking{/b}\nfor a</string>
+    <string name="my_mail">my {b}e-mail{/b} is</string>
+    <string name="password_note">{b}*Note:{/b} use a unique password</string>
+    <string name="application_password">application {b}password{/b}</string>
+    <string name="confirm_password">again, my {b}password{/b} is</string>
+    <string name="verification_code">Get {b}verification{/b} code</string>
+    <string name="terms_and_conditions">I have read and accept {b}<a href="http://www.example.com/"><u><b>Terms &amp; Conditions</b></u></a>, <u>Privacy Policy</u>{/b} and {b}<u>Dating Safety Guide</u>{/b}</string>
+    <string name="start_dating">{b}Start{/b} Dating</string>
+    <string name="stringie">{b}Create {/b}{l}Account{/l}</string>
+    <string name="thanks_for_choosing">and {b}thank you{/b} for choosing PriveTalk</string>
+    <string name="verified_profiles">{b}Verified{/b} Profile\n {b}Pictures{/b}</string>
+    <string name="friendliness_promoted"><![CDATA[Weekly {l}Personality \n{/l} Rewards]]></string>
+    <string name="secure_messaging">{b}Self-Expiring{/b}\nMessages</string>
+    <string name="no_screenshots">{b}No Screenshots{/b} \nAllowed</string>
+    <string name="real_people">{b}real{/b} people, {b}honest{/b} dating!</string>
+    <string name="what_you_waiting">What are you {b}waiting for?{/b}</string>
+    <string name="create_new_account">{b}Create {/b}account</string>
+    <string name="use_one_of_the_following">Use one of the Following: *</string>
+    <string name="verification_credit">Verification Credit</string>
+    <string name="email_account">{b}e-mail {/b}account</string>
+    <string name="sing_in">{b}Sign {/b}in</string>
+    <string name="we_never_post">We {b}never{/b} post anything to your social media account without your exlpicit permission</string>
+    <string name="sign_in_2">Sign {b}in{/b}</string>
+    <string name="my_name_is">My {b}name{/b} is</string>
+    <string name="weak">weak</string>
+    <string name="strong">strong</string>
+    <string name="title_facebook_login">facebookLogin</string>
+    <string name="connections">Connections</string>
+    <string name="notifications">Notifications</string>
+    <string name="coins_lowercase">coins</string>
+    <string name="profilePersonalInfo">Personal Info</string>
+    <string name="not_yet_set">Unspecified</string>
+    <string name="not_set_yet">Not set yet</string>
+    <string name="profile_location">Location</string>
+    <string name="profile_age">Age</string>
+    <string name="profile_relationship">Relationship</string>
+    <string name="profile_sexuality">Sexuality</string>
+    <string name="facebook_app_id">1223656987651000</string>
+    <string name="profile_appearance">Appearance</string>
+    <string name="profileWork">Work</string>
+    <string name="profileEducation">Education</string>
+    <string name="profileDrinking">Drinking</string>
+    <string name="profileSmoking">Smoking</string>
+    <string name="profileLanguage">Languages</string>
+    <string name="profile_religion">Religion</string>
+    <string name="profileZodiac">Zodiac</string>
+    <string name="profileInterests">Interests (15 total)</string>
+    <string name="profilePlaces">Places</string>
+    <string name="profileLiterature">Literature</string>
+    <string name="profileMovies">Movies</string>
+    <string name="profileMusics">Music</string>
+    <string name="profileActivities">Activities</string>
+    <string name="fewThingsAboutMe">A Few things about me</string>
+    <string name="verified_profile_pictures">{b}Verified{/b} Profile\n{b}Pictures{/b}</string>
+    <string name="chat_with_real_people">Chat for free with real people who\nall have verified profile pictures</string>
+    <string name="weekly_personality_rewards">{b}Weekly{/b} Personality\n{b}Rewards{/b}</string>
+    <string name="get_rewarded_and_promoted">Get rewarded for having fun\nand being a friendly user</string>
+    <string name="exprees_yourself_freely">Express yourself freely with\nself-expiring text and images</string>
+    <string name="no_photo_allowed">{b}No Screenshots{/b}\nAllowed</string>
+    <string name="enter_verification">Enter {b}verification{/b} code</string>
+    <string name="thisWeek">This Week</string>
+    <string name="weeklyAwards">Weekly Rewards</string>
+    <string name="usePurchaseBonus">{b}Use{/b} Purchase Bonus</string>
+    <string name="your_favorites">{b}Your{/b} {l}Favourites{/l}</string>
+    <string name="who_favoried_you">{b}Who{/b} {l}Favourited You{/l}</string>
+    <string name="todays_visitors">{l}Today\'s{/l} {b}Visitors{/b}</string>
+    <string name="week_visitors">{b}Visitors{/b} {l}This week{/l}</string>
+    <string name="profile_height">Height</string>
+    <string name="profile_weight">Weight</string>
+    <string name="profile_hair">Hair</string>
+    <string name="profile_eyes">Eyes</string>
+    <string name="profile_body_type">Body Type</string>
+
+
+    <string name="myProfile">My profile</string>
+    <string name="line">line</string>
+    <string name="community">Community</string>
+    <string name="hotWheel">Hot Wheel</string>
+    <string name="messages">Messages</string>
+    <string name="profileVisitors">Profile Visitors</string>
+    <string name="flamesIgnited">Flames Ignited</string>
+    <string name="hotMatches">Hot Matches</string>
+    <string name="favorites">Favourites</string>
+    <string name="beRoyalUser">Be a Royal User</string>
+    <string name="addPTCoins">Add PT Coins</string>
+    <string name="settings">Settings</string>
+    <string name="logOut">Log Out</string>
+
+    <string-array name="rowAwardsTitles">
+
+        <!--<item>Popular (%s, %s)</item>-->
+        <!--<item>Friendly (%s, %s)</item>-->
+        <!--<item>Ice Breaker (%s, %s)</item>-->
+        <!--<item>Impression Voter (%s, %s)</item>-->
+        <!--<item>Angel (%s, %s)</item>-->
+
+    </string-array>
+
+
+    <string-array name="settings_language">
+        <item>Ελληνικά</item>
+        <item>English</item>
+        <item>Русский</item>
+    </string-array>
+
+    <string-array name="interests_array">
+        <item>Activity</item>
+        <item>Literature</item>
+        <item>Music</item>
+        <item>Places</item>
+        <item>Movies</item>
+    </string-array>
+
+
+    <string-array name="settings_languages_codes">
+        <item>el</item>
+        <item>en</item>
+        <item>ru</item>
+    </string-array>
+
+
+    <string name="name">Name:</string>
+    <string name="age">Age:</string>
+    <string name="location">Location:</string>
+    <string name="relationship">Relationship:</string>
+    <string name="sexuality">Sexuality:</string>
+    <string name="height">Height:</string>
+    <string name="weight">Weight:</string>
+    <string name="body_type">Body Type:</string>
+    <string name="colour_fo_hair">Colour of Hair:</string>
+    <string name="colour_of_eyes">Colour of Eyes:</string>
+    <string name="smoking">Smoking:</string>
+    <string name="drinking">Drinking:</string>
+    <string name="education">Education:</string>
+    <string name="work">Work:</string>
+    <string name="languages">Languages:</string>
+    <string name="religion">Religion:</string>
+
+
+    <string name="previous">Previous</string>
+    <string name="next">Next</string>
+    <string name="done">Done</string>
+    <string name="boost_your_popularity">Boost your Popularity</string>
+    <string name="boost_your_popularity_message">{b}Boost{/b} your Popularity</string>
+    <string name="seen_by_thousands">Get your profile promoted to all PriveTalk users in your broader area.</string>
+    <string name="chose_one_of_the_below">Choose picture to promote:</string>
+    <string name="promotion_cost">The promotion will cost 100 PT coins</string>
+    <string name="women_will_see_this">{b}1500{/b} Women will see this directly</string>
+    <string name="see_directly">{r}will see this directly{/r}</string>
+    <string name="privacy_settings">{b}Privacy{/b} Settings</string>
+    <string name="show_distance">Show {b}Distance{/b}</string>
+    <string name="show_weekly_rewards">Show Weekly {b}Rewards{/b}</string>
+    <string name="show_online_status">Show Online {b}Status{/b}</string>
+    <string name="hide_from_public_search">Hide from {b}Public Search{/b}</string>
+    <string name="hide_from_hot_wheel">Hide from {b}Hot Wheel{/b}</string>
+    <string name="settings_messages">Messages</string>
+    <string name="settings_profile_visitors">Profile Visitors</string>
+    <string name="settings_flames_ignited">Flames Ignited</string>
+    <string name="settings_hot_matches">Hot Matches</string>
+    <string name="settings_favorite_you">Favourite You</string>
+    <string name="settings_alerts">Alerts</string>
+    <string name="settings_news">News</string>
+    <string name="settings_weekly_awards">Weekly Rewards</string>
+    <string name="notification_settings">{b}Notification{/b} Settings</string>
+    <string name="language_selection">{b}Language{/b} Selection</string>
+    <string name="account_settings">{b}Account{/b} Settings</string>
+    <string name="dedactivate_account">Deactivate {b}Account{/b}</string>
+    <string name="delete_account"><u>Delete Account</u></string>
+    <string name="hot_match_deleted">Deleted</string>
+    <string name="deleted_match">Deleted</string>
+    <string name="search_in_location">{b}in{/b} {l}Location{/l}</string>
+    <string name="search_looking_for">{b}Looking{/b} for a</string>
+    <string name="personalInfoEdit">Edit Personal Info</string>
+    <string name="search_filter_within">within\n</string>
+    <string name="age_from">{b}Age{/b} {l}from{/l}</string>
+    <string name="age_to">{l}to{/l}</string>
+    <string name="height_from">{b}Height{/b} {l}from{/l}</string>
+    <string name="weight_from">{b}Weight{/b} {l}from{/l}</string>
+    <string name="edit_interests">Edit Interests</string>
+    <string name="body_type_filter">{b}Body{/b} Type</string>
+    <string name="hair_colour">Colour of {b}Hair{/b}</string>
+    <string name="eyes_colour">Colour of {b}Eyes{/b}</string>
+    <string name="education_level">{b}Education{/b} Level</string>
+    <string name="smoking_habit">{b}Smoking{/b} Habit</string>
+    <string name="drinking_habit">{b}Drinking{/b} Habit</string>
+    <string name="zodiac_sign">{b}Zodiac{/b} Sign</string>
+    <string name="who_speaks">Who {b}Speaks{/b}</string>
+    <string name="filter_faith">Faith</string>
+    <string name="pick_body_type">Pick Body Type</string>
+    <string name="colour_of_hair">Colour of Hair</string>
+    <string name="colour_of_eyes2">Colour of Eyes</string>
+    <string name="education_level2">Education Level</string>
+    <string name="smoking_habit2">Smoking Habit</string>
+    <string name="zodiac_sign2">Zodiac Sign</string>
+    <string name="interests">Interests</string>
+    <string name="zodiac_sign3">Zodiac Sign</string>
+    <string name="drinkin_habit">Drinking Habit</string>
+    <string name="search_filter_action_bar">Search Filter</string>
+    <string name="activate_now">Activate {b}Now!{/b}</string>
+    <string name="what_you_get_as_royal">What you get as a {b}Royal User{/b}</string>
+    <string name="see_everything_message"><![CDATA[Get to see your Profile Visitors, who added you as Favourite & who said you\'re hot on Flames Ignited.]]></string>
+    <string name="see_everything">See Everything</string>
+    <string name="set_expiration_timers">Set Expiration Timers</string>
+    <string name="expiration_timers_message">Choose for how long your text and images are to be shared (from 3 seconds up to 7 days).</string>
+    <string name="priority_messages">Priority Messages</string>
+    <string name="priority_messages_message">Your messages have more chances to be read first and get responded, showing them above normal user\'s messages</string>
+    <string name="talk_first_to_newbies">Talk First to New Users</string>
+    <string name="talk_to_newbies_message">Be able to talk to new users from the moment they sign up by eliminating waiting times.</string>
+    <string name="advnced_custom_search">Advanced Custom Search</string>
+    <string name="advanced_custom_search_message">Set custom search preferences including height, zodiac, colour of eyes, education level, languages spoken etc.</string>
+    <string name="hidden_mode">Hidden Mode</string>
+    <string name="hidden_mode_message"><![CDATA[Be anonymous with the option to hide from Public Search (Community), hide from the Hot Wheel © & set your online status off.]]></string>
+    <string name="one_month">1 month</string>
+    <string name="three_months">3 months</string>
+    <string name="six_months">6 months</string>
+    <string name="twelve_months">12 months</string>
+    <string name="royal_user_plans_action_bar">Royal User Plans</string>
+    <string name="balance">Balance</string>
+    <string name="how_to_use_coins">How to {b}Use Coins{/b}</string>
+    <string name="get_featured_and_promoted">Get Featured and Promoted</string>
+    <string name="get_featured_and_promoted_message">Get your profile promoted to all PriveTalk users in your broader area.</string>
+    <string name="give_virtual_gifts">Give Virtual Gifts</string>
+    <string name="virtual_gifts_message">Flirt with style by starting a convarsation with a special delivered virtual gift.</string>
+    <string name="starts_more_chats">Starts More Chats Everyday</string>
+    <string name="starts_more_chats_message">Get 20 more new chats once you exceed your daily limit.</string>
+    <string name="more_chances_message">Get more plays and get shown more on the Hot Wheel©, giving you more chances to get a hot match.</string>
+    <string name="more_chances">Get More Chances on the Hot Wheel©</string>
+    <string name="add_more_pt_coins">Add More PT coins</string>
+    <string name="something_went_wrong">Something went wrong.</string>
+    <string name="pleaseTryAgain">Please Try Again</string>
+    <string name="log_out_dialog">{b}Log{/b} Out</string>
+    <string name="yes_string">Yes</string>
+    <string name="no_string">No</string>
+    <string name="prive_inbox_action_bar">Prive Inbox</string>
+    <string name="expires_in_seven_days">"Expires in 7 days"</string>
+    <string name="chat_add_more">Add {b}More{/b}</string>
+    <string name="tablytics_key">20d38e02e67e34f0177e0d45d09d63553c4a55e1</string>
+    <string name="stringie_block">Block</string>
+    <string name="stringie_report">Report</string>
+    <string name="rude_abusive_behavior">Rude / Abusive behavior</string>
+    <string name="idecent_content">Indecent content</string>
+    <string name="scam_account">Scam Account</string>
+    <string name="spam_account">Spam Account</string>
+    <string name="details_for_reporting">{b}Details{/b} for Reporting</string>
+    <string name="unspecified">Unspecified</string>
+    <string name="single">Single</string>
+    <string name="open">Open</string>
+    <string name="divorced">Divorced</string>
+    <string name="widowed">Widowed</string>
+    <string name="straight">Straight</string>
+    <string name="gay">Gay</string>
+    <string name="bisexual">Bisexual</string>
+    <string name="never">Never</string>
+    <string name="occasionally">Occasionally</string>
+    <string name="often">Often</string>
+    <string name="heavySmoker">Heavy Smoker</string>
+    <string name="daily">Daily</string>
+    <string name="noDegree">No Degree</string>
+    <string name="highSchool">High School</string>
+    <string name="technicalSchool">Technical School</string>
+    <string name="bachelorsDegree">Bachelor\'s Degree</string>
+    <string name="mastersDegree">Master\'s Degree</string>
+    <string name="doctoralDegree">Doctoral Degree</string>
+    <string name="professionalDegree">Professional Degree</string>
+    <string name="universityStudent">University Student</string>
+    <string name="aries">Aries</string>
+    <string name="taurus">Taurus</string>
+    <string name="gemini">Gemini</string>
+    <string name="cancer">Cancer</string>
+    <string name="leo">Leo</string>
+    <string name="virgo">Virgo</string>
+    <string name="libra">Libra</string>
+    <string name="scorpio">Scorpio</string>
+    <string name="sagitarius">Sagitarius</string>
+    <string name="capricorn">Capricorn</string>
+    <string name="aquarius">Aquarius</string>
+    <string name="pisces">Pisces</string>
+    <string name="average">Average</string>
+    <string name="slim">Slim</string>
+    <string name="athletic">Athletic</string>
+    <string name="someExtraWeight">Some Extra Weight</string>
+    <string name="plusSizes">Plus-Sized</string>
+    <string name="black">Black</string>
+    <string name="brown">Brown</string>
+    <string name="blond">Blond</string>
+    <string name="select_photo">Select Photo</string>
+    <string name="cancel">Cancel</string>
+    <string name="picture_uploaded">Picture Uploaded</string>
+    <string name="okay">OKAY</string>
+    <string name="uploading_picture">Uploading Picture</string>
+    <string name="uploading_picture_failed">There was a problem uploading your picture</string>
+    <string name="common_friends">{b}Common{/b} Friends</string>
+    <string name="error_updating_settings_message">Error Updating Settings</string>
+    <string name="appearance">Appearance</string>
+    <string name="verifications">Verifications</string>
+    <string name="profile_picture">Profile Picture</string>
+    <string name="verifyString">Verify</string>
+    <string name="verify_only">Verify</string>
+    <string name="social_media">Social Media</string>
+    <string name="royal_user">Royal User</string>
+    <string name="step_one">Step 1</string>
+    <string name="match_outlines">Match the face outlines</string>
+    <string name="press_camera">Press the camera icon</string>
+    <string name="step_two">Step 2</string>
+    <string name="turn_face_left">Turn your face to the left</string>
+    <string name="wait_for_click_sound">Wait for the click sound</string>
+    <string name="step_three">Step 3</string>
+    <string name="turn_face_right">Turn your face to the right</string>
+    <string name="review_and_submit">Review and Submit *</string>
+    <string name="review_and_submit_faq">*Those photos will be used for your verification by us. No other PriveTalk user will see them.</string>
+    <string name="step_four">Step 4</string>
+    <string name="go">GO</string>
+    <string name="profilePictureVerification">Profile Picture Verification</string>
+    <string name="step_one_text">Step 1: Match the face outlines</string>
+    <string name="step_two_text">Step 2: Turn your face to the left</string>
+    <string name="step_three_text">Step 3: Turn your face to the right</string>
+    <string name="step_four_text">Step 4: Review and Submit</string>
+    <string name="tryAgain">Try Again</string>
+    <string name="submit">Submit</string>
+    <string name="uploading_pictures">Uploading your pictures</string>
+    <string name="cm">cm</string>
+    <string name="kg">kg</string>
+    <string name="interests_sket">Interests</string>
+    <string name="total">total</string>
+    <string name="uploading_profile_pictures_failed">There was a problem uploading your verification pictures</string>
+    <string name="profile_pictures_uploaded">Successfully uploaded your verification pictures</string>
+    <string name="verify_account">Social Verification</string>
+    <string name="popular">Popular</string>
+    <string name="visitors">Visitors</string>
+    <string name="friendly">Friendly</string>
+    <string name="reply">Reply %</string>
+    <string name="icebreaker">Ice Breaker</string>
+    <string name="talks">Talks</string>
+    <string name="impression_voter">Impression Voter</string>
+    <string name="votes">Votes</string>
+    <string name="angel">Angel</string>
+    <string name="positive_impressions">Positive Impressions</string>
+
+    <string name="centimeters">cm</string>
+    <string name="feet">ft</string>
+    <string name="kilos">kg</string>
+    <string name="libres">lb</string>
+    <string name="hide_match_problemo">There was an error removing user from Hot Matches</string>
+    <string name="freeCoins">Free Coins</string>
+    <string name="five_coins">5c</string>
+    <string name="ten_coins">10c</string>
+    <string name="twenty_coins">20c</string>
+    <string name="purchaseBonus">Purchase Bonus</string>
+    <string name="howPopularYourprofileIs" formatted="false">How many people visited your profile.\nUp to  20% free coins and 8% purchase bonus.</string>
+    <string name="pick_something">Pick something</string>
+    <string name="save">SAVE</string>
+    <string name="are_you_sure">Are you sure you want to go back?</string>
+    <string name="will_be_lost">All unsaved changes will be lost</string>
+    <string name="save_used_completed">Data Updated!</string>
+    <string name="failed_to_save_user">There was an error updating your data</string>
+    <string name="preferences">preferences</string>
+    <string name="or">or</string>
+    <string name="name_change">Your name can be changed only one time. This will be the final edit.</string>
+    <string name="you_cannot_edit_name">You can\'t edit this again</string>
+    <string name="edit_birthday_once">You can edit your birthday only once. This is the final edit.</string>
+    <string name="not_royal_user">You are not a Royal User</string>
+    <string name="in_order_visible_hidden_mode">In order to use visible/hidden feature you should be a Royal User. Would you like to try it now?</string>
+    <string name="in_order_visible">You have to be Royal User to use this feauture. Do you want to view our Royal User Plans?</string>
+    <string name="later">Later</string>
+    <string name="reportUser">Report or Block User</string>
+    <string name="not_all_fields">You must select all required fields</string>
+    <string name="user_blocked">You have anonymously blocked this user.</string>
+    <string name="user_reported">You have anonymously reported this user.</string>
+    <string name="block_failed">There was an error trying to block user</string>
+    <string name="report_failed">There was an error trying to report user</string>
+    <string name="request_send">Sending block request</string>
+    <string name="report_request_is_send">Sending report request</string>
+    <string name="add_me">Add me</string>
+    <string name="profile_photo">Would you like to make this photo as your main profile photo?</string>
+    <string name="loading_picture_failed">There was a problem loading picture</string>
+    <string name="thanks_for_subscribing">Thanks for subscribing to Privetalk!</string>
+    <string name="attemptin_to_change">Attempting to change your visibility</string>
+    <string name="succesfully_changed_visibility">Succesfully changed your visibility</string>
+    <string name="coins_uppercase">Coins</string>
+    <string name="coin_balance">%s Coins</string>
+    <string name="coin_balance_2">{b}Balance{/b} %s Coins</string>
+    <string name="voucher_code">Voucher Code</string>
+    <string name="use">Use</string>
+    <string name="last_weeks_bonus">Last Week\'s\nPurchase {b}Bonus{/b}</string>
+    <string name="faith_bold">{b}Faith{/b}</string>
+    <string name="interest_bold">{b}Interest{/b}</string>
+    <string name="faith">Faith</string>
+    <string name="could_not_inapp_coins">Could not initialize Coins In App Purchase.</string>
+    <string name="succesfully_added_new_coins">Congratulations! Successfully added new coins</string>
+    <string name="not_enough_bonus">Not Enough Purchase Bonus</string>
+    <string name="undo">Undo</string>
+    <string name="enter_voucher_code">Enter your voucher code</string>
+    <string name="add_pt_coins">{b}%s{/b} Coins</string>
+    <string name="sexy_flames_ignited_msg" formatted="false">{b}%s,{/b} said you are {b}hot!{/b} What do you think of %s?</string>
+    <string name="him">him</string>
+    <string name="her">her</string>
+    <string name="him_her">him/her</string>
+    <string name="chosen_level">Chosen Level</string>
+    <string name="version_placeholder">v%s</string>
+    <string name="privetalk_property">PriveTalk is a property of\n{b}SocioBright Ltd{/b}</string>
+    <string name="developed_by">Developed by\n{b}Cocoon Creations Ltd{/b}</string>
+    <string name="privacy_policy">Privacy</string>
+    <string name="terms_conditions_about"><![CDATA[Terms & Conditions]]></string>
+    <string name="dating_safety_guide">Safety Guide</string>
+    <string name="contact_us">Contact Us</string>
+    <string name="people">{b}People{/b}</string>
+    <string name="recoverPassword">Recover Password</string>
+    <string name="pleaseCheckEmail">Please check your email for further instructions how to recover your password.</string>
+    <string name="royal_user_filter">You have to be a Royal User to use this filter</string>
+    <string name="checkPlans">Check Plans</string>
+    <string name="add_new">Add New</string>
+    <string name="make_as_profile">Are you sure you want to make this photo as your profile picture?</string>
+    <string name="please_confirm">Please Confirm</string>
+    <string name="delete_picture">Are you sure you want to delete this photo?</string>
+    <string name="confirm_deletion">Confirm Deletion</string>
+    <string name="make_this_priority_message">make this a priority message</string>
+    <string name="later_only">Later</string>
+    <string name="not_verified_message">To send messages you have to verify your profile picture first</string>
+    <string name="conversation_deleted">Conversation Deleted</string>
+    <string name="could_not_find_conversation">Could not find conversation</string>
+
+    <string name="how_many_visited" formatted="false">How many people visited your profile.\nUp to 20% free coins and 8% purchase bonus</string>
+    <string name="how_often_reply" formatted="false">How often you reply on first messages.\nUp to 20% free coins and 8% purchase bonus</string>
+    <string name="how_many_times_initiated_chat" formatted="false">How many times you initiated a new chat.\nUp to 20% free coins and 8% purchase bonus</string>
+    <string name="how_many_times_casted_secret_vote" formatted="false">How many times you casted a secret vote.\nUp to 20% free coins and 8% purchase bonus</string>
+    <string name="how_many_times_received_positive_vote" formatted="false">How many times you received a positive vote.\nUp to 20% free coins and 8% purchase bonus</string>
+
+    <string name="up_to_freecoins">Up to 20 free coins and 8% purchase bonus</string>
+
+    <!--Instagram login detail   -->
+
+    <string name="instagram_client_id">250927849426955</string> <!--1259556937573697-->
+    <string name="instagram_redirect_url">https://socialsizzle.herokuapp.com/auth/</string>
+    <string name="instagram_client_secret">93f21dcd8610d74e703fb190385a14b9</string> <!--5b91a552ab9667ef6650d2e24d6d5825-->
+    <string name="instagram_authorization_code">authorization_code/</string>
+    <string name="instagram_grant_type">authorization_code</string>
+
+    <string name="chooseLocation">Choose your Location</string>
+    <string name="you_are_about_deactivate_title">You are about to deactivate your account</string>
+    <string name="are_you_sure_deactivate">You may lose all PT feautures and benefits permanently. Are you sure?</string>
+    <string name="only_available">You are not a Royal User</string>
+    <string name="royal_user_plans">Would you like to view Royal Users plans?</string>
+    <string name="royal_user_plans_hidden_mode">You have to be a Royal User to enable the Hidden Mode. Do you want to view in detail our premium feautures?</string>
+    <string name="verification_pending">Verification Pending</string>
+    <string name="you_have_to_be_a_royal_user_message">You have to be Royal User to use this feauture. Do you want to view our Royal User Plans?</string>
+    <string name="chat_limit_message">You have reached your daily chat limit. Use 100 PT Coins and {b}chat with 20 more people{/b} today!</string>
+    <string name="common_facebook_friends">common Facebook friends</string>
+    <string name="common_interests">common interests</string>
+    <string name="tap_once_map">Tap once to select your location</string>
+    <string name="you_must_be_eighteen">You have to be 18+</string>
+    <string name="no_profile_photo_message">To send messages you have to upload a profile picture and verify it first</string>
+    <string name="must_upload_profile_picture">To verify your profile picture you have to:\n1) upload a picture &amp;\n2) set it as a profile from the album mode</string>
+    <string name="common_interest_dialog_title">{b}Common{/b} Interests</string>
+    <string name="no_common_interests">No common interests found</string>
+    <string name="no_common_friends">No common friends found</string>
+    <string name="close_to">Close to</string>
+    <string name="application_name">PriveTalk</string>
+    <string name="social_media_account_connected">Social Media account connected</string>
+    <string name="no_more_users_to_show">No more users to show now. Please come back later</string>
+    <string name="must_select_one_gender">You have to select on gender</string>
+    <string name="men">{b}Men{/b}</string>
+    <string name="women">{b}Women{/b}</string>
+    <string name="enable_gps_message">Please check if you have your location services enabled and that you have GPS signal</string>
+    <string name="pick_language">Pick Language</string>
+    <string name="choose_interest">Choose Interest</string>
+    <string name="you_have_voted_up">"You have anonymously voted this user"</string>
+    <string name="you_have_voted_down">"You have anonymously voted this user"</string>
+    <string name="reached_chat_limit">You have reached your daily chat limit. Use 100 PT Coins and chat with 20 more people today!</string>
+    <string name="purchase">Purchase Coins</string>
+    <string name="succesfully_added_chats">Extra Chats successfully Added!</string>
+    <string name="or_less">or less</string>
+    <string name="or_more">or more</string>
+    <string name="self_expiring_message">{b}Self-Expiring{/b}\nMessages</string>
+    <string name="about_terms">Terms</string>
+    <string name="last_login">Last Login:</string>
+    <string name="impress_her_with_gift">Impress her by sending a Gift</string>
+    <string name="impress_him_with_gift">Impress him by sending a Gift</string>
+    <string name="impress_with_gift">Impress by sending a Gift</string>
+    <string name="trust_and_higher_rank">Get trust and higher rank</string>
+    <string name="trust_and_higher_rank_desc">Get an extra verification mark and rank your profile higher on the Community</string>
+
+    <string name="delete">Delete?</string>
+    <string name="profile_photo_delete">Deleting this photo will make you lose your verification badge. Delete?</string>
+    <string name="are_you_sure_selete_account">Are you sure you want to delete your account?</string>
+    <string name="not_able_to_recover">You will not be able to recover your account ever again</string>
+    <string name="deleting_account">Deleting Account</string>
+    <string name="please_wait">Please Wait</string>
+    <string name="my">My</string>
+    <string name="your_account_deactivated">Your account is Deactivated</string>
+    <string name="reactivate">To re-activate your account please contact us at support@privetalk.com</string>
+    <string name="added_to_favorites">Added to favourites</string>
+    <string name="removed_favorite">Removed from favourites</string>
+    <string name="you_are_about_to">"You are about to buy "</string>
+    <string name="are_you_sure_purchase">"Are you sure you would like to purchase "</string>
+    <string name="coins_question">" coins?"</string>
+    <string name="coins_skett">" coins."</string>
+    <string name="read_and_accept">I have read and accept the <b><a style="text-decoration:none" href="http://app.privetalk.com/doc/privetalk-terms-&amp;-conditions.pdf">Terms &#38; Conditions, </a></b>  <b><a href="http://app.privetalk.com/doc/privetalk-privacy-policy.pdf">Privacy Policy</a></b> and <b><a href="http://app.privetalk.com/doc/privetalk-dating-safety-guide.pdf">Dating Safety Guide</a></b></string>
+    <string name="terms">{b}Terms &#38; Conditions,{/b}\u0020</string>
+    <string name="and">and\u0020</string>
+    <string name="safety_guide">{b}Dating Safety Guide{/b}\u0020</string>
+    <string name="privacy_and_policy">{b}Privacy Policy{/b}</string>
+    <string name="already_have_code">You already have verification code</string>
+    <string name="problem_verifying_email">There was a problem verifying email address</string>
+    <string name="enable_gps_msg">Please check if you have your location services enabled and that you have GPS signal</string>
+    <string name="must_accept_terms_and_contitions">You must fill all field and accept Terms and Conditions first</string>
+    <string name="error_getting_img">There was an error while opening image</string>
+    <string name="already_royal_user">You can\'t purchase a Royal User Plan. You are already a Royal User.</string>
+    <string name="error_while_opening_img">There was an error while opening image</string>
+    <string name="enjoy_enhanced_privacy">Enjoy enhanced privacy with our\nscreenshot-blocking feature</string>
+    <string name="warning">Warning</string>
+    <string name="username_is_case_sensitive">*password is case sensitive</string>
+    <string name="purchase_sketo">Purchase</string>
+    <string name="close">Close</string>
+    <string name="you_have_reach_daily_limit">"You have reached your daily chat limit. Use "</string>
+    <string name="daily_limit_2">" PT Coins and {b}chat with "</string>
+    <string name="daily_limit_3">more people today!{/b}</string>
+    <string name="something_went_wrong_with_ver_code">Something went wrong with the verification code</string>
+    <string name="verification_code_wrong">Verification code is invalid or expired</string>
+    <string name="i_got_it">{l}I{/l} got {l}It{/l}</string>
+    <string name="error">Error</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="wrong_username_or_password">Wrong Username or Password</string>
+    <string name="user_info">User Info</string>
+    <string name="hot">Hot</string>
+    <string name="full_screen_photo">full screen \n photo</string>
+    <string name="previous_photo">previous photo</string>
+    <string name="next_photo">next photo</string>
+    <string name="skip_voting">Skip Voting</string>
+    <string name="verified_picture">VERIFIED PICTURE</string>
+    <string name="email_send">Verification Code is send to your email.\nMake sure to check also in your "Junk" Or "Spam" folder. </string>
+    <string name="verification_code_already_Send">"Verification Code already send. Please wait "</string>
+    <string name="try_again">" minutes and try again"</string>
+    <string name="free">FREE</string>
+    <string name="share_privetalk">Share PriveTalk</string>
+    <string name="coins">"You got another 50 coins!"</string>
+    <string name="choose_a_plan">Choose a {b}Plan{/b}</string>
+    <string name="wait">Wait</string>
+    <string name="unread_messages">Unread Messages</string>
+    <string name="promote_cost">This service costs 100 PT coins. Do you want to proceed?</string>
+    <string name="promote_photo">You are about to promote your photo.</string>
+    <string name="problem_loading_user_info">Couldn\'t fetch user\'s information</string>
+    <string name="royal_user_plans_favourite">To see Who Favourited You, you should be a Royal User. View our plans!</string>
+    <string name="royal_user_plans_flames_ignited">In order to use Flames Ignited, you should be a Royal User. View our plans!</string>
+    <string name="royal_user_plans_hidden_community">To hide your profile from the Community (Hidden Mode), you should be a Royal User. View our plans!</string>
+    <string name="about_to_purchase_1_month_royal_user">You are about to purchase the 1 Month Royal User Plan. Would you like to proceed?</string>
+    <string name="about_to_purchase_3_month_royal_user">You are about to purchase the 3 Months Royal User Plan. Would you like to proceed?</string>
+    <string name="about_to_purchase_6_month_royal_user">You are about to purchase the 6 Months Royal User Plan. Would you like to proceed?</string>
+    <string name="about_to_purchase_12_month_royal_user">You are about to purchase the 12 Months Royal User Plan. Would you like to proceed?</string>
+    <string name="are_you_sure_this_plan">Are you sure you want to purchase this plan?</string>
+    <string name="royal_user_plans_search_filters">You have to be a Royal User to customize your Search Filters. Do you want to view our Royal User Plans?</string>
+    <string name="for_b">for {b}</string>
+    <string name="per_month">{/b} per month</string>
+    <string name="profile_picture_verification">Profile Picture Verification</string>
+    <string name="hidden_mode_on">Hidden Mode On</string>
+    <string name="hedden_mode_off">Hidden Mode off</string>
+    <string name="view_our_plans">In order to see who visited you, you should be a Royal User. View our plans!</string>
+    <string name="one_month_royal_plan">1 Month Royal User Plan</string>
+    <string name="three_months_royal_plan">3 Months Royal User Plan</string>
+    <string name="six_months_royal_plan">6 Months Royal User Plan</string>
+    <string name="twelve_months_royal_plan">12 Months Royal User Plan</string>
+    <string name="warning_">Warning!</string>
+    <string name="please_wait_until_review_your_photos">Please wait until we review your photos. Thank you for your patience.</string>
+    <string name="please_check_your_internet_connection">Please check your internet connection</string>
+    <string name="set_by_user">Set by User</string>
+    <string name="delete_account_message">Your account is now de-activated and will be permanently deleted shortly.\n\nIn case this was done by error, please contact us at support@privetalk.com  to restore your account before the deletion is completed</string>
+    <string name="user_cancelled">User cancelled</string>
+    <string name="error_purchasing_coins">Error purchasing coins.</string>
+    <string name="try_again_">Try again</string>
+    <string name="to_use_hot_wheel_blah_blah">To use the hot wheel, you have to Upload and Set a profile picture first.</string>
+    <string name="permission_login">You do not have permission to log in.\nFor support contact us via our website.</string>
+    <string name="break_the_ice_speak_about">{b}Break the ice! Speak about...{/b}</string>
+    <string name="password">password</string>
+    <string name="create_an_account">Create an {b}Account{/b}</string>
+    <string name="share_prive">{b}Share{/b} Prive Talk</string>
+    <string name="earn_bonus">Earn \n{b}50 coins{/b}</string>
+    <string name="basic">{b}Basic{/b}</string>
+    <string name="plan">Plan</string>
+    <string name="discount">Discount</string>
+    <string name="add_more">Add {b}More{/b}</string>
+    <string name="search_filter">Search {b}Filter{/b}</string>
+    <string name="log_out">Are you sure you want to Log Out?</string>
+    <string name="my_profile">My profile</string>
+    <string name="promote">Promote</string>
+    <string name="add_more_re_sugar">Add {b}More{/b}</string>
+    <string name="view">View</string>
+    <string name="more">More</string>
+    <string name="within_km">within\n{b}30 km{/b}</string>
+    <string name="royal_user_filters">{b}Rolyal User{/b} Filters</string>
+    <string name="expires_in">"Expires in"</string>
+    <string name="day_letter">"{b}D{/b} "</string>
+    <string name="hour_letter">"{b}h{/b} "</string>
+    <string name="minute_letter">"{b}m{/b} "</string>
+    <string name="second_letter">{b}s{/b}</string>
+    <string name="message_time_day">" day"</string>
+    <string name="message_time_day_end">""</string>
+    <string name="message_time_days_end">"s "</string>
+    <string name="message_hour">" hour"</string>
+    <string name="message_minute">" minute"</string>
+    <string name="message_time_minute_end">" "</string>
+    <string name="message_time_minutes_end">"s"</string>
+    <string name="seconds_message">" seconds"</string>
+    <string name="search_stringie">Search</string>
+    <string name="country_code_error">Could not find necessary location data to register. Please select one of the following</string>
+    <string name="try_again_country_code">TRY AGAIN</string>
+    <string name="reposition">REPOSITION</string>
+    <string name="vote_your_impression">{b}Vote{/b} your Impression</string>
+    <string name="hide_profile">Hide your Profile?</string>
+    <string name="hide_profile_message">Are you sure you want to activate Hidden Mode? This will make your profile Hidden from the Hot Wheel and the Community, giving you less interaction.</string>
+    <string name="already_profile">This photo is already set as profile picture</string>
+    <string name="how_to_verify_your_profile">How to verify your profile!</string>
+    <string name="tap_the_three_chekmarks_verification_message">Tap the three checkmarks next to your Profile circle to show you the verifications.\nSee the verifications! </string>
+    <string name="purchase_another_plan">You can\'t purchase another plan. You are already a Royal User.</string>
+    <string name="block_report_user_title">{b}Block - Report{/b} user</string>
+    <string name="no_results">No Results</string>
+</resources>
+

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+
+    <com.privetalk.app.utilities.PriveTalkTextView
+        android:layout_marginTop="15dp"
+        android:text="Edit your personal message"
+        android:textColor="@android:color/black"
+        app:ttf_name="@string/roboto_bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
+    <com.privetalk.app.utilities.PriveTalkEditText
+        android:id="@+id/editItem"
+        android:layout_margin="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:padding="5dp"
+        android:hint="@string/my_name_is"
+        android:background="@android:color/transparent"
+        android:textColor="@android:color/black"
+        android:textSize="15sp"
+        app:ttf_name="@string/roboto_regular" />
+
+</LinearLayout>

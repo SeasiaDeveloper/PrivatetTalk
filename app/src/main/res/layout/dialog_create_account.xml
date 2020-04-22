@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clickable="true"
+    android:focusableInTouchMode="true"
+    android:gravity="center">
+
+
+    <View
+        android:id="@+id/outsideArea"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <RelativeLayout
+        android:id="@+id/myDialog"
+        android:layout_width="320dp"
+        android:layout_height="300dp"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="2dp"
+        android:background="@android:color/transparent">
+
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="7dp"
+            android:background="@android:drawable/dialog_holo_light_frame" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="15dp"
+            android:background="@drawable/gradient_rectangle_border" />
+
+        <LinearLayout
+            android:id="@+id/view1"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:gravity="center">
+
+            <com.privetalk.app.utilities.PriveTalkTextView
+                android:id="@+id/testingStringies"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/stringie"
+                android:textColor="@color/welcome_text"
+                android:textSize="27sp" />
+
+
+        </LinearLayout>
+
+
+        <com.privetalk.app.utilities.PriveTalkTextView
+            android:id="@+id/view2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/view1"
+            android:layout_marginLeft="40dp"
+            android:text="@string/use_one_of_the_following"
+            android:textColor="@color/welcome_text"
+            android:visibility="gone"
+            app:ttf_name="@string/roboto_regular" />
+
+
+        <LinearLayout
+            android:id="@+id/view3"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:layout_below="@+id/view2"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="40dp"
+            android:background="@drawable/dotted_line"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:id="@+id/btnFbLogin"
+                    android:textColor="#ffffff"
+                    android:background="@drawable/background"
+                    android:text="LOG IN WITH FACEBOOK" />
+
+                <ImageView
+                    android:id="@+id/facebookLogin"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:padding="10dp"
+                    android:src="@drawable/facebook_icon"
+                    android:visibility="gone" />
+
+                <ImageView
+                    android:id="@+id/googleLogin"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:padding="10dp"
+                    android:src="@drawable/google_plus_icon"
+                    android:visibility="gone" />
+
+
+                <ImageView
+                    android:id="@+id/vkIcon"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:padding="10dp"
+                    android:src="@drawable/viking_icon"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:gravity="center">
+
+                <com.privetalk.app.utilities.PriveTalkTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/verification_credit"
+                    android:textColor="@color/welcome_text"
+                    app:ttf_name="@string/roboto_regular" />
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12dp"
+                    android:src="@drawable/verification_credit_icon" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/createAccountEmailContainer"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_below="@+id/view3"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="40dp"
+            android:background="@drawable/dotted_line"
+            android:orientation="horizontal"
+            android:visibility="gone"
+            android:weightSum="3">
+
+
+            <ImageView
+                android:id="@+id/createAccountMail"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:padding="10dp"
+                android:src="@drawable/mail_icon" />
+
+
+            <com.privetalk.app.utilities.PriveTalkTextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:text="@string/email_account"
+                android:textColor="@color/welcome_text"
+                android:textSize="19sp"
+                app:ttf_name="@string/roboto_light" />
+
+
+        </LinearLayout>
+
+        <com.privetalk.app.utilities.PriveTalkTextView
+            android:id="@+id/asterisk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/createAccountEmailContainer"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="20dp"
+            android:gravity="center_vertical"
+            android:text="*"
+            android:textColor="@color/welcome_text"
+            android:textSize="12sp"
+            app:ttf_name="@string/roboto_regular" />
+
+        <com.privetalk.app.utilities.PriveTalkTextView
+            android:id="@+id/ps"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/createAccountEmailContainer"
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginBottom="20dp"
+            android:layout_toRightOf="@+id/asterisk"
+            android:gravity="center_vertical"
+            android:text="@string/we_never_post"
+            android:textColor="@color/welcome_text"
+            android:textSize="12sp"
+            app:ttf_name="@string/roboto_regular" />
+
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/closeDialog"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_alignTop="@+id/myDialog"
+        android:layout_alignRight="@+id/myDialog"
+        android:layout_marginTop="7dp"
+        android:layout_marginRight="10dp"
+        android:src="@drawable/close_dialog_icon" />
+
+
+</RelativeLayout>

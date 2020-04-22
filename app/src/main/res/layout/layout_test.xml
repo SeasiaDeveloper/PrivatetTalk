@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<com.privetalk.app.utilities.RecyclerViewPager xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/recyclerView1"
+    android:layout_width="278dp"
+    android:layout_height="278dp"
+    android:background="@android:color/transparent"
+    app:rvp_singlePageFling="true"
+    app:rvp_triggerOffset="0.4" />

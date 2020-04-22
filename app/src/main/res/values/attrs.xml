@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CustomFontTextView">
+        <attr name="ttf_name" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="RowText">
+        <attr name="row_text" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="CustomImageView">
+        <attr name="widthEqualsHeight" format="boolean"/>
+        <attr name="heightEqualsWidth" format="boolean"/>
+    </declare-styleable>
+
+    <declare-styleable name="ProfilePersonalInfoContainer">
+        <attr name="statictitleText" format="string" />
+        <attr name="dynamicDescriptionText" format="string" />
+        <attr name="imageViewId" format="reference|integer" />
+        <attr name="inflateOrder" format="reference|integer" />
+    </declare-styleable>
+
+    <declare-styleable name="PriveTalkPicker">
+        <attr name="android:entries" />
+    </declare-styleable>
+
+
+    <declare-styleable name="RangeSeekBar">
+        <attr name="absoluteMinValue" format="integer|float"/>
+        <attr name="absoluteMaxValue" format="integer|float"/>
+        <attr name="singleThumb" format="boolean"/>
+    </declare-styleable>
+
+    <declare-styleable name="RecyclerViewPager">
+        <attr name="rvp_triggerOffset" format="float" />
+        <attr name="rvp_flingFactor" format="float" />
+        <attr name="rvp_singlePageFling" format="boolean" />
+    </declare-styleable>
+</resources>

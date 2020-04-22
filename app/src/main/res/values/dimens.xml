@@ -1,0 +1,52 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="one_dp">1dp</dimen>
+    <dimen name="three_dp">3dp</dimen>
+    <dimen name="offer_width">250dp</dimen>
+    <dimen name="switch_thumb_size">20dp</dimen>
+    <dimen name="hot_matches_padding">10dp</dimen>
+    <dimen name="distance_bar_width">190dp</dimen>
+    <dimen name="search_filter_padding">30dp</dimen>
+    <dimen name="distance_margin">22dp</dimen>
+    <dimen name="picker_dialog_width">320dp</dimen>
+    <dimen name="picker_dialog_height">320dp</dimen>
+    <dimen name="action_bar">56dp</dimen>
+    <dimen name="menu_icon">32dp</dimen>
+    <dimen name="inbox_row_left_and_right_padding">15dp</dimen>
+    <dimen name="inbox_row_top_and_bottom_padding">5dp</dimen>
+    <dimen name="swipeHotWheelAlpha">120dp</dimen>
+    <dimen name="chat_gifts_layout">270dp</dimen>
+    <dimen name="chat_gifts_layout_minus">-270dp</dimen>
+    <dimen name="negative_chat_gifts_layout">-220dp</dimen>
+    <dimen name="expiration_time_layout_margin">5dp</dimen>
+    <dimen name="expiration_time_seek_bar_margin">14dp</dimen>
+    <dimen name="border_width">1dp</dimen>
+
+    <dimen name="popup_verification_width">254dp</dimen>
+    <dimen name="popup_verification_height">242dp</dimen>
+
+    <dimen name="popup_common_friends_width">240dp</dimen>
+    <dimen name="popup_common_friends_height">280dp</dimen>
+
+    <dimen name="popup_common_interests_width">240dp</dimen>
+    <dimen name="popup_common_interests_height">300dp</dimen>
+
+    <dimen name="hidden_view_height">75dp</dimen>
+    <dimen name="blue_circle_border_width">22dp</dimen>
+    <dimen name="photo_view_pager_width">280dp</dimen>
+    <dimen name="photo_view_pager_width_top_margin">28dp</dimen>
+    <dimen name="edit_pager_footer">45dp</dimen>
+    <dimen name="border_width_normal">1dp</dimen>
+    <dimen name="border_width_bold">4dp</dimen>
+
+    <dimen name="chat_photo">160dp</dimen>
+
+    <dimen name="small_photos_width">30dp</dimen>
+    <dimen name="full_screen_thumbs_width">60dp</dimen>
+    <dimen name="seek_bar_button_size">36dp</dimen>
+    <dimen name="seek_bar_button_margin">-18dp</dimen>
+    <dimen name="seek_bar_button_padding">8dp</dimen>
+</resources>

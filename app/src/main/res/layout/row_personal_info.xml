@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="?listPreferredItemHeightSmall"
+    android:background="@drawable/gradient_rectangle_border">
+
+    <com.privetalk.app.utilities.PriveTalkTextView
+        android:id="@+id/row_personal_info_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="16dp"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        app:ttf_name="@string/roboto_bold" />
+
+    <com.privetalk.app.utilities.PriveTalkTextView
+        android:id="@+id/row_personal_info_contents"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:singleLine="true"
+        android:ellipsize="end"
+        android:layout_marginLeft="16dp"
+        android:layout_toLeftOf="@+id/arrow"
+        android:layout_toRightOf="@+id/row_personal_info_title"
+        android:textColor="@android:color/black"
+        android:textSize="15sp"
+        app:ttf_name="@string/roboto_regular" />
+
+    <ImageView
+        android:id="@+id/arrow"
+        android:layout_width="22dp"
+        android:layout_height="22dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="6dp"
+        android:layout_marginRight="16dp"
+        android:src="@drawable/arrow_right" />
+
+</RelativeLayout>

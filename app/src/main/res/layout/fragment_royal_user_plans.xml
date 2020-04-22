@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ViewSwitcher xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:inAnimation="@android:anim/fade_in"
+    android:outAnimation="@android:anim/fade_out">
+
+    <!--<FrameLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:background="@android:color/white">-->
+
+    <!--<ProgressBar-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_gravity="center" />-->
+
+    <!--</FrameLayout>-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:orientation="vertical"
+        android:padding="5dp"
+        android:weightSum="5">
+
+        <com.privetalk.app.utilities.PriveTalkTextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.65"
+            android:gravity="center"
+            android:text="@string/choose_a_plan"
+            android:textColor="@color/welcome_text"
+            android:textSize="25sp"
+            app:ttf_name="@string/roboto_light" />
+
+        <androidx.percentlayout.widget.PercentRelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="5dp"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/planAImage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/one_month_plan_nodpi"
+                app:layout_widthPercent="85%" />
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignRight="@+id/planAImage"
+                android:layout_centerVertical="true"
+                app:layout_widthPercent="28%">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:orientation="vertical">
+
+                    <com.privetalk.app.utilities.PriveTalkTextView
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@string/basic"
+                        android:textColor="@android:color/white"
+                        android:textSize="22dp"
+                        app:ttf_name="@string/roboto_light" />
+
+                    <com.privetalk.app.utilities.PriveTalkTextView
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="-3dp"
+                        android:gravity="center"
+                        android:text="@string/plan"
+                        android:textColor="@android:color/white"
+                        android:textSize="17dp"
+                        app:ttf_name="@string/roboto_light" />
+                </LinearLayout>
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:orientation="vertical"
+                android:layout_marginLeft="35dp">
+
+                <com.privetalk.app.utilities.PriveTalkTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/one_month"
+                    android:textColor="@color/welcome_text"
+                    android:textSize="25sp"
+                    app:ttf_name="@string/roboto_bold" />
+
+                <com.privetalk.app.utilities.PriveTalkTextView
+                    android:id="@+id/oneMonthPlan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"
+                    app:ttf_name="@string/roboto_regular" />
+
+            </LinearLayout>
+
+        </androidx.percentlayout.widget.PercentRelativeLayout>
+
+        <androidx.percentlayout.widget.PercentRelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="5dp"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/planBImage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/three_months_plan_nodpi"
+                app:layout_widthPercent="85%" />
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignRight="@+id/planBImage"
+                android:layout_centerVertical="true"
+                app:layout_widthPercent="28%">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:orientation="vertical">
+
+                    <com.privetalk.app.utilities.PriveTalkTextView
+                        android:id="@+id/threeMonthsDiscount"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="0%"
+                        android:textColor="@android:color/black"
+                        android:textSize="25dp"
+                        app:ttf_name="@string/roboto_bold" />
+
+                    <com.privetalk.app.utilities.PriveTalkTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="-4dp"
+                        android:text="@string/discount"
+                        android:textColor="@android:color/black"
+                        android:textSize="14sp"
+                        app:ttf_name="@string/roboto_light" />
+                </LinearLayout>
+            </RelativeLayout>
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:orientation="vertical"
+                android:layout_marginLeft="35dp">
+
+                <com.privetalk.app.utilities.PriveTalkTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/three_months"
+                    android:textColor="@color/welcome_text"
+                    android:textSize="25sp"
+                    app:ttf_name="@string/roboto_bold" />
+
+                <com.privetalk.app.utilities.PriveTalkTextView
+                    android:id="@+id/threeMonthsPlan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"
+                    app:ttf_name="@string/roboto_regular" />
+
+            </LinearLayout>
+
+        </androidx.percentlayout.widget.PercentRelativeLayout>
+
+
+        <!-- SIX MONTHS-->
+        <androidx.percentlayout.widget.PercentRelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="5dp"
+            android:layout_weight="1">
+
+
+            <ImageView
+                android:id="@+id/planCImage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/six_months_nodpi"
+                app:layout_widthPercent="85%" />
+
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignRight="@+id/planCImage"
+                android:layout_centerVertical="true"
+                app:layout_widthPercent="28%">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:orientation="vertical">
+
+
+                    <com.privetalk.app.utilities.PriveTalkTextView
+                        android:id="@+id/sixMonthsDiscount"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="0%"
+                        android:textColor="@android:color/black"
+                        android:textSize="25dp"
+                        app:ttf_name="@string/roboto_bold" />
+
+                    <com.privetalk.app.utilities.PriveTalkTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="-4dp"
+                        android:text="@string/discount"
+                        android:textColor="@android:color/black"
+                        android:textSize="14sp"
+                        app:ttf_name="@string/roboto_light" />
+                </LinearLayout>
+            </RelativeLayout>
+
+          <!--  <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:orientation="vertical"
+                app:layout_marginLeftPercent="11%">-->
+
+         <LinearLayout
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_alignParentLeft="true"
+               android:layout_centerVertical="true"
+               android:orientation="vertical"
+               android:layout_marginLeft="35dp">
+
+                <com.privetalk.app.utilities.PriveTalkTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/six_months"
+                    android:textColor="@color/welcome_text"
+                    android:textSize="25sp"
+                    app:ttf_name="@string/roboto_bold" />
+
+                <com.privetalk.app.utilities.PriveTalkTextView
+                    android:id="@+id/sixMonthsPlan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"
+                    app:ttf_name="@string/roboto_regular" />
+
+            </LinearLayout>
+
+        </androidx.percentlayout.widget.PercentRelativeLayout>
+
+
+        <!-- TWELVE MONTHS-->
+        <androidx.percentlayout.widget.PercentRelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="5dp"
+            android:layout_weight="1">
+
+
+            <ImageView
+                android:id="@+id/planDImage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/twelve_months_nodpi"
+                app:layout_widthPercent="85%" />
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignRight="@+id/planDImage"
+                android:layout_centerVertical="true"
+                app:layout_widthPercent="28%">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:orientation="vertical">
+
+                    <com.privetalk.app.utilities.PriveTalkTextView
+                        android:id="@+id/tweelveMonthsDiscount"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="0%"
+                        android:textColor="@android:color/black"
+                        android:textSize="25dp"
+                        app:ttf_name="@string/roboto_bold" />
+
+                    <com.privetalk.app.utilities.PriveTalkTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="-4dp"
+                        android:text="@string/discount"
+                        android:textColor="@android:color/black"
+                        android:textSize="14sp"
+                        app:ttf_name="@string/roboto_light" />
+                </LinearLayout>
+            </RelativeLayout>
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:orientation="vertical"
+                android:layout_marginLeft="93dp">
+
+                <com.privetalk.app.utilities.PriveTalkTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/twelve_months"
+                    android:textColor="@color/welcome_text"
+                    android:textSize="25sp"
+                    app:ttf_name="@string/roboto_bold" />
+
+                <com.privetalk.app.utilities.PriveTalkTextView
+                    android:id="@+id/twelveMonthsPlan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/black"
+                    android:textSize="14.5sp"
+                    app:ttf_name="@string/roboto_regular" />
+
+            </LinearLayout>
+
+        </androidx.percentlayout.widget.PercentRelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.35" />
+
+    </LinearLayout>
+
+</ViewSwitcher>

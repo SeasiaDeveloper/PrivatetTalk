@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipChildren="false"
+    android:clipToPadding="false">
+
+    <ScrollView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/otherUserScrollview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:padding="16dp"
+        android:scrollbarStyle="outsideOverlay">
+
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipChildren="false"
+            android:clipToPadding="false">
+
+            <!-- *********************-->
+            <!-- wheel layout included-->
+
+            <include
+                android:id="@+id/profileHotWheelContainer"
+                layout="@layout/layout_view_user_profile" />
+
+
+            <!-- *******************************-->
+            <!-- user online/offline status icon-->
+
+            <ImageView
+                android:id="@+id/userStatus"
+                android:layout_width="33dp"
+                android:layout_height="33dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignRight="@+id/profileHotWheelContainer"
+                android:background="@drawable/oval_blue_border"
+                android:padding="2dp"
+                android:src="@drawable/oval_gray_border" />
+
+
+            <RelativeLayout
+                android:id="@+id/viewUserProfileOptions"
+                android:layout_width="wrap_content"
+                android:layout_height="65dp"
+                android:layout_alignLeft="@+id/profileHotWheelContainer"
+                android:layout_alignRight="@+id/profileHotWheelContainer"
+                android:layout_below="@+id/profileHotWheelContainer"
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="10dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp">
+
+                <ImageView
+                    android:id="@+id/sendMessage"
+                    android:layout_width="65dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentLeft="true"
+                    android:background="@drawable/oval_blue_border"
+                    android:padding="15dp"
+                    android:src="@drawable/inbox_message_icon" />
+
+                <ImageView
+                    android:id="@+id/sendStar"
+                    android:layout_width="65dp"
+                    android:layout_height="match_parent"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/oval_blue_border"
+                    android:padding="15dp"
+                    android:src="@drawable/star_blue_icon" />
+
+                <ImageView
+                    android:id="@+id/sendGift"
+                    android:layout_width="65dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:background="@drawable/oval_blue_border"
+                    android:padding="15dp"
+                    android:src="@drawable/gift_blue_icon" />
+
+
+            </RelativeLayout>
+
+
+            <com.privetalk.app.utilities.PriveTalkTextView
+                android:id="@+id/profilePersonalInfoStatic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/viewUserProfileOptions"
+                android:text="@string/profilePersonalInfo"
+                android:textColor="@android:color/black"
+                android:textSize="17sp"
+                app:ttf_name="@string/roboto_bold" />
+
+            <include
+                android:id="@+id/otherUserPersonalInfo"
+                layout="@layout/layout_other_user_personal_info" />
+
+            <com.privetalk.app.utilities.PriveTalkTextView
+                android:id="@+id/profilePersonalIterestsStatic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/otherUserPersonalInfo"
+                android:layout_marginTop="12dp"
+                android:text="@string/interests_sket"
+                android:textColor="@android:color/black"
+                android:textSize="17sp"
+                app:ttf_name="@string/roboto_bold" />
+
+            <include
+                android:id="@+id/otherUserInterests"
+                layout="@layout/layout_other_user_interests" />
+
+            <com.privetalk.app.utilities.PriveTalkTextView
+                android:id="@+id/profilePersonFewThinksAboutMe"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/otherUserInterests"
+                android:layout_marginTop="12dp"
+                android:text="@string/fewThingsAboutMe"
+                android:textColor="@android:color/black"
+                android:textSize="17sp"
+                app:ttf_name="@string/roboto_bold" />
+
+            <FrameLayout
+                android:id="@+id/editTextContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/profilePersonFewThinksAboutMe"
+                android:layout_marginLeft="-5dp"
+                android:layout_marginRight="-5dp"
+                android:layout_marginTop="5dp"
+                android:clipChildren="false"
+                android:clipToPadding="false"
+                android:visibility="visible">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/card_view_edittext"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
+                    app:cardElevation="4dp"
+                    app:cardUseCompatPadding="true">
+
+                    <!--<RelativeLayout-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content">-->
+
+                    <com.privetalk.app.utilities.PriveTalkTextView
+                        android:id="@+id/profileTextAboutMe"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/profileEdittextEdit"
+                        android:background="@drawable/gradient_rectangle_border"
+                        android:maxLength="500"
+                        android:paddingBottom="8dp"
+                        android:padding="20dp"
+                        android:textColor="@android:color/black"
+                        android:textSize="15sp" />
+
+                    <!--<View-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:layout_alignBottom="@+id/profileEditText"-->
+                    <!--android:layout_alignParentTop="true"-->
+                    <!--android:background="@drawable/gradient_rectangle_border" />-->
+
+
+                    <!--</RelativeLayout>-->
+
+                </androidx.cardview.widget.CardView>
+            </FrameLayout>
+
+            <com.privetalk.app.utilities.PriveTalkTextView
+                android:id="@+id/profileWeeklyAwardsContainer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/editTextContainer"
+                android:layout_marginTop="12dp"
+                android:text="@string/weeklyAwards"
+                android:textColor="@android:color/black"
+                android:textSize="17sp"
+                app:ttf_name="@string/roboto_bold" />
+
+            <FrameLayout
+                android:id="@+id/profileAwardsFrameLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/profileWeeklyAwardsContainer"
+                android:layout_marginLeft="-5dp"
+                android:layout_marginRight="-5dp"
+                android:layout_marginTop="5dp"
+                android:clipChildren="false"
+                android:clipToPadding="false">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/card_view_weekly_awards"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
+                    app:cardElevation="4dp"
+                    app:cardUseCompatPadding="true">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:clipChildren="false"
+                        android:clipToPadding="false">
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_alignBottom="@+id/weekly_awards_main_container"
+                            android:layout_alignTop="@+id/weekly_awards_main_container"
+                            android:background="@drawable/gradient_rectangle_border" />
+
+                        <RelativeLayout
+                            android:id="@+id/weekly_awards_main_container"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:clipChildren="false"
+                            android:clipToPadding="false"
+                            android:padding="10dp">
+
+                            <com.privetalk.app.utilities.PriveTalkTextView
+                                android:id="@+id/profileThisWeekTextView"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentLeft="true"
+                                android:text="@string/thisWeek"
+                                android:textColor="@android:color/black"
+                                android:textSize="17sp"
+                                app:ttf_name="@string/roboto_bold" />
+
+                            <LinearLayout
+                                android:id="@+id/profileAwardsRowsContainer"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/profileThisWeekTextView"
+                                android:clipChildren="false"
+                                android:clipToPadding="false"
+                                android:orientation="vertical">
+
+                                <com.privetalk.app.utilities.ProfileAwardsContainer
+                                    android:id="@+id/popularAwardsContainer"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content" />
+
+                                <com.privetalk.app.utilities.ProfileAwardsContainer
+                                    android:id="@+id/friendlyAwardsContainer"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content" />
+
+                                <com.privetalk.app.utilities.ProfileAwardsContainer
+                                    android:id="@+id/iceBreakerAwardsContainer"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content" />
+
+                                <com.privetalk.app.utilities.ProfileAwardsContainer
+                                    android:id="@+id/impressionVoterAwardsContainer"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content" />
+
+                                <com.privetalk.app.utilities.ProfileAwardsContainer
+                                    android:id="@+id/angelAwardsContainer"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content" />
+                            </LinearLayout>
+
+                        </RelativeLayout>
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+            </FrameLayout>
+
+
+            <com.privetalk.app.utilities.PriveTalkTextView
+                android:id="@+id/reportOrBlockUserText"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_below="@+id/profileAwardsFrameLayout"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:text="@string/reportUser"
+                android:textColor="@android:color/black"
+                android:textSize="14sp"
+                app:ttf_name="@string/roboto_regular" />
+        </RelativeLayout>
+
+
+    </ScrollView>
+</RelativeLayout>
+
+
+

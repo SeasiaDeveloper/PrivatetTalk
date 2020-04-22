@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingTop="10dp">
+
+
+
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginLeft="5dp"
+        android:src="@android:color/transparent"
+        app:civ_border_color="@color/blue_border_color"
+        app:civ_border_width="1dp" />
+
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/senderProfilePicture"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginLeft="5dp"
+        android:src="@android:color/white"
+        app:civ_border_color="@color/blue_border_color"
+        app:civ_border_width="1dp" />
+
+
+    <ProgressBar
+        android:id="@+id/messageProgressBar"
+        style="?android:attr/progressBarStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/senderProfilePicture"
+        android:layout_marginLeft="-6dp"
+        android:layout_toRightOf="@id/senderProfilePicture" />
+
+
+    <ImageView
+        android:id="@+id/priveTalkLogoView"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginLeft="5dp"
+        android:padding="7dp"
+        android:visibility="gone" />
+
+    <!--<ImageView-->
+    <!--android:id="@+id/notificationIcon"-->
+    <!--android:layout_width="20dp"-->
+    <!--android:layout_height="20dp"-->
+    <!--android:layout_alignBottom="@+id/senderProfilePicture"-->
+    <!--android:layout_alignRight="@+id/senderProfilePicture"-->
+    <!--android:src="@drawable/notification_msg" />-->
+
+    <com.privetalk.app.utilities.PriveTalkTextView
+        android:id="@+id/notificationMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/senderProfilePicture"
+        android:layout_alignTop="@+id/senderProfilePicture"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@id/senderProfilePicture"
+        android:gravity="center_vertical"
+        android:textColor="@android:color/black"
+        android:textSize="15sp"
+        app:ttf_name="@string/roboto_regular" />
+
+    <com.privetalk.app.utilities.PriveTalkTextView
+        android:id="@+id/notificationDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/notificationMessage"
+        android:layout_below="@+id/notificationMessage"
+        android:layout_marginTop="-5dp"
+        android:paddingBottom="2dp"
+        app:ttf_name="@string/roboto_light" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_below="@+id/notificationDate"
+        android:layout_marginLeft="20dp"
+        android:background="@android:color/darker_gray" />
+
+</RelativeLayout>

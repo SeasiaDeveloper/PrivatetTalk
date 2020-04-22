@@ -1,0 +1,648 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+
+    <!-- *********** -->
+    <!-- Scroll View -->
+    <!-- *********** -->
+    <com.privetalk.app.utilities.MyScrollView
+        android:id="@+id/myScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="15dp">
+
+
+            <!-- *********** -->
+            <!-- Filters box 1-->
+            <!-- *********** -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/settings_dotted_line"
+                android:clipChildren="false"
+                android:clipToPadding="false"
+                android:orientation="vertical"
+                android:padding="15dp">
+
+
+                <!-- *********** -->
+                <!-- Looking for row-->
+                <!-- *********** -->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp">
+
+                    <ImageView
+                        android:id="@+id/searchFemale"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="20dp"
+                        android:background="@drawable/circle_blue_stroke"
+                        android:padding="5dp"
+                        android:src="@drawable/female_icon" />
+
+                    <ImageView
+                        android:id="@+id/searchMale"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_toLeftOf="@+id/searchFemale"
+                        android:background="@drawable/circle_blue_stroke"
+                        android:padding="5dp"
+                        android:src="@drawable/male_icon" />
+
+                    <com.privetalk.app.utilities.PriveTalkTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@+id/searchFemale"
+                        android:layout_alignTop="@+id/searchFemale"
+                        android:gravity="center_vertical"
+                        android:text="@string/search_looking_for"
+                        android:textColor="@color/welcome_text"
+                        android:textSize="18sp"
+                        app:ttf_name="@string/roboto_light" />
+
+
+                </RelativeLayout>
+
+
+                <!-- *********** -->
+                <!-- Location Row-->
+                <!-- *********** -->
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_marginTop="15dp">
+
+
+                    <ViewSwitcher
+                        android:id="@+id/gpsButton"
+                        android:layout_width="40dp"
+                        android:layout_height="45dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_toLeftOf="@+id/myLocationTick">
+
+                        <LinearLayout
+                            android:layout_width="40dp"
+                            android:layout_height="45dp"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="30dp"
+                                android:src="@drawable/location_icon" />
+
+                            <com.privetalk.app.utilities.PriveTalkTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="15dp"
+                                android:gravity="center"
+                                android:text="GPS"
+                                android:textColor="@color/welcome_text"
+                                app:ttf_name="@string/roboto_light" />
+
+                        </LinearLayout>
+
+
+                        <ProgressBar
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_gravity="center" />
+
+                    </ViewSwitcher>
+
+
+                    <com.privetalk.app.utilities.PriveTalkTextView
+                        android:id="@+id/or"
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@+id/gpsButton"
+                        android:layout_alignTop="@+id/gpsButton"
+                        android:layout_toLeftOf="@+id/gpsButton"
+                        android:gravity="center"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="15dp"
+                        android:text="@string/or"
+                        android:textColor="@color/welcome_text"
+                        android:textSize="20sp"
+                        app:ttf_name="@string/roboto_bold" />
+
+                    <com.privetalk.app.utilities.PriveTalkEditText
+                        android:id="@+id/searchLocation"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@+id/gpsButton"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignTop="@+id/gpsButton"
+                        android:layout_toLeftOf="@+id/or"
+                        android:background="@drawable/gradient_rectangle_border"
+                        android:hint="@string/search_in_location"
+                        android:paddingLeft="5dp"
+                        android:paddingRight="5dp"
+                        android:textColor="@android:color/black"
+                        app:ttf_name="@string/roboto_regular" />
+
+                </RelativeLayout>
+
+
+                <!-- *********** -->
+                <!-- Distance Row-->
+                <!-- *********** -->
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="15dp"
+                    android:clipChildren="false"
+                    android:clipToPadding="false">
+
+                    <com.privetalk.app.utilities.PriveTalkTextView
+                        android:id="@+id/searchWithin"
+                        android:layout_width="66dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:clickable="false"
+                        android:gravity="start"
+                        android:text="@string/within_km"
+                        android:textColor="@color/welcome_text"
+                        android:textSize="16sp"
+                        app:ttf_name="@string/roboto_regular" />
+
+
+                    <androidx.percentlayout.widget.PercentRelativeLayout
+                        android:id="@+id/distanceParentLayout"
+                        android:layout_width="@dimen/distance_bar_width"
+                        android:layout_height="match_parent"
+                        android:layout_alignBottom="@+id/searchWithin"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignTop="@+id/searchWithin"
+                        android:layout_gravity="center"
+                        android:layout_toLeftOf="@+id/searchWithin"
+                        android:clipChildren="false"
+                        android:clipToPadding="false"
+                        android:paddingRight="20dp">
+
+                        <ImageView
+                            android:id="@+id/durationDisable"
+                            android:layout_width="match_parent"
+                            android:layout_height="10dp"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/rounded_bar" />
+
+                        <ImageView
+                            android:id="@+id/distanceBar"
+                            android:layout_width="wrap_content"
+                            android:layout_height="10dp"
+                            android:layout_alignLeft="@id/durationDisable"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/gradeint_rounded_bar"
+                            app:layout_widthPercent="95%" />
+
+                        <ImageView
+                            android:id="@+id/distanceThumb"
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="-20dp"
+                            android:layout_marginRight="-32dp"
+                            android:layout_toRightOf="@+id/distanceBar"
+                            android:padding="8dp"
+                            android:src="@drawable/switch_normal" />
+
+                    </androidx.percentlayout.widget.PercentRelativeLayout>
+
+                </RelativeLayout>
+
+
+                <!-- *********** -->
+                <!-- Age Span Row-->
+                <!-- *********** -->
+
+                <com.privetalk.app.utilities.PriveTalkTextView
+                    android:id="@+id/searchAges"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@+id/searchWithin"
+                    android:layout_marginTop="15dp"
+                    android:textColor="@color/welcome_text"
+                    android:textSize="18sp"
+                    app:ttf_name="@string/roboto_light" />
+
+
+                <androidx.percentlayout.widget.PercentRelativeLayout
+                    android:id="@+id/ageSpanParentLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_below="@+id/searchAges"
+                    android:layout_marginTop="10dp"
+                    android:clipChildren="false"
+                    android:clipToPadding="false"
+
+                    >
+
+                    <ImageView
+                        android:id="@+id/ageSpanDIsabledTrack"
+                        android:layout_width="match_parent"
+                        android:layout_height="10dp"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/rounded_bar" />
+
+                    <ImageView
+                        android:id="@+id/ageSpanTrack"
+                        android:layout_width="0dp"
+                        android:layout_height="10dp"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/gradeint_rounded_bar"
+                        app:layout_marginLeftPercent="2%"
+                        app:layout_marginRightPercent="50%"
+                        app:layout_widthPercent="100%" />
+
+                    <ImageView
+                        android:id="@+id/ageSpanLeftThumb"
+                        android:layout_width="@dimen/seek_bar_button_size"
+                        android:layout_height="@dimen/seek_bar_button_size"
+                        android:layout_alignLeft="@+id/ageSpanTrack"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/seek_bar_button_margin"
+                        android:layout_marginRight="@dimen/seek_bar_button_margin"
+                        android:padding="@dimen/seek_bar_button_padding"
+                        android:src="@drawable/switch_normal" />
+
+                    <ImageView
+                        android:id="@+id/ageSpanRightThumb"
+                        android:layout_width="@dimen/seek_bar_button_size"
+                        android:layout_height="@dimen/seek_bar_button_size"
+                        android:layout_alignRight="@+id/ageSpanTrack"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/seek_bar_button_margin"
+                        android:layout_marginRight="@dimen/seek_bar_button_margin"
+                        android:padding="@dimen/seek_bar_button_padding"
+                        android:src="@drawable/switch_normal" />
+
+                </androidx.percentlayout.widget.PercentRelativeLayout>
+
+            </LinearLayout>
+
+
+            <!-- *********** -->
+            <!-- Royal Users -->
+            <!-- *********** -->
+
+            <com.privetalk.app.utilities.PriveTalkTextView
+                android:id="@+id/royalUsersTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:text="@string/royal_user_filters"
+                android:textColor="@color/welcome_text"
+                android:textSize="23sp"
+                app:ttf_name="@string/roboto_light" />
+
+
+            <!-- *********** -->
+            <!-- Filters box 2-->
+            <!-- *********** -->
+
+            <LinearLayout
+                android:id="@+id/filterBox2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/settings_dotted_line"
+                android:clipChildren="false"
+                android:clipToPadding="false"
+                android:orientation="vertical"
+                android:padding="15dp">
+
+
+                <!-- ************** -->
+                <!-- Height Span Row-->
+                <!-- ************** -->
+
+                <com.privetalk.app.utilities.PriveTalkTextView
+                    android:id="@+id/heightSpan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="15dp"
+                    android:textColor="@color/welcome_text"
+                    android:textSize="16sp"
+                    app:ttf_name="@string/roboto_light" />
+
+
+                <androidx.percentlayout.widget.PercentRelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginTop="10dp"
+                    android:clipChildren="false"
+                    android:clipToPadding="false">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="10dp"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/rounded_bar" />
+
+                    <ImageView
+                        android:id="@+id/heightSpanTrack"
+                        android:layout_width="wrap_content"
+                        android:layout_height="10dp"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/gradeint_rounded_bar"
+                        app:layout_widthPercent="100%" />
+
+                    <ImageView
+                        android:id="@+id/heightSpanLeftThumb"
+                        android:layout_width="@dimen/seek_bar_button_size"
+                        android:layout_height="@dimen/seek_bar_button_size"
+                        android:layout_alignLeft="@+id/heightSpanTrack"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/seek_bar_button_margin"
+                        android:layout_marginRight="@dimen/seek_bar_button_margin"
+                        android:padding="@dimen/seek_bar_button_padding"
+                        android:src="@drawable/switch_normal" />
+
+                    <ImageView
+                        android:id="@+id/heightSpanRightThumb"
+                        android:layout_width="@dimen/seek_bar_button_size"
+                        android:layout_height="@dimen/seek_bar_button_size"
+                        android:layout_alignRight="@+id/heightSpanTrack"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/seek_bar_button_margin"
+                        android:layout_marginRight="@dimen/seek_bar_button_margin"
+                        android:padding="@dimen/seek_bar_button_padding"
+                        android:src="@drawable/switch_normal" />
+
+                </androidx.percentlayout.widget.PercentRelativeLayout>
+
+
+                <!-- ************** -->
+                <!-- Weight Span Row-->
+                <!-- ************** -->
+
+                <com.privetalk.app.utilities.PriveTalkTextView
+                    android:id="@+id/weightSpan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="15dp"
+                    android:textColor="@color/welcome_text"
+                    android:textSize="16sp"
+                    app:ttf_name="@string/roboto_light" />
+
+
+                <androidx.percentlayout.widget.PercentRelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginTop="10dp"
+                    android:clipChildren="false"
+                    android:clipToPadding="false">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="10dp"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/rounded_bar" />
+
+                    <ImageView
+                        android:id="@+id/weightSpanTrack"
+                        android:layout_width="wrap_content"
+                        android:layout_height="10dp"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/gradeint_rounded_bar"
+                        app:layout_widthPercent="100%" />
+
+                    <ImageView
+                        android:id="@+id/weightSpanLeftThumb"
+                        android:layout_width="@dimen/seek_bar_button_size"
+                        android:layout_height="@dimen/seek_bar_button_size"
+                        android:layout_alignLeft="@+id/weightSpanTrack"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/seek_bar_button_margin"
+                        android:layout_marginRight="@dimen/seek_bar_button_margin"
+                        android:padding="@dimen/seek_bar_button_padding"
+                        android:src="@drawable/switch_normal" />
+
+                    <ImageView
+                        android:id="@+id/weightSpanRightThumb"
+                        android:layout_width="@dimen/seek_bar_button_size"
+                        android:layout_height="@dimen/seek_bar_button_size"
+                        android:layout_alignRight="@+id/weightSpanTrack"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/seek_bar_button_margin"
+                        android:layout_marginRight="@dimen/seek_bar_button_margin"
+                        android:padding="@dimen/seek_bar_button_padding"
+                        android:src="@drawable/switch_normal" />
+
+
+                </androidx.percentlayout.widget.PercentRelativeLayout>
+
+
+            </LinearLayout>
+
+
+            <!-- *********** -->
+            <!-- Filters box 3-->
+            <!-- *********** -->
+
+            <LinearLayout
+                android:id="@+id/filterBox3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:background="@drawable/settings_dotted_line"
+                android:clipChildren="false"
+                android:clipToPadding="false"
+                android:orientation="vertical"
+                android:padding="15dp">
+
+
+                <com.privetalk.app.utilities.SearchFilterContainer
+                    android:id="@+id/bodyType"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <com.privetalk.app.utilities.SearchFilterContainer
+                    android:id="@+id/hairColor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp" />
+
+
+                <com.privetalk.app.utilities.SearchFilterContainer
+                    android:id="@+id/eyesColor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp" />
+
+
+                <com.privetalk.app.utilities.SearchFilterContainer
+                    android:id="@+id/educationLevel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp" />
+
+
+                <com.privetalk.app.utilities.SearchFilterContainer
+                    android:id="@+id/smokingHabit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp" />
+
+
+                <com.privetalk.app.utilities.SearchFilterContainer
+                    android:id="@+id/drinkinHabit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp" />
+
+
+                <com.privetalk.app.utilities.SearchFilterContainer
+                    android:id="@+id/zodiacSign"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp" />
+
+                <com.privetalk.app.utilities.SearchFilterContainer
+                    android:id="@+id/addFaith"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp" />
+
+
+            </LinearLayout>
+
+
+            <!-- ****************** -->
+            <!-- Language Selection -->
+            <!-- ****************** -->
+
+            <LinearLayout
+                android:id="@+id/addLanguage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:background="@drawable/settings_dotted_line"
+                android:clipChildren="false"
+                android:clipToPadding="false"
+                android:orientation="vertical"
+                android:paddingBottom="10dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:paddingTop="10dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp">
+
+                    <com.privetalk.app.utilities.PriveTalkTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:text="@string/who_speaks"
+                        android:textColor="@color/welcome_text"
+                        android:textSize="18sp"
+                        app:ttf_name="@string/roboto_regular" />
+
+                    <ImageView
+                        android:id="@+id/addLanguageIcon"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:padding="2dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/photo_plus" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+
+            <!-- ****************** -->
+            <!-- *Interest  Selection* -->
+            <!-- ****************** -->
+
+            <LinearLayout
+                android:id="@+id/addInterest"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:background="@drawable/settings_dotted_line"
+                android:clipChildren="false"
+                android:clipToPadding="false"
+                android:orientation="vertical"
+                android:paddingBottom="10dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:paddingTop="10dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp">
+
+                    <com.privetalk.app.utilities.PriveTalkTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:text="@string/interest_bold"
+                        android:textColor="@color/welcome_text"
+                        android:textSize="18sp"
+                        app:ttf_name="@string/roboto_regular" />
+
+                    <ImageView
+                        android:id="@+id/addInterestIcon"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:padding="2dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/photo_plus" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="50dp" />
+        </LinearLayout>
+
+    </com.privetalk.app.utilities.MyScrollView>
+
+    <com.privetalk.app.utilities.PriveTalkTextView
+        android:id="@+id/doneButton"
+        android:layout_width="90dp"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/rounded_corners_blue_border_button"
+        android:gravity="center"
+        android:text="@string/done"
+        android:textColor="@color/welcome_text"
+        android:textSize="20dp"
+        app:ttf_name="@string/roboto_bold" />
+
+</RelativeLayout>

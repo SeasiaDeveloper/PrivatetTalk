@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="?android:attr/listPreferredItemHeightSmall">
+
+    <ImageView
+        android:id="@+id/drawerRowIcon"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="16dp"
+        android:src="@drawable/prive_talk" />
+
+    <com.privetalk.app.utilities.PriveTalkTextView
+        android:id="@+id/drawerRowTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="72dp"
+        android:gravity="center|left"
+        android:text="Inbox"
+        android:textColor="@color/drawer_textcolor"
+        android:textSize="16sp"
+        app:ttf_name="@string/roboto_light" />
+
+    <FrameLayout
+        android:visibility="gone"
+        android:id="@+id/drawerNumberOfNewContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="16dp">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="center"
+            android:src="@drawable/red_stroke_circle" />
+
+        <com.privetalk.app.utilities.PriveTalkTextView
+            android:id="@+id/drawerNumberOfNewsTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center|left"
+            android:text="2"
+            android:textColor="@color/drawer_textcolor"
+            android:textSize="18sp"
+            app:ttf_name="@string/roboto_regular" />
+    </FrameLayout>
+
+</RelativeLayout>

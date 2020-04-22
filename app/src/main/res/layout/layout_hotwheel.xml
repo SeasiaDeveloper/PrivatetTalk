@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.privetalk.app.utilities.SquarePercentageLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_alignParentTop="true"
+    android:layout_centerHorizontal="true"
+    android:clipChildren="false"
+    android:clipToPadding="false">
+
+    <com.privetalk.app.utilities.SquareViewPager
+        android:id="@+id/photoViewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/dummy_img"
+        android:layout_centerHorizontal="true"
+        android:padding="1dp" />
+
+    <com.privetalk.app.utilities.SquareImageView
+        android:id="@+id/usersProfileImageView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/hot_wheel" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:src="@drawable/hot_wheel_right_view"
+        app:layout_heightPercent="22.635%"
+        app:layout_marginRightPercent="1%"
+        app:layout_widthPercent="10.135%" />
+
+
+    <androidx.percentlayout.widget.PercentRelativeLayout
+        android:id="@+id/hotWheelrightTicks"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:padding="6dp"
+        app:layout_heightPercent="22.635%"
+        app:layout_marginRightPercent="1%"
+        app:layout_widthPercent="10.135%">
+
+        <com.privetalk.app.utilities.VerificationTickView
+            android:id="@+id/profilePictureVerificationTick"
+            android:layout_width="22dp"
+            android:layout_height="16dp"
+            android:layout_above="@+id/socialMediaVerificationTick"
+            android:src="@drawable/simple_tick"
+            android:tint="@android:color/white"
+            app:layout_heightPercent="22%"
+            app:layout_widthPercent="85%" />
+
+        <com.privetalk.app.utilities.VerificationTickView
+            android:id="@+id/socialMediaVerificationTick"
+            android:layout_width="22dp"
+            android:layout_height="16dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/simple_tick"
+            android:tint="@android:color/white"
+            app:layout_heightPercent="22%"
+            app:layout_widthPercent="85%" />
+
+        <com.privetalk.app.utilities.VerificationTickView
+            android:id="@+id/royalUserVerificationTick"
+            android:layout_width="22dp"
+            android:layout_height="16dp"
+            android:layout_below="@+id/socialMediaVerificationTick"
+            android:src="@drawable/simple_tick"
+            android:tint="@android:color/white"
+            app:layout_heightPercent="22%"
+            app:layout_widthPercent="85%" />
+
+
+    </androidx.percentlayout.widget.PercentRelativeLayout>
+
+    <androidx.percentlayout.widget.PercentRelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        app:layout_heightPercent="24.49%"
+        app:layout_marginLeftPercent="2.5%"
+        app:layout_widthPercent="7.4%">
+
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/hotwheel_left_view" />
+
+        <com.privetalk.app.utilities.FlameImageView
+            android:id="@+id/flameImageView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/hot_wheel_gradient"
+            app:siShape="@drawable/flame_mask"
+            app:siSquare="false" />
+
+        <ImageView
+            android:layout_width="8dp"
+            android:layout_height="12dp"
+            android:layout_alignParentTop="true"
+            android:src="@drawable/small_flame"
+            app:layout_heightPercent="19%"
+            app:layout_marginLeftPercent="36%"
+            app:layout_marginTopPercent="4%"
+            app:layout_widthPercent="37%" />
+
+    </androidx.percentlayout.widget.PercentRelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/bottom_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/photoViewpager"
+        android:layout_marginBottom="-1dp"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        app:layout_heightPercent="13.2%"
+        app:layout_marginLeftPercent="38.5%"
+        app:layout_widthPercent="24.831%">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/hot_wheel_name_view" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingLeft="3dp"
+            android:paddingRight="3dp">
+
+            <com.privetalk.app.utilities.PriveTalkTextView
+                android:id="@+id/profileName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="5dp"
+                android:padding="0dp"
+                android:singleLine="true"
+                android:textColor="@android:color/black"
+                android:textSize="12sp"
+                app:ttf_name="@string/roboto_light" />
+
+
+            <com.privetalk.app.utilities.PriveTalkTextView
+                android:id="@+id/profileAge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="-2dp"
+                android:padding="0dp"
+                android:textColor="@android:color/black"
+                android:textSize="12sp"
+                app:ttf_name="@string/roboto_light" />
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:id="@+id/photosRecyclerViewContainer"
+        android:layout_width="120dp"
+        android:layout_height="0dp"
+        android:layout_above="@+id/bottom_container"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_aspectRatio="400%"
+        app:layout_marginBottomPercent="4%">
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/smallPhotosRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+
+        <ImageView
+            android:id="@+id/addNewPersonalPhoto"
+            android:layout_width="30dp"
+            android:layout_height="match_parent"
+            android:padding="2dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/photo_plus"/>
+
+    </LinearLayout>
+
+    <ProgressBar
+        android:visibility="gone"
+        android:id="@+id/progressBar"
+        android:layout_centerInParent="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
+</com.privetalk.app.utilities.SquarePercentageLayout>

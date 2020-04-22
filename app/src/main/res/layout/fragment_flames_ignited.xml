@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?><!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"--><!--xmlns:app="http://schemas.android.com/apk/res-auto"--><!--android:layout_width="match_parent"--><!--android:layout_height="match_parent"--><!--android:background="@android:color/white"--><!--android:orientation="vertical">-->
+
+<androidx.percentlayout.widget.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <LinearLayout
+        android:id="@+id/hotWheelAddmeHolder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_heightPercent="15%">
+
+        <include
+            android:id="@+id/addMePromote"
+            layout="@layout/row_promoted_users" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/hotWheelAddme"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#9AFFFFFF" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/hotWheelAddmeHolder"
+        android:background="@color/progressbar_tint" />
+
+    <include
+        android:id="@+id/hotWheelHotWheel"
+        layout="@layout/layout_hot_wheel_no_add"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"
+        android:layout_centerInParent="true"
+        app:layout_marginLeftPercent="6.5%"
+        app:layout_marginRightPercent="6.5%"
+        app:layout_marginTopPercent="3%" />
+
+    <com.privetalk.app.utilities.SquareImageView
+        android:id="@+id/hotWheelUndoButton"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignRight="@+id/hotWheelHotWheel"
+        android:layout_alignTop="@+id/hotWheelHotWheel"
+        android:layout_marginRight="-4dp"
+        android:scaleType="fitStart"
+        android:src="@drawable/undo_button"
+        android:visibility="visible"
+        app:layout_widthPercent="12%" />
+
+    <com.privetalk.app.utilities.PriveTalkTextView
+        android:id="@+id/flames_ignited_sexy_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/hotWheelHotWheel"
+        android:layout_alignRight="@+id/hotWheelHotWheel"
+        android:layout_below="@+id/hotWheelHotWheel"
+        android:layout_marginTop="-2dp"
+        android:gravity="center"
+        android:lines="2" />
+
+    <ImageView
+        android:id="@+id/snowImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/hotWheelHotWheel"
+        android:paddingLeft="50dp"
+        android:paddingRight="50dp"
+        android:src="@drawable/hotwheel_snow_button"
+        app:layout_marginBottomPercent="1.5%"
+        app:layout_marginTopPercent="4.7%"
+        app:layout_widthPercent="50%" />
+
+    <ImageView
+        android:id="@+id/flameVoteImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/hotWheelHotWheel"
+        android:paddingLeft="50dp"
+        android:paddingRight="50dp"
+        android:src="@drawable/hot_wheel_flame"
+        app:layout_marginBottomPercent="1.5%"
+        app:layout_marginTopPercent="4.7%"
+        app:layout_widthPercent="50%" />
+
+
+
+
+
+</androidx.percentlayout.widget.PercentRelativeLayout>
+
+    <!--</LinearLayout>-->

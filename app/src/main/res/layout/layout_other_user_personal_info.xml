@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/top_cardview_container"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/profilePersonalInfoStatic"
+    android:layout_marginLeft="-5dp"
+    android:layout_marginRight="-5dp"
+    android:layout_marginTop="5dp"
+    android:clipChildren="false"
+    android:clipToPadding="false"
+    android:visibility="visible">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        app:cardElevation="4dp"
+        app:cardUseCompatPadding="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignBottom="@+id/mainContainer"
+                android:layout_alignTop="@+id/mainContainer"
+                android:background="@drawable/gradient_rectangle_border" />
+
+            <RelativeLayout
+                android:id="@+id/mainContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <View
+                    android:id="@+id/cardsCenteredView"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_centerHorizontal="true" />
+
+                <com.privetalk.app.utilities.ProfilePersonalInfoContainer
+                    android:visibility="invisible"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    app:inflateOrder="0"
+                    app:statictitleText="@string/profile_location" />
+
+                <com.privetalk.app.utilities.ProfilePersonalInfoContainer
+                    android:layout_marginTop="-8dp"
+                    android:id="@+id/profileLocationContainer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/profileTopEdit"
+                    app:imageViewId="@drawable/profile_personal_info_location"
+                    app:inflateOrder="0"
+                    app:statictitleText="@string/profile_location" />
+
+                <com.privetalk.app.utilities.ProfilePersonalInfoContainer
+                    android:id="@+id/profileAgeContainer"
+                    android:layout_marginTop="-8dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/profileTopEdit"
+                    android:layout_toRightOf="@id/cardsCenteredView"
+                    app:imageViewId="@drawable/profile_personal_info_age"
+                    app:inflateOrder="1"
+                    app:statictitleText="@string/profile_age" />
+
+                <com.privetalk.app.utilities.ProfilePersonalInfoContainer
+                    android:id="@+id/profileRelationshipContainer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/profileLocationContainer"
+                    app:imageViewId="@drawable/profile_personal_info_relationship"
+                    app:inflateOrder="2"
+                    app:statictitleText="@string/profile_relationship" />
+
+                <com.privetalk.app.utilities.ProfilePersonalInfoContainer
+                    android:id="@+id/profileSexualityContainer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/profileAgeContainer"
+                    android:layout_toRightOf="@id/cardsCenteredView"
+                    app:imageViewId="@drawable/profile_personal_nfo_sexuality"
+                    app:inflateOrder="3"
+                    app:statictitleText="@string/profile_sexuality" />
+
+                <com.privetalk.app.utilities.ProfilePersonalInfoContainer
+                    android:id="@+id/profileHeightContainer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/profileSexualityContainer"
+                    app:imageViewId="@drawable/profile_height"
+                    app:inflateOrder="4"
+                    app:statictitleText="@string/profile_height" />
+
+                <com.privetalk.app.utilities.ProfilePersonalInfoContainer
+                    android:id="@+id/profileWeightContainer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/profileSexualityContainer"
+                    android:layout_toRightOf="@id/cardsCenteredView"
+                    app:imageViewId="@drawable/profile_weight"
+                    app:inflateOrder="5"
+                    app:statictitleText="@string/profile_weight" />
+
+                <com.privetalk.app.utilities.ProfilePersonalInfoContainer
+                    android:id="@+id/profileHairContainer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/profileWeightContainer"
+                    app:imageViewId="@drawable/profile_hair"
+                    app:inflateOrder="6"
+                    app:statictitleText="@string/profile_hair" />
+
+                <com.privetalk.app.utilities.ProfilePersonalInfoContainer
+                    android:id="@+id/profileEyesContainer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/profileWeightContainer"
+                    android:layout_toRightOf="@id/cardsCenteredView"
+                    app:imageViewId="@drawable/profile_eyes"
+                    app:inflateOrder="5"
+                    app:statictitleText="@string/profile_eyes" />
+
+                <com.privetalk.app.utilities.ProfilePersonalInfoContainer
+                    android:id="@+id/profileBodyTypeContainer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/profileEyesContainer"
+                    app:imageViewId="@drawable/profile_body_type"
+                    app:inflateOrder="7"
+                    app:statictitleText="@string/profile_body_type" />
+
+                <com.privetalk.app.utilities.ProfilePersonalInfoContainer
+                    android:id="@+id/profileZodiacContainer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/profileEyesContainer"
+                    android:layout_toRightOf="@id/cardsCenteredView"
+                    app:imageViewId="@drawable/profile_personal_info_zodiac"
+                    app:inflateOrder="7"
+                    app:statictitleText="@string/profileZodiac" />
+
+                <com.privetalk.app.utilities.ProfilePersonalInfoContainer
+                    android:id="@+id/profileSmokingContainer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/profileZodiacContainer"
+                    app:imageViewId="@drawable/profile_personal_info_smoking"
+                    app:inflateOrder="8"
+                    app:statictitleText="@string/profileSmoking" />
+
+                <com.privetalk.app.utilities.ProfilePersonalInfoContainer
+                    android:id="@+id/profileDrinkingContainer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/profileZodiacContainer"
+                    android:layout_toRightOf="@id/cardsCenteredView"
+                    app:imageViewId="@drawable/profile_personal_info_drinking"
+                    app:inflateOrder="9"
+                    app:statictitleText="@string/profileDrinking" />
+
+                <com.privetalk.app.utilities.ProfilePersonalInfoContainer
+                    android:id="@+id/profileEducationContainer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/profileDrinkingContainer"
+                    app:imageViewId="@drawable/profile_personal_info_education"
+                    app:inflateOrder="10"
+                    app:statictitleText="@string/profileEducation" />
+
+                <com.privetalk.app.utilities.ProfilePersonalInfoContainer
+                    android:id="@+id/profileWorkContainer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/profileDrinkingContainer"
+                    android:layout_toRightOf="@id/cardsCenteredView"
+                    app:imageViewId="@drawable/profile_personal_info_work"
+                    app:inflateOrder="11"
+                    app:statictitleText="@string/profileWork" />
+
+                <com.privetalk.app.utilities.ProfilePersonalInfoContainer
+                    android:id="@+id/profileLanguageContainer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/profileWorkContainer"
+                    app:imageViewId="@drawable/profile_personal_info_languages"
+                    app:inflateOrder="12"
+                    app:statictitleText="@string/profileLanguage" />
+
+                <com.privetalk.app.utilities.ProfilePersonalInfoContainer
+                    android:id="@+id/profileReligionContainer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/profileLanguageContainer"
+                    app:imageViewId="@drawable/profile_personal_info_religion"
+                    app:inflateOrder="13"
+                    app:statictitleText="@string/profile_religion" />
+
+
+            </RelativeLayout>
+
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+</FrameLayout>

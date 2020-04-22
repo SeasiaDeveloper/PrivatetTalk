@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.privetalk.app.utilities.SquarePercentageLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="0dp"
+    android:background="#9AFFFFFF"
+    android:layout_height="match_parent"
+    android:padding="4dp">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#9AFFFFFF"/>
+
+    <ImageView
+        android:id="@+id/addMeImage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:adjustViewBounds="true"
+        android:background="@drawable/check_box"
+        android:padding="1dp"
+        android:scaleType="centerCrop" />
+
+    <com.privetalk.app.utilities.PriveTalkTextView
+        android:visibility="gone"
+        android:id="@+id/addMeUserName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="1dp"
+        android:layout_marginRight="1dp"
+        android:background="@color/transparent_white"
+        android:gravity="center"
+        android:singleLine="true"
+        android:textColor="@color/welcome_text"
+        android:textSize="12sp"
+        app:ttf_name="@string/roboto_regular" />
+
+    <ImageView
+        android:id="@+id/addMeCross"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:adjustViewBounds="true"
+        android:background="@color/add_me_image_tint"
+        android:padding="25dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/add_me"
+        android:visibility="visible" />
+
+    <com.privetalk.app.utilities.PriveTalkTextView
+        android:id="@+id/addMeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="5dp"
+        android:text="@string/add_me"
+        android:textColor="@color/transparent_white"
+        android:textSize="12sp"
+        app:ttf_name="@string/roboto_bold" />
+
+
+</com.privetalk.app.utilities.SquarePercentageLayout>

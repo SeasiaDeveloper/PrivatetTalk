@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <item name="fade_tag" type="id" />
+    <item name="touch_tag" type="id"/>
+    <item name="position_tag" type="id"/>
+    <item name="user_id_tag" type="id"/>
+    <item name="thanks_for_subscribing" type="id"></item>
+    <item name="id_tag" type="id"/>
+    <item name="faith_tag" type="id"/>
+    <item name="faith_level_tag" type="id"/>
+    <item name="lang_tag" type="id"/>
+    <item name="lang_level_tag" type="id"/>
+    <item name="interest_type_tag" type="id"/>
+
+</resources>

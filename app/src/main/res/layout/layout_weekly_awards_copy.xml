@@ -1,0 +1,418 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clipChildren="false"
+    android:clipToPadding="false">
+
+    <ImageView
+        android:id="@+id/profileAwardsRowIcon"
+        android:layout_width="30dp"
+        android:layout_height="40dp"
+        android:scaleType="fitCenter" />
+
+    <LinearLayout
+        android:id="@+id/descriptionContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_toRightOf="@+id/profileAwardsRowIcon"
+        android:gravity="center|left"
+        android:orientation="horizontal">
+
+        <com.privetalk.app.utilities.PriveTalkTextView
+            android:id="@+id/profileAwardsTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|left"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            app:ttf_name="@string/roboto_bold" />
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_gravity="center|left"
+            android:layout_marginLeft="2dp">
+
+            <com.privetalk.app.utilities.PriveTalkTextView
+                android:id="@+id/awardsQuestionmark"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:visibility="invisible"
+                android:layout_gravity="center"
+                android:background="@drawable/circle_black_stroke"
+                android:gravity="center"
+                android:padding="0dp"
+                android:text="\?"
+                android:textColor="@android:color/black"
+                android:textSize="13sp"
+                app:ttf_name="@string/roboto_bold" />
+        </FrameLayout>
+
+
+    </LinearLayout>
+
+    <com.privetalk.app.utilities.PriveTalkTextView
+        android:id="@+id/descriptionText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/descriptionContainer"
+        android:layout_below="@+id/profileAwardsRowIcon"
+        android:layout_marginTop="-5dp"
+        android:paddingBottom="8dp"
+        android:textColor="@android:color/black"
+        android:textSize="13sp"
+        android:visibility="gone"
+        app:ttf_name="@string/roboto_regular" />
+
+    <View
+        android:id="@+id/upperExpandableView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_alignLeft="@+id/descriptionContainer"
+        android:layout_below="@+id/profileAwardsRowIcon"
+        android:layout_marginTop="-5dp" />
+
+    <com.privetalk.app.utilities.PriveTalkTextView
+        android:id="@+id/profileAwardsText"
+        android:layout_width="45dp"
+        android:layout_marginLeft="-3dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/upperExpandableView"
+        android:layout_marginTop="8dp"
+        android:textColor="@android:color/black"
+        android:textSize="9sp"
+        app:ttf_name="@string/roboto_regular" />
+
+    <androidx.percentlayout.widget.PercentRelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="36dp"
+        android:layout_alignBottom="@+id/circleToTheRight"
+        android:layout_alignLeft="@+id/descriptionContainer"
+        android:layout_alignTop="@+id/circleToTheRight"
+        android:layout_marginRight="12dp"
+        android:layout_toLeftOf="@+id/circleToTheRight"
+        android:background="@android:color/white"
+        android:clipChildren="false"
+        android:clipToPadding="false">
+
+        <ImageView
+            android:id="@+id/profileAwardsPercentageBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/progressBarFirstColumnText"
+            android:layout_alignParentLeft="true"
+            android:layout_alignTop="@+id/progressBarFirstColumnText"
+            android:padding="1dp"
+            android:src="@drawable/awards_bar_progress_foreground"
+            app:layout_widthPercent="0%" />
+
+        <View
+            android:id="@+id/progressBarFirstColumnTextPercentage"
+            android:layout_width="wrap_content"
+            android:layout_height="1dp"
+            app:layout_widthPercent="15%" />
+
+        <com.privetalk.app.utilities.PriveTalkTextView
+            android:id="@+id/progressBarFirstColumnText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="-8dp"
+            android:layout_toRightOf="@+id/progressBarFirstColumnTextPercentage"
+            android:gravity="center|right"
+            android:textColor="@android:color/black"
+            android:textSize="13.5sp"
+            app:ttf_name="@string/roboto_light" />
+
+        <View
+            android:id="@+id/progressBarSecondColumnTextPercentage"
+            android:layout_width="wrap_content"
+            android:layout_height="1dp"
+            app:layout_widthPercent="50%" />
+
+        <com.privetalk.app.utilities.PriveTalkTextView
+            android:id="@+id/progressBarSecondColumnText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="-8dp"
+            android:layout_toRightOf="@+id/progressBarSecondColumnTextPercentage"
+            android:gravity="center|right"
+            android:textColor="@android:color/black"
+            android:textSize="13.5sp"
+            app:ttf_name="@string/roboto_light" />
+
+        <View
+            android:id="@+id/progressBarThirdColumnTextPercentage"
+            android:layout_width="wrap_content"
+            android:layout_height="1dp"
+            app:layout_widthPercent="60%" />
+
+        <com.privetalk.app.utilities.PriveTalkTextView
+            android:id="@+id/progressBarThirdColumnText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="-8dp"
+            android:layout_toRightOf="@+id/progressBarThirdColumnTextPercentage"
+            android:gravity="center|right"
+            android:textColor="@android:color/black"
+            android:textSize="13.5sp"
+            app:ttf_name="@string/roboto_light" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/progressBarFirstColumnText"
+            android:layout_alignTop="@+id/progressBarFirstColumnText"
+            android:background="@drawable/awards_bar_background" />
+
+    </androidx.percentlayout.widget.PercentRelativeLayout>
+
+    <androidx.percentlayout.widget.PercentRelativeLayout
+        android:id="@+id/awardsFreeCoinsContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="90dp"
+        android:layout_alignBottom="@+id/bottomExpandableView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignTop="@+id/bottomExpandableView"
+        android:layout_marginRight="12dp"
+        android:layout_toLeftOf="@+id/circleToTheRight"
+        android:background="@android:color/white"
+        android:visibility="gone">
+
+        <com.privetalk.app.utilities.PriveTalkTextView
+            android:id="@+id/profileAwardsFreeCoinsText"
+            android:layout_width="62dp"
+            android:layout_height="75dp"
+            android:layout_alignBottom="@+id/bottomDetailsContainer"
+            android:layout_alignParentLeft="true"
+            android:layout_marginTop="4dp"
+            android:gravity="bottom"
+            android:text="@string/freeCoins"
+            android:textColor="@android:color/black"
+            android:textSize="13sp"
+            app:layout_heightPercent="100%"
+            app:ttf_name="@string/roboto_regular" />
+
+        <androidx.percentlayout.widget.PercentRelativeLayout
+            android:id="@+id/bottomDetailsContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="46dp">
+
+            <View
+                android:id="@+id/freeCoinsFirstColumnPercentage"
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:layout_alignParentLeft="true"
+                app:layout_widthPercent="15%" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="-8dp"
+                android:layout_toRightOf="@+id/freeCoinsFirstColumnPercentage"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="|"
+                    android:textSize="10sp" />
+
+                <com.privetalk.app.utilities.PriveTalkTextView
+                    android:id="@+id/freeCoinsFirstColumn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"
+                    app:ttf_name="@string/roboto_regular" />
+
+            </LinearLayout>
+
+            <View
+                android:id="@+id/freeCoinsSecondColumnPercentage"
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:layout_alignParentLeft="true"
+                app:layout_widthPercent="50%" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="-8dp"
+                android:layout_toRightOf="@+id/freeCoinsSecondColumnPercentage"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="|"
+                    android:textSize="10sp" />
+
+                <com.privetalk.app.utilities.PriveTalkTextView
+                    android:id="@+id/freeCoinsSecondColumn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"
+                    app:ttf_name="@string/roboto_regular" />
+
+            </LinearLayout>
+
+            <View
+                android:id="@+id/freeCoinsThirdColumnPercentage"
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:layout_alignParentLeft="true"
+                app:layout_widthPercent="60%" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="-8dp"
+                android:layout_toRightOf="@+id/freeCoinsThirdColumnPercentage"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="|"
+                    android:textSize="10sp" />
+
+                <com.privetalk.app.utilities.PriveTalkTextView
+                    android:id="@+id/freeCoinsThirdColumn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"
+                    app:ttf_name="@string/roboto_regular" />
+            </LinearLayout>
+
+        </androidx.percentlayout.widget.PercentRelativeLayout>
+
+
+        <androidx.percentlayout.widget.PercentRelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/awardsBonus"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginLeft="46dp">
+
+            <View
+                android:id="@+id/profileAwardsPercentageFirstColumnPercentage"
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                app:layout_widthPercent="15%" />
+
+            <com.privetalk.app.utilities.PriveTalkTextView
+                android:id="@+id/profileAwardsPercentageFirstColumn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="-8dp"
+                android:layout_toRightOf="@+id/profileAwardsPercentageFirstColumnPercentage"
+                android:gravity="center|right"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"
+                app:ttf_name="@string/roboto_regular" />
+
+            <View
+                android:id="@+id/profileAwardsPercentageSecondColumnPercentage"
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                app:layout_widthPercent="50%" />
+
+            <com.privetalk.app.utilities.PriveTalkTextView
+                android:id="@+id/profileAwardsPercentageSecondColumn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="-8dp"
+                android:layout_toRightOf="@+id/profileAwardsPercentageSecondColumnPercentage"
+                android:gravity="center"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"
+                app:ttf_name="@string/roboto_regular" />
+
+            <View
+                android:id="@+id/profileAwardsPercentageThirdColumnPercentage"
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                app:layout_widthPercent="60%" />
+
+            <com.privetalk.app.utilities.PriveTalkTextView
+                android:id="@+id/profileAwardsPercentageThirdColumn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="-8dp"
+                android:layout_toRightOf="@+id/profileAwardsPercentageThirdColumnPercentage"
+                android:gravity="center|right"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"
+                app:ttf_name="@string/roboto_regular" />
+
+
+        </androidx.percentlayout.widget.PercentRelativeLayout>
+
+        <com.privetalk.app.utilities.PriveTalkTextView
+            android:id="@+id/awardsBonus"
+            android:layout_width="62dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/bottomDetailsContainer"
+            android:layout_marginTop="4dp"
+            android:text="@string/purchaseBonus"
+            android:textColor="@android:color/black"
+            android:textSize="13sp"
+            app:ttf_name="@string/roboto_regular" />
+
+    </androidx.percentlayout.widget.PercentRelativeLayout>
+
+    <View
+        android:id="@+id/bottomExpandableView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_below="@+id/circleToTheRight" />
+
+    <RelativeLayout
+        android:id="@+id/circleToTheRight"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/upperExpandableView"
+        android:layout_marginTop="0dp"
+        android:background="@drawable/circle_black_stroke"
+        android:clipChildren="false"
+        android:clipToPadding="false">
+
+        <com.privetalk.app.utilities.PriveTalkTextView
+            android:id="@+id/profileAwardsRightCircleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            app:ttf_name="@string/roboto_regular" />
+
+        <ImageView
+            android:visibility="gone"
+            android:id="@+id/awardsPlusSign"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="-7dp"
+            android:layout_marginRight="-7dp"
+            android:padding="3dp"
+            android:src="@drawable/profile_weekly_awards_plus_icon" />
+    </RelativeLayout>
+
+
+</RelativeLayout>

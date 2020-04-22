@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:id="@+id/main"
+        android:layout_width="290dp"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        android:background="@drawable/gradient_rectangle_border"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <com.privetalk.app.utilities.PriveTalkTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/chat_limit_message"
+            android:textColor="@android:color/black"
+            app:ttf_name="@string/roboto_regular" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <com.privetalk.app.utilities.PriveTalkTextView
+                android:id="@+id/useButton"
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/rounded_corners_blue_border_button"
+                android:gravity="center"
+                android:text="Use"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"
+                app:ttf_name="@string/roboto_regular" />
+
+            <com.privetalk.app.utilities.PriveTalkTextView
+                android:id="@+id/purchasButton"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="20dp"
+                android:background="@drawable/rounded_button_green"
+                android:gravity="center"
+                android:text="Purchase"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"
+                app:ttf_name="@string/roboto_regular" />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <ImageView
+        android:id="@+id/closeDialog"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_above="@+id/main"
+        android:layout_alignRight="@+id/main"
+        android:layout_marginBottom="-18dp"
+        android:layout_marginRight="-14dp"
+        android:padding="4dp"
+        android:src="@drawable/close_dialog_icon" />
+
+
+</RelativeLayout>

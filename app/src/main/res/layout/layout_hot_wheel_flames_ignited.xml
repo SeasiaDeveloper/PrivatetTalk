@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="280dp"
+    android:layout_height="304dp"
+    android:layout_alignParentTop="true"
+    android:layout_centerHorizontal="true"
+    android:paddingBottom="12dp"
+    android:paddingTop="12dp">
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/photoViewpager"
+        android:layout_width="280dp"
+        android:layout_height="280dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:padding="1dp" />
+
+
+    <ImageView
+        android:id="@+id/usersProfileImageView"
+        android:layout_width="280dp"
+        android:layout_height="280dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/hot_wheel" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignBottom="@+id/hotWheelrightTicks"
+        android:layout_alignLeft="@+id/hotWheelrightTicks"
+        android:layout_alignRight="@+id/hotWheelrightTicks"
+        android:layout_alignTop="@+id/hotWheelrightTicks"
+        android:src="@drawable/hot_wheel_right_view" />
+
+    <LinearLayout
+        android:id="@+id/hotWheelrightTicks"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/usersProfileImageView"
+        android:layout_centerInParent="true"
+        android:orientation="vertical"
+        android:padding="6dp">
+
+        <com.privetalk.app.utilities.TintImageView
+            android:layout_width="22dp"
+            android:layout_height="16dp"
+            android:src="@drawable/simple_tick"
+            android:tint="@color/tick_green" />
+
+        <com.privetalk.app.utilities.TintImageView
+            android:layout_width="22dp"
+            android:layout_height="16dp"
+            android:src="@drawable/simple_tick"
+            android:tint="@android:color/white" />
+
+        <com.privetalk.app.utilities.TintImageView
+            android:layout_width="22dp"
+            android:layout_height="16dp"
+            android:src="@drawable/simple_tick"
+            android:tint="@android:color/white" />
+
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/usersProfileImageView"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="6.5dp">
+
+        <View
+            android:id="@+id/leftGuideView"
+            android:layout_width="22dp"
+            android:layout_height="72dp"
+            android:layout_centerInParent="true" />
+
+        <ImageView
+            android:layout_width="22dp"
+            android:layout_height="72dp"
+            android:layout_alignBottom="@+id/leftGuideView"
+            android:layout_alignLeft="@+id/leftGuideView"
+            android:src="@drawable/hotwheel_left_view" />
+
+        <com.privetalk.app.utilities.FlameImageView
+            android:layout_width="22dp"
+            android:layout_height="72dp"
+            android:layout_alignBottom="@+id/leftGuideView"
+            android:layout_alignLeft="@+id/leftGuideView"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/hot_wheel_gradient"
+            app:siShape="@drawable/flame_mask"
+            app:siSquare="false" />
+
+        <ImageView
+            android:layout_width="8dp"
+            android:layout_height="12dp"
+            android:layout_alignTop="@+id/leftGuideView"
+            android:layout_marginLeft="8.5dp"
+            android:layout_marginTop="2.8dp"
+            android:src="@drawable/small_flame" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/bottom_container"
+        android:layout_width="70dp"
+        android:layout_height="38.1dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="-1.2dp"
+        android:layout_marginLeft="108dp">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/hot_wheel_name_view" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingLeft="3dp"
+            android:paddingRight="3dp">
+
+            <com.privetalk.app.utilities.PriveTalkTextView
+                android:id="@+id/profileName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="5dp"
+                android:padding="0dp"
+                android:singleLine="true"
+                android:text="Ms Universe"
+                android:textColor="@android:color/black"
+                android:textSize="12sp"
+                app:ttf_name="@string/roboto_light" />
+
+
+            <com.privetalk.app.utilities.PriveTalkTextView
+                android:id="@+id/profileAge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="-2dp"
+                android:padding="0dp"
+                android:text="28"
+                android:textColor="@android:color/black"
+                android:textSize="12sp"
+                app:ttf_name="@string/roboto_light" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <FrameLayout
+        android:id="@+id/photosRecyclerViewContainer"
+        android:layout_width="84dp"
+        android:layout_height="28dp"
+        android:layout_above="@+id/bottom_container"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/smallPhotosRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </FrameLayout>
+
+
+    <View
+        android:id="@+id/centerView"
+        android:layout_width="78dp"
+        android:layout_height="0dp"
+        android:layout_centerInParent="true" />
+
+</RelativeLayout>

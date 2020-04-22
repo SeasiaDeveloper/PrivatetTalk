@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.percentlayout.widget.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.privetalk.app.utilities.PriveTalkTextView
+        android:id="@+id/topTextView"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:alpha="0.75"
+        android:background="@android:color/black"
+        android:gravity="center"
+        android:text="@string/step_three_text"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        app:ttf_name="@string/roboto_bold" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter"
+        android:src="@drawable/right_verification"
+        app:layout_heightPercent="48.5%"
+        app:layout_marginBottomPercent="28%"
+        app:layout_widthPercent="63%" />
+
+    <RelativeLayout
+        android:id="@+id/takePhoto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="16dp">
+
+        <ProgressBar
+            android:id="@+id/stepThreeProgressBar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="66dp"
+            android:layout_height="66dp"
+            android:background="@drawable/capture_photo_progress_background"
+            android:max="3000"
+            android:progressDrawable="@drawable/capture_photo_progress" />
+
+        <com.privetalk.app.utilities.PriveTalkTextView
+            android:id="@+id/stepThreeTimeTextview"
+            android:layout_width="66dp"
+            android:layout_height="66dp"
+            android:gravity="center"
+            android:textColor="@android:color/black"
+            android:textSize="23sp"
+            app:ttf_name="@string/roboto_regular" />
+
+    </RelativeLayout>
+
+</androidx.percentlayout.widget.PercentRelativeLayout>

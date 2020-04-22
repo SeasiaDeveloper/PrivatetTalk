@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:gravity="center_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+
+        <com.privetalk.app.utilities.PriveTalkTextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:text="@string/break_the_ice_speak_about"
+            android:textColor="@color/welcome_text"
+            android:textSize="16sp"
+            app:ttf_name="@string/roboto_bold" />
+
+        <RelativeLayout
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="45dp">
+
+            <ImageView
+                android:id="@+id/fbFreindsIcon"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:padding="2dp"
+                android:src="@drawable/common_fb_friends_icon" />
+
+
+            <com.privetalk.app.utilities.PriveTalkTextView
+                android:visibility="invisible"
+                android:id="@+id/commonFriendsCount"
+                android:layout_width="11dp"
+                android:layout_height="11dp"
+                android:layout_alignBottom="@+id/fbFreindsIcon"
+                android:layout_alignLeft="@+id/fbFreindsIcon"
+                android:layout_marginBottom="1dp"
+                android:background="@drawable/circle_red_notifications"
+                android:gravity="center"
+                android:text="0"
+                android:textColor="@android:color/white"
+                android:textSize="8.5sp"
+                app:ttf_name="@string/roboto_regular" />
+
+
+            <com.privetalk.app.utilities.PriveTalkTextView
+                android:id="@+id/commonFriendsText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/fbFreindsIcon"
+                android:paddingLeft="10dp"
+                android:textColor="@color/welcome_text"
+                android:textSize="16sp"
+                app:ttf_name="@string/roboto_regular" />
+
+            <com.privetalk.app.utilities.PriveTalkTextView
+                android:id="@+id/chatViewCommonFriendsButton"
+                android:layout_width="64dp"
+                android:layout_height="32dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/rounded_corners_blue_border_button"
+                android:gravity="center"
+                android:text="@string/view"
+                android:textColor="@color/welcome_text"
+                android:textSize="19sp"
+                app:ttf_name="@string/roboto_regular" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="45dp">
+
+            <ImageView
+                android:id="@+id/cmInterestsIcon"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/chat_common_interest_icon" />
+
+
+            <com.privetalk.app.utilities.PriveTalkTextView
+                android:id="@+id/commonInterestsCount"
+                android:layout_width="11dp"
+                android:layout_height="11dp"
+                android:visibility="invisible"
+                android:layout_alignBottom="@+id/cmInterestsIcon"
+                android:layout_alignLeft="@+id/cmInterestsIcon"
+                android:layout_marginBottom="1dp"
+                android:background="@drawable/circle_red_notifications"
+                android:gravity="center"
+                android:text="0"
+                android:textColor="@android:color/white"
+                android:textSize="8.5sp"
+                app:ttf_name="@string/roboto_regular" />
+
+            <com.privetalk.app.utilities.PriveTalkTextView
+                android:id="@+id/commonInterestText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/cmInterestsIcon"
+                android:paddingLeft="10dp"
+                android:textColor="@color/welcome_text"
+                android:textSize="16sp"
+                app:ttf_name="@string/roboto_regular" />
+
+            <com.privetalk.app.utilities.PriveTalkTextView
+                android:id="@+id/chatViewCommonInterestsButton"
+                android:layout_width="64dp"
+                android:layout_height="32dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/rounded_corners_blue_border_button"
+                android:gravity="center"
+                android:text="@string/view"
+                android:textColor="@color/welcome_text"
+                android:textSize="19sp"
+                app:ttf_name="@string/roboto_regular" />
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="45dp">
+
+            <ImageView
+                android:id="@+id/impressIcon"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:padding="3dp"
+                android:src="@drawable/chat_gift_icon" />
+
+            <com.privetalk.app.utilities.PriveTalkTextView
+                android:id="@+id/impressWithGiftText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/impressIcon"
+                android:paddingLeft="10dp"
+                android:textColor="@color/welcome_text"
+                android:textSize="14sp"
+                app:ttf_name="@string/roboto_regular" />
+
+            <com.privetalk.app.utilities.PriveTalkTextView
+                android:id="@+id/iceBrakerGift"
+                android:layout_width="64dp"
+                android:layout_height="32dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/rounded_corners_blue_border_button"
+                android:gravity="center"
+                android:text="@string/more"
+                android:textColor="@color/welcome_text"
+                android:textSize="19sp"
+                app:ttf_name="@string/roboto_regular" />
+
+        </RelativeLayout>
+
+
+        <View
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="5dp"
+            android:background="@android:color/darker_gray"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"/>
+
+        <androidx.legacy.widget.Space
+            android:id="@+id/space"
+            android:layout_width="match_parent"
+            android:layout_height="50dp" />
+
+    </LinearLayout>
+</LinearLayout>

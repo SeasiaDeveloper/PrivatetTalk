@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:background="@drawable/rectangle_borders_message"
+    android:gravity="center|left"
+    android:orientation="horizontal"
+    android:padding="4dp">
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="23dp"
+        android:layout_marginLeft="5dp"
+        android:src="@drawable/fast_mail_icon" />
+
+    <com.privetalk.app.utilities.PriveTalkTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="12dp"
+        android:text="@string/make_this_priority_message" />
+
+</LinearLayout>

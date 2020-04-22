@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="36dp"
+    android:paddingBottom="6dp"
+    android:paddingTop="6dp">
+
+    <ImageView
+        android:id="@+id/complex_list_checkbox_imageview"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_centerVertical="true"
+        android:src="@drawable/circle_blue_stroke" />
+
+    <com.privetalk.app.utilities.PriveTalkTextView
+        android:id="@+id/complexListItemName"
+        android:layout_marginRight="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="12dp"
+        android:layout_toLeftOf="@+id/complexListCustomSpinner"
+        android:layout_toRightOf="@+id/complex_list_checkbox_imageview"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textColor="@android:color/black"
+        android:textSize="12sp" />
+
+    <LinearLayout
+        android:id="@+id/complexListCustomSpinner"
+        android:layout_width="150dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/gradient_rectangle_border"
+        android:gravity="center">
+
+        <com.privetalk.app.utilities.PriveTalkTextView
+            android:id="@+id/complexListItemLevel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center|left"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:text="Not serious about it"
+            android:textColor="@android:color/black"
+            android:textSize="12sp" />
+
+        <ImageView
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="8dp"
+            android:rotation="90"
+            android:src="@drawable/arrow_right" />
+    </LinearLayout>
+
+</RelativeLayout> 
