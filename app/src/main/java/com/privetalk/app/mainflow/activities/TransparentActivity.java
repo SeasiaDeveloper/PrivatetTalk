@@ -4,8 +4,6 @@ import android.content.Intent;
 import android.content.IntentSender;
 import android.content.res.Configuration;
 import android.os.Bundle;
-import androidx.localbroadcastmanager.content.LocalBroadcastManager;
-import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
@@ -14,11 +12,15 @@ import android.view.animation.AnimationUtils;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
+
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
@@ -35,7 +37,16 @@ import com.google.android.gms.plus.People;
 import com.google.android.gms.plus.Plus;
 import com.google.android.gms.plus.model.people.Person;
 import com.google.android.gms.plus.model.people.PersonBuffer;
+import com.privetalk.app.PriveTalkApplication;
+import com.privetalk.app.R;
+import com.privetalk.app.database.datasource.CurrentUserDatasource;
+import com.privetalk.app.database.objects.CurrentUser;
 import com.privetalk.app.utilities.Constants;
+import com.privetalk.app.utilities.FadeOnTouchListener;
+import com.privetalk.app.utilities.Links;
+import com.privetalk.app.utilities.PriveTalkConstants;
+import com.privetalk.app.utilities.PriveTalkUtilities;
+import com.privetalk.app.utilities.VolleySingleton;
 import com.privetalk.app.utilities.dialogs.AuthenticationDialog;
 import com.privetalk.app.utilities.dialogs.AuthenticationListener;
 import com.vk.sdk.VKAccessToken;
@@ -48,16 +59,6 @@ import com.vk.sdk.api.VKParameters;
 import com.vk.sdk.api.VKRequest;
 import com.vk.sdk.api.VKResponse;
 import com.vk.sdk.api.model.VKScopes;
-
-import com.privetalk.app.PriveTalkApplication;
-import com.privetalk.app.R;
-import com.privetalk.app.database.datasource.CurrentUserDatasource;
-import com.privetalk.app.database.objects.CurrentUser;
-import com.privetalk.app.utilities.FadeOnTouchListener;
-import com.privetalk.app.utilities.Links;
-import com.privetalk.app.utilities.PriveTalkConstants;
-import com.privetalk.app.utilities.PriveTalkUtilities;
-import com.privetalk.app.utilities.VolleySingleton;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -99,7 +100,7 @@ public class TransparentActivity extends AppCompatActivity implements GoogleApiC
 
         inAnimation = AnimationUtils.loadAnimation(this, R.anim.slide_bottom_in_2);
         outAnimation = AnimationUtils.loadAnimation(this, R.anim.slide_bottom_out_2);
-        mListner=this;
+        mListner = this;
 
         getWindow().getDecorView().postDelayed(new Runnable() {
             @Override
@@ -443,7 +444,6 @@ public class TransparentActivity extends AppCompatActivity implements GoogleApiC
                         progressBar.setVisibility(View.GONE);
 
 
-
                         CurrentUser previousUser = CurrentUserDatasource.getInstance(TransparentActivity.this).getCurrentUserInfo();
                         CurrentUser newUser = new CurrentUser(response,
                                 previousUser.token,
@@ -473,9 +473,7 @@ public class TransparentActivity extends AppCompatActivity implements GoogleApiC
                 }
             }
 
-        })
-
-        {
+        }) {
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
                 HashMap<String, String> headers = new HashMap<>();
@@ -495,26 +493,52 @@ public class TransparentActivity extends AppCompatActivity implements GoogleApiC
     @Override
     public void onCodeReceived(String code) {
 
-
-        Toast.makeText(getApplicationContext(),code,Toast.LENGTH_SHORT).show();
-        JSONObject obj=new JSONObject();
+        JSONObject obj = new JSONObject();
         try {
-            obj.put(Constants.CLIENT_ID,getResources().getString(R.string.instagram_client_id));
-            obj.put(Constants.CODE,code);
-            obj.put(Constants.CLIENT_SECRET,getResources().getString(R.string.instagram_client_secret));
-            obj.put(Constants.GRANT_TYPE,getResources().getString(R.string.instagram_grant_type));
-            obj.put(Constants.REDIRECT_URL,getResources().getString(R.string.instagram_redirect_url));
-            RequestToken(obj);
+            obj.put(Constants.CLIENT_ID, getResources().getString(R.string.instagram_client_id));
+            obj.put(Constants.CODE, code);
+            obj.put(Constants.CLIENT_SECRET, getResources().getString(R.string.instagram_client_secret));
+            obj.put(Constants.GRANT_TYPE, getResources().getString(R.string.instagram_grant_type));
+            obj.put(Constants.REDIRECT_URL, getResources().getString(R.string.instagram_redirect_url));
+            RequestToken(code);
         } catch (JSONException e) {
             e.printStackTrace();
         }
 
     }
 
-    private void RequestToken(JSONObject formParameteres) {
+    private void RequestToken(final String code) {
 
-        JsonObjectRequest verifyAccountRequest = new JsonObjectRequest(Request.Method.POST,
-                Links.GET_INSTAGRAM_TOKEN, formParameteres,
+
+        StringRequest verifyAccountRequest = new StringRequest(Request.Method.POST, Links.GET_INSTAGRAM_TOKEN,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        Toast.makeText(TransparentActivity.this, response, Toast.LENGTH_LONG).show();
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(TransparentActivity.this, error.toString(), Toast.LENGTH_LONG).show();
+                    }
+                }) {
+            @Override
+            protected Map<String, String> getParams() {
+                Map<String, String> params = new HashMap<String, String>();
+                params.put(Constants.CLIENT_ID, getResources().getString(R.string.instagram_client_id));
+                params.put(Constants.CODE, code);
+                params.put(Constants.CLIENT_SECRET, getResources().getString(R.string.instagram_client_secret));
+                params.put(Constants.GRANT_TYPE, getResources().getString(R.string.instagram_grant_type));
+                params.put(Constants.REDIRECT_URL, getResources().getString(R.string.instagram_redirect_url));
+                return params;
+            }
+
+        };
+
+
+       /* StringRequest verifyAccountRequest = new StringRequest(Request.Method.POST,
+                Links.GET_INSTAGRAM_TOKEN,
                 new Response.Listener<JSONObject>() {
 
                     @Override
@@ -550,13 +574,24 @@ public class TransparentActivity extends AppCompatActivity implements GoogleApiC
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
                 HashMap<String, String> headers = new HashMap<>();
-                headers.put("Content-Type", "application/json; charset=utf-8");
-                headers.put("Authorization", "Token " + CurrentUserDatasource.getInstance(getApplicationContext()).getCurrentUserInfo().token);
-                headers.put("Accept-Language", String.valueOf(Locale.getDefault()).substring(0, 2));
+               // headers.put("Content-Type", "application/json; charset=utf-8");
+                //headers.put("Authorization", "Token " + CurrentUserDatasource.getInstance(getApplicationContext()).getCurrentUserInfo().token);
+                //headers.put("Accept-Language", String.valueOf(Locale.getDefault()).substring(0, 2));
 
                 return headers;
             }
-        };
+
+            @Override
+            protected Map<String,String> getParams(){
+                Map<String,String> params = new HashMap<String, String>();
+                params.put(Constants.CLIENT_ID,getResources().getString(R.string.instagram_client_id));
+
+                return params;
+            }
+*/
+        //obj.put(Constants.CLIENT_ID,getResources().getString(R.string.instagram_client_id));
+
+        // };
 
         VolleySingleton.getInstance(PriveTalkApplication.getInstance()).addRequest(verifyAccountRequest);
 
