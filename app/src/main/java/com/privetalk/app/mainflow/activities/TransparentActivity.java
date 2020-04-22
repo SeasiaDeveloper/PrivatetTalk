@@ -75,6 +75,8 @@ import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 
+import okhttp3.MediaType;
+import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 
@@ -509,32 +511,14 @@ public class TransparentActivity extends AppCompatActivity implements GoogleApiC
             obj.put(Constants.GRANT_TYPE, getResources().getString(R.string.instagram_grant_type));
             obj.put(Constants.REDIRECT_URL, getResources().getString(R.string.instagram_redirect_url));
 
-            GetAccessTokenRequest getAccessTokenRequet = new GetAccessTokenRequest(getResources().getString(R.string.instagram_client_id), getResources().getString(R.string.instagram_client_secret), getResources().getString(R.string.instagram_grant_type), getResources().getString(R.string.instagram_redirect_url), code);
-
-            CallRetrofitApi service = ApiClient.getClient().create(CallRetrofitApi.class);
-            Call<GetAccessTokenResponse> response = service.getAccessToken(getAccessTokenRequet);
-            response.enqueue(new Callback<GetAccessTokenResponse>() {
-                @Override
-                public void onResponse(@NonNull Call<GetAccessTokenResponse> call, @NonNull retrofit2.Response<GetAccessTokenResponse> response) {
-                    if (response.isSuccessful()) {
-                        Log.e("", "");
-                    }
-                }
-
-                @Override
-                public void onFailure(@NonNull Call<GetAccessTokenResponse> call, @NonNull Throwable t) {
-                    Log.e("", "");
-                }
-            });
-
-            //   RequestToken(obj);
+            RequestToken(obj);
         } catch (JSONException e) {
             e.printStackTrace();
         }
 
     }
 
-   /* private void RequestToken(JSONObject formParameteres) {
+    private void RequestToken(JSONObject formParameteres) {
 
         JsonObjectRequest verifyAccountRequest = new JsonObjectRequest(Request.Method.POST,
                 Links.GET_INSTAGRAM_TOKEN, formParameteres,
@@ -548,7 +532,7 @@ public class TransparentActivity extends AppCompatActivity implements GoogleApiC
 
                         Toast.makeText(TransparentActivity.this.getApplicationContext(), response.toString(), Toast.LENGTH_SHORT).show();
 
-                      //  finish();
+                        //  finish();
                     }
                 }, new Response.ErrorListener() {
 
@@ -567,9 +551,7 @@ public class TransparentActivity extends AppCompatActivity implements GoogleApiC
                 }
             }
 
-        })
-
-        {
+        }) {
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
                 HashMap<String, String> headers = new HashMap<>();
@@ -584,6 +566,6 @@ public class TransparentActivity extends AppCompatActivity implements GoogleApiC
         VolleySingleton.getInstance(PriveTalkApplication.getInstance()).addRequest(verifyAccountRequest);
 
 
-    }*/
+    }
 
 }
