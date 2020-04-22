@@ -4,8 +4,11 @@ import android.content.Intent;
 import android.content.IntentSender;
 import android.content.res.Configuration;
 import android.os.Bundle;
+
+import androidx.annotation.NonNull;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
@@ -35,6 +38,10 @@ import com.google.android.gms.plus.People;
 import com.google.android.gms.plus.Plus;
 import com.google.android.gms.plus.model.people.Person;
 import com.google.android.gms.plus.model.people.PersonBuffer;
+import com.privetalk.app.api.ApiClient;
+import com.privetalk.app.api.CallRetrofitApi;
+import com.privetalk.app.api.GetAccessTokenRequest;
+import com.privetalk.app.api.GetAccessTokenResponse;
 import com.privetalk.app.utilities.Constants;
 import com.privetalk.app.utilities.dialogs.AuthenticationDialog;
 import com.privetalk.app.utilities.dialogs.AuthenticationListener;
@@ -68,6 +75,9 @@ import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+
 /**
  * Created by zeniosagapiou on 24/02/16.
  */
@@ -99,7 +109,7 @@ public class TransparentActivity extends AppCompatActivity implements GoogleApiC
 
         inAnimation = AnimationUtils.loadAnimation(this, R.anim.slide_bottom_in_2);
         outAnimation = AnimationUtils.loadAnimation(this, R.anim.slide_bottom_out_2);
-        mListner=this;
+        mListner = this;
 
         getWindow().getDecorView().postDelayed(new Runnable() {
             @Override
@@ -443,7 +453,6 @@ public class TransparentActivity extends AppCompatActivity implements GoogleApiC
                         progressBar.setVisibility(View.GONE);
 
 
-
                         CurrentUser previousUser = CurrentUserDatasource.getInstance(TransparentActivity.this).getCurrentUserInfo();
                         CurrentUser newUser = new CurrentUser(response,
                                 previousUser.token,
@@ -473,9 +482,7 @@ public class TransparentActivity extends AppCompatActivity implements GoogleApiC
                 }
             }
 
-        })
-
-        {
+        }) {
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
                 HashMap<String, String> headers = new HashMap<>();
@@ -494,24 +501,41 @@ public class TransparentActivity extends AppCompatActivity implements GoogleApiC
 
     @Override
     public void onCodeReceived(String code) {
-
-
-        Toast.makeText(getApplicationContext(),code,Toast.LENGTH_SHORT).show();
-        JSONObject obj=new JSONObject();
+        Toast.makeText(getApplicationContext(), code, Toast.LENGTH_SHORT).show();
+        JSONObject obj = new JSONObject();
         try {
-            obj.put(Constants.CLIENT_ID,getResources().getString(R.string.instagram_client_id));
-            obj.put(Constants.CODE,code);
-            obj.put(Constants.CLIENT_SECRET,getResources().getString(R.string.instagram_client_secret));
-            obj.put(Constants.GRANT_TYPE,getResources().getString(R.string.instagram_grant_type));
-            obj.put(Constants.REDIRECT_URL,getResources().getString(R.string.instagram_redirect_url));
-            RequestToken(obj);
+            obj.put(Constants.CLIENT_ID, getResources().getString(R.string.instagram_client_id));
+            obj.put(Constants.CODE, code);
+            obj.put(Constants.CLIENT_SECRET, getResources().getString(R.string.instagram_client_secret));
+            obj.put(Constants.GRANT_TYPE, getResources().getString(R.string.instagram_grant_type));
+            obj.put(Constants.REDIRECT_URL, getResources().getString(R.string.instagram_redirect_url));
+
+            GetAccessTokenRequest getAccessTokenRequet = new GetAccessTokenRequest(getResources().getString(R.string.instagram_client_id), getResources().getString(R.string.instagram_client_secret), getResources().getString(R.string.instagram_grant_type), getResources().getString(R.string.instagram_redirect_url), code);
+
+            CallRetrofitApi service = ApiClient.getClient().create(CallRetrofitApi.class);
+            Call<GetAccessTokenResponse> response = service.getAccessToken(getAccessTokenRequet);
+            response.enqueue(new Callback<GetAccessTokenResponse>() {
+                @Override
+                public void onResponse(@NonNull Call<GetAccessTokenResponse> call, @NonNull retrofit2.Response<GetAccessTokenResponse> response) {
+                    if (response.isSuccessful()) {
+                        Log.e("", "");
+                    }
+                }
+
+                @Override
+                public void onFailure(@NonNull Call<GetAccessTokenResponse> call, @NonNull Throwable t) {
+                    Log.e("", "");
+                }
+            });
+
+            //   RequestToken(obj);
         } catch (JSONException e) {
             e.printStackTrace();
         }
 
     }
 
-    private void RequestToken(JSONObject formParameteres) {
+   /* private void RequestToken(JSONObject formParameteres) {
 
         JsonObjectRequest verifyAccountRequest = new JsonObjectRequest(Request.Method.POST,
                 Links.GET_INSTAGRAM_TOKEN, formParameteres,
@@ -561,6 +585,6 @@ public class TransparentActivity extends AppCompatActivity implements GoogleApiC
         VolleySingleton.getInstance(PriveTalkApplication.getInstance()).addRequest(verifyAccountRequest);
 
 
-    }
+    }*/
 
 }
