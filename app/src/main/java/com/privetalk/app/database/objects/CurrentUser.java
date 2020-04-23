@@ -29,6 +29,7 @@ public class CurrentUser implements Serializable {
 
     public static final int MALE = 1;
     public static final int FEMALE = 2;
+    public static final int OTHER = 3;
 
     public int userID = 0;
     public String name = "";
@@ -145,6 +146,8 @@ public class CurrentUser implements Serializable {
                 this.gender = AttributesObject.getAttributeObject(MALE, PriveTalkTables.AttributesTables.TABLES_NAME[PriveTalkTables.AttributesTables.GENDERS]);
             else if (gender.equals("female"))
                 this.gender = AttributesObject.getAttributeObject(FEMALE, PriveTalkTables.AttributesTables.TABLES_NAME[PriveTalkTables.AttributesTables.GENDERS]);
+            else if (gender.equals("custom"))
+                this.gender = AttributesObject.getAttributeObject(OTHER, PriveTalkTables.AttributesTables.TABLES_NAME[PriveTalkTables.AttributesTables.GENDERS]);
             else
                 this.gender = new AttributesObject();
         }

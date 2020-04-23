@@ -9,6 +9,7 @@ import android.content.res.Configuration;
 import android.media.MediaCas;
 import android.net.Uri;
 import android.os.Bundle;
+
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
@@ -204,63 +205,12 @@ public class WelcomeActivity extends AppCompatActivity implements GoogleApiClien
         facebookLoginButton = new LoginButton(this);
         callbackManager = CallbackManager.Factory.create();
         // Set permissions
-        LoginManager.getInstance().logInWithReadPermissions(this, Arrays.asList("user_friends, public_profile, email,user_birthday"));
-        //facebookLoginButton.setReadPermissions(Arrays.asList("user_friends, public_profile, email,user_birthday")); //"user_friends, public_profile, email"
+        facebookLoginButton.setReadPermissions(Arrays.asList("user_friends, public_profile, email,user_birthday")); //"user_friends, public_profile, email"
 
         // Callback registration
-        LoginManager.getInstance().registerCallback(callbackManager,
-                new FacebookCallback<LoginResult>() {
-                    @Override
-                    public void onSuccess(LoginResult loginResult) {
-                        GraphRequest.newMeRequest(
-                                loginResult.getAccessToken(), new GraphRequest.GraphJSONObjectCallback() {
-                                    @Override
-                                    public void onCompleted(JSONObject json, GraphResponse response) {
-                                        if (response.getError() != null) {
-                                            // handle error
-                                            System.out.println("ERROR");
-                                        } else {
-                                            System.out.println("Success");
-                                            try {
-
-                                                String jsonresult = String.valueOf(json);
-                                                System.out.println("JSON Result" + jsonresult);
-
-                                                String str_email = json.getString("email");
-                                                String str_id = json.getString("id");
-                                                String str_firstname = json.getString("first_name");
-                                                String str_lastname = json.getString("last_name");
-
-                                            } catch (JSONException e) {
-                                                e.printStackTrace();
-                                            }
-                                        }
-                                    }
-
-                                }).executeAsync();
-                    }
-
-                    @Override
-                    public void onCancel() {
-
-                    }
-
-                    @Override
-                    public void onError(FacebookException error) {
-
-                    }
-                });
-
-        /*facebookLoginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
+        facebookLoginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
             @Override
             public void onSuccess(LoginResult loginResult) {
-                ProfileTracker mProfileTracker = new ProfileTracker() {
-                    @Override
-                    protected void onCurrentProfileChanged(Profile oldProfile, Profile newProfile) {
-                        // Fetch user details from New Profile
-                        Log.e("","");
-                    }
-                };
 
                 // App code
                 GraphRequest request = GraphRequest.newMeRequest(
@@ -304,7 +254,7 @@ public class WelcomeActivity extends AppCompatActivity implements GoogleApiClien
             public void onError(FacebookException exception) {
 
             }
-        });*/
+        });
     }
 
     @Override
@@ -760,7 +710,7 @@ public class WelcomeActivity extends AppCompatActivity implements GoogleApiClien
      */
     private class ViewPagerAdapter extends FragmentStatePagerAdapter {
 
-       // static final int NUM_OF_PAGES = 7;
+        // static final int NUM_OF_PAGES = 7;
         static final int NUM_OF_PAGES = 1;
 
         public ViewPagerAdapter(FragmentManager fm) {

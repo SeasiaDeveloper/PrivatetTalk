@@ -494,7 +494,7 @@
     <string name="must_upload_profile_picture">To verify your profile picture you have to:\n1) upload a picture &amp;\n2) set it as a profile from the album mode</string>
     <string name="common_interest_dialog_title">{b}Common{/b} Interests</string>
     <string name="no_common_interests">No common interests found</string>
-    <string name="no_common_friends">No common aniffriends found</string>
+    <string name="no_common_friends">No common anifgradfriends found</string>
     <string name="close_to">Close to</string>
     <string name="application_name">PriveTalk</string>
     <string name="social_media_account_connected">Social Media account connected</string>
