@@ -19,6 +19,7 @@ public class Links {
 
     public static final String GET_INSTAGRAM_TOKEN = "https://api.instagram.com/oauth/access_token";
 
+    public static final String GET_INSTAGRAM_USER_DATA = "https://graph.instagram.com/";
 
     public static final String POST_LOCATION = MAIN_URL + "/api/profiles/my/location/";
 

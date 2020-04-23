@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentSender;
 import android.content.res.Configuration;
+import android.media.MediaCas;
 import android.net.Uri;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
@@ -14,6 +15,7 @@ import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -40,12 +42,16 @@ import com.facebook.FacebookException;
 import com.facebook.FacebookSdk;
 import com.facebook.GraphRequest;
 import com.facebook.GraphResponse;
+import com.facebook.Profile;
+import com.facebook.ProfileTracker;
+import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.CommonStatusCodes;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.ResultCallback;
+import com.google.android.gms.common.api.internal.StatusCallback;
 import com.google.android.gms.plus.People;
 import com.google.android.gms.plus.Plus;
 import com.google.android.gms.plus.model.people.Person;
@@ -145,6 +151,15 @@ public class WelcomeActivity extends AppCompatActivity implements GoogleApiClien
             viewPager.setCurrentItem(FRAGMENT_CREATE_ACCOUNT);
 
 
+        /*private Session.StatusCallback callback =
+                new com.facebook.Session.StatusCallback()
+                {
+                    @Override
+                    public void call(com.facebook.Session session,
+                                     SessionState state, Exception exception) {
+                        onSessionStateChange(session, state, exception);
+                    }
+                };*/
     }
 
     @Override
@@ -187,12 +202,65 @@ public class WelcomeActivity extends AppCompatActivity implements GoogleApiClien
         FacebookSdk.sdkInitialize(getApplicationContext());
 
         facebookLoginButton = new LoginButton(this);
-        facebookLoginButton.setReadPermissions(Arrays.asList("user_friends, public_profile, email"));
         callbackManager = CallbackManager.Factory.create();
+        // Set permissions
+        LoginManager.getInstance().logInWithReadPermissions(this, Arrays.asList("user_friends, public_profile, email,user_birthday"));
+        //facebookLoginButton.setReadPermissions(Arrays.asList("user_friends, public_profile, email,user_birthday")); //"user_friends, public_profile, email"
+
         // Callback registration
-        facebookLoginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
+        LoginManager.getInstance().registerCallback(callbackManager,
+                new FacebookCallback<LoginResult>() {
+                    @Override
+                    public void onSuccess(LoginResult loginResult) {
+                        GraphRequest.newMeRequest(
+                                loginResult.getAccessToken(), new GraphRequest.GraphJSONObjectCallback() {
+                                    @Override
+                                    public void onCompleted(JSONObject json, GraphResponse response) {
+                                        if (response.getError() != null) {
+                                            // handle error
+                                            System.out.println("ERROR");
+                                        } else {
+                                            System.out.println("Success");
+                                            try {
+
+                                                String jsonresult = String.valueOf(json);
+                                                System.out.println("JSON Result" + jsonresult);
+
+                                                String str_email = json.getString("email");
+                                                String str_id = json.getString("id");
+                                                String str_firstname = json.getString("first_name");
+                                                String str_lastname = json.getString("last_name");
+
+                                            } catch (JSONException e) {
+                                                e.printStackTrace();
+                                            }
+                                        }
+                                    }
+
+                                }).executeAsync();
+                    }
+
+                    @Override
+                    public void onCancel() {
+
+                    }
+
+                    @Override
+                    public void onError(FacebookException error) {
+
+                    }
+                });
+
+        /*facebookLoginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
             @Override
             public void onSuccess(LoginResult loginResult) {
+                ProfileTracker mProfileTracker = new ProfileTracker() {
+                    @Override
+                    protected void onCurrentProfileChanged(Profile oldProfile, Profile newProfile) {
+                        // Fetch user details from New Profile
+                        Log.e("","");
+                    }
+                };
 
                 // App code
                 GraphRequest request = GraphRequest.newMeRequest(
@@ -209,13 +277,20 @@ public class WelcomeActivity extends AppCompatActivity implements GoogleApiClien
                                 CurrentUser currentUser = new CurrentUser(object);
                                 Intent intent = new Intent(WelcomeActivity.this, CreateAccountActivity.class);
                                 Bundle bundle = new Bundle();
+                                try {
+                                    String email = response.getJSONObject().getString("email");
+                                    String gender = response.getJSONObject().getString("gender");
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+
                                 bundle.putSerializable(PriveTalkConstants.BUNDLE_CURRENT_USER, currentUser);
                                 intent.putExtras(bundle);
                                 startActivity(intent);
                             }
                         });
                 Bundle parameters = new Bundle();
-                parameters.putString("fields", "id, name, email, gender");
+                parameters.putString("fields", "id, name, email, gender,birthday"); //age,dob,
                 request.setParameters(parameters);
                 request.executeAsync();
             }
@@ -229,7 +304,7 @@ public class WelcomeActivity extends AppCompatActivity implements GoogleApiClien
             public void onError(FacebookException exception) {
 
             }
-        });
+        });*/
     }
 
     @Override

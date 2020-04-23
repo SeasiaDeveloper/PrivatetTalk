@@ -24,7 +24,7 @@ public class AuthenticationDialog extends Dialog {
         this.listener = listener;
         mContext = context;
        // this.redirect_url = "https://www.instagram.com";
-        this.redirect_url =/* "https://instagram.com/"; */context.getResources().getString(R.string.instagram_redirect_url);
+        this.redirect_url = context.getResources().getString(R.string.instagram_redirect_url);
       /*  this.request_url = "https://api.instagram.com/oauth/authorize" +
                 "?client_id=" + mContext.getString(R.string.instagram_client_id) +
                 "&redirect_uri=" + redirect_url +
@@ -67,7 +67,6 @@ public class AuthenticationDialog extends Dialog {
             super.onPageFinished(view, url);
             redirect_url=url;
             if (url.contains("code=")) {
-
                // if (url.contains("code=")) {
                 int lastIndex, firstIndex;
                 lastIndex = url.lastIndexOf("#");
