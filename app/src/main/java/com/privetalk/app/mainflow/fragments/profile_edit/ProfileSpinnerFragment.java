@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.privetalk.app.PriveTalkApplication;
 import com.privetalk.app.R;
 import com.privetalk.app.utilities.FragmentWithTitle;
 import com.privetalk.app.utilities.PriveTalkConstants;
@@ -111,7 +112,7 @@ public class ProfileSpinnerFragment extends FragmentWithTitle implements Viewpag
 
     @Override
     protected String getActionBarTitle() {
-        return getResources().getStringArray(R.array.personalInfoEditArray)[fragmentPosition];
+        return PriveTalkApplication.getInstance().getResources().getStringArray(R.array.personalInfoEditArray)[fragmentPosition];
     }
 
     @Override

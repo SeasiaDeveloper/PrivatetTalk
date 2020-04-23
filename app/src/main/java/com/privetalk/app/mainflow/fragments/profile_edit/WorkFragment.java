@@ -18,6 +18,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.android.volley.Request;
+import com.privetalk.app.PriveTalkApplication;
 import com.privetalk.app.R;
 import com.privetalk.app.database.datasource.CurrentUserDetailsDatasource;
 import com.privetalk.app.database.datasource.InterestsDatasource;
@@ -157,7 +158,7 @@ public class WorkFragment extends FragmentWithTitle implements ViewpagerFragment
 
     @Override
     protected String getActionBarTitle() {
-        return getResources().getString(R.string.work).replace(":", "");
+        return PriveTalkApplication.getInstance().getResources().getString(R.string.work).replace(":", "");
     }
 
     @Override

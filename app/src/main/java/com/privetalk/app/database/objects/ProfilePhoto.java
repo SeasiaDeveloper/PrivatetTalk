@@ -29,6 +29,8 @@ public class ProfilePhoto implements Serializable {
 
     public boolean isMainProfilePhoto;
 
+    public boolean isVerifiedPhoto;
+
     public ProfilePhoto() {
 
     }
@@ -50,6 +52,7 @@ public class ProfilePhoto implements Serializable {
         Log.d("zenios", square_photo);
 
         this.isMainProfilePhoto = jsonObject.optBoolean("is_main_profile_photo");
+        this.isVerifiedPhoto=jsonObject.optBoolean("verified_photo");
     }
 
     public ProfilePhoto(Cursor cursor) {
@@ -66,6 +69,8 @@ public class ProfilePhoto implements Serializable {
         large_square_thumb =cursor.getString(cursor.getColumnIndex(PriveTalkTables.CommunityUsersTable.LARGE_SQUARE_THUMB));
 
         isMainProfilePhoto = cursor.getInt(cursor.getColumnIndex(PriveTalkTables.CommunityUsersTable.IS_MAIN_PROFILE_PHOTO)) > 0;
+        isVerifiedPhoto = cursor.getInt(cursor.getColumnIndex(PriveTalkTables.CommunityUsersTable.IS_MAIN_PROFILE_PHOTO)) > 0;
+
     }
 
     public void addContentValues(ContentValues contentValues) {

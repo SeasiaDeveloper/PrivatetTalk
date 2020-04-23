@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
+import com.privetalk.app.PriveTalkApplication;
 import com.privetalk.app.R;
 import com.privetalk.app.database.PriveTalkTables;
 import com.privetalk.app.database.datasource.AttributesDatasource;
@@ -118,7 +119,7 @@ public class ProfileEditComplexListFragment extends FragmentWithTitle implements
 
     @Override
     protected String getActionBarTitle() {
-        return getResources().getStringArray(R.array.personalInfoEditArray)[fragmentPosition].replace(":", "");
+        return PriveTalkApplication.getInstance().getResources().getStringArray(R.array.personalInfoEditArray)[fragmentPosition].replace(":", "");
     }
 
     private boolean haveDataChanged() {

@@ -74,7 +74,7 @@ public class AuthenticationDialog extends Dialog {
                 firstIndex = url.indexOf("=");
                 code = url.substring(firstIndex + 1, lastIndex);
                 Log.e("access_token", code);
-               listener.onCodeReceived(code);
+                listener.onCodeReceived(code);
                // dismiss();
             } else if (url.contains("?error")) {
                 Log.e("access_token", "getting error fetching access token");

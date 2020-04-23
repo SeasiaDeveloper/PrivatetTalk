@@ -58,13 +58,13 @@ public class ProfileEditSimpleFragment extends FragmentWithTitle implements View
         if (savedInstanceState == null) {
             fragmentPosition = getArguments().getInt(PersonalInfoEditPagerFragment.KEY_FRAGMENT_POSITION);
             switch (fragmentPosition) {
-                case PersonalInfoEditPagerFragment.NAME:
+              /*  case PersonalInfoEditPagerFragment.NAME:
                     currentValue = PersonalInfoEditParentFragment.currentUser.name;
                     break;
                 case PersonalInfoEditPagerFragment.LOCATION:
                     currentValue = PersonalInfoEditParentFragment.currentUser.location;
                     LocationUtilities.saveSelectedLocation(-1, -1);
-                    break;
+                    break;*/
 
             }
         } else {
@@ -88,7 +88,7 @@ public class ProfileEditSimpleFragment extends FragmentWithTitle implements View
             editeValueText.setText(currentValue);
 
         switch (fragmentPosition) {
-            case PersonalInfoEditPagerFragment.NAME:
+          /*  case PersonalInfoEditPagerFragment.NAME:
                 editeValueText.setInputType(InputType.TYPE_TEXT_VARIATION_PERSON_NAME);
                 editeValueText.setHint(getString(R.string.my_name_is));
                 break;
@@ -127,7 +127,7 @@ public class ProfileEditSimpleFragment extends FragmentWithTitle implements View
                         editeValueText.setText(LocationUtilities.getAdminArea());
                     }
                 });
-                break;
+                break;*/
             case PersonalInfoEditPagerFragment.WORK:
                 editeValueText.setInputType(InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS);
                 editeValueText.setHint(getString(R.string.work));
@@ -138,7 +138,9 @@ public class ProfileEditSimpleFragment extends FragmentWithTitle implements View
 
     @Override
     protected String getActionBarTitle() {
-        return getResources().getStringArray(R.array.personalInfoEditArray)[fragmentPosition].replace(":", "");
+       return PriveTalkApplication.getInstance().getResources().getStringArray(R.array.personalInfoEditArray)[fragmentPosition].replace(":", "");
+     //  return "nm";
+
     }
 
     @Override
@@ -154,7 +156,7 @@ public class ProfileEditSimpleFragment extends FragmentWithTitle implements View
 
         if (editeValueText != null) {
 
-            switch (fragmentPosition) {
+           /* switch (fragmentPosition) {
                 case PersonalInfoEditPagerFragment.NAME:
                     PersonalInfoEditParentFragment.infoChanged = !editeValueText.getText().toString().equals(PersonalInfoEditParentFragment.currentUser.name)
                             || PersonalInfoEditParentFragment.infoChanged;
@@ -168,7 +170,7 @@ public class ProfileEditSimpleFragment extends FragmentWithTitle implements View
                     PersonalInfoEditParentFragment.currentUser.location = editeValueText.getText().toString();
 //                    System.out.println("Change Location");
                     break;
-            }
+            }*/
         }
 //        else {
 //            System.out.println("editeValueText: IS NULL!!!!");
@@ -192,7 +194,7 @@ public class ProfileEditSimpleFragment extends FragmentWithTitle implements View
     public void onResumeFragment() {
 
 //        System.out.println("ONRESUMEFRAGMENT!! IN SINGLEFRAGMENT: " + fragmentPosition);
-
+/*
         if (fragmentPosition == PersonalInfoEditPagerFragment.NAME && editeValueText != null) {
 
             if (!PersonalInfoEditParentFragment.currentUser.name_edited)
@@ -227,7 +229,7 @@ public class ProfileEditSimpleFragment extends FragmentWithTitle implements View
 
             if (lattitude != -1 || longitude != -1)
                 getAdditionalInfo();
-        }
+        }*/
     }
 
     private void getAdditionalInfo() {
