@@ -12,6 +12,7 @@ import android.widget.DatePicker;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.privetalk.app.PriveTalkApplication;
 import com.privetalk.app.R;
 import com.privetalk.app.utilities.FadeOnTouchListener;
 import com.privetalk.app.utilities.FragmentWithTitle;
@@ -122,7 +123,7 @@ public class ProfileEditDatePickerFragment extends FragmentWithTitle implements 
 
     @Override
     protected String getActionBarTitle() {
-        return getResources().getStringArray(R.array.personalInfoEditArray)[fragmentPosition].replace(":", "");
+        return PriveTalkApplication.getInstance().getResources().getStringArray(R.array.personalInfoEditArray)[fragmentPosition].replace(":", "");
     }
 
     @Override

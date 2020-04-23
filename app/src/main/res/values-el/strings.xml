@@ -567,6 +567,10 @@
     <string name="wait">Περιμένετε</string>
     <string name="unread_messages">Αδιάβαστα Μηνύματα</string>
     <string name="promote_cost">Αυτή η υπηρεσία κοστίζει 100 PT κέρματα. Θέλετε να συνεχίσετε?</string>
+
+    <string name="profile_picture_promote">Μόνο η εικόνα προφίλ που επιτρέπεται να αναβαθμιστεί</string>
+    <string name="ok">Εντάξει</string>
+
     <string name="promote_photo">Πρόκειται να προωθήσετε την φωτογραφία σας.</string>
     <string name="problem_loading_user_info">Δεν ήταν δυνατή η ανάκτηση των πληροφοριών του χρήστη</string>
     <string name="royal_user_plans_favourite">Για να δεις ποιος σε έχει βάλε στα Αγαπημένα του πρέπει να είσαι Royal χρήστης. Δείτε τα πακέτα μας!</string>

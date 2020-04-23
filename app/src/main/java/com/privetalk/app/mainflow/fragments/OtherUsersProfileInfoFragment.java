@@ -14,15 +14,6 @@ import android.graphics.drawable.Drawable;
 import android.location.Location;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import androidx.annotation.Nullable;
-import androidx.core.content.ContextCompat;
-import androidx.localbroadcastmanager.content.LocalBroadcastManager;
-import androidx.core.view.MotionEventCompat;
-import androidx.viewpager.widget.PagerAdapter;
-import androidx.viewpager.widget.ViewPager;
-import androidx.appcompat.app.AlertDialog;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
 import android.view.Display;
 import android.view.Gravity;
@@ -36,6 +27,16 @@ import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.Toast;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
+import androidx.core.content.ContextCompat;
+import androidx.core.view.MotionEventCompat;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager.widget.PagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.NetworkResponse;
@@ -101,6 +102,7 @@ public class OtherUsersProfileInfoFragment extends FragmentWithTitle {
 
     //views
     private PriveTalkTextView interestsTextView;
+    private PriveTalkTextView tvVerifiedUser;
     private PriveTalkTextView profileName;
     private PriveTalkTextView profileAge;
     private PriveTalkTextView userDistance;
@@ -115,6 +117,7 @@ public class OtherUsersProfileInfoFragment extends FragmentWithTitle {
     private ImageView sendMessage;
     private ImageView favoriteStar;
     private ImageView sendGift;
+    private RelativeLayout layVerifiedUser;
     private ProfilePersonalInfoContainer locationContainer;
     private ProfilePersonalInfoContainer ageContainer;
     private ProfilePersonalInfoContainer relationshipContainer;
@@ -315,6 +318,8 @@ public class OtherUsersProfileInfoFragment extends FragmentWithTitle {
         bodyTypeContainer = (ProfilePersonalInfoContainer) rootView.findViewById(R.id.profileBodyTypeContainer);
         aboutMe = (PriveTalkTextView) rootView.findViewById(R.id.profileTextAboutMe);
         userStatus = (ImageView) rootView.findViewById(R.id.userStatus);
+        layVerifiedUser = (RelativeLayout) rootView.findViewById(R.id.layVerified);
+        tvVerifiedUser = (PriveTalkTextView) rootView.findViewById(R.id.tvVeriied);
         interestsTextView = (PriveTalkTextView) rootView.findViewById(R.id.profilePersonalIterestsStatic);
         photoPreviewPager = (ViewPager) rootView.findViewById(R.id.photoViewpager);
         reportOrBlockUser = rootView.findViewById(R.id.reportOrBlockUserText);
@@ -428,6 +433,14 @@ public class OtherUsersProfileInfoFragment extends FragmentWithTitle {
         userDistance.setText(getDistance());
 
         photoPreviewPager.setAdapter(new ProfilePhotoAdapter());
+        Log.e("detail", otherUserObject.profilePhotosList.get(0).isVerifiedPhoto + "");
+
+        if (otherUserObject.profilePhotosList.get(0).isVerifiedPhoto) {
+            layVerifiedUser.setVisibility(View.VISIBLE);
+            tvVerifiedUser.setText("Verified");
+        } else {
+            layVerifiedUser.setVisibility(View.GONE);
+        }
 
         photoPreviewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
@@ -437,6 +450,15 @@ public class OtherUsersProfileInfoFragment extends FragmentWithTitle {
 
             @Override
             public void onPageSelected(int position) {
+                if (otherUserObject.profilePhotosList.get(position).isVerifiedPhoto) {
+                    layVerifiedUser.setVisibility(View.VISIBLE);
+                    tvVerifiedUser.setText("Verified");
+                } else {
+                    layVerifiedUser.setVisibility(View.GONE);
+
+                }
+                Toast.makeText(getActivity(), "" + otherUserObject.profilePhotosList.get(position).isVerifiedPhoto, Toast.LENGTH_SHORT).show();
+
                 smallPicturesRecyclerView.smoothScrollToPosition(position);
             }
 
@@ -755,7 +777,7 @@ public class OtherUsersProfileInfoFragment extends FragmentWithTitle {
             ImageView convertView = (ImageView) LayoutInflater.from(container.getContext()).inflate(R.layout.circle_imageview, container, false);
             if (otherUserObject.profilePhotosList.size() > 0) {
 
-                if (!otherUserObject.profilePhotosList.get(position).square_photo.contains("https://privetalkdev.s3.amazonaws.com/")){
+                if (!otherUserObject.profilePhotosList.get(position).square_photo.contains("https://privetalkdev.s3.amazonaws.com/")) {
                     otherUserObject.profilePhotosList.get(position).square_photo = "https://privetalkdev.s3.amazonaws.com/" + otherUserObject.profilePhotosList.get(position).square_photo;
                 }
 
@@ -807,12 +829,10 @@ public class OtherUsersProfileInfoFragment extends FragmentWithTitle {
                         return true;
                     }
                 });
-            } else{
+            } else {
                 Glide.with(PriveTalkApplication.getInstance()).load(R.drawable.dummy_img).into(convertView);
                 Log.d("zeniosdevil", "string url : " + " dummy_img");
             }
-
-
 
 
             container.addView(convertView);
@@ -936,9 +956,7 @@ public class OtherUsersProfileInfoFragment extends FragmentWithTitle {
                     }
                 }
             }
-        })
-
-        {
+        }) {
             @Override
             protected Response<JSONObject> parseNetworkResponse(NetworkResponse response) {
 //                netWorkResponse = response;

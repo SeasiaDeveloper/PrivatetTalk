@@ -229,12 +229,12 @@ public class PersonalInfoEditParentFragment extends FragmentWithTitle {
         try {
 
             switch (position) {
-                case PriveTalkConstants.PROFILE_EDIT_NAME:
+               /* case PriveTalkConstants.PROFILE_EDIT_NAME:
                     return currentUser.name;
                 case PriveTalkConstants.PROFILE_EDIT_AGE:
                     return PriveTalkUtilities.getAge(currentUser.birthday);
                 case PriveTalkConstants.PROFILE_EDIT_LOCATION:
-                    return currentUser.location;
+                    return currentUser.location;*/
                 case PriveTalkConstants.PROFILE_EDIT_RELATIONSHIP:
                     return currentUser.currentUserDetails.relationship_status.display;
                 case PriveTalkConstants.PROFILE_EDIT_SEXUALITY:

@@ -54,48 +54,46 @@
                 android:textSize="31sp"
                 app:ttf_name="@string/roboto_light" />
 
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="140dp"
                 android:layout_below="@+id/waiting"
-                android:layout_centerHorizontal="true"
                 android:layout_marginTop="10dp"
-                android:background="@drawable/dotted_line"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:padding="10dp">
-
-                <com.privetalk.app.utilities.PriveTalkTextView
-                    android:id="@+id/signIn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="40dp"
-                    android:layout_alignParentBottom="true"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginBottom="10dp"
-                    android:background="@drawable/background"
-                    android:gravity="center"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp"
-                    android:text="@string/sing_in"
-                    android:textColor="@android:color/white"
-                    android:textSize="21sp"
-                    app:ttf_name="@string/roboto_light" />
+                android:layout_centerHorizontal="true"
+                android:padding="10dp"
+                android:background="@drawable/dotted_line">
 
                 <com.privetalk.app.utilities.PriveTalkTextView
                     android:id="@+id/createAccount"
                     android:layout_width="wrap_content"
                     android:layout_height="40dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/background"
                     android:gravity="center"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
+                    android:layout_marginTop="10dp"
                     android:text="@string/stringie"
                     android:textColor="@android:color/white"
                     android:textSize="21sp"
+                    android:background="@drawable/background"
                     app:ttf_name="@string/roboto_light" />
 
-            </LinearLayout>
+                <com.privetalk.app.utilities.PriveTalkTextView
+                    android:id="@+id/signIn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:textColor="@android:color/white"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:gravity="center"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="@string/sing_in"
+                    android:textSize="21sp"
+                    android:background="@drawable/background"
+                    app:ttf_name="@string/roboto_light" />
+
+            </RelativeLayout>
 
         </RelativeLayout>
     </LinearLayout>

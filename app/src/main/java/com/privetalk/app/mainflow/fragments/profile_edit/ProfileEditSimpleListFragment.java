@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.privetalk.app.PriveTalkApplication;
 import com.privetalk.app.R;
 import com.privetalk.app.database.PriveTalkTables;
 import com.privetalk.app.database.datasource.AttributesDatasource;
@@ -205,8 +206,8 @@ public class ProfileEditSimpleListFragment extends FragmentWithTitle implements 
     @Override
     protected String getActionBarTitle() {
         return fragmentType == PersonalInfoEditParentFragment.PARENT_TYPE_PROFILE_EDIT ?
-                getResources().getStringArray(R.array.personalInfoEditArray)[fragmentPosition].replace(":", "") :
-                getResources().getStringArray(R.array.activities_array)[fragmentPosition].replace(":", "");
+                PriveTalkApplication.getInstance().getResources().getStringArray(R.array.personalInfoEditArray)[fragmentPosition].replace(":", "") :
+                PriveTalkApplication.getInstance().getResources().getStringArray(R.array.activities_array)[fragmentPosition].replace(":", "");
     }
 
 

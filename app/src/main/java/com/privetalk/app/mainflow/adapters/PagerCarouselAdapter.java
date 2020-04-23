@@ -37,6 +37,11 @@ public class PagerCarouselAdapter extends PagerAdapter {
 
     }
 
+    public List<CurrentUserPhotoObject> getPictures() {
+
+        return photosList;
+    }
+
     public int getPictureId(int position) {
 
         return photosList != null && photosList.size() > position ? photosList.get(position).id : -1;

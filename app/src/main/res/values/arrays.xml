@@ -10,9 +10,9 @@
     </string-array>
 
     <string-array name="personalInfoEditArray">
-        <item>@string/name</item>
+      <!--  <item>@string/name</item>
         <item>@string/age</item>
-        <item>@string/location</item>
+        <item>@string/location</item>-->
         <item>@string/relationship</item>
         <item>@string/sexuality</item>
         <item>@string/height</item>

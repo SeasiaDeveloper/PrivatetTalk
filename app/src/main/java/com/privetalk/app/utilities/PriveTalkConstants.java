@@ -142,22 +142,22 @@ public class PriveTalkConstants {
     /**
      * personal info edit ORDER
      **/
-    public static final int PROFILE_EDIT_NAME = 0;
+   /* public static final int PROFILE_EDIT_NAME = 0;
     public static final int PROFILE_EDIT_AGE = 1;
-    public static final int PROFILE_EDIT_LOCATION = 2;
-    public static final int PROFILE_EDIT_RELATIONSHIP = 3;
-    public static final int PROFILE_EDIT_SEXUALITY = 4;
-    public static final int PROFILE_EDIT_HEIGHT = 5;
-    public static final int PROFILE_EDIT_WEIGHT = 6;
-    public static final int PROFILE_EDIT_BODY_TYPE = 7;
-    public static final int PROFILE_EDIT_COLOUR_OF_HAIR = 8;
-    public static final int PROFILE_EDIT_COLOUR_OF_EYES = 9;
-    public static final int PROFILE_EDIT_SMOKING = 10;
-    public static final int PROFILE_EDIT_DRINKING = 11;
-    public static final int PROFILE_EDIT_EDUCATION = 12;
-    public static final int PROFILE_EDIT_WORK = 13;
-    public static final int PROFILE_EDIT_LANGUAGE = 14;
-    public static final int PROFILE_EDIT_RELIGION = 15;
+    public static final int PROFILE_EDIT_LOCATION = 2;*/
+    public static final int PROFILE_EDIT_RELATIONSHIP = 0;
+    public static final int PROFILE_EDIT_SEXUALITY = 1;
+    public static final int PROFILE_EDIT_HEIGHT = 2;
+    public static final int PROFILE_EDIT_WEIGHT = 3;
+    public static final int PROFILE_EDIT_BODY_TYPE = 4;
+    public static final int PROFILE_EDIT_COLOUR_OF_HAIR = 5;
+    public static final int PROFILE_EDIT_COLOUR_OF_EYES = 6;
+    public static final int PROFILE_EDIT_SMOKING = 7;
+    public static final int PROFILE_EDIT_DRINKING = 8;
+    public static final int PROFILE_EDIT_EDUCATION = 9;
+    public static final int PROFILE_EDIT_WORK = 10;
+    public static final int PROFILE_EDIT_LANGUAGE = 11;
+    public static final int PROFILE_EDIT_RELIGION = 12;
 
     public static final int INTERESTS_EDIT_ACTIVITIES = 0;
     public static final int INTERESTS_EDIT_MUSIC = 1;

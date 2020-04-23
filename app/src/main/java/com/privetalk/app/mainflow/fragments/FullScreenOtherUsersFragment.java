@@ -11,6 +11,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
@@ -52,6 +54,8 @@ public class FullScreenOtherUsersFragment extends FragmentWithTitle {
     //adapters
     private HorizontalRecyclerAdapter smallPicturesPreviewAdapter;
     private FullScreenPicturesPagerAdapter mPagerAdapter;
+    private Animation animFadein,animFadeout;
+    private View verifiedPicture;
 
     //data
     private List<String> profilePictures;
@@ -85,6 +89,7 @@ public class FullScreenOtherUsersFragment extends FragmentWithTitle {
         smallPictureRecyclerViewParams = (PercentRelativeLayout.LayoutParams) smallPicturePreviewRecyclerView.getLayoutParams();
         removePictureBucket = rootView.findViewById(R.id.removePicture);
         shadowView = rootView.findViewById(R.id.shadowViewFullScreenPicturesFragment);
+        verifiedPicture = rootView.findViewById(R.id.verifiedPicture);
 
         fullScreenPicturesViewPager.setAdapter(mPagerAdapter = new FullScreenPicturesPagerAdapter());
 
@@ -95,6 +100,21 @@ public class FullScreenOtherUsersFragment extends FragmentWithTitle {
         setThumbsRecyclerWidth();
         smallPicturePreviewRecyclerView.setAdapter(smallPicturesPreviewAdapter = new HorizontalRecyclerAdapter());
 
+        if(photosList.get(0).isVerifiedPhoto) {
+            verifiedPicture.setVisibility(View.VISIBLE);
+            animFadein = AnimationUtils.loadAnimation(getActivity(), R.anim.fade_in);
+            verifiedPicture.startAnimation(animFadein);
+            // animFadein.setAnimationListener(this);
+        }
+        else
+        {
+            if(verifiedPicture.getVisibility()==View.VISIBLE) {
+                animFadeout = AnimationUtils.loadAnimation(getActivity(), R.anim.fade_out);
+                verifiedPicture.startAnimation(animFadeout);
+                verifiedPicture.setVisibility(View.GONE);
+            }
+        }
+
         fullScreenPicturesViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -103,6 +123,22 @@ public class FullScreenOtherUsersFragment extends FragmentWithTitle {
 
             @Override
             public void onPageSelected(int position) {
+
+                if(photosList.get(position).isVerifiedPhoto) {
+                    verifiedPicture.setVisibility(View.VISIBLE);
+                    animFadein = AnimationUtils.loadAnimation(getActivity(), R.anim.fade_in);
+                    verifiedPicture.startAnimation(animFadein);
+                    // animFadein.setAnimationListener(this);
+                }
+                else
+                {
+                    if(verifiedPicture.getVisibility()==View.VISIBLE) {
+                        animFadeout = AnimationUtils.loadAnimation(getActivity(), R.anim.fade_out);
+                        verifiedPicture.startAnimation(animFadeout);
+                        verifiedPicture.setVisibility(View.GONE);
+                    }
+                }
+
                 smallPicturePreviewRecyclerView.smoothScrollToPosition(position);
                 smallPicturesPreviewAdapter.setSelected(position);
             }

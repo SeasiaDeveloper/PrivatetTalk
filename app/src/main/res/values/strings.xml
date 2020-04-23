@@ -561,6 +561,8 @@
     <string name="i_got_it">{l}I{/l} got {l}It{/l}</string>
     <string name="error">Error</string>
     <string name="yes">Yes</string>
+    <string name="ok">ok</string>
+
     <string name="no">No</string>
     <string name="wrong_username_or_password">Wrong Username or Password</string>
     <string name="user_info">User Info</string>
@@ -580,6 +582,8 @@
     <string name="wait">Wait</string>
     <string name="unread_messages">Unread Messages</string>
     <string name="promote_cost">This service costs 100 PT coins. Do you want to proceed?</string>
+    <string name="profile_picture_promote">Only the profile picture to be allowed to be boosted</string>
+
     <string name="promote_photo">You are about to promote your photo.</string>
     <string name="problem_loading_user_info">Couldn\'t fetch user\'s information</string>
     <string name="royal_user_plans_favourite">To see Who Favourited You, you should be a Royal User. View our plans!</string>

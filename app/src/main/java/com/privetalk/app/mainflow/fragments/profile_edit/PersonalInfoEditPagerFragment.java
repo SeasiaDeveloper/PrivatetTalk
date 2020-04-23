@@ -29,24 +29,24 @@ public class PersonalInfoEditPagerFragment extends FragmentWithTitle {
     public final  String TAG = "PagerFragment";
     public static final String KEY_FRAGMENT_POSITION = "key-fragment-position";
 
-    public static final int TOTAL_FRAGMENTS = 16;
-    public static final int NAME = 0;
+    public static final int TOTAL_FRAGMENTS = 13;
+   /* public static final int NAME = 0;
     public static final int AGE = 1;
-    public static final int LOCATION = 2;
+    public static final int LOCATION = 2;*/
 
-    public static final int RELATIONSHIP = 3;// ['0' or '1' or '2' or '3' or '4'],
-    public static final int SEXUALITY = 4; // ['0' or '1' or '2' or '3'],
-    public static final int HEIGHT = 5; // INTEGER
-    public static final int WEIGHT = 6;// INTEGER
-    public static final int BODY_TYPE = 7; //  ['0' or '1' or '2' or '3' or '4' or '5'],
-    public static final int HAIR = 8; //  ['0' or '1' or '2' or '3' or '4' or '5' or '6' or '7' or '8' or '9' or '10' or '11'],
-    public static final int EYES = 9; //  ['0' or '1' or '2' or '3' or '4' or '5' or '6'],
-    public static final int SMOKING = 10; //  ['0' or '1' or '2' or '3' or '4'],
-    public static final int DRINKING = 11; // ['0' or '1' or '2' or '3' or '4'],
-    public static final int EDUCATION = 12; // ['0' or '1' or '2' or '3' or '4' or '5' or '6' or '7' or '8'],
-    public static final int WORK = 13;// string
-    public static final int LANGUAGES = 14; // COMPLEX CHOICE
-    public static final int RELIGION = 15;// COMPLEX CHOICE
+    public static final int RELATIONSHIP = 0;// ['0' or '1' or '2' or '3' or '4'],
+    public static final int SEXUALITY = 1; // ['0' or '1' or '2' or '3'],
+    public static final int HEIGHT = 2; // INTEGER
+    public static final int WEIGHT = 3;// INTEGER
+    public static final int BODY_TYPE = 4; //  ['0' or '1' or '2' or '3' or '4' or '5'],
+    public static final int HAIR = 5; //  ['0' or '1' or '2' or '3' or '4' or '5' or '6' or '7' or '8' or '9' or '10' or '11'],
+    public static final int EYES = 6; //  ['0' or '1' or '2' or '3' or '4' or '5' or '6'],
+    public static final int SMOKING = 7; //  ['0' or '1' or '2' or '3' or '4'],
+    public static final int DRINKING = 8; // ['0' or '1' or '2' or '3' or '4'],
+    public static final int EDUCATION = 9; // ['0' or '1' or '2' or '3' or '4' or '5' or '6' or '7' or '8'],
+    public static final int WORK = 10;// string
+    public static final int LANGUAGES = 11; // COMPLEX CHOICE
+    public static final int RELIGION = 12;// COMPLEX CHOICE
 
     private NoSwipeViewPager mViewPager;
     private FragmentAdapter fragmentAdapter;
@@ -190,13 +190,13 @@ public class PersonalInfoEditPagerFragment extends FragmentWithTitle {
     private Fragment getFragment(int position) {
 
         switch (position) {
-            case NAME:
+           /* case NAME:
             case LOCATION:
-                return ProfileEditSimpleFragment.newInstance(position);
+                return ProfileEditSimpleFragment.newInstance(position);*/
             case WORK:
                 return WorkFragment.newInstance(position);
-            case AGE:
-                return ProfileEditDatePickerFragment.newInstance(position);
+          /*  case AGE:
+                return ProfileEditDatePickerFragment.newInstance(position);*/
             case RELATIONSHIP:
             case SEXUALITY:
             case BODY_TYPE:
