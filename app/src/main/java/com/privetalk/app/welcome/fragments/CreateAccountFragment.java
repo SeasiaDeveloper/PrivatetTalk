@@ -73,7 +73,8 @@ public class CreateAccountFragment extends Fragment {
         createAccount.setOnTouchListener(new FadeOnTouchListener() {
             @Override
             public void onClick(View view, MotionEvent event) {
-                welcomeActivity.showNewAccountDialog();
+                welcomeActivity.logInFacebook();
+                //welcomeActivity.showNewAccountDialog();
             }
         });
 

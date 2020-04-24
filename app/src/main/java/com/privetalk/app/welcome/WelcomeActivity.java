@@ -361,6 +361,10 @@ public class WelcomeActivity extends AppCompatActivity implements GoogleApiClien
 
     }
 
+    public void logInFacebook() {
+      facebookLoginButton.performClick();
+    }
+
     //create a new account dialog
     public void showNewAccountDialog() {
         createAccountDialog = new CreateAccountDialog(this, (RelativeLayout) rootView, getLayoutInflater());
@@ -937,7 +941,6 @@ public class WelcomeActivity extends AppCompatActivity implements GoogleApiClien
                     facebookLoginButton.performClick();
                 }
             });
-
 
             googleLoginButton.setOnTouchListener(new FadeOnTouchListener() {
                 @Override

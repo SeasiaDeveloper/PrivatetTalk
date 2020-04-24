@@ -240,6 +240,7 @@
     <string name="see_everything">Δες τα Πάντα</string>
     <string name="trust_and_higher_rank">Αποκτήστε εμπιστοσύνη και υψηλότερη βαθμολογία</string>
     <string name="trust_and_higher_rank_desc">Λάβετε ένα επιπλέον σήμα επαλήθευσης και βαθμολογήστε το προφίλ σας υψηλότερα στην Κοινότητα</string>
+    <string name="fb_text">ΣΥΝΔΕΣΗ ΜΕ ΤΟ FACEBOOK</string>
     <string name="set_expiration_timers">Όρισε Χρόνους Αυτοκαταστροφής</string>
     <string name="expiration_timers_message">Επέλεξε για πόση ώρα το κείμενο και η εικόνα που έχεις στείλει είναι ορατή (από 3 δευτερόλεπτα μέχρι 7 μέρες).</string>
     <string name="priority_messages">Μηνύματα Προτεραιότητας</string>

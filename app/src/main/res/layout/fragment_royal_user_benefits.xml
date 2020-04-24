@@ -62,11 +62,12 @@
 
 
                     <ImageView
-                        android:layout_width="32dp"
-                        android:layout_height="32dp"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
                         android:padding="2dp"
+                        android:layout_marginTop="7dp"
                         android:scaleType="fitCenter"
-                        android:src="@drawable/profile_eyes" />
+                        android:src="@drawable/icontrophy" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
