@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.content.IntentSender;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
+import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
@@ -444,6 +446,7 @@ public class TransparentActivity extends AppCompatActivity implements GoogleApiC
                         progressBar.setVisibility(View.GONE);
 
 
+
                         CurrentUser previousUser = CurrentUserDatasource.getInstance(TransparentActivity.this).getCurrentUserInfo();
                         CurrentUser newUser = new CurrentUser(response,
                                 previousUser.token,
@@ -508,13 +511,21 @@ public class TransparentActivity extends AppCompatActivity implements GoogleApiC
     }
 
     private void RequestToken(final String code) {
-
-
         StringRequest verifyAccountRequest = new StringRequest(Request.Method.POST, Links.GET_INSTAGRAM_TOKEN,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
                         Toast.makeText(TransparentActivity.this, response, Toast.LENGTH_LONG).show();
+                        JSONObject person = null;
+                        try {
+                            person = new JSONObject(response);
+                            String accessToken = person.getString("access_token");
+                            String userId = person.getString("user_id");
+                            RequestUserData(accessToken,userId);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
                     }
                 },
                 new Response.ErrorListener() {
@@ -574,9 +585,9 @@ public class TransparentActivity extends AppCompatActivity implements GoogleApiC
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
                 HashMap<String, String> headers = new HashMap<>();
-               // headers.put("Content-Type", "application/json; charset=utf-8");
-                //headers.put("Authorization", "Token " + CurrentUserDatasource.getInstance(getApplicationContext()).getCurrentUserInfo().token);
-                //headers.put("Accept-Language", String.valueOf(Locale.getDefault()).substring(0, 2));
+                headers.put("Content-Type", "application/json; charset=utf-8");
+                headers.put("Authorization", "Token " + CurrentUserDatasource.getInstance(getApplicationContext()).getCurrentUserInfo().token);
+                headers.put("Accept-Language", String.valueOf(Locale.getDefault()).substring(0, 2));
 
                 return headers;
             }
@@ -595,6 +606,51 @@ public class TransparentActivity extends AppCompatActivity implements GoogleApiC
 
         VolleySingleton.getInstance(PriveTalkApplication.getInstance()).addRequest(verifyAccountRequest);
 
+    }
+
+    private void RequestUserData(final String accessToken,final String userId) {
+        String url=Links.GET_INSTAGRAM_USER_DATA+userId+"?access_token="+accessToken+"&fields=username,id";
+                //https://graph.instagram.com/17841400167659145?access_token=IGQVJWUGpQMjN5MFZApWTE4dmNhdm5PNFJaVHV4MjFoN2o3MmVPa2x3MXZASajlrZATU3UXJOVEEzMnY4VUwwSVhPdXk4VGJSb3VLc1c3UWtIYnpSZAHhFR24xaEM5bk5yUU41bHdLTTZAXSy1DdkR2U0lRaXN4VjF0SHg0OU5v&fields=username,id
+        StringRequest verifyAccountRequest = new StringRequest(Request.Method.GET,url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        Toast.makeText(TransparentActivity.this, response, Toast.LENGTH_LONG).show();
+                        JSONObject person = null;
+                        try {
+                            person = new JSONObject(response);
+                            String userName = person.getString("username");
+                            String id = person.getString("id");
+                            JSONObject jsonObject = new JSONObject();
+                            jsonObject.put("instagram_Id", id);
+                            verifyAccount(jsonObject);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(TransparentActivity.this, error.toString(), Toast.LENGTH_LONG).show();
+                    }
+                })
+        {
+
+            /*@Override
+            protected Map<String, String> getParams() {
+                Map<String, String> params = new HashMap<String, String>();
+                params.put(Constants.CLIENT_ID, getResources().getString(R.string.instagram_client_id));
+                params.put(Constants.CODE, code);
+                params.put(Constants.CLIENT_SECRET, getResources().getString(R.string.instagram_client_secret));
+                params.put(Constants.GRANT_TYPE, getResources().getString(R.string.instagram_grant_type));
+                params.put(Constants.REDIRECT_URL, getResources().getString(R.string.instagram_redirect_url));
+                return params;
+            }
+*/
+        };
+        VolleySingleton.getInstance(PriveTalkApplication.getInstance()).addRequest(verifyAccountRequest);
 
     }
 

@@ -36,6 +36,7 @@
     <!-- stringies with html-->
     <!-- stringies o.O O.o-->
     <string name="my_birthday">Η ημερομηνία {b}γέννησης{/b} μου είναι</string>
+    <string name="my_age">Ηλικία</string>
     <string name="my_location">Που {b}μένω{/b}</string>
     <string name="my_genre">{b}Είμαι{/b} </string>
     <string name="looking_for">{b}Ψάχνω{/b}\nγια</string>

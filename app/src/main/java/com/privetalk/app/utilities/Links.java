@@ -5,7 +5,9 @@ package com.privetalk.app.utilities;
  */
 public class Links {
 
-    public static final String MAIN_URL = "https://privetalk.herokuapp.com";
+    public static final String MAIN_URL = "http://np.seasiafinishingschool.com:7083";
+
+    /*  public static final String MAIN_URL = "https://privetalk.herokuapp.com";*/
 //testing url
 //    public static final String MAIN_URL = "http://192.168.5.194:8000";
 
@@ -19,6 +21,7 @@ public class Links {
 
     public static final String GET_INSTAGRAM_TOKEN = "https://api.instagram.com/oauth/access_token";
 
+    public static final String GET_INSTAGRAM_USER_DATA = "https://graph.instagram.com/";
 
     public static final String POST_LOCATION = MAIN_URL + "/api/profiles/my/location/";
 

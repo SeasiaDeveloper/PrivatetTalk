@@ -7,7 +7,7 @@
     android:inAnimation="@android:anim/fade_in"
     android:outAnimation="@android:anim/fade_out">
 
-    <ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+    <ScrollView
         android:id="@+id/parentScrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -16,8 +16,7 @@
         android:padding="16dp"
         android:scrollbarStyle="outsideOverlay">
 
-        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:clipChildren="false"

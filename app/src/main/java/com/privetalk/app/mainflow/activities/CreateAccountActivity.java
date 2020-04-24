@@ -15,6 +15,7 @@ import android.location.LocationManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.Settings;
+
 import androidx.percentlayout.widget.PercentRelativeLayout;
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.FragmentTransaction;
@@ -24,6 +25,7 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.text.method.LinkMovementMethod;
@@ -31,10 +33,13 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ViewSwitcher;
@@ -102,7 +107,7 @@ public class CreateAccountActivity extends AppCompatActivity implements
     private ImageView requestAnotherCode;
     private ProgressBar progressBar;
     private ImageView passStrength, myNameTick, myBirthdayTick,
-            myLocationTick, myGenreMale, myGenreFemale, myGenreTick,
+            myLocationTick, /*myGenreMale, myGenreFemale, myGenreTick,*/
             lookingGenreMale, lookingGenreFemale, lookingTick,
             myEmailTick, passwordTick, confirmTick;
     private PriveTalkRadioButton acceptTermsRadioButton;
@@ -120,6 +125,7 @@ public class CreateAccountActivity extends AppCompatActivity implements
     private boolean isPaused = true;
     private boolean loginWithEmail = false;
     private AlertDialog countryCodeDialog;
+    private Spinner genderSpinner;
 
     private RelativeLayout verificationCodeRelative;
 
@@ -185,8 +191,20 @@ public class CreateAccountActivity extends AppCompatActivity implements
         if (currentUser.email == null || currentUser.email.isEmpty()) {
             loginWithEmail = true;
         }
+
+        //gender spinner
+        genderSpinner = findViewById(R.id.genderSpinner);
+        String[] items = new String[]{"Please select", "Male", "Female", "Other"};
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, items);
+        genderSpinner.setAdapter(adapter);
         googleApiStuff();
         initViews();
+        myBirtday.setText("28/08/1992");
+        myBirthdayTick.setColorFilter(ContextCompat.getColor(CreateAccountActivity.this,
+                R.color.verification_green), PorterDuff.Mode.SRC_IN);
+        myBirthdayTick.setTag(true);
+        //get location
+        getLocation();
     }
 
 
@@ -216,6 +234,19 @@ public class CreateAccountActivity extends AppCompatActivity implements
         LocalBroadcastManager.getInstance(this).unregisterReceiver(onDateSelected);
         isPaused = true;
         super.onPause();
+    }
+
+    private void getLocation() {
+        locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        boolean gps_enabled = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
+        boolean network_enabled = locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
+        if (!network_enabled && !gps_enabled) {
+            buildAlertMessageNoGps();
+        } else {
+            // gpsButtonContainer.setDisplayedChild(PROGRESSBAR);
+            if (mGoogleApiClient.isConnected()) getLocationName();
+            else mGoogleApiClient.connect();
+        }
     }
 
     @Override
@@ -256,19 +287,19 @@ public class CreateAccountActivity extends AppCompatActivity implements
 
 
     private void initViews() {
-        gpsButtonContainer = (ViewSwitcher) findViewById(R.id.gpsButtonContainer);
+        //gpsButtonContainer = (ViewSwitcher) findViewById(R.id.gpsButtonContainer);
         terms = (TextView) findViewById(R.id.termsCreateAccount);
         terms.setMovementMethod(LinkMovementMethod.getInstance());
         myName = (PriveTalkEditText) findViewById(R.id.myName);
         myBirtday = (PriveTalkTextView) findViewById(R.id.myBirthday);
         myLocation = (PriveTalkEditText) findViewById(R.id.myLocation);
-        myGenre = (PriveTalkTextView) findViewById(R.id.myGenre);
+        //myGenre = (PriveTalkTextView) findViewById(R.id.myGenre);
         lookingFor = (PriveTalkTextView) findViewById(R.id.lookingFor);
         password = (PriveTalkEditText) findViewById(R.id.password);
         passStrength = (ImageView) findViewById(R.id.passwordStrength);
-        gpsButton = gpsButtonContainer.getChildAt(BUTTON);
-        myGenreMale = (ImageView) findViewById(R.id.myGenreMale);
-        myGenreFemale = (ImageView) findViewById(R.id.myGenreFemale);
+        // gpsButton = gpsButtonContainer.getChildAt(BUTTON);
+        //myGenreMale = (ImageView) findViewById(R.id.myGenreMale);
+        //myGenreFemale = (ImageView) findViewById(R.id.myGenreFemale);
         myEmail = (PriveTalkEditText) findViewById(R.id.myEmail);
         confirmPass = (PriveTalkEditText) findViewById(R.id.confirmPass);
         lookingGenreMale = (ImageView) findViewById(R.id.lookingGenreMale);
@@ -279,7 +310,7 @@ public class CreateAccountActivity extends AppCompatActivity implements
         myNameTick = (ImageView) findViewById(R.id.myNameTick);
         myBirthdayTick = (ImageView) findViewById(R.id.myBirthdayTick);
         myLocationTick = (ImageView) findViewById(R.id.myLocationTick);
-        myGenreTick = (ImageView) findViewById(R.id.myGenreTick);
+        //myGenreTick = (ImageView) findViewById(R.id.myGenreTick);
         lookingTick = (ImageView) findViewById(R.id.lookingTick);
         myEmailTick = (ImageView) findViewById(R.id.myEmailTick);
         passwordTick = (ImageView) findViewById(R.id.passwordTick);
@@ -292,14 +323,15 @@ public class CreateAccountActivity extends AppCompatActivity implements
         verificationCode = (PriveTalkEditText) viewSwitcher.getChildAt(ENTER_VERIFICATION_CODE);
 
         //set tags
-        myGenreMale.setTag(false);
-        myGenreFemale.setTag(false);
+        //myGenreMale.setTag(false); //commented code
+        //myGenreFemale.setTag(false);
+        genderSpinner.setTag(false);
         lookingGenreFemale.setTag(false);
         lookingGenreMale.setTag(false);
         myNameTick.setTag(false);
         myBirthdayTick.setTag(false);
         myLocationTick.setTag(false);
-        myGenreTick.setTag(false);
+        //myGenreTick.setTag(false);
         lookingTick.setTag(false);
         myEmailTick.setTag(false);
         passwordTick.setTag(false);
@@ -424,13 +456,13 @@ public class CreateAccountActivity extends AppCompatActivity implements
             }
         });
 
-        myBirtday.setOnTouchListener(new FadeOnTouchListener() {
+       /* myBirtday.setOnTouchListener(new FadeOnTouchListener() {
             @Override
             public void onClick(View view, MotionEvent event) {
                 DialogFragment dialogFragment = new DatePickerFragment();
                 dialogFragment.show(getSupportFragmentManager(), "start_date_picker");
             }
-        });
+        });*/
 
 
         myEmail.addTextChangedListener(new TextWatcher() {
@@ -531,7 +563,7 @@ public class CreateAccountActivity extends AppCompatActivity implements
             }
         });
 
-        gpsButton.setOnTouchListener(new FadeOnTouchListener() {
+       /* gpsButton.setOnTouchListener(new FadeOnTouchListener() {
                                          @Override
                                          public void onClick(View view, MotionEvent event) {
                                              locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
@@ -540,16 +572,35 @@ public class CreateAccountActivity extends AppCompatActivity implements
                                              if (!network_enabled && !gps_enabled) {
                                                  buildAlertMessageNoGps();
                                              } else {
-                                                 gpsButtonContainer.setDisplayedChild(PROGRESSBAR);
+                                                 // gpsButtonContainer.setDisplayedChild(PROGRESSBAR);
                                                  if (mGoogleApiClient.isConnected()) getLocationName();
                                                  else mGoogleApiClient.connect();
                                              }
                                          }
                                      }
-        );
+        );*/
 
+        genderSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                //if (!(boolean) genderSpinner.getTag()) {
+                if (position == 0) {
+                    genderSpinner.setTag(false);
+                } else {
+                    genderSpinner.setTag(true);
+                }
+                //}
+                checkifAllSet();
+            }
 
-        myGenreMale.setOnTouchListener(new FadeOnTouchListener() {
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+        //commented code
+       /* myGenreMale.setOnTouchListener(new FadeOnTouchListener() {
             @Override
             public void onClick(View view, MotionEvent event) {
                 if (!(boolean) myGenreMale.getTag()) {
@@ -579,7 +630,7 @@ public class CreateAccountActivity extends AppCompatActivity implements
 
                 checkifAllSet();
             }
-        });
+        });*/
 
         lookingGenreMale.setOnTouchListener(new FadeOnTouchListener() {
             @Override
@@ -697,24 +748,31 @@ public class CreateAccountActivity extends AppCompatActivity implements
                 myBirthdayTick.setTag(true);
             }
 
-            if (Integer.valueOf(currentUser.gender.value) == CurrentUser.MALE) {
-                if (!(boolean) myGenreMale.getTag()) {
+            if (Integer.valueOf(currentUser.gender.value) == CurrentUser.MALE) { //changed commented
+                genderSpinner.setSelection(1);
+                genderSpinner.setTag(true);
+                /*if (!(boolean) myGenreMale.getTag()) {
                     myGenreTick.setColorFilter(ContextCompat.getColor(CreateAccountActivity.this, R.color.verification_green), PorterDuff.Mode.SRC_IN);
                     myGenreTick.setTag(true);
                     myGenreMale.setTag(true);
                     myGenreFemale.setTag(false);
                     myGenreMale.setImageDrawable(ContextCompat.getDrawable(CreateAccountActivity.this, R.drawable.male_icon_selected));
                     myGenreFemale.setImageDrawable(ContextCompat.getDrawable(CreateAccountActivity.this, R.drawable.female_icon));
-                }
+                }*/
             } else if (Integer.valueOf(currentUser.gender.value) == CurrentUser.FEMALE) {
-                if (!(boolean) myGenreFemale.getTag()) {
+                genderSpinner.setSelection(2);
+                genderSpinner.setTag(true);
+                /*if (!(boolean) myGenreFemale.getTag()) {
                     myGenreTick.setColorFilter(ContextCompat.getColor(CreateAccountActivity.this, R.color.verification_green), PorterDuff.Mode.SRC_IN);
                     myGenreTick.setTag(true);
                     myGenreFemale.setTag(true);
                     myGenreMale.setTag(false);
                     myGenreMale.setImageDrawable(ContextCompat.getDrawable(CreateAccountActivity.this, R.drawable.male_icon));
                     myGenreFemale.setImageDrawable(ContextCompat.getDrawable(CreateAccountActivity.this, R.drawable.female_icon_selected));
-                }
+                }*/
+            } else if (Integer.valueOf(currentUser.gender.value) == CurrentUser.OTHER) {
+                genderSpinner.setSelection(3);
+                genderSpinner.setTag(true);
             }
         }
 
@@ -864,7 +922,7 @@ public class CreateAccountActivity extends AppCompatActivity implements
                 protected void onPostExecute(String s) {
 //                    if (myLocation == null)
 //                        return;
-                    gpsButtonContainer.setDisplayedChild(BUTTON);
+                    //gpsButtonContainer.setDisplayedChild(BUTTON);
                     myLocation.setText(s);
                 }
             }.execute();
@@ -907,8 +965,19 @@ public class CreateAccountActivity extends AppCompatActivity implements
         currentUser.name = myName.getText().toString();
         currentUser.location = myLocation.getText().toString();
 
-        currentUser.gender.value = ((boolean) myGenreMale.getTag() && (boolean) myGenreFemale.getTag()) ? "0" :
-                ((boolean) myGenreMale.getTag()) ? String.valueOf(CurrentUser.MALE) : String.valueOf(CurrentUser.FEMALE);
+        //commented code
+        /*currentUser.gender.value = ((boolean) myGenreMale.getTag() && (boolean) myGenreFemale.getTag()) ? "0" :
+                ((boolean) myGenreMale.getTag()) ? String.valueOf(CurrentUser.MALE) : String.valueOf(CurrentUser.FEMALE);*/
+
+        if ((boolean) genderSpinner.getTag()) {
+            if (genderSpinner.getSelectedItemPosition() == 1) {
+                currentUser.gender.value = String.valueOf(CurrentUser.MALE);
+            } else if (genderSpinner.getSelectedItemPosition() == 2) {
+                currentUser.gender.value = String.valueOf(CurrentUser.FEMALE);
+            } else if (genderSpinner.getSelectedItemPosition() == 3) {
+                currentUser.gender.value = String.valueOf(CurrentUser.OTHER);
+            }
+        }
 
         currentUser.lookingFor = ((boolean) lookingGenreFemale.getTag() && (boolean) lookingGenreMale.getTag()) ? 0 : ((boolean) lookingGenreMale.getTag()) ? 1 : 2;
 
@@ -920,12 +989,22 @@ public class CreateAccountActivity extends AppCompatActivity implements
             e.printStackTrace();
         }
 
+        int genderValue = 0;
+        if (genderSpinner.getSelectedItemPosition() == 1) {
+            genderValue = 1;
+        } else if (genderSpinner.getSelectedItemPosition() == 2) {
+            genderValue = 2;
+        } else if (genderSpinner.getSelectedItemPosition() == 3) {
+            genderValue = 3;
+        }
+
         Map<String, Object> postParam = new HashMap<>();
         postParam.put("email", currentUser.email);
-        postParam.put("password", password.getText().toString());
+        postParam.put("password","Abc@123"); //password.getText().toString()
         postParam.put("name", currentUser.name);
         postParam.put("looking_for", ((boolean) lookingGenreFemale.getTag() && (boolean) lookingGenreMale.getTag()) ? 0 : ((boolean) lookingGenreMale.getTag()) ? 1 : 2);
-        postParam.put("gender", ((boolean) myGenreMale.getTag()) ? 1 : 2);
+        //  postParam.put("gender", ((boolean) myGenreMale.getTag()) ? 1 : 2);//commented code
+        postParam.put("gender", genderValue);
         postParam.put("birthday", myBirtday.getText().toString());
         postParam.put("location", currentUser.location);
 
@@ -1253,14 +1332,15 @@ public class CreateAccountActivity extends AppCompatActivity implements
     private boolean allSet() {
         if (loginWithEmail) {
             return ((boolean) myNameTick.getTag() && (boolean) myBirthdayTick.getTag() &&
-                    (boolean) myLocationTick.getTag() && (boolean) myGenreTick.getTag() &&
-                    (boolean) lookingTick.getTag() && (boolean) myEmailTick.getTag() &&
-                    (boolean) passwordTick.getTag() && (boolean) confirmTick.getTag());
+                    (boolean) myLocationTick.getTag() /*&& (boolean) myGenreTick.getTag()*/ && //commented code
+                    (boolean) genderSpinner.getTag() &&
+                    (boolean) lookingTick.getTag() /*&& (boolean) myEmailTick.getTag() &&
+                    (boolean) passwordTick.getTag() && (boolean) confirmTick.getTag()*/);
         } else {
             return ((boolean) myNameTick.getTag() && (boolean) myBirthdayTick.getTag() &&
-                    (boolean) myLocationTick.getTag() && (boolean) myGenreTick.getTag() &&
-                    (boolean) lookingTick.getTag() && (boolean) myEmailTick.getTag() &&
-                    (boolean) passwordTick.getTag() && (boolean) confirmTick.getTag());
+                    (boolean) myLocationTick.getTag() && (boolean) genderSpinner.getTag() &&
+                    (boolean) lookingTick.getTag() /*&& (boolean) myEmailTick.getTag() &&
+                    (boolean) passwordTick.getTag() && (boolean) confirmTick.getTag()*/);
         }
 
     }
