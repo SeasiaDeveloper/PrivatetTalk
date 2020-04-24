@@ -15,6 +15,7 @@ import android.graphics.Rect;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.os.Handler;
+
 import androidx.core.content.ContextCompat;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.core.view.MotionEventCompat;
@@ -23,6 +24,7 @@ import androidx.viewpager.widget.ViewPager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.SimpleItemAnimator;
+
 import android.util.Log;
 import android.view.Display;
 import android.view.Gravity;
@@ -1096,26 +1098,30 @@ public class ProfileFragment extends FragmentWithTitle {
                 @Override
                 public void onClick(View view, MotionEvent event) {
                     imgAbsolutePath = null;
-
                     progressBar.setVisibility(View.VISIBLE);
 
-                    AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-                    builder.setMessage(getString(R.string.profile_photo));
-                    builder.setPositiveButton(getString(R.string.yes_string), new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            rootView.showPrevious();
-                            PriveTalkUtilities.uploadProfilePicture(cropImageView.getImageBitmap(), cropImageView.getCroppedBitmap(), true);
-                        }
-                    });
-                    builder.setNegativeButton(getString(R.string.no_string), new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            rootView.showPrevious();
-                            PriveTalkUtilities.uploadProfilePicture(cropImageView.getImageBitmap(), cropImageView.getCroppedBitmap(), false);
-                        }
-                    });
-                    builder.create().show();
+                    if (photosRecyclerView.getAdapter().getItemCount() == 0) {
+                        rootView.showPrevious();
+                        PriveTalkUtilities.uploadProfilePicture(cropImageView.getImageBitmap(), cropImageView.getCroppedBitmap(), true);
+                    } else {
+                        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                        builder.setMessage(getString(R.string.profile_photo));
+                        builder.setPositiveButton(getString(R.string.yes_string), new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                rootView.showPrevious();
+                                PriveTalkUtilities.uploadProfilePicture(cropImageView.getImageBitmap(), cropImageView.getCroppedBitmap(), true);
+                            }
+                        });
+                        builder.setNegativeButton(getString(R.string.no_string), new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                rootView.showPrevious();
+                                PriveTalkUtilities.uploadProfilePicture(cropImageView.getImageBitmap(), cropImageView.getCroppedBitmap(), false);
+                            }
+                        });
+                        builder.create().show();
+                    }
                 }
             });
 

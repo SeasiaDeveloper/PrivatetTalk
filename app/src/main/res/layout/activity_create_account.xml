@@ -81,7 +81,7 @@
                     android:layout_toLeftOf="@+id/myBirthdayTick"
                     android:background="@drawable/gradient_rectangle_border"
                     android:gravity="center_vertical"
-                    android:hint="@string/my_birthday"
+                    android:hint="@string/my_age"
                     android:paddingLeft="10dp"
                     android:singleLine="true"
                     android:textColor="@color/welcome_text"
@@ -111,8 +111,8 @@
                     android:id="@+id/gpsButtonContainer"
                     android:layout_width="40dp"
                     android:layout_height="match_parent"
+                    android:visibility="gone"
                     android:layout_toLeftOf="@+id/myLocationTick">
-
 
                     <LinearLayout
                         android:layout_width="40dp"
@@ -154,6 +154,7 @@
                     android:text="@string/or"
                     android:textColor="@color/welcome_text"
                     android:textSize="19sp"
+                    android:visibility="gone"
                     app:ttf_name="@string/roboto_bold" />
 
                 <com.privetalk.app.utilities.PriveTalkEditText
@@ -290,7 +291,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:layout_marginLeft="25dp"
-                android:layout_marginTop="15dp">
+                android:layout_marginTop="15dp"
+                android:visibility="gone">
 
                 <ImageView
                     android:id="@+id/myEmailTick"
@@ -326,6 +328,7 @@
                 android:text="@string/username_is_case_sensitive"
                 android:textColor="@android:color/holo_red_light"
                 android:textSize="14sp"
+                android:visibility="gone"
                 app:ttf_name="@string/roboto_light" />
 
 
@@ -345,6 +348,7 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
+                android:visibility="gone"
                 android:layout_marginLeft="25dp">
 
                 <ImageView
@@ -376,7 +380,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
                 android:layout_marginLeft="25dp"
-                android:layout_marginRight="70dp">
+                android:layout_marginRight="70dp"
+                android:visibility="gone">
 
                 <com.privetalk.app.utilities.PriveTalkTextView
                     android:id="@+id/weak"
@@ -424,7 +429,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:layout_marginLeft="25dp"
-                android:layout_marginTop="10dp">
+                android:layout_marginTop="10dp"
+                android:visibility="gone">
 
                 <ImageView
                     android:id="@+id/confirmTick"

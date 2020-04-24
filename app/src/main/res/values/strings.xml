@@ -38,6 +38,7 @@
     <!-- stringies with html-->
     <!-- stringies o.O O.o-->
     <string name="my_birthday">My date of {b}birth{/b} is</string>
+    <string name="my_age">My {b}age{/b} is</string>
     <string name="my_location">I {b}live{/b} in</string>
     <string name="my_genre">{b}I am{/b} a</string>
     <string name="looking_for">{b}Looking{/b}\nfor a</string>
