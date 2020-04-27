@@ -31,8 +31,8 @@ public class DrawerUtilities {
     public static final String FRAGMENTT_CHANGE = "fragment-to-change";
 
     public enum DrawerRow {
-        PROFILE, LINE1,  COMMUNITY, PROFILE_VISITORS, FAVORITES, LINE2, HOT_WHEEL,MESSAGES,  FLAMES_IGNITED,BE_A_ROYAL_USER,
-        LINE3, ADD_PT_COINS, SETTINGS, LOGOUT
+        PROFILE, LINE1,  COMMUNITY, PROFILE_VISITORS, FAVORITES, LINE2, HOT_WHEEL,MESSAGES,  FLAMES_IGNITED,LINE3,BE_A_ROYAL_USER,
+         ADD_PT_COINS, SETTINGS, LOGOUT
     }
 
 /*
@@ -68,8 +68,11 @@ public class DrawerUtilities {
                 loadFragment(activity, profileVisitors, titleName);
                 break;
             case FLAMES_IGNITED:
-                FlamesIgnitedFragment flamesIgnitedFragment = new FlamesIgnitedFragment();
-                loadFragment(activity, flamesIgnitedFragment, titleName);
+                HotMatchesFragment hotMatchesFragment = new HotMatchesFragment();
+                loadFragment(activity, hotMatchesFragment, titleName);
+
+             /*   FlamesIgnitedFragment flamesIgnitedFragment = new FlamesIgnitedFragment();
+                loadFragment(activity, flamesIgnitedFragment, titleName);*/
                 break;
            /* case HOT_MATCHES:
                 HotMatchesFragment hotMatchesFragment = new HotMatchesFragment();

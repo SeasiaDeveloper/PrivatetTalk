@@ -107,7 +107,6 @@
                     android:gravity="center"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
-                    android:visibility="gone"
                     android:layout_marginBottom="10dp"
                     android:text="@string/sing_in"
                     android:textSize="21sp"
