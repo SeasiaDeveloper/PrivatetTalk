@@ -11,6 +11,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Handler;
+
 import androidx.annotation.Nullable;
 import androidx.percentlayout.widget.PercentRelativeLayout;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
@@ -18,6 +19,7 @@ import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -26,6 +28,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ViewSwitcher;
 
@@ -43,6 +46,7 @@ import com.privetalk.app.R;
 import com.privetalk.app.database.datasource.CurrentUserDatasource;
 import com.privetalk.app.database.datasource.CurrentUserPhotosDatasource;
 import com.privetalk.app.database.objects.CurrentUserPhotoObject;
+import com.privetalk.app.mainflow.activities.CameraViewActivity;
 import com.privetalk.app.utilities.FadeOnTouchListener;
 import com.privetalk.app.utilities.FragmentWithTitle;
 import com.privetalk.app.utilities.Links;
@@ -53,6 +57,7 @@ import com.privetalk.app.utilities.VolleySingleton;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.w3c.dom.Text;
 
 import java.io.File;
 import java.util.HashMap;
@@ -80,10 +85,11 @@ public class FullScreenMyPicturesFragment extends FragmentWithTitle implements A
     private View removePictureBucket;
     private ImageView makeProfilePicture;
     private View shadowView;
+    private TextView tapToProfileMessage;
     private ImageView tempMovingImageView;
     private View addProfilePictureView;
     private View verifiedPicture;
-    private Animation animFadein,animFadeout;
+    private Animation animFadein, animFadeout;
     //adapters
     private HorizontalRecyclerAdapter smallPicturesPreviewAdapter;
     private FullScreenPicturesPagerAdapter mPagerAdapter;
@@ -93,6 +99,7 @@ public class FullScreenMyPicturesFragment extends FragmentWithTitle implements A
     private Animation bucketAnimationOut;
     private Handler mHanlder;
     private PercentRelativeLayout.LayoutParams movingImageParams;
+    private Boolean isExecutedFirst = false;
 
     //data
     private List<CurrentUserPhotoObject> currentUserPhotoObjects;
@@ -118,20 +125,18 @@ public class FullScreenMyPicturesFragment extends FragmentWithTitle implements A
             fullScreenPicturesViewPager.setAdapter(mPagerAdapter);
 
             //show changes on UI (verified picture label visibility)
-         //   if (currentUserPhotoObjects.size() > 0)
-           //     verifiedPicture.setVisibility(currentUserPhotoObjects.get(0).verified_photo ? View.VISIBLE : View.GONE);
+            //   if (currentUserPhotoObjects.size() > 0)
+            //     verifiedPicture.setVisibility(currentUserPhotoObjects.get(0).verified_photo ? View.VISIBLE : View.GONE);
 
 
-            if(currentUserPhotoObjects.size()>0) {
-                if(currentUserPhotoObjects.get(0).verified_photo) {
+            if (currentUserPhotoObjects.size() > 0) {
+                if (currentUserPhotoObjects.get(0).verified_photo) {
                     verifiedPicture.setVisibility(View.VISIBLE);
                     animFadein = AnimationUtils.loadAnimation(getActivity(), R.anim.fade_in);
                     verifiedPicture.startAnimation(animFadein);
                     // animFadein.setAnimationListener(this);
-                }
-                else
-                {
-                    if(verifiedPicture.getVisibility()==View.VISIBLE) {
+                } else {
+                    if (verifiedPicture.getVisibility() == View.VISIBLE) {
                         animFadeout = AnimationUtils.loadAnimation(getActivity(), R.anim.fade_out);
                         verifiedPicture.startAnimation(animFadeout);
                         verifiedPicture.setVisibility(View.GONE);
@@ -150,6 +155,7 @@ public class FullScreenMyPicturesFragment extends FragmentWithTitle implements A
             } else {
                 makeProfilePicture.setImageResource(R.drawable.make_profile_false);
                 isProfilePicture = false;
+                tapToProfileMessage.setVisibility(View.GONE);
             }
         }
     };
@@ -200,6 +206,7 @@ public class FullScreenMyPicturesFragment extends FragmentWithTitle implements A
 
         fullScreenPicturesViewPager = (ViewPager) oldRootView.findViewById(R.id.fullScreenPicturePreviewViewPager);
         smallPicturePreviewRecyclerView = (RecyclerView) oldRootView.findViewById(R.id.smallPicturePreviewRecyclerView);
+        tapToProfileMessage = oldRootView.findViewById(R.id.profile_message);
         smallPictureRecyclerViewParams = (LinearLayout.LayoutParams) smallPicturePreviewRecyclerView.getLayoutParams();
         makeProfilePicture = (ImageView) oldRootView.findViewById(R.id.makeProfilePicture);
 
@@ -207,7 +214,7 @@ public class FullScreenMyPicturesFragment extends FragmentWithTitle implements A
             @Override
             public void onClick(View view, MotionEvent event) {
 
-                if (isProfilePicture){
+                if (isProfilePicture) {
 
                     AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
                     builder.setMessage(getString(R.string.already_profile));
@@ -219,15 +226,18 @@ public class FullScreenMyPicturesFragment extends FragmentWithTitle implements A
                     });
                     builder.create().show();
 
-                }else{
+                } else {
 
                     AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-                    builder.setMessage(getString(R.string.make_as_profile));
+                    builder.setMessage(getString(R.string.make_as_profile_message)); //make_as_profile
                     builder.setTitle(getString(R.string.please_confirm));
                     builder.setPositiveButton(getString(R.string.yes_string), new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
+                            //add verification code
                             makeProfilePicture();
+                            Intent intent = new Intent(getActivity(), CameraViewActivity.class);
+                            startActivity(intent);
                         }
                     });
                     builder.setNegativeButton(getString(R.string.no_string), null);
@@ -288,8 +298,8 @@ public class FullScreenMyPicturesFragment extends FragmentWithTitle implements A
         smallPicturePreviewRecyclerView.setAdapter(smallPicturesPreviewAdapter = new HorizontalRecyclerAdapter());
 
 
-     //   if (currentUserPhotoObjects.size() > 0)
-       //     verifiedPicture.setVisibility(currentUserPhotoObjects.get(0).verified_photo ? View.VISIBLE : View.GONE);
+        //   if (currentUserPhotoObjects.size() > 0)
+        //     verifiedPicture.setVisibility(currentUserPhotoObjects.get(0).verified_photo ? View.VISIBLE : View.GONE);
 
         if (currentUserPhotoObjects.size() > 0) {
 
@@ -303,6 +313,19 @@ public class FullScreenMyPicturesFragment extends FragmentWithTitle implements A
                     animFadeout = AnimationUtils.loadAnimation(getActivity(), R.anim.fade_out);
                     verifiedPicture.startAnimation(animFadeout);
                     verifiedPicture.setVisibility(View.GONE);
+                }
+            }
+        }
+
+        if (currentUserPhotoObjects.size() > 0) {
+            if (currentUserPhotoObjects.get(0).is_main_profile_photo) {
+                tapToProfileMessage.setVisibility(View.GONE);
+            } else {
+                if (!isExecutedFirst) {
+                    tapToProfileMessage.setVisibility(View.VISIBLE);
+                    isExecutedFirst = true;
+                } else {
+                    tapToProfileMessage.setVisibility(View.GONE);
                 }
             }
         }
@@ -321,25 +344,31 @@ public class FullScreenMyPicturesFragment extends FragmentWithTitle implements A
 
                 if (currentUserPhotoObjects.get(position).is_main_profile_photo) {
                     makeProfilePicture.setImageResource(R.drawable.make_profile_true);
+                    tapToProfileMessage.setVisibility(View.GONE);
                     isProfilePicture = true;
                 } else {
                     makeProfilePicture.setImageResource(R.drawable.make_profile_false);
                     isProfilePicture = false;
+                    if (!isExecutedFirst) {
+                        tapToProfileMessage.setVisibility(View.VISIBLE);
+                        isExecutedFirst = true;
+                    } else {
+                        tapToProfileMessage.setVisibility(View.GONE);
+                    }
+
                 }
 
                 smallPicturesPreviewAdapter.setSelected(position);
 
-               // verifiedPicture.setVisibility(currentUserPhotoObjects.get(position).verified_photo ? View.VISIBLE : View.GONE);
+                // verifiedPicture.setVisibility(currentUserPhotoObjects.get(position).verified_photo ? View.VISIBLE : View.GONE);
 
-                if(currentUserPhotoObjects.get(position).verified_photo) {
+                if (currentUserPhotoObjects.get(position).verified_photo) {
                     verifiedPicture.setVisibility(View.VISIBLE);
                     animFadein = AnimationUtils.loadAnimation(getActivity(), R.anim.fade_in);
                     verifiedPicture.startAnimation(animFadein);
-                   // animFadein.setAnimationListener(this);
-                }
-                else
-                {
-                    if(verifiedPicture.getVisibility()==View.VISIBLE) {
+                    // animFadein.setAnimationListener(this);
+                } else {
+                    if (verifiedPicture.getVisibility() == View.VISIBLE) {
                         animFadeout = AnimationUtils.loadAnimation(getActivity(), R.anim.fade_out);
                         verifiedPicture.startAnimation(animFadeout);
                         verifiedPicture.setVisibility(View.GONE);
@@ -457,8 +486,7 @@ public class FullScreenMyPicturesFragment extends FragmentWithTitle implements A
 
     @Override
     public void onAnimationEnd(Animation animation) {
-        if(animation==animFadein)
-        {
+        if (animation == animFadein) {
             Toast.makeText(getActivity(), "dfd", Toast.LENGTH_SHORT).show();
 
         }
@@ -826,7 +854,7 @@ public class FullScreenMyPicturesFragment extends FragmentWithTitle implements A
                     View cropCancelledView = rootView.findViewById(R.id.cropCancel);
                     final CropImageView cropImageView = (CropImageView) rootView.findViewById(R.id.cropImageView);
 
-                   // cropImageView.setCropMode(CropImageView.CropMode.RATIO_3_4);
+                    // cropImageView.setCropMode(CropImageView.CropMode.RATIO_3_4);
                     //cropImageView.setCustomRatio(1,1);
 
                     cropImageView.setGuideShowMode(CropImageView.ShowMode.NOT_SHOW);

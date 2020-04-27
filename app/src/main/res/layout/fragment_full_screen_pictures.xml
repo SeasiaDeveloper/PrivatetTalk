@@ -61,16 +61,38 @@
             android:scaleType="fitCenter"
             android:src="@drawable/remove_hot_match" />
 
-        <ImageView
-            android:id="@+id/makeProfilePicture"
-            android:layout_width="72dp"
-            android:layout_height="72dp"
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
-            android:adjustViewBounds="true"
-            android:padding="14dp"
-            android:scaleType="fitCenter"
-            android:src="@drawable/make_profile_false" />
+            android:orientation="vertical">
+
+            <com.privetalk.app.utilities.PriveTalkTextView
+                android:id="@+id/profile_message"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/profileCoinsStaticView"
+                android:text="Tap to set as profile"
+                android:padding="5dp"
+                android:visibility="gone"
+                android:background="@color/vk_white"
+                android:textColor="@android:color/black"
+                android:textSize="17sp"
+                app:ttf_name="@string/roboto_bold" />
+
+            <ImageView
+                android:id="@+id/makeProfilePicture"
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:adjustViewBounds="true"
+                android:padding="14dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/make_profile_false" />
+        </LinearLayout>
+
+
 
         <com.privetalk.app.utilities.PriveTalkTextView
             android:id="@+id/verifiedPicture"

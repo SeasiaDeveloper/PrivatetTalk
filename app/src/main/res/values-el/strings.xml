@@ -452,6 +452,7 @@
     <string name="add_new">Προσθήκη νέου</string>
     <string name="make_as_profile">Είστε βέβαιοι ότι θέλετε να κάνετε αυτήν την φωτογραφία ως φωτογραφία του προφίλ σας;</string>
     <string name="please_confirm">Παρακαλώ Επιβεβαιώστε</string>
+    <string name="make_as_profile_message">To make this image as your Profile picture you need to Verify it first?</string>
     <string name="delete_picture">Είστε σίγουροι ότι θέλετε να διαγράψετε αυτή τη φωτογραφία;</string>
     <string name="confirm_deletion">Επιβεβαιώση Διαγραφής</string>
     <string name="make_this_priority_message">Στείλε το μήνυμα σου με προτεραιότητα</string>
