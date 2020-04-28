@@ -107,7 +107,7 @@ public class CreateAccountActivity extends AppCompatActivity implements
     private ImageView requestAnotherCode;
     private ProgressBar progressBar;
     private ImageView passStrength, myNameTick, myBirthdayTick,
-            myLocationTick, /*myGenreMale, myGenreFemale, myGenreTick,*/
+            myLocationTick, /*myGenreMale, myGenreFemale*/myGenreTick,
             lookingGenreMale, lookingGenreFemale, lookingTick,
             myEmailTick, passwordTick, confirmTick;
     private PriveTalkRadioButton acceptTermsRadioButton;
@@ -125,7 +125,7 @@ public class CreateAccountActivity extends AppCompatActivity implements
     private boolean isPaused = true;
     private boolean loginWithEmail = false;
     private AlertDialog countryCodeDialog;
-    private Spinner genderSpinner;
+    private Spinner genderSpinner,lookingForSpinner;
 
     private RelativeLayout verificationCodeRelative;
 
@@ -194,9 +194,17 @@ public class CreateAccountActivity extends AppCompatActivity implements
 
         //gender spinner
         genderSpinner = findViewById(R.id.genderSpinner);
-        String[] items = new String[]{"Please select", "Male", "Female", "Other"};
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, items);
+        lookingForSpinner=findViewById(R.id.genderLookingFor);
+        String[] items = new String[]{"Please select", "Male", "Female"};
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.spinner_text, items);
+        adapter.setDropDownViewResource(R.layout.simple_spinner_dropdown);
         genderSpinner.setAdapter(adapter);
+
+        String[] lookingForItems = new String[]{"Please select", "Male", "Female","Both"};
+        ArrayAdapter<String> adapter2 = new ArrayAdapter<>(this,  R.layout.spinner_text, lookingForItems);
+        adapter2.setDropDownViewResource(R.layout.simple_spinner_dropdown);
+        lookingForSpinner.setAdapter(adapter2);
+
         googleApiStuff();
         initViews();
         myBirtday.setText("28/08/1992");
@@ -294,7 +302,7 @@ public class CreateAccountActivity extends AppCompatActivity implements
         myBirtday = (PriveTalkTextView) findViewById(R.id.myBirthday);
         myLocation = (PriveTalkEditText) findViewById(R.id.myLocation);
         //myGenre = (PriveTalkTextView) findViewById(R.id.myGenre);
-        lookingFor = (PriveTalkTextView) findViewById(R.id.lookingFor);
+       // lookingFor = (PriveTalkTextView) findViewById(R.id.lookingFor);
         password = (PriveTalkEditText) findViewById(R.id.password);
         passStrength = (ImageView) findViewById(R.id.passwordStrength);
         // gpsButton = gpsButtonContainer.getChildAt(BUTTON);
@@ -302,15 +310,15 @@ public class CreateAccountActivity extends AppCompatActivity implements
         //myGenreFemale = (ImageView) findViewById(R.id.myGenreFemale);
         myEmail = (PriveTalkEditText) findViewById(R.id.myEmail);
         confirmPass = (PriveTalkEditText) findViewById(R.id.confirmPass);
-        lookingGenreMale = (ImageView) findViewById(R.id.lookingGenreMale);
-        lookingGenreFemale = (ImageView) findViewById(R.id.lookingGenreFemale);
+        //lookingGenreMale = (ImageView) findViewById(R.id.lookingGenreMale);
+        //lookingGenreFemale = (ImageView) findViewById(R.id.lookingGenreFemale);
         goBack = (PriveTalkTextView) findViewById(R.id.goBack);
         startDatingSwitcher = (ViewSwitcher) findViewById(R.id.startDatingSwitcher);
         startDating = (PriveTalkTextView) startDatingSwitcher.getChildAt(BUTTON);
         myNameTick = (ImageView) findViewById(R.id.myNameTick);
         myBirthdayTick = (ImageView) findViewById(R.id.myBirthdayTick);
         myLocationTick = (ImageView) findViewById(R.id.myLocationTick);
-        //myGenreTick = (ImageView) findViewById(R.id.myGenreTick);
+        myGenreTick = (ImageView) findViewById(R.id.myGenreTick);
         lookingTick = (ImageView) findViewById(R.id.lookingTick);
         myEmailTick = (ImageView) findViewById(R.id.myEmailTick);
         passwordTick = (ImageView) findViewById(R.id.passwordTick);
@@ -326,12 +334,13 @@ public class CreateAccountActivity extends AppCompatActivity implements
         //myGenreMale.setTag(false); //commented code
         //myGenreFemale.setTag(false);
         genderSpinner.setTag(false);
-        lookingGenreFemale.setTag(false);
-        lookingGenreMale.setTag(false);
+        lookingForSpinner.setTag(false);
+        //lookingGenreFemale.setTag(false);
+        //lookingGenreMale.setTag(false);
         myNameTick.setTag(false);
         myBirthdayTick.setTag(false);
         myLocationTick.setTag(false);
-        //myGenreTick.setTag(false);
+        myGenreTick.setTag(false);
         lookingTick.setTag(false);
         myEmailTick.setTag(false);
         passwordTick.setTag(false);
@@ -586,10 +595,35 @@ public class CreateAccountActivity extends AppCompatActivity implements
                 //if (!(boolean) genderSpinner.getTag()) {
                 if (position == 0) {
                     genderSpinner.setTag(false);
+                    myGenreTick.setColorFilter(ContextCompat.getColor(CreateAccountActivity.this, R.color.tick_grey), PorterDuff.Mode.SRC_IN);
+                    myGenreTick.setTag(false);
                 } else {
                     genderSpinner.setTag(true);
+                    myGenreTick.setColorFilter(ContextCompat.getColor(CreateAccountActivity.this, R.color.verification_green), PorterDuff.Mode.SRC_IN);
+                    myGenreTick.setTag(true);
                 }
                 //}
+                checkifAllSet();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+        lookingForSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if (position == 0) {
+                    lookingForSpinner.setTag(false);
+                    lookingTick.setTag(false);
+                    lookingTick.setColorFilter(ContextCompat.getColor(CreateAccountActivity.this, R.color.tick_grey), PorterDuff.Mode.SRC_IN);
+                } else {
+                    lookingForSpinner.setTag(true);
+                    lookingTick.setTag(true);
+                    lookingTick.setColorFilter(ContextCompat.getColor(CreateAccountActivity.this, R.color.verification_green), PorterDuff.Mode.SRC_IN);
+                }
                 checkifAllSet();
             }
 
@@ -632,7 +666,7 @@ public class CreateAccountActivity extends AppCompatActivity implements
             }
         });*/
 
-        lookingGenreMale.setOnTouchListener(new FadeOnTouchListener() {
+/*        lookingGenreMale.setOnTouchListener(new FadeOnTouchListener() {
             @Override
             public void onClick(View view, MotionEvent event) {
                 if (!(boolean) lookingGenreMale.getTag()) {
@@ -669,7 +703,7 @@ public class CreateAccountActivity extends AppCompatActivity implements
 
                 checkifAllSet();
             }
-        });
+        });*/
 
         getCode.setOnTouchListener(new FadeOnTouchListener() {
             @Override
@@ -748,9 +782,11 @@ public class CreateAccountActivity extends AppCompatActivity implements
                 myBirthdayTick.setTag(true);
             }
 
-            if (Integer.valueOf(currentUser.gender.value) == CurrentUser.MALE) { //changed commented
+            if (Integer.valueOf(currentUser.gender.value) == CurrentUser.MALE) { //commented code
                 genderSpinner.setSelection(1);
                 genderSpinner.setTag(true);
+                myGenreTick.setColorFilter(ContextCompat.getColor(CreateAccountActivity.this, R.color.verification_green), PorterDuff.Mode.SRC_IN);
+                myGenreTick.setTag(true);
                 /*if (!(boolean) myGenreMale.getTag()) {
                     myGenreTick.setColorFilter(ContextCompat.getColor(CreateAccountActivity.this, R.color.verification_green), PorterDuff.Mode.SRC_IN);
                     myGenreTick.setTag(true);
@@ -762,6 +798,8 @@ public class CreateAccountActivity extends AppCompatActivity implements
             } else if (Integer.valueOf(currentUser.gender.value) == CurrentUser.FEMALE) {
                 genderSpinner.setSelection(2);
                 genderSpinner.setTag(true);
+                myGenreTick.setColorFilter(ContextCompat.getColor(CreateAccountActivity.this, R.color.verification_green), PorterDuff.Mode.SRC_IN);
+                myGenreTick.setTag(true);
                 /*if (!(boolean) myGenreFemale.getTag()) {
                     myGenreTick.setColorFilter(ContextCompat.getColor(CreateAccountActivity.this, R.color.verification_green), PorterDuff.Mode.SRC_IN);
                     myGenreTick.setTag(true);
@@ -770,9 +808,6 @@ public class CreateAccountActivity extends AppCompatActivity implements
                     myGenreMale.setImageDrawable(ContextCompat.getDrawable(CreateAccountActivity.this, R.drawable.male_icon));
                     myGenreFemale.setImageDrawable(ContextCompat.getDrawable(CreateAccountActivity.this, R.drawable.female_icon_selected));
                 }*/
-            } else if (Integer.valueOf(currentUser.gender.value) == CurrentUser.OTHER) {
-                genderSpinner.setSelection(3);
-                genderSpinner.setTag(true);
             }
         }
 
@@ -969,17 +1004,25 @@ public class CreateAccountActivity extends AppCompatActivity implements
         /*currentUser.gender.value = ((boolean) myGenreMale.getTag() && (boolean) myGenreFemale.getTag()) ? "0" :
                 ((boolean) myGenreMale.getTag()) ? String.valueOf(CurrentUser.MALE) : String.valueOf(CurrentUser.FEMALE);*/
 
+       /* currentUser.lookingFor = ((boolean) lookingGenreFemale.getTag() && (boolean) lookingGenreMale.getTag()) ? 0 : ((boolean) lookingGenreMale.getTag()) ? 1 : 2;*/
+
         if ((boolean) genderSpinner.getTag()) {
             if (genderSpinner.getSelectedItemPosition() == 1) {
                 currentUser.gender.value = String.valueOf(CurrentUser.MALE);
             } else if (genderSpinner.getSelectedItemPosition() == 2) {
                 currentUser.gender.value = String.valueOf(CurrentUser.FEMALE);
-            } else if (genderSpinner.getSelectedItemPosition() == 3) {
-                currentUser.gender.value = String.valueOf(CurrentUser.OTHER);
             }
         }
 
-        currentUser.lookingFor = ((boolean) lookingGenreFemale.getTag() && (boolean) lookingGenreMale.getTag()) ? 0 : ((boolean) lookingGenreMale.getTag()) ? 1 : 2;
+        if ((boolean) lookingForSpinner.getTag()) {
+            if (lookingForSpinner.getSelectedItemPosition() == 1) {
+                currentUser.lookingFor = CurrentUser.MALE;
+            } else if (lookingForSpinner.getSelectedItemPosition() == 2) {
+                currentUser.lookingFor = CurrentUser.FEMALE;
+            } else if (lookingForSpinner.getSelectedItemPosition() == 3) {
+                currentUser.lookingFor = CurrentUser.BOTH;
+            }
+        }
 
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.US);
 
@@ -994,15 +1037,22 @@ public class CreateAccountActivity extends AppCompatActivity implements
             genderValue = 1;
         } else if (genderSpinner.getSelectedItemPosition() == 2) {
             genderValue = 2;
-        } else if (genderSpinner.getSelectedItemPosition() == 3) {
-            genderValue = 3;
+        }
+
+        int lookingForValue = 0;
+        if (lookingForSpinner.getSelectedItemPosition() == 1) {
+            lookingForValue = 1;
+        } else if (lookingForSpinner.getSelectedItemPosition() == 2) {
+            lookingForValue = 2;
+        } else if (lookingForSpinner.getSelectedItemPosition() == 3) {
+            lookingForValue = 0;
         }
 
         Map<String, Object> postParam = new HashMap<>();
         postParam.put("email", currentUser.email);
-        postParam.put("password","Abc@123"); //password.getText().toString()
+        //postParam.put("password","Abc@123"); //password.getText().toString()
         postParam.put("name", currentUser.name);
-        postParam.put("looking_for", ((boolean) lookingGenreFemale.getTag() && (boolean) lookingGenreMale.getTag()) ? 0 : ((boolean) lookingGenreMale.getTag()) ? 1 : 2);
+        postParam.put("looking_for",lookingForValue);//((boolean) lookingGenreFemale.getTag() && (boolean) lookingGenreMale.getTag()) ? 0 : ((boolean) lookingGenreMale.getTag()) ? 1 : 2);
         //  postParam.put("gender", ((boolean) myGenreMale.getTag()) ? 1 : 2);//commented code
         postParam.put("gender", genderValue);
         postParam.put("birthday", myBirtday.getText().toString());
@@ -1332,13 +1382,12 @@ public class CreateAccountActivity extends AppCompatActivity implements
     private boolean allSet() {
         if (loginWithEmail) {
             return ((boolean) myNameTick.getTag() && (boolean) myBirthdayTick.getTag() &&
-                    (boolean) myLocationTick.getTag() /*&& (boolean) myGenreTick.getTag()*/ && //commented code
-                    (boolean) genderSpinner.getTag() &&
+                    (boolean) myLocationTick.getTag() && (boolean) myGenreTick.getTag() && //commented code
                     (boolean) lookingTick.getTag() /*&& (boolean) myEmailTick.getTag() &&
                     (boolean) passwordTick.getTag() && (boolean) confirmTick.getTag()*/);
         } else {
             return ((boolean) myNameTick.getTag() && (boolean) myBirthdayTick.getTag() &&
-                    (boolean) myLocationTick.getTag() && (boolean) genderSpinner.getTag() &&
+                    (boolean) myLocationTick.getTag() && (boolean) myGenreTick.getTag() &&
                     (boolean) lookingTick.getTag() /*&& (boolean) myEmailTick.getTag() &&
                     (boolean) passwordTick.getTag() && (boolean) confirmTick.getTag()*/);
         }

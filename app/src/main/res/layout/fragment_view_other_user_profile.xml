@@ -63,7 +63,17 @@
                     android:layout_alignParentLeft="true"
                     android:background="@drawable/oval_blue_border"
                     android:padding="15dp"
+                    android:visibility="gone"
                     android:src="@drawable/inbox_message_icon" />
+
+                <ImageView
+                    android:id="@+id/iconCold"
+                    android:layout_width="65dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentLeft="true"
+                    android:background="@drawable/oval_blue_border"
+                    android:padding="15dp"
+                    android:src="@drawable/alpha_snow" />
 
                 <ImageView
                     android:id="@+id/sendStar"
@@ -74,14 +84,24 @@
                     android:padding="15dp"
                     android:src="@drawable/star_blue_icon" />
 
-                <ImageView
+               <ImageView
                     android:id="@+id/sendGift"
                     android:layout_width="65dp"
                     android:layout_height="match_parent"
                     android:layout_alignParentRight="true"
                     android:background="@drawable/oval_blue_border"
                     android:padding="15dp"
+                   android:visibility="gone"
                     android:src="@drawable/gift_blue_icon" />
+
+                <ImageView
+                    android:id="@+id/iconHot"
+                    android:layout_width="65dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:background="@drawable/oval_blue_border"
+                    android:padding="15dp"
+                    android:src="@drawable/flames_icon" />
 
 
             </RelativeLayout>
