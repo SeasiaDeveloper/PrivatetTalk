@@ -336,7 +336,6 @@ public class CameraViewActivity extends AppCompatActivity {
                         }
                     });
 
-
                     ViewPager viewpager = (ViewPager) rootView.findViewById(R.id.fullScreenFrontPhotoViewPager);
                     viewpager.setOffscreenPageLimit(3);
                     viewpager.setAdapter(new PagerAdapter() {

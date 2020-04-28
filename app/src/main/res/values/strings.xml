@@ -62,7 +62,7 @@
     <string name="verification_credit">Verification Credit</string>
     <string name="email_account">{b}e-mail {/b}account</string>
     <string name="sing_in">{b}Sign {/b}in</string>
-    <string name="we_never_post">We {b}never{/b} post anything to your social media account without your exlpicit permission</string>
+    <string name="we_never_post">Note:* We {b}never{/b} post anything to your social media account.</string>
     <string name="sign_in_2">Sign {b}in{/b}</string>
     <string name="my_name_is">My {b}name{/b} is</string>
     <string name="weak">weak</string>
@@ -79,6 +79,7 @@
     <string name="profile_relationship">Relationship</string>
     <string name="profile_sexuality">Sexuality</string>
     <string name="facebook_app_id">1223656987651000</string>
+
     <string name="profile_appearance">Appearance</string>
     <string name="profileWork">Work</string>
     <string name="profileEducation">Education</string>
@@ -522,7 +523,7 @@
     <string name="impress_with_gift">Impress by sending a Gift</string>
     <string name="trust_and_higher_rank">Get trust and higher rank</string>
     <string name="trust_and_higher_rank_desc">Get an extra verification mark and rank your profile higher on the Community</string>
-    <string name="fb_text">LOG IN WITH FACEBOOK</string>
+    <string name="fb_text">Log in with Facebook</string>
 
     <string name="delete">Delete?</string>
     <string name="profile_photo_delete">Deleting this photo will make you lose your verification badge. Delete?</string>
@@ -540,6 +541,9 @@
     <string name="coins_question">" coins?"</string>
     <string name="coins_skett">" coins."</string>
     <string name="read_and_accept">I have read and accept the <b><a style="text-decoration:none" href="http://app.privetalk.com/doc/privetalk-terms-&amp;-conditions.pdf">Terms &#38; Conditions, </a></b>  <b><a href="http://app.privetalk.com/doc/privetalk-privacy-policy.pdf">Privacy Policy</a></b> and <b><a href="http://app.privetalk.com/doc/privetalk-dating-safety-guide.pdf">Dating Safety Guide</a></b></string>
+
+    <string name="tv_read_accept">By clicking \"Log in\" you agree with our <b><a style="text-decoration:none" href="https://www.privetalk.com/terms">Terms &#38; Conditions </a></b> &#38; <b><a href="https://www.privetalk.com/privacy-policy/"> Privacy Policy</a></b></string>
+
     <string name="terms">{b}Terms &#38; Conditions,{/b}\u0020</string>
     <string name="and">and\u0020</string>
     <string name="safety_guide">{b}Dating Safety Guide{/b}\u0020</string>
