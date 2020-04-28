@@ -205,7 +205,7 @@ public class WelcomeActivity extends AppCompatActivity implements GoogleApiClien
         facebookLoginButton = new LoginButton(this);
         callbackManager = CallbackManager.Factory.create();
         // Set permissions
-        facebookLoginButton.setReadPermissions(Arrays.asList("user_friends, public_profile, email,user_birthday")); //"user_friends, public_profile, email"
+        facebookLoginButton.setReadPermissions(Arrays.asList("public_profile, email")); //"user_friends, public_profile, email"
 
         // Callback registration
         facebookLoginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
@@ -240,7 +240,7 @@ public class WelcomeActivity extends AppCompatActivity implements GoogleApiClien
                             }
                         });
                 Bundle parameters = new Bundle();
-                parameters.putString("fields", "id, name, email, gender,birthday"); //age,dob,
+                parameters.putString("fields", "id, name, email, gender"); //age,dob,
                 request.setParameters(parameters);
                 request.executeAsync();
             }

@@ -60,7 +60,7 @@
     <string name="verification_credit">Έπαινος Πιστοποίησης</string>
     <string name="email_account">{b}Λογαριασμός {/b}με\n e-mail</string>
     <string name="sing_in">{b}Σύνδεση {/b}</string>
-    <string name="we_never_post">{b}Ποτέ{/b} δεν δημοσιεύουμε στο κοινωνικό σας δίκτυο χωρίς την έγκριση σας</string>
+    <string name="we_never_post">Σημείωση: * Δεν {b} ποτέ {/ b} δημοσιεύουμε τίποτα στον λογαριασμό σας στα μέσα κοινωνικής δικτύωσης.</string>
     <string name="sign_in_2">{b}Σύνδεση {/b}</string>
     <string name="my_name_is">Το {b}Όνομά{/b} μου είναι</string>
     <string name="weak">Αδύναμος</string>
@@ -241,7 +241,7 @@
     <string name="see_everything">Δες τα Πάντα</string>
     <string name="trust_and_higher_rank">Αποκτήστε εμπιστοσύνη και υψηλότερη βαθμολογία</string>
     <string name="trust_and_higher_rank_desc">Λάβετε ένα επιπλέον σήμα επαλήθευσης και βαθμολογήστε το προφίλ σας υψηλότερα στην Κοινότητα</string>
-    <string name="fb_text">ΣΥΝΔΕΣΗ ΜΕ ΤΟ FACEBOOK</string>
+    <string name="fb_text">Σύνδεση με το Facebook</string>
     <string name="set_expiration_timers">Όρισε Χρόνους Αυτοκαταστροφής</string>
     <string name="expiration_timers_message">Επέλεξε για πόση ώρα το κείμενο και η εικόνα που έχεις στείλει είναι ορατή (από 3 δευτερόλεπτα μέχρι 7 μέρες).</string>
     <string name="priority_messages">Μηνύματα Προτεραιότητας</string>

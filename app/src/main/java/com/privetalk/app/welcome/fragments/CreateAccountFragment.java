@@ -4,12 +4,14 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.text.method.LinkMovementMethod;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
@@ -33,6 +35,7 @@ public class CreateAccountFragment extends Fragment {
     private View createAccount, signIn;
     private ImageView closeDialog;
     private LayoutInflater inflater;
+    private TextView terms;
     public static final int MULTIPLE_PERMISSIONS = 10; // code you want.
 
     String[] permissions = new String[]{
@@ -68,6 +71,8 @@ public class CreateAccountFragment extends Fragment {
     private void initViews() {
         createAccount = rootView.findViewById(R.id.createAccount);
         signIn = rootView.findViewById(R.id.signIn);
+        terms = (TextView) rootView.findViewById(R.id.tvTermsAndConditions);
+        terms.setMovementMethod(LinkMovementMethod.getInstance());
 
 //        ((TextView)rootView.findViewById(R.id.htmlTesting)).setText(Html.fromHtml("<b>" + "What" + "</b>" + "are you"));
         createAccount.setOnTouchListener(new FadeOnTouchListener() {
