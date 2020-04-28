@@ -419,12 +419,12 @@ public class OtherUsersProfileInfoFragment extends FragmentWithTitle {
         imageCold.setOnTouchListener(new FadeOnTouchListener() {
             @Override
             public void onClick(View view, MotionEvent event) {
-               // if (CurrentUserDatasource.getInstance(getContext()).getCurrentUserInfo().royal_user) {
+                if (CurrentUserDatasource.getInstance(getContext()).getCurrentUserInfo().royal_user) {
                     isHot = false;
                     sendVote(false, otherUsedID);
-              /*  } else {
+                } else {
                     showNeedToBeRoyalUserAlert();
-                }*/
+                }
             }
         });
 
