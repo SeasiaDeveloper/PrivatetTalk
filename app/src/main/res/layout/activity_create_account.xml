@@ -173,17 +173,30 @@
 
             </RelativeLayout>
 
+            <com.privetalk.app.utilities.PriveTalkTextView
+                android:id="@+id/myGenre"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="@string/my_genre"
+                android:textColor="@color/welcome_text"
+                android:textSize="16sp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="15dp"
+                app:ttf_name="@string/roboto_regular" />
+
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:layout_marginLeft="25dp"
-                android:layout_marginTop="15dp">
+              >
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_toLeftOf="@+id/myGenreTick"
                     android:background="@drawable/spinner_gradient"
+                    android:layout_marginTop="5dp"
                     android:orientation="horizontal">
 
                     <Spinner
@@ -251,13 +264,28 @@
                    android:textSize="16sp"
                    app:ttf_name="@string/roboto_regular" />-->
 
+
+
             </RelativeLayout>
+
+
+            <com.privetalk.app.utilities.PriveTalkTextView
+                android:id="@+id/lookingFor"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="25dp"
+                android:gravity="center_vertical|left"
+                android:text="@string/looking_for"
+                android:textColor="@color/welcome_text"
+                android:textSize="16sp"
+                android:layout_marginTop="15dp"
+                app:ttf_name="@string/roboto_regular" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:layout_marginLeft="25dp"
-                android:layout_marginTop="15dp"
                 android:layout_marginBottom="20dp">
 
                 <ImageView
@@ -274,6 +302,7 @@
                     android:layout_height="wrap_content"
                     android:layout_toLeftOf="@+id/lookingTick"
                     android:background="@drawable/spinner_gradient"
+                    android:layout_marginTop="5dp"
                     android:orientation="horizontal">
 
                     <Spinner
@@ -573,6 +602,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="25dp"
+                android:visibility="gone"
                 android:layout_marginTop="10dp">
 
                 <com.privetalk.app.utilities.NounderlineTextView

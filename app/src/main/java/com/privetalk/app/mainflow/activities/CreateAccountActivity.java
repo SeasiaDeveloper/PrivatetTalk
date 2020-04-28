@@ -721,12 +721,12 @@ public class CreateAccountActivity extends AppCompatActivity implements
         });
 
 
-        ((RadioGroup) acceptTermsRadioButton.getParent()).setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+       /* ((RadioGroup) acceptTermsRadioButton.getParent()).setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 checkifAllSet();
             }
-        });
+        });*/
 
         startDating.setOnTouchListener(new FadeOnTouchListener() {
             @Override
@@ -736,7 +736,7 @@ public class CreateAccountActivity extends AppCompatActivity implements
 
                 if (loginWithEmail) {
 
-                    if ((acceptTermsRadioButton.isChecked() && allSet() && !verificationCode.getText().toString().isEmpty())) {
+                    if (/*(acceptTermsRadioButton.isChecked() &&*/ allSet() && !verificationCode.getText().toString().isEmpty()) {
 
                         if (LocationUtilities.getCountryCode() == null) {
                             showCountryCodeDialog();
@@ -745,7 +745,7 @@ public class CreateAccountActivity extends AppCompatActivity implements
                         }
                     }
 
-                } else if (acceptTermsRadioButton.isChecked() && allSet()) {
+                } else if (/*acceptTermsRadioButton.isChecked() &&*/ allSet()) {
 
                     if (LocationUtilities.getCountryCode() == null) {
                         showCountryCodeDialog();
@@ -864,13 +864,13 @@ public class CreateAccountActivity extends AppCompatActivity implements
             if (loginWithEmail)
                 startDating.getBackground()
                         .setColorFilter(ContextCompat.getColor(CreateAccountActivity.this,
-                                acceptTermsRadioButton.isChecked() && !verificationCode.getText().toString().isEmpty() ?
+                                /*acceptTermsRadioButton.isChecked() &&*/ !verificationCode.getText().toString().isEmpty() ?
                                         R.color.tick_green : R.color.disable_button_gray), PorterDuff.Mode.SRC_IN);
             else
                 startDating.getBackground()
                         .setColorFilter(ContextCompat.getColor(CreateAccountActivity.this,
-                                acceptTermsRadioButton.isChecked() ?
-                                        R.color.tick_green : R.color.disable_button_gray), PorterDuff.Mode.SRC_IN);
+                             /*   acceptTermsRadioButton.isChecked() ?*/
+                                        R.color.tick_green /*: R.color.disable_button_gray*/), PorterDuff.Mode.SRC_IN);
 
         } else {
             if (viewSwitcher.getDisplayedChild() != GET_VERIFICATION_CODE)
