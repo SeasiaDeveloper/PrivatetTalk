@@ -446,7 +446,6 @@ public class TransparentActivity extends AppCompatActivity implements GoogleApiC
                         progressBar.setVisibility(View.GONE);
 
 
-
                         CurrentUser previousUser = CurrentUserDatasource.getInstance(TransparentActivity.this).getCurrentUserInfo();
                         CurrentUser newUser = new CurrentUser(response,
                                 previousUser.token,

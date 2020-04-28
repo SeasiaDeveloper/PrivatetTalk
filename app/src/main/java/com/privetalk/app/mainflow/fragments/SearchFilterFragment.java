@@ -1195,8 +1195,8 @@ public class SearchFilterFragment extends FragmentWithTitle implements
             if (iso == null || iso.isEmpty())
                 iso = LocationUtilities.getCountryCode();
 
-            location.put("longitude", isLocationSet ? lng : LocationUtilities.getLongitude());
-            location.put("latitude", isLocationSet ? lat : LocationUtilities.getLatitude());
+            location.put("longitude","31.5143" /*isLocationSet ? lng : LocationUtilities.getLongitude()*/);
+            location.put("latitude","75.9115" /*isLocationSet ? lat : LocationUtilities.getLatitude()*/);
             location.put("iso_country_code", iso );
             location.put("radius", radius);
 

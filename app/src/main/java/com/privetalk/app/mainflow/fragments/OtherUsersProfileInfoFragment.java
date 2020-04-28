@@ -167,6 +167,9 @@ public class OtherUsersProfileInfoFragment extends FragmentWithTitle {
     private ProfileAwardsContainer impressionVoterAwardsContainer;
     private ProfileAwardsContainer angelsAwardsContainer;
     private ScrollView parentScrollView;
+    private ImageView imageCold, imageHot;
+    private Boolean isHot = false, isCold = false;
+    private JsonObjectRequest sendVoteRequest;
 
 
     private BroadcastReceiver utilitiesReceiver = new BroadcastReceiver() {
@@ -298,6 +301,8 @@ public class OtherUsersProfileInfoFragment extends FragmentWithTitle {
         flameImageView = (FlameImageView) rootView.findViewById(R.id.flameImageView);
         sendMessage = (ImageView) rootView.findViewById(R.id.sendMessage);
         favoriteStar = (ImageView) rootView.findViewById(R.id.sendStar);
+        imageCold = (ImageView) rootView.findViewById(R.id.iconCold);
+        imageHot = (ImageView) rootView.findViewById(R.id.iconHot);
         sendGift = (ImageView) rootView.findViewById(R.id.sendGift);
         locationContainer = (ProfilePersonalInfoContainer) rootView.findViewById(R.id.profileLocationContainer);
         ageContainer = (ProfilePersonalInfoContainer) rootView.findViewById(R.id.profileAgeContainer);
@@ -365,7 +370,7 @@ public class OtherUsersProfileInfoFragment extends FragmentWithTitle {
 
         flameImageView.changeHotness(otherUserObject.hotnessPercentage);
 
-        sendMessage.setOnTouchListener(new FadeOnTouchListener() {
+        /*sendMessage.setOnTouchListener(new FadeOnTouchListener() {
             @Override
             public void onClick(View view, MotionEvent event) {
                 Intent intent = new Intent(MainActivity.BROADCAST_CHANGE_FRAGMENT);
@@ -386,8 +391,8 @@ public class OtherUsersProfileInfoFragment extends FragmentWithTitle {
                 LocalBroadcastManager.getInstance(getContext().getApplicationContext()).sendBroadcast(intent);
             }
         });
-
-        sendGift.setOnTouchListener(new FadeOnTouchListener() {
+*/
+       /* sendGift.setOnTouchListener(new FadeOnTouchListener() {
             @Override
             public void onClick(View view, MotionEvent event) {
                 Intent intent = new Intent(MainActivity.BROADCAST_CHANGE_FRAGMENT);
@@ -409,8 +414,31 @@ public class OtherUsersProfileInfoFragment extends FragmentWithTitle {
                 LocalBroadcastManager.getInstance(getContext().getApplicationContext()).sendBroadcast(intent);
 
             }
+        });*/
+
+        imageCold.setOnTouchListener(new FadeOnTouchListener() {
+            @Override
+            public void onClick(View view, MotionEvent event) {
+               // if (CurrentUserDatasource.getInstance(getContext()).getCurrentUserInfo().royal_user) {
+                    isHot = false;
+                    sendVote(false, otherUsedID);
+              /*  } else {
+                    showNeedToBeRoyalUserAlert();
+                }*/
+            }
         });
 
+        imageHot.setOnTouchListener(new FadeOnTouchListener() {
+            @Override
+            public void onClick(View view, MotionEvent event) {
+                if (CurrentUserDatasource.getInstance(getContext()).getCurrentUserInfo().royal_user) {
+                    isHot = true;
+                    sendVote(true, otherUsedID);
+                } else {
+                    showNeedToBeRoyalUserAlert();
+                }
+            }
+        });
 
         favoriteStar.setColorFilter(ContextCompat.getColor(getContext(),
                 otherUserObject.isFavorite ? R.color.star_button_color : R.color.blue_border_color),
@@ -638,6 +666,70 @@ public class OtherUsersProfileInfoFragment extends FragmentWithTitle {
         });
     }
 
+    private void sendVote(boolean is_hot, int partner_id) {
+
+        if (partner_id == -1)
+            return;
+
+        JSONObject jsonObject = new JSONObject();
+        try {
+            jsonObject.put("partner_id", partner_id);
+            jsonObject.put("is_hot", is_hot);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        sendVoteRequest = new JsonObjectRequest(com.android.volley.Request.Method.POST, String.format(Links.RESPOND_MATCH, partner_id), jsonObject, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                if (isHot) {
+                    imageHot.setImageResource(R.drawable.alpha_flame);
+                } else {
+                    imageHot.setImageResource(R.drawable.flames_icon);
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                try {
+                    JSONObject jsonObject = new JSONObject(new String(error.networkResponse.data, "UTF-8"));
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                } catch (UnsupportedEncodingException e) {
+                    e.printStackTrace();
+                }
+            }
+        }) {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+
+                HashMap<String, String> headers = new HashMap<>();
+                headers.put("Content-Type", "application/json; charset=utf-8");
+                headers.put("AUTHORIZATION", "Token " + CurrentUserDatasource.getInstance(PriveTalkApplication.getInstance()).getCurrentUserInfo().token);
+                headers.put("Accept-Language", String.valueOf(Locale.getDefault()).substring(0, 2));
+
+                return headers;
+            }
+        };
+
+        VolleySingleton.getInstance(PriveTalkApplication.getInstance()).addRequest(sendVoteRequest);
+
+    }
+
+    private void showNeedToBeRoyalUserAlert() {
+
+        new AlertDialog.Builder(getContext())
+                .setTitle(getString(R.string.not_royal_user))
+                .setMessage(R.string.royal_user_plans_flames_ignited)
+                .setPositiveButton(getString(R.string.yes_string), new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        PriveTalkUtilities.changeFragment(getContext(), true, PriveTalkConstants.ROYAL_USER_BENEFITS_FRAGMENT_ID);
+                    }
+                })
+                .setNegativeButton(getString(R.string.later), null)
+                .create().show();
+    }
 
     private void getOtherUserInfo() {
 
@@ -653,7 +745,7 @@ public class OtherUsersProfileInfoFragment extends FragmentWithTitle {
                     parseUserProfileDetails = new AsyncTask<Void, Void, Void>() {
                         @Override
                         protected Void doInBackground(Void... params) {
-                            otherUserObject = new UserObject(response);
+                            otherUserObject = new UserObject(response); // get data
                             commonInterests = InterestObject.getCommonInterests(currentUser.currentUserDetails.interests, otherUserObject.interests);
                             return null;
                         }
@@ -697,7 +789,6 @@ public class OtherUsersProfileInfoFragment extends FragmentWithTitle {
         } else {
             showDialog();
         }
-
     }
 
 
