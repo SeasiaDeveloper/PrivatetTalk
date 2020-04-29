@@ -1,10 +1,14 @@
 package com.privetalk.app.welcome.fragments;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.content.pm.Signature;
 import android.os.Bundle;
 import android.text.method.LinkMovementMethod;
+import android.util.Base64;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -22,6 +26,8 @@ import com.privetalk.app.services.GetLocationService;
 import com.privetalk.app.utilities.FadeOnTouchListener;
 import com.privetalk.app.welcome.WelcomeActivity;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -54,7 +60,7 @@ public class CreateAccountFragment extends Fragment {
 
         welcomeActivity = (WelcomeActivity) getActivity();
         rootView = inflater.inflate(R.layout.fragment_create_account, container, false);
-
+        printHashKey(getActivity());
         initViews();
         if (checkPermissions()) {
             Intent locationServices = new Intent(getActivity(), GetLocationService.class);
@@ -131,6 +137,21 @@ public class CreateAccountFragment extends Fragment {
                     getActivity().startService(locationServices);
                 }
             }
+        }
+    }
+    public static void printHashKey(Context pContext) {
+        try {
+            PackageInfo info = pContext.getPackageManager().getPackageInfo(pContext.getPackageName(), PackageManager.GET_SIGNATURES);
+            for (Signature signature : info.signatures) {
+                MessageDigest md = MessageDigest.getInstance("SHA");
+                md.update(signature.toByteArray());
+                String hashKey = new String(Base64.encode(md.digest(), 0));
+                Log.i("ke", "printHashKey() Hash Key: " + hashKey);
+            }
+        } catch (NoSuchAlgorithmException e) {
+            Log.e("Sd", "printHashKey()", e);
+        } catch (Exception e) {
+            Log.e("sd", "printHashKey()", e);
         }
     }
 }
