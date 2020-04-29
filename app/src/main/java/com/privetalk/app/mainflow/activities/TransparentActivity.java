@@ -132,7 +132,7 @@ public class TransparentActivity extends AppCompatActivity implements GoogleApiC
                 fbLoginButton.setOnTouchListener(new FadeOnTouchListener() {
                     @Override
                     public void onClick(View view, MotionEvent event) {
-
+                        dialogContainer.setVisibility(View.INVISIBLE);
                         authenticationDialog = new AuthenticationDialog(TransparentActivity.this, mListner);
                         authenticationDialog.setCancelable(true);
                         authenticationDialog.show();
@@ -514,7 +514,7 @@ public class TransparentActivity extends AppCompatActivity implements GoogleApiC
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        Toast.makeText(TransparentActivity.this, response, Toast.LENGTH_LONG).show();
+                       // Toast.makeText(TransparentActivity.this, response, Toast.LENGTH_LONG).show();
                         JSONObject person = null;
                         try {
                             person = new JSONObject(response);
@@ -614,7 +614,7 @@ public class TransparentActivity extends AppCompatActivity implements GoogleApiC
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        Toast.makeText(TransparentActivity.this, response, Toast.LENGTH_LONG).show();
+                        //Toast.makeText(TransparentActivity.this, response, Toast.LENGTH_LONG).show();
                         JSONObject person = null;
                         try {
                             person = new JSONObject(response);

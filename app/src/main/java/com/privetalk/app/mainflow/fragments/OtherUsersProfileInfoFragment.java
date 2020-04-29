@@ -59,6 +59,7 @@ import com.privetalk.app.database.objects.LanguageObject;
 import com.privetalk.app.database.objects.MutualFriendsObject;
 import com.privetalk.app.database.objects.UserObject;
 import com.privetalk.app.mainflow.activities.MainActivity;
+import com.privetalk.app.utilities.DrawerUtilities;
 import com.privetalk.app.utilities.FadeOnTouchListener;
 import com.privetalk.app.utilities.FlameImageView;
 import com.privetalk.app.utilities.FragmentWithTitle;
@@ -153,7 +154,7 @@ public class OtherUsersProfileInfoFragment extends FragmentWithTitle {
     private int pagerMargin;
     private CurrentUser currentUser;
     private HashMap<String, ArrayList<InterestObject>> commonInterests;
-
+    private boolean lockDialog;
 
     private JsonObjectRequest fetchOtherUserInfo;
     private AsyncTask<Void, Void, Void> parseUserProfileDetails;
@@ -431,7 +432,7 @@ public class OtherUsersProfileInfoFragment extends FragmentWithTitle {
                     isHot = false;
                     sendVote(false, otherUsedID);
                 } else {
-                    showNeedToBeRoyalUserAlert();
+                    showAccessDeniedDialog();
                 }
             }
         });
@@ -443,7 +444,7 @@ public class OtherUsersProfileInfoFragment extends FragmentWithTitle {
                     isHot = true;
                     sendVote(true, otherUsedID);
                 } else {
-                    showNeedToBeRoyalUserAlert();
+                    showAccessDeniedDialog();
                 }
             }
         });
@@ -718,19 +719,32 @@ public class OtherUsersProfileInfoFragment extends FragmentWithTitle {
 
     }
 
-    private void showNeedToBeRoyalUserAlert() {
+    private void showAccessDeniedDialog() {
 
-        new AlertDialog.Builder(getContext())
-                .setTitle(getString(R.string.not_royal_user))
-                .setMessage(R.string.royal_user_plans_flames_ignited)
-                .setPositiveButton(getString(R.string.yes_string), new DialogInterface.OnClickListener() {
+        if (lockDialog)
+            return;
+
+        lockDialog = true;
+
+        new AlertDialog.Builder(getActivity())
+                .setMessage(R.string.to_use_hot_wheel_blah_blah)
+                .setPositiveButton(R.string.okay, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        PriveTalkUtilities.changeFragment(getContext(), true, PriveTalkConstants.ROYAL_USER_BENEFITS_FRAGMENT_ID);
+                        dialog.dismiss();
+                        lockDialog = false;
+
+                        Intent intent = new Intent(MainActivity.BROADCAST_CHANGE_DRAWER_FRAGMENT);
+                        intent.putExtra(DrawerUtilities.FRAGMENTT_CHANGE, DrawerUtilities.DrawerRow.PROFILE.ordinal());
+                        LocalBroadcastManager.getInstance(getContext()).sendBroadcast(intent);
                     }
-                })
-                .setNegativeButton(getString(R.string.later), null)
-                .create().show();
+                }).setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+                lockDialog = false;
+            }
+        }).create().show();
     }
 
     private void getOtherUserInfo() {

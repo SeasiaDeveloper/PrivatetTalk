@@ -11,22 +11,22 @@
     <View
         android:id="@+id/fade_in_view"
         android:layout_width="match_parent"
-        android:background="@android:color/black"
+        android:layout_height="match_parent"
         android:alpha="0"
-        android:layout_height="match_parent" />
+        android:background="@android:color/black" />
 
     <RelativeLayout
-        android:layout_centerInParent="true"
         android:id="@+id/dialogContainer"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true">
 
         <RelativeLayout
-            android:layout_centerInParent="true"
             android:layout_width="270dp"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/myDialog"
             android:layout_alignTop="@+id/myDialog"
+            android:layout_alignBottom="@+id/myDialog"
+            android:layout_centerInParent="true"
             android:background="@android:drawable/dialog_holo_light_frame"
             android:clickable="true">
 
@@ -38,10 +38,10 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:layout_centerInParent="true"
             android:id="@+id/myDialog"
             android:layout_width="270dp"
             android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
             android:padding="20dp">
 
             <com.privetalk.app.utilities.PriveTalkTextView
@@ -58,24 +58,25 @@
                 android:id="@+id/view2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignLeft="@+id/view3"
-                android:visibility="invisible"
                 android:layout_below="@+id/testingStringies"
+                android:layout_alignLeft="@+id/view3"
                 android:text="@string/use_one_of_the_following"
                 android:textColor="@color/welcome_text"
+                android:visibility="invisible"
                 app:ttf_name="@string/roboto_regular" />
 
             <com.privetalk.app.utilities.PriveTalkTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignBottom="@+id/view2"
                 android:layout_alignTop="@+id/view2"
+                android:layout_alignBottom="@+id/view2"
                 android:layout_marginLeft="2dp"
                 android:layout_toRightOf="@+id/view2"
                 android:gravity="top"
                 android:text="*"
                 android:textColor="@android:color/black"
                 android:textSize="12sp"
+                android:visibility="invisible"
                 app:ttf_name="@string/roboto_bold" />
 
             <LinearLayout
@@ -86,26 +87,28 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/dotted_line"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:paddingTop="10dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="70dp"
+                    android:layout_height="40dp"
                     android:gravity="center"
-                    android:orientation="horizontal"
-                    >
+                    android:orientation="horizontal">
 
                     <com.privetalk.app.utilities.PriveTalkTextView
                         android:id="@+id/btnfacebookLogin"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/rounded_blue_button"
                         android:gravity="center"
-                        android:padding="10dp"
+                        android:padding="5dp"
                         android:text="@string/login_with_instagram"
                         android:textColor="@android:color/white"
-                        android:textSize="21sp"
-                        app:ttf_name="@string/roboto_light" />
+                        android:textSize="20sp"
+                        app:ttf_name="@string/roboto_light"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/background" />
 
                     <ImageView
                         android:id="@+id/facebookLogin"
@@ -113,8 +116,8 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:padding="10dp"
-                        android:visibility="gone"
-                        android:src="@drawable/facebook_icon" />
+                        android:src="@drawable/facebook_icon"
+                        android:visibility="gone" />
 
                     <ImageView
                         android:id="@+id/googleLogin"
@@ -122,17 +125,17 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:padding="10dp"
-                        android:visibility="gone"
-                        android:src="@drawable/google_plus_icon" />
+                        android:src="@drawable/google_plus_icon"
+                        android:visibility="gone" />
 
                     <ImageView
                         android:id="@+id/vkIcon"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:visibility="gone"
                         android:padding="10dp"
-                        android:src="@drawable/viking_icon" />
+                        android:src="@drawable/viking_icon"
+                        android:visibility="gone" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -169,6 +172,7 @@
                 android:text="*"
                 android:textColor="@color/welcome_text"
                 android:textSize="12sp"
+                android:visibility="invisible"
                 app:ttf_name="@string/roboto_regular" />
 
             <com.privetalk.app.utilities.PriveTalkTextView
@@ -187,27 +191,27 @@
         </RelativeLayout>
 
         <ImageView
-            android:padding="4dp"
             android:id="@+id/closeDialog"
             android:layout_width="32dp"
             android:layout_height="32dp"
-            android:layout_alignRight="@+id/myDialog"
             android:layout_alignTop="@+id/myDialog"
+            android:layout_alignRight="@+id/myDialog"
+            android:padding="4dp"
             android:src="@drawable/close_dialog_icon" />
     </RelativeLayout>
 
 
     <FrameLayout
-        android:visibility="gone"
-        android:clickable="true"
         android:id="@+id/progressBarVerification"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:visibility="gone">
 
         <ProgressBar
             android:layout_width="wrap_content"
-            android:layout_gravity="center"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_gravity="center" />
 
     </FrameLayout>
 
