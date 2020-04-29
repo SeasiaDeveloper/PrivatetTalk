@@ -41,7 +41,7 @@
     <string name="my_age">My {b}age{/b} is</string>
     <string name="my_location">I {b}live{/b} in</string>
     <string name="my_genre">{b}I am{/b} a</string>
-    <string name="looking_for">{b}Looking{/b}\nfor a</string>
+    <string name="looking_for">{b}Looking{/b} for a</string>
     <string name="my_mail">my {b}e-mail{/b} is</string>
     <string name="password_note">{b}*Note:{/b} use a unique password</string>
     <string name="application_password">application {b}password{/b}</string>
@@ -474,9 +474,9 @@
 
     <!--Instagram login detail   -->
 
-    <string name="instagram_client_id">250927849426955</string> <!--1259556937573697-->
+    <string name="instagram_client_id">548190425838130</string>   <!--250927849426955-->
     <string name="instagram_redirect_url">https://socialsizzle.herokuapp.com/auth/</string>
-    <string name="instagram_client_secret">93f21dcd8610d74e703fb190385a14b9</string> <!--5b91a552ab9667ef6650d2e24d6d5825-->
+    <string name="instagram_client_secret">ccdeea695c9c7482e90636669897ced0</string>  <!--93f21dcd8610d74e703fb190385a14b9-->
     <string name="instagram_authorization_code">authorization_code/</string>
     <string name="instagram_grant_type">authorization_code</string>
 
@@ -666,5 +666,7 @@
     <string name="purchase_another_plan">You can\'t purchase another plan. You are already a Royal User.</string>
     <string name="block_report_user_title">{b}Block - Report{/b} user</string>
     <string name="no_results">No Results</string>
+
+    <string name="login_with_instagram">Login with Instagram</string>
 </resources>
 

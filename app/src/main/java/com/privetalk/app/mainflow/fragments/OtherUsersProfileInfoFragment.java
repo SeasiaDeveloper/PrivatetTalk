@@ -49,6 +49,7 @@ import com.privetalk.app.PriveTalkApplication;
 import com.privetalk.app.R;
 import com.privetalk.app.database.datasource.CommunityUsersDatasourse;
 import com.privetalk.app.database.datasource.CurrentUserDatasource;
+import com.privetalk.app.database.datasource.CurrentUserPhotosDatasource;
 import com.privetalk.app.database.objects.CommunityUsersObject;
 import com.privetalk.app.database.objects.ConversationObject;
 import com.privetalk.app.database.objects.CurrentUser;
@@ -170,7 +171,7 @@ public class OtherUsersProfileInfoFragment extends FragmentWithTitle {
     private ImageView imageCold, imageHot;
     private Boolean isHot = false, isCold = false;
     private JsonObjectRequest sendVoteRequest;
-
+    private boolean hasProfilePicture;
 
     private BroadcastReceiver utilitiesReceiver = new BroadcastReceiver() {
         @Override
@@ -212,6 +213,13 @@ public class OtherUsersProfileInfoFragment extends FragmentWithTitle {
             currentUser.currentUserDetails = new CurrentUserDetails();
         if (currentUser.currentUserDetails.interests == null)
             currentUser.currentUserDetails.interests = new HashMap<>();
+
+        if (CurrentUserPhotosDatasource.getInstance(getContext()).getProfilePhoto() == null)
+            hasProfilePicture = false;
+        else {
+            String mainPhoto = CurrentUserPhotosDatasource.getInstance(getContext()).getProfilePhoto().photo;
+            hasProfilePicture = (mainPhoto != null && !mainPhoto.isEmpty());
+        }
     }
 
     @Nullable
@@ -419,7 +427,7 @@ public class OtherUsersProfileInfoFragment extends FragmentWithTitle {
         imageCold.setOnTouchListener(new FadeOnTouchListener() {
             @Override
             public void onClick(View view, MotionEvent event) {
-                if (CurrentUserDatasource.getInstance(getContext()).getCurrentUserInfo().royal_user) {
+                if (hasProfilePicture) {
                     isHot = false;
                     sendVote(false, otherUsedID);
                 } else {
@@ -431,7 +439,7 @@ public class OtherUsersProfileInfoFragment extends FragmentWithTitle {
         imageHot.setOnTouchListener(new FadeOnTouchListener() {
             @Override
             public void onClick(View view, MotionEvent event) {
-                if (CurrentUserDatasource.getInstance(getContext()).getCurrentUserInfo().royal_user) {
+                if (hasProfilePicture) {
                     isHot = true;
                     sendVote(true, otherUsedID);
                 } else {
@@ -666,8 +674,7 @@ public class OtherUsersProfileInfoFragment extends FragmentWithTitle {
         });
     }
 
-    private void sendVote(boolean is_hot, int partner_id) {
-
+    private void sendVote(boolean is_hot, final int partner_id) {
         if (partner_id == -1)
             return;
 
@@ -679,7 +686,7 @@ public class OtherUsersProfileInfoFragment extends FragmentWithTitle {
             e.printStackTrace();
         }
 
-        sendVoteRequest = new JsonObjectRequest(com.android.volley.Request.Method.POST, String.format(Links.RESPOND_MATCH, partner_id), jsonObject, new Response.Listener<JSONObject>() {
+        sendVoteRequest = new JsonObjectRequest(com.android.volley.Request.Method.POST, String.format(Links.CREATE_MATCH, partner_id), jsonObject, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 if (isHot) {
@@ -691,13 +698,7 @@ public class OtherUsersProfileInfoFragment extends FragmentWithTitle {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                try {
-                    JSONObject jsonObject = new JSONObject(new String(error.networkResponse.data, "UTF-8"));
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                } catch (UnsupportedEncodingException e) {
-                    e.printStackTrace();
-                }
+               System.out.println("error vote" + error.networkResponse != null ? new String(error.networkResponse.data) : "null");
             }
         }) {
             @Override
@@ -707,6 +708,7 @@ public class OtherUsersProfileInfoFragment extends FragmentWithTitle {
                 headers.put("Content-Type", "application/json; charset=utf-8");
                 headers.put("AUTHORIZATION", "Token " + CurrentUserDatasource.getInstance(PriveTalkApplication.getInstance()).getCurrentUserInfo().token);
                 headers.put("Accept-Language", String.valueOf(Locale.getDefault()).substring(0, 2));
+
 
                 return headers;
             }

@@ -44,7 +44,7 @@ public class AuthenticationDialog extends Dialog {
         webView.getSettings().setJavaScriptEnabled(true);
         //webView.loadUrl(request_url);
         webView.loadUrl("https://api.instagram.com/oauth/authorize" +
-                "?client_id=250927849426955" +
+                "?client_id="+mContext.getResources().getString(R.string.instagram_client_id)+
                 "&redirect_uri=https://socialsizzle.herokuapp.com/auth/" +
                 "&scope=user_profile,user_media" +
                 "&response_type=code");

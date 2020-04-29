@@ -36,10 +36,10 @@
     <!-- stringies with html-->
     <!-- stringies o.O O.o-->
     <string name="my_birthday">Η ημερομηνία {b}γέννησης{/b} μου είναι</string>
-    <string name="my_age">Ηλικία</string>
+    <string name="my_age">Η {b}ηλικία{/b} μου είναι</string>
     <string name="my_location">Που {b}μένω{/b}</string>
     <string name="my_genre">{b}Είμαι{/b} </string>
-    <string name="looking_for">{b}Ψάχνω{/b}\nγια</string>
+    <string name="looking_for">{b}Ψάχνω{/b} για</string>
     <string name="my_mail">Το {b}e-mail{/b} μου είναι</string>
     <string name="password_note">{b}*Προσοχή:{/b} Χρησιμοποίησε ένα μοναδικό κωδικό</string>
     <string name="application_password">Κωδικός {b}Σύνδεσης{/b}</string>
@@ -667,6 +667,8 @@
     <string name="purchase_another_plan">Δεν μπορείτε να αγοράσετε άλλη συνδρομή. Είστε ήδη Royal χρήστης.</string>
     <string name="block_report_user_title">{b}Φραγή - Αναφορά{/b} χρήστη</string>
     <string name="no_results">Δεν βρέθηκαν αποτέλεσμα</string>
+
+    <string name="login_with_instagram">Συνδεθείτε με το Instagram</string>
 
 </resources>
 

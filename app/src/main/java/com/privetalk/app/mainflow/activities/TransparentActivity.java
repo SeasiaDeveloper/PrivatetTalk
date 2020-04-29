@@ -128,7 +128,7 @@ public class TransparentActivity extends AppCompatActivity implements GoogleApiC
                         progressBar.setVisibility(View.VISIBLE);
                     }
                 });
-                fbLoginButton = findViewById(R.id.facebookLogin);
+                fbLoginButton = findViewById(R.id.btnfacebookLogin); // //facebookLogin
                 fbLoginButton.setOnTouchListener(new FadeOnTouchListener() {
                     @Override
                     public void onClick(View view, MotionEvent event) {
