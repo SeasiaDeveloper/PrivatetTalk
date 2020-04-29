@@ -218,7 +218,7 @@ public class PriveTalkUtilities {
 
 
         if (previousSendLat == lat && previousSendLng == lng)
-            return;
+           return;
 
         if (lat == 0 && lng == 0)
             return;

@@ -57,8 +57,6 @@ public class PriveTalkApplication extends Application {
                 .saveInRootPicturesDirectory().setCopyExistingPicturesToPublicLocation(true);
 
 
-
-
         SharedPreferences sharedPreferences = getSharedPreferences(getString(com.privetalk.app.R.string.preferences), Context.MODE_PRIVATE);
         sharedPreferences.edit().putString(PriveTalkConstants.CURRENT_CHAT_GUY, "").apply();
 

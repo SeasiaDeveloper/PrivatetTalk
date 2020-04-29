@@ -621,12 +621,11 @@ public class TransparentActivity extends AppCompatActivity implements GoogleApiC
                             String userName = person.getString("username");
                             String id = person.getString("id");
                             JSONObject jsonObject = new JSONObject();
-                            jsonObject.put("instagram_Id", id);
+                            jsonObject.put("instagram_id", id);
                             verifyAccount(jsonObject);
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
-
                     }
                 },
                 new Response.ErrorListener() {

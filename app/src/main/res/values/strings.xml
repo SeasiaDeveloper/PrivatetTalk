@@ -621,6 +621,9 @@
     <string name="error_purchasing_coins">Error purchasing coins.</string>
     <string name="try_again_">Try again</string>
     <string name="to_use_hot_wheel_blah_blah">To use the hot wheel, you have to Upload and Set a profile picture first.</string>
+    <string name="to_use_hot_cold">To use this hot/cold feature, you have to Upload and Set a profile picture first.</string>
+
+
     <string name="permission_login">You do not have permission to log in.\nFor support contact us via our website.</string>
     <string name="break_the_ice_speak_about">{b}Break the ice! Speak about...{/b}</string>
     <string name="password">password</string>

@@ -84,6 +84,7 @@
     <string name="profileSmoking">Κάπνισμα</string>
     <string name="profileLanguage">Γλώσσες</string>
     <string name="profile_religion">Θρησκεία</string>
+    <string name="to_use_hot_cold">Για να χρησιμοποιήσετε αυτήν τη λειτουργία ζεστού / κρύου, πρέπει πρώτα να ανεβάσετε και να ορίσετε μια εικόνα προφίλ.</string>
     <string name="profileZodiac">Ζώδιο</string>
     <string name="profileInterests">Ενδιαφέροντα</string>
     <string name="profilePlaces">Μέρη Επίσκεψης</string>

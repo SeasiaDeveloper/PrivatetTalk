@@ -51,7 +51,6 @@ import com.privetalk.app.database.datasource.CommunityUsersDatasourse;
 import com.privetalk.app.database.datasource.CurrentUserDatasource;
 import com.privetalk.app.database.datasource.CurrentUserPhotosDatasource;
 import com.privetalk.app.database.objects.CommunityUsersObject;
-import com.privetalk.app.database.objects.ConversationObject;
 import com.privetalk.app.database.objects.CurrentUser;
 import com.privetalk.app.database.objects.CurrentUserDetails;
 import com.privetalk.app.database.objects.InterestObject;
@@ -429,7 +428,8 @@ public class OtherUsersProfileInfoFragment extends FragmentWithTitle {
             @Override
             public void onClick(View view, MotionEvent event) {
                 if (hasProfilePicture) {
-                    isHot = false;
+                    isCold=true;
+                    isHot=false;
                     sendVote(false, otherUsedID);
                 } else {
                     showAccessDeniedDialog();
@@ -442,6 +442,7 @@ public class OtherUsersProfileInfoFragment extends FragmentWithTitle {
             public void onClick(View view, MotionEvent event) {
                 if (hasProfilePicture) {
                     isHot = true;
+                    isCold=false;
                     sendVote(true, otherUsedID);
                 } else {
                     showAccessDeniedDialog();
@@ -450,6 +451,10 @@ public class OtherUsersProfileInfoFragment extends FragmentWithTitle {
         });
 
         favoriteStar.setColorFilter(ContextCompat.getColor(getContext(),
+                otherUserObject.isFavorite ? R.color.star_button_color : R.color.blue_border_color),
+                PorterDuff.Mode.SRC_IN);
+
+        imageHot.setColorFilter(ContextCompat.getColor(getContext(),
                 otherUserObject.isFavorite ? R.color.star_button_color : R.color.blue_border_color),
                 PorterDuff.Mode.SRC_IN);
 
@@ -470,13 +475,14 @@ public class OtherUsersProfileInfoFragment extends FragmentWithTitle {
         userDistance.setText(getDistance());
 
         photoPreviewPager.setAdapter(new ProfilePhotoAdapter());
-        Log.e("detail", otherUserObject.profilePhotosList.get(0).isVerifiedPhoto + "");
 
-        if (otherUserObject.profilePhotosList.get(0).isVerifiedPhoto) {
-            layVerifiedUser.setVisibility(View.VISIBLE);
-            tvVerifiedUser.setText("Verified");
-        } else {
-            layVerifiedUser.setVisibility(View.GONE);
+        if (otherUserObject.profilePhotosList.size() > 0) {
+            if (otherUserObject.profilePhotosList.get(0).isVerifiedPhoto) {
+                layVerifiedUser.setVisibility(View.VISIBLE);
+                tvVerifiedUser.setText("Verified");
+            } else {
+                layVerifiedUser.setVisibility(View.GONE);
+            }
         }
 
         photoPreviewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
@@ -683,6 +689,7 @@ public class OtherUsersProfileInfoFragment extends FragmentWithTitle {
         try {
             jsonObject.put("partner_id", partner_id);
             jsonObject.put("is_hot", is_hot);
+
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -690,16 +697,18 @@ public class OtherUsersProfileInfoFragment extends FragmentWithTitle {
         sendVoteRequest = new JsonObjectRequest(com.android.volley.Request.Method.POST, String.format(Links.CREATE_MATCH, partner_id), jsonObject, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
-                if (isHot) {
+
+
+               /* if (isHot) {
                     imageHot.setImageResource(R.drawable.alpha_flame);
                 } else {
                     imageHot.setImageResource(R.drawable.flames_icon);
-                }
+                }*/
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-               System.out.println("error vote" + error.networkResponse != null ? new String(error.networkResponse.data) : "null");
+                System.out.println("error vote" + error.networkResponse != null ? new String(error.networkResponse.data) : "null");
             }
         }) {
             @Override
@@ -1115,6 +1124,5 @@ public class OtherUsersProfileInfoFragment extends FragmentWithTitle {
             return "n/a";
 
     }
-
 
 }
