@@ -71,7 +71,7 @@ public class DrawerUtilities {
                 HotMatchesFragment hotMatchesFragment = new HotMatchesFragment();
                 loadFragment(activity, hotMatchesFragment, titleName);
 
-             /*   FlamesIgnitedFragment flamesIgnitedFragment = new FlamesIgnitedFragment();
+                /*FlamesIgnitedFragment flamesIgnitedFragment = new FlamesIgnitedFragment();
                 loadFragment(activity, flamesIgnitedFragment, titleName);*/
                 break;
            /* case HOT_MATCHES:

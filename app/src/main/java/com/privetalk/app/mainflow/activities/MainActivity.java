@@ -405,7 +405,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         PriveTalkUtilities.getAllInterests();
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_SECURE);
+       // getWindow().addFlags(WindowManager.LayoutParams.FLAG_SECURE);
         setContentView(R.layout.activity_main);
         Configuration c = getResources().getConfiguration();
         if (c.fontScale > 1f) c.fontScale = 1f;

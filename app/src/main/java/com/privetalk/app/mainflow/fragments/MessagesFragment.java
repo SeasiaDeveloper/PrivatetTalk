@@ -35,6 +35,7 @@ import android.view.animation.AnimationUtils;
 import android.view.animation.BounceInterpolator;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
@@ -124,7 +125,7 @@ public class MessagesFragment extends FragmentWithTitle {
     private View addmeView;
     //for Hot matches
     private GridRecyclerAdapter mAdapter2;
-    private MyGridLayoutManager mGridLayoutManager;
+    private LinearLayoutManager mGridLayoutManager;
     private RecyclerView mRecyclerView1;
     private Handler hand;
     public static Boolean CAN_USE_TOUCH = true;
@@ -201,7 +202,7 @@ public class MessagesFragment extends FragmentWithTitle {
                                                                                     int viewType) {
             // create a new view
             View v = LayoutInflater.from(parent.getContext())
-                    .inflate(R.layout.row_hot_matches, parent, false);
+                    .inflate(R.layout.matches_screen_hot_matches, parent, false);
 
             //set new Long press and click listener for my view
             v.setOnTouchListener(newLongPressAndClickListener());
@@ -213,11 +214,6 @@ public class MessagesFragment extends FragmentWithTitle {
         // Replace the contents of a view (invoked by the layout manager)
         @Override
         public void onBindViewHolder(GridRecyclerAdapter.ViewHolder holder, int position) {
-
-            if (position == 0 || position == 1)
-                holder.view.setPadding(0, topRecyclerHeight, 0, 0);
-            else
-                holder.view.setPadding(0, 0, 0, 0);
 
             holder.view.setTag(R.id.user_id_tag, hotMatchesObjectList.get(position).matchID);
             holder.view.setTag(R.id.position_tag, position);
@@ -270,8 +266,18 @@ public class MessagesFragment extends FragmentWithTitle {
                 handler.postDelayed(this, 15);
             }
         };
-    }
 
+        runnable = new Runnable() {
+            @Override
+            public void run() {
+                if (PriveTalkUtilities.checkIfPromotedUsersIsScrollable(mRecyclerView1, mAdapter)) {
+                    mRecyclerView1.scrollBy(1, 0);
+                }
+                handler.postDelayed(this, 15);
+            }
+        };
+    }
+    //for Hot matches
     private LongPressAndClickListener newLongPressAndClickListener() {
         return new LongPressAndClickListener(hand) {
             @Override
@@ -298,7 +304,7 @@ public class MessagesFragment extends FragmentWithTitle {
                     //disable recyclerview touch events
                     mRecyclerView1.setEnabled(false);
                     mRecyclerView1.setClickable(false);
-                    mGridLayoutManager.setCanScroll(false);
+                   // mGridLayoutManager.setCanScroll(false);
 
 
                     //get view to create new bitmap
@@ -448,7 +454,7 @@ public class MessagesFragment extends FragmentWithTitle {
 
                                 mRecyclerView1.setEnabled(true);
                                 mRecyclerView1.setClickable(true);
-                                mGridLayoutManager.setCanScroll(true);
+                              //  mGridLayoutManager.setCanScroll(true);
                             }
                         }, 250);
 
@@ -548,6 +554,7 @@ public class MessagesFragment extends FragmentWithTitle {
 
         LocalBroadcastManager.getInstance(getContext()).registerReceiver(promotedUsersDownloaded, new IntentFilter(PriveTalkConstants.BROADCAST_PROMOTED_USERS_DOWNLOADED));
         LocalBroadcastManager.getInstance(getContext()).registerReceiver(conversationsDownloaded, new IntentFilter(PriveTalkConstants.BROADCAST_CONVERSATIONS_DOWNLOADED));
+        LocalBroadcastManager.getInstance(getContext()).registerReceiver(hotMatchesDownloaded, new IntentFilter(PriveTalkConstants.BROADCAST_HOT_MATCHES_DOWNLOADED));
         PriveTalkUtilities.badgesRequest(true, PriveTalkConstants.MenuBadges.MESSAGES_BAGE);
         super.onResume();
     }
@@ -557,6 +564,7 @@ public class MessagesFragment extends FragmentWithTitle {
     public void onPause() {
         LocalBroadcastManager.getInstance(getContext()).unregisterReceiver(promotedUsersDownloaded);
         LocalBroadcastManager.getInstance(getContext()).unregisterReceiver(conversationsDownloaded);
+        LocalBroadcastManager.getInstance(getContext()).unregisterReceiver(hotMatchesDownloaded);
         KeyboardUtilities.closeKeyboard(getActivity(), rootView);
 
         if (hideConversation != null)
@@ -618,7 +626,7 @@ public class MessagesFragment extends FragmentWithTitle {
         mRecyclerView.post(new Runnable() {
             @Override
             public void run() {
-                topRecyclerHeight = mRecyclerView.getHeight();
+                topRecyclerHeight = mRecyclerView.getHeight() + 350; //for Hot matches
 
                 inboxRecyclerView.setAdapter(inboxRecyclerAdapter);
 
@@ -673,13 +681,43 @@ public class MessagesFragment extends FragmentWithTitle {
         });
 
         //for Hot matches
+
         hand = new Handler();
         PriveTalkUtilities.startDownloadWithPaging(Request.Method.GET, Links.HOT_MATCHES, PriveTalkConstants.BROADCAST_HOT_MATCHES_DOWNLOADED, null, new JSONObject());
         hotMatchesObjectList = HotMatchesDatasource.getInstance(getContext()).getHotMatches();
         mRecyclerView1 = (RecyclerView) rootView.findViewById(R.id.hotmatchesUsersProfiles);
-        mGridLayoutManager = new MyGridLayoutManager(getContext(), 2);
+        //mGridLayoutManager = new MyGridLayoutManager(getContext(), 2);
+        mGridLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
         mAdapter2 = new GridRecyclerAdapter();
         mRecyclerView1.setLayoutManager(mGridLayoutManager);
+
+        mAdapter.setImageViewSize(new PromotedUsersAdapter.Callback() {
+            @Override
+            public void done() {
+                mRecyclerView1.setAdapter(mAdapter2);
+            }
+        }, mRecyclerView1);
+
+        mRecyclerView1.post(new Runnable() {
+            @Override
+            public void run() {
+                topRecyclerHeight = mRecyclerView.getHeight() +  350;
+
+                mRecyclerView1.setAdapter(mAdapter2);
+
+                CoordinatorLayout.LayoutParams params2 = (CoordinatorLayout.LayoutParams) inboxRecyclerView.getLayoutParams();
+                params2.setMargins(0, -topRecyclerHeight, 0, topRecyclerHeight);
+                inboxRecyclerView.setLayoutParams(params2);
+
+                //set top margin to appbarlayout
+                CoordinatorLayout.LayoutParams params = (CoordinatorLayout.LayoutParams) inboxAppBar.getLayoutParams();
+                params.setMargins(0, topRecyclerHeight, 0, 0);
+                inboxAppBar.setLayoutParams(params);
+
+               /* topRecyclerHeight = mRecyclerView.getHeight();
+                mRecyclerView1.setAdapter(mAdapter2);*/
+            }
+        });
 
     }
 
@@ -710,6 +748,12 @@ public class MessagesFragment extends FragmentWithTitle {
 
         @Override
         public void onBindViewHolder(InboxRecyclerAdapter.ViewHolder holder, int position) {
+
+            if (position == 0 || position == 1)
+                holder.view.setPadding(0, topRecyclerHeight, 0, 0);
+            else
+                holder.view.setPadding(0, 0, 0, 0);
+
             holder.layout1.setTranslationX(0);
             holder.view.setPadding(leftAndRightPadding, topAndBottomPadding + ((position == 0) ? topRecyclerHeight : 0), leftAndRightPadding, topAndBottomPadding);
 
