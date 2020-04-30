@@ -153,7 +153,7 @@ public class OtherUsersProfileInfoFragment extends FragmentWithTitle {
     private int pagerMargin;
     private CurrentUser currentUser;
     private HashMap<String, ArrayList<InterestObject>> commonInterests;
-
+    private boolean lockDialog;
 
     private JsonObjectRequest fetchOtherUserInfo;
     private AsyncTask<Void, Void, Void> parseUserProfileDetails;
@@ -378,6 +378,14 @@ public class OtherUsersProfileInfoFragment extends FragmentWithTitle {
 
         flameImageView.changeHotness(otherUserObject.hotnessPercentage);
 
+        if (otherUserObject.isHot) {
+            imageHot.setImageResource(R.drawable.alpha_flame);
+            imageCold.setImageResource(R.drawable.alpha_snow);
+        } else {
+            imageHot.setImageResource(R.drawable.flames_icon);
+            imageCold.setImageResource(R.drawable.favorites_icon);
+        }
+
         /*sendMessage.setOnTouchListener(new FadeOnTouchListener() {
             @Override
             public void onClick(View view, MotionEvent event) {
@@ -428,11 +436,18 @@ public class OtherUsersProfileInfoFragment extends FragmentWithTitle {
             @Override
             public void onClick(View view, MotionEvent event) {
                 if (hasProfilePicture) {
-                    isCold=true;
-                    isHot=false;
-                    sendVote(false, otherUsedID);
-                } else
+                    if (isCold) {
+                        isHot = false;
+                        isCold = true;
+                        sendVote(false, otherUsedID);
+                    } else {
+                        isHot = true;
+                        isCold = false;
+                        sendVote(true, otherUsedID);
+                    }
+                } else {
                     showAccessDeniedDialog();
+                }
             }
         });
 
@@ -440,11 +455,17 @@ public class OtherUsersProfileInfoFragment extends FragmentWithTitle {
             @Override
             public void onClick(View view, MotionEvent event) {
                 if (hasProfilePicture) {
-                    isHot = true;
-                    isCold=false;
-                    sendVote(true, otherUsedID);
+                    if (isHot) {
+                        isHot = false;
+                        isCold = true;
+                        sendVote(false, otherUsedID);
+                    } else {
+                        isHot = true;
+                        isCold = false;
+                        sendVote(true, otherUsedID);
+                    }
                 } else {
-                    showNeedToBeRoyalUserAlert();
+                    showAccessDeniedDialog();
                 }
             }
         });
@@ -453,9 +474,9 @@ public class OtherUsersProfileInfoFragment extends FragmentWithTitle {
                 otherUserObject.isFavorite ? R.color.star_button_color : R.color.blue_border_color),
                 PorterDuff.Mode.SRC_IN);
 
-        imageHot.setColorFilter(ContextCompat.getColor(getContext(),
+       /* imageHot.setColorFilter(ContextCompat.getColor(getContext(),
                 otherUserObject.isFavorite ? R.color.star_button_color : R.color.blue_border_color),
-                PorterDuff.Mode.SRC_IN);
+                PorterDuff.Mode.SRC_IN);*/
 
         favoriteStar.setOnTouchListener(new FadeOnTouchListener() {
             @Override
@@ -694,19 +715,26 @@ public class OtherUsersProfileInfoFragment extends FragmentWithTitle {
         }
 
         sendVoteRequest = new JsonObjectRequest(com.android.volley.Request.Method.POST, String.format(Links.CREATE_MATCH, partner_id), jsonObject, new Response.Listener<JSONObject>() {
-            @Override
+                @Override
             public void onResponse(JSONObject response) {
-
-
-               /* if (isHot) {
+                if (isHot && !isCold) {
                     imageHot.setImageResource(R.drawable.alpha_flame);
+                    imageCold.setImageResource(R.drawable.alpha_snow);
                 } else {
                     imageHot.setImageResource(R.drawable.flames_icon);
-                }*/
+                    imageCold.setImageResource(R.drawable.favorites_icon);
+                }
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
+                try {
+                    JSONObject jsonObject = new JSONObject(new String(error.networkResponse.data, "UTF-8"));
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                } catch (UnsupportedEncodingException e) {
+                    e.printStackTrace();
+                }
                 System.out.println("error vote" + error.networkResponse != null ? new String(error.networkResponse.data) : "null");
             }
         }) {
@@ -727,19 +755,32 @@ public class OtherUsersProfileInfoFragment extends FragmentWithTitle {
 
     }
 
-    private void showNeedToBeRoyalUserAlert() {
+    private void showAccessDeniedDialog() {
 
-        new AlertDialog.Builder(getContext())
-                .setTitle(getString(R.string.not_royal_user))
-                .setMessage(R.string.royal_user_plans_flames_ignited)
-                .setPositiveButton(getString(R.string.yes_string), new DialogInterface.OnClickListener() {
+        if (lockDialog)
+            return;
+
+        lockDialog = true;
+
+        new AlertDialog.Builder(getActivity())
+                .setMessage(R.string.to_use_hot_wheel_blah_blah)
+                .setPositiveButton(R.string.okay, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        PriveTalkUtilities.changeFragment(getContext(), true, PriveTalkConstants.ROYAL_USER_BENEFITS_FRAGMENT_ID);
+                        dialog.dismiss();
+                        lockDialog = false;
+
+                        Intent intent = new Intent(MainActivity.BROADCAST_CHANGE_DRAWER_FRAGMENT);
+                        intent.putExtra(DrawerUtilities.FRAGMENTT_CHANGE, DrawerUtilities.DrawerRow.PROFILE.ordinal());
+                        LocalBroadcastManager.getInstance(getContext()).sendBroadcast(intent);
                     }
-                })
-                .setNegativeButton(getString(R.string.later), null)
-                .create().show();
+                }).setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+                lockDialog = false;
+            }
+        }).create().show();
     }
 
     private void getOtherUserInfo() {
@@ -1110,34 +1151,5 @@ public class OtherUsersProfileInfoFragment extends FragmentWithTitle {
             return "n/a";
 
     }
-
-    private void showAccessDeniedDialog() {
-
-       /* if (lockDialog)
-            return;
-
-        lockDialog = true;*/
-
-        new AlertDialog.Builder(getActivity())
-                .setMessage(R.string.to_use_hot_cold)
-                .setPositiveButton(R.string.okay, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
-                        //lockDialog = false;
-
-                       // Intent intent = new Intent(MainActivity.BROADCAST_CHANGE_DRAWER_FRAGMENT);
-                        //intent.putExtra(DrawerUtilities.FRAGMENTT_CHANGE, DrawerUtilities.DrawerRow.PROFILE.ordinal());
-                        //LocalBroadcastManager.getInstance(getContext()).sendBroadcast(intent);
-                    }
-                }).setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.dismiss();
-               // lockDialog = false;
-            }
-        }).create().show();
-    }
-
 
 }
