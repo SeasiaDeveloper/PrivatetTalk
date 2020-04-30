@@ -454,7 +454,7 @@
     <string name="checkPlans">Check Plans</string>
     <string name="add_new">Add New</string>
     <string name="make_as_profile">Are you sure you want to make this photo as your profile picture?</string>
-    <string name="make_as_profile_message">To make this image as your Profile picture you need to Verify it first?</string>
+    <string name="make_as_profile_message">You will lose your verification and that you will need verify the picture first.Once the picture is verified it will automatically set as profile picture.</string>
     <string name="please_confirm">Please Confirm</string>
     <string name="delete_picture">Are you sure you want to delete this photo?</string>
     <string name="confirm_deletion">Confirm Deletion</string>

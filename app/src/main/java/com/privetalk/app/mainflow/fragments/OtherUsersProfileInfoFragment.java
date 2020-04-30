@@ -520,7 +520,6 @@ public class OtherUsersProfileInfoFragment extends FragmentWithTitle {
                     layVerifiedUser.setVisibility(View.GONE);
 
                 }
-                Toast.makeText(getActivity(), "" + otherUserObject.profilePhotosList.get(position).isVerifiedPhoto, Toast.LENGTH_SHORT).show();
 
                 smallPicturesRecyclerView.smoothScrollToPosition(position);
             }
