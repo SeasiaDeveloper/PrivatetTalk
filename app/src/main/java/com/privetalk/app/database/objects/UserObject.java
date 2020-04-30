@@ -41,6 +41,7 @@ public class UserObject implements Serializable {
     public int lastWeekPositiveVotes;
     public int lastWeekPurchaseBonus;
     public int lastWeekFreeCoins;
+    public Boolean isHot;
     public String fbID = "";
     public String fbName = "";
     public boolean isFavorite;
@@ -101,6 +102,7 @@ public class UserObject implements Serializable {
         this.lastWeekFreeCoins = obj.optInt("last_week_free_coins");
         this.fbID = obj.optString("fb_id");
         this.fbName = obj.optString("fb_username");
+        this.isHot = obj.optBoolean("is_hot");
 
         String hotnessPec = obj.optString("hotness_percentage");
         this.hotnessPercentage = Float.parseFloat(hotnessPec.isEmpty() ? "0" : hotnessPec);
