@@ -626,18 +626,18 @@ public class MessagesFragment extends FragmentWithTitle {
         mRecyclerView.post(new Runnable() {
             @Override
             public void run() {
-                topRecyclerHeight = mRecyclerView.getHeight() + 350; //for Hot matches
+                topRecyclerHeight = mRecyclerView.getHeight() /*+ 350*/; //for Hot matches
 
                 inboxRecyclerView.setAdapter(inboxRecyclerAdapter);
 
-                CoordinatorLayout.LayoutParams params2 = (CoordinatorLayout.LayoutParams) inboxRecyclerView.getLayoutParams();
+                /*CoordinatorLayout.LayoutParams params2 = (CoordinatorLayout.LayoutParams) inboxRecyclerView.getLayoutParams();
                 params2.setMargins(0, -topRecyclerHeight, 0, topRecyclerHeight);
                 inboxRecyclerView.setLayoutParams(params2);
 
                 //set top margin to appbarlayout
                 CoordinatorLayout.LayoutParams params = (CoordinatorLayout.LayoutParams) inboxAppBar.getLayoutParams();
                 params.setMargins(0, topRecyclerHeight, 0, 0);
-                inboxAppBar.setLayoutParams(params);
+                inboxAppBar.setLayoutParams(params);*/
             }
         });
 
@@ -701,7 +701,7 @@ public class MessagesFragment extends FragmentWithTitle {
         mRecyclerView1.post(new Runnable() {
             @Override
             public void run() {
-                topRecyclerHeight = mRecyclerView.getHeight() +  350;
+                topRecyclerHeight = mRecyclerView.getHeight() +  320;
 
                 mRecyclerView1.setAdapter(mAdapter2);
 

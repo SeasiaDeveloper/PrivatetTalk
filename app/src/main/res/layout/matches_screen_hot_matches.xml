@@ -8,7 +8,7 @@
         android:id="@+id/hotMatchesMainView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="5dp">
+        android:padding="10dp">
 
 
         <androidx.percentlayout.widget.PercentRelativeLayout
@@ -16,17 +16,17 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/hotmatchesProfilePicture"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
+                android:layout_marginTop="-4dp"
                 android:scaleType="centerCrop"
                 android:src="@drawable/dummy_img"
                 app:civ_border_color="#00000000"
                 app:civ_border_width="0dp" />
-
 
             <ImageView
                 android:id="@+id/gradientShadow"
@@ -55,12 +55,12 @@
                 android:layout_centerHorizontal="true"
                 android:background="@android:color/white"
                 android:gravity="center"
-                android:paddingBottom="3dp"
+
                 android:maxWidth="70dp"
                 android:singleLine="true"
                 android:text="not set"
                 android:textColor="@color/welcome_text"
-                android:textSize="13sp"
+                android:textSize="8sp"
                 app:layout_heightPercent="13%"
                 app:ttf_name="@string/roboto_regular" />
 
@@ -168,7 +168,7 @@
                     android:layout_gravity="center"
                     android:text="31"
                     android:textColor="@android:color/white"
-                    android:textSize="13sp"
+                    android:textSize="5sp"
                     app:ttf_name="@string/roboto_regular" />
 
             </FrameLayout>

@@ -51,6 +51,7 @@ import com.privetalk.app.database.datasource.CommunityUsersDatasourse;
 import com.privetalk.app.database.datasource.CurrentUserDatasource;
 import com.privetalk.app.database.datasource.CurrentUserPhotosDatasource;
 import com.privetalk.app.database.objects.CommunityUsersObject;
+import com.privetalk.app.database.objects.ConversationObject;
 import com.privetalk.app.database.objects.CurrentUser;
 import com.privetalk.app.database.objects.CurrentUserDetails;
 import com.privetalk.app.database.objects.InterestObject;
@@ -379,14 +380,18 @@ public class OtherUsersProfileInfoFragment extends FragmentWithTitle {
         flameImageView.changeHotness(otherUserObject.hotnessPercentage);
 
         if (otherUserObject.isHot) {
+            isHot=true;
+            isCold=false;
             imageHot.setImageResource(R.drawable.alpha_flame);
             imageCold.setImageResource(R.drawable.alpha_snow);
         } else {
+            isHot=false;
+            isCold=true;
             imageHot.setImageResource(R.drawable.flames_icon);
             imageCold.setImageResource(R.drawable.favorites_icon);
         }
 
-        /*sendMessage.setOnTouchListener(new FadeOnTouchListener() {
+        sendMessage.setOnTouchListener(new FadeOnTouchListener() {
             @Override
             public void onClick(View view, MotionEvent event) {
                 Intent intent = new Intent(MainActivity.BROADCAST_CHANGE_FRAGMENT);
@@ -407,7 +412,7 @@ public class OtherUsersProfileInfoFragment extends FragmentWithTitle {
                 LocalBroadcastManager.getInstance(getContext().getApplicationContext()).sendBroadcast(intent);
             }
         });
-*/
+
        /* sendGift.setOnTouchListener(new FadeOnTouchListener() {
             @Override
             public void onClick(View view, MotionEvent event) {
@@ -437,13 +442,13 @@ public class OtherUsersProfileInfoFragment extends FragmentWithTitle {
             public void onClick(View view, MotionEvent event) {
                 if (hasProfilePicture) {
                     if (isCold) {
-                        isHot = false;
-                        isCold = true;
-                        sendVote(false, otherUsedID);
-                    } else {
                         isHot = true;
                         isCold = false;
                         sendVote(true, otherUsedID);
+                    } else {
+                        isHot = false;
+                        isCold = true;
+                        sendVote(false, otherUsedID);
                     }
                 } else {
                     showAccessDeniedDialog();

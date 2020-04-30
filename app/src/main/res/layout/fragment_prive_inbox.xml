@@ -9,6 +9,7 @@
         android:id="@+id/inboxUsersProfiles"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_below="@+id/hot_matches_layout"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
     <com.google.android.material.appbar.AppBarLayout
@@ -69,12 +70,19 @@
 
         </LinearLayout>
 
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="5dp"
+            android:layout_below="@+id/hot_matches_layout"
+            android:background="#993C8DC7" />
+
         <LinearLayout
             android:id="@+id/hot_matches_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/addMeHolder"
-            android:layout_marginTop="10dp"
             app:layout_heightPercent="15%">
 
             <androidx.recyclerview.widget.RecyclerView
@@ -82,14 +90,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </LinearLayout>
-
-        <View
-            android:id="@+id/view"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_below="@+id/hot_matches_layout"
-            android:background="#993C8DC7"
-            android:layout_marginTop="20dp"/>
 
         <ProgressBar
             android:id="@+id/progressBar"
