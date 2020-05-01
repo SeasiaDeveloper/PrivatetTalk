@@ -238,7 +238,7 @@ public class FullScreenMyPicturesFragment extends FragmentWithTitle implements A
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             //add verification code
-                          //  makeProfilePicture();
+                            makeProfilePicture();
                             Intent intent = new Intent(getActivity(), CameraViewActivity.class);
                             startActivity(intent);
                         }
@@ -442,7 +442,7 @@ public class FullScreenMyPicturesFragment extends FragmentWithTitle implements A
                 ex.printStackTrace();
             }
 
-         /*   JsonObjectRequest makeProfileRequest = new JsonObjectRequest(Request.Method.PATCH, Links.PHOTOS + currentUserPhotoObject.id + "/", jsonObject, new Response.Listener<JSONObject>() {
+          JsonObjectRequest makeProfileRequest = new JsonObjectRequest(Request.Method.PATCH, Links.PHOTOS + currentUserPhotoObject.id + "/", jsonObject, new Response.Listener<JSONObject>() {
 
                 @Override
                 public void onResponse(JSONObject response) {
@@ -478,7 +478,7 @@ public class FullScreenMyPicturesFragment extends FragmentWithTitle implements A
                 }
             };
 
-            VolleySingleton.getInstance(PriveTalkApplication.getInstance()).addRequest(makeProfileRequest);*/
+            VolleySingleton.getInstance(PriveTalkApplication.getInstance()).addRequest(makeProfileRequest);
         }
     }
 

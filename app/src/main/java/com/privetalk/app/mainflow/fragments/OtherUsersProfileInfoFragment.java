@@ -750,7 +750,6 @@ public class OtherUsersProfileInfoFragment extends FragmentWithTitle {
                 headers.put("AUTHORIZATION", "Token " + CurrentUserDatasource.getInstance(PriveTalkApplication.getInstance()).getCurrentUserInfo().token);
                 headers.put("Accept-Language", String.valueOf(Locale.getDefault()).substring(0, 2));
 
-
                 return headers;
             }
         };
