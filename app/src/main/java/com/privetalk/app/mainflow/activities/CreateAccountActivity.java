@@ -1049,7 +1049,7 @@ public class CreateAccountActivity extends AppCompatActivity implements
         }
 
         Map<String, Object> postParam = new HashMap<>();
-        postParam.put("email", currentUser.email);
+        postParam.put("email", currentUser.email); //currentUser.email
         //postParam.put("password","Abc@123"); //password.getText().toString()
         postParam.put("name", currentUser.name);
         postParam.put("looking_for",lookingForValue);//((boolean) lookingGenreFemale.getTag() && (boolean) lookingGenreMale.getTag()) ? 0 : ((boolean) lookingGenreMale.getTag()) ? 1 : 2);
