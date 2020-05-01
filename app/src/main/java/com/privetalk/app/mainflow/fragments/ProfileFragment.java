@@ -15,16 +15,6 @@ import android.graphics.Rect;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.os.Handler;
-
-import androidx.core.content.ContextCompat;
-import androidx.localbroadcastmanager.content.LocalBroadcastManager;
-import androidx.core.view.MotionEventCompat;
-import androidx.viewpager.widget.PagerAdapter;
-import androidx.viewpager.widget.ViewPager;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.recyclerview.widget.SimpleItemAnimator;
-
 import android.util.Log;
 import android.view.Display;
 import android.view.Gravity;
@@ -40,6 +30,15 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ViewSwitcher;
+
+import androidx.core.content.ContextCompat;
+import androidx.core.view.MotionEventCompat;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.SimpleItemAnimator;
+import androidx.viewpager.widget.PagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -1104,6 +1103,10 @@ public class ProfileFragment extends FragmentWithTitle {
                         rootView.showPrevious();
                         PriveTalkUtilities.uploadProfilePicture(cropImageView.getImageBitmap(), cropImageView.getCroppedBitmap(), true);
                     } else {
+                        rootView.showPrevious();
+                        PriveTalkUtilities.uploadProfilePicture(cropImageView.getImageBitmap(), cropImageView.getCroppedBitmap(), false);
+                    }
+                    /*else {
                         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
                         builder.setMessage(getString(R.string.profile_photo));
                         builder.setPositiveButton(getString(R.string.yes_string), new DialogInterface.OnClickListener() {
@@ -1121,7 +1124,7 @@ public class ProfileFragment extends FragmentWithTitle {
                             }
                         });
                         builder.create().show();
-                    }
+                    }*/
                 }
             });
 

@@ -163,33 +163,35 @@ public class BoostPopularityFragment extends FragmentWithTitle {
         promotePicture.setOnTouchListener(new FadeOnTouchListener() {
             @Override
             public void onClick(View view, MotionEvent event) {
-                if (mPagerAdapter.getPictures().get(mViewPager.getCurrentItem()).is_main_profile_photo) {
-                    if (mPagerAdapter.getPictureId(mViewPager.getCurrentItem()) != -1) {
-                        new AlertDialog.Builder(getContext())
-                                .setTitle(R.string.promote_photo)
-                                .setMessage(R.string.promote_cost)
-                                .setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialog, int which) {
-                                        promoteThisPicture(mPagerAdapter.getPictureId(mViewPager.getCurrentItem()));
-                                    }
-                                }).setNegativeButton(R.string.later, new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                dialog.dismiss();
-                            }
-                        }).create().show();
-                    }
-                } else {
-                    new AlertDialog.Builder(getContext())
-                            .setTitle(R.string.promote_photo)
-                            .setMessage(R.string.profile_picture_promote)
-                            .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                if (mPagerAdapter.getPictures() .size()>0) {
+                    if (mPagerAdapter.getPictures().get(mViewPager.getCurrentItem()).is_main_profile_photo) {
+                        if (mPagerAdapter.getPictureId(mViewPager.getCurrentItem()) != -1) {
+                            new AlertDialog.Builder(getContext())
+                                    .setTitle(R.string.promote_photo)
+                                    .setMessage(R.string.promote_cost)
+                                    .setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int which) {
+                                            promoteThisPicture(mPagerAdapter.getPictureId(mViewPager.getCurrentItem()));
+                                        }
+                                    }).setNegativeButton(R.string.later, new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
                                     dialog.dismiss();
                                 }
                             }).create().show();
+                        }
+                    } else {
+                        new AlertDialog.Builder(getContext())
+                                .setTitle(R.string.promote_photo)
+                                .setMessage(R.string.profile_picture_promote)
+                                .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        dialog.dismiss();
+                                    }
+                                }).create().show();
+                    }
                 }
             }
         });

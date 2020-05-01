@@ -104,7 +104,7 @@ public class FullScreenMyPicturesFragment extends FragmentWithTitle implements A
     //data
     private List<CurrentUserPhotoObject> currentUserPhotoObjects;
 
-    private boolean isProfilePicture = false;
+    private boolean isProfilePicture = false,verified_picture=false;
 
     private BroadcastReceiver profilePictureChanged = new BroadcastReceiver() {
         @Override
@@ -221,12 +221,15 @@ public class FullScreenMyPicturesFragment extends FragmentWithTitle implements A
                     builder.setPositiveButton(getString(R.string.okay), new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            makeProfilePicture();
+                           // makeProfilePicture();
                         }
                     });
                     builder.create().show();
 
-                } else {
+                }
+
+
+                else {
 
                     AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
                     builder.setMessage(getString(R.string.make_as_profile_message)); //make_as_profile
@@ -439,7 +442,7 @@ public class FullScreenMyPicturesFragment extends FragmentWithTitle implements A
                 ex.printStackTrace();
             }
 
-            JsonObjectRequest makeProfileRequest = new JsonObjectRequest(Request.Method.PATCH, Links.PHOTOS + currentUserPhotoObject.id + "/", jsonObject, new Response.Listener<JSONObject>() {
+          JsonObjectRequest makeProfileRequest = new JsonObjectRequest(Request.Method.PATCH, Links.PHOTOS + currentUserPhotoObject.id + "/", jsonObject, new Response.Listener<JSONObject>() {
 
                 @Override
                 public void onResponse(JSONObject response) {

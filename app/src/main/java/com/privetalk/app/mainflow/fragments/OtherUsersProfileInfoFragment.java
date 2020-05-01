@@ -528,7 +528,6 @@ public class OtherUsersProfileInfoFragment extends FragmentWithTitle {
                     layVerifiedUser.setVisibility(View.GONE);
 
                 }
-                Toast.makeText(getActivity(), "" + otherUserObject.profilePhotosList.get(position).isVerifiedPhoto, Toast.LENGTH_SHORT).show();
 
                 smallPicturesRecyclerView.smoothScrollToPosition(position);
             }
@@ -753,7 +752,6 @@ public class OtherUsersProfileInfoFragment extends FragmentWithTitle {
                 headers.put("Content-Type", "application/json; charset=utf-8");
                 headers.put("AUTHORIZATION", "Token " + CurrentUserDatasource.getInstance(PriveTalkApplication.getInstance()).getCurrentUserInfo().token);
                 headers.put("Accept-Language", String.valueOf(Locale.getDefault()).substring(0, 2));
-
 
                 return headers;
             }
