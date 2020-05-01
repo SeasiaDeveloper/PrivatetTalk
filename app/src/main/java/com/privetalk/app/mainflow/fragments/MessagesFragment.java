@@ -701,7 +701,7 @@ public class MessagesFragment extends FragmentWithTitle {
         mRecyclerView1.post(new Runnable() {
             @Override
             public void run() {
-                topRecyclerHeight = mRecyclerView.getHeight();
+                topRecyclerHeight = mRecyclerView.getHeight() + 320;
 
                 mRecyclerView1.setAdapter(mAdapter2);
 
