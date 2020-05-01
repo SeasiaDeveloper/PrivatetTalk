@@ -10,10 +10,12 @@ import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.os.Handler;
+
 import androidx.annotation.Nullable;
 
 import com.github.siyamed.shapeimageview.CircularImageView;
 import com.google.android.material.appbar.AppBarLayout;
+
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.content.ContextCompat;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
@@ -87,7 +89,6 @@ import de.hdodenhof.circleimageview.CircleImageView;
  * Created by zeniosagapiou on 12/01/16.
  */
 public class MessagesFragment extends FragmentWithTitle {
-
     private String title;
     private View rootView;
     private RecyclerView mRecyclerView;
@@ -102,6 +103,7 @@ public class MessagesFragment extends FragmentWithTitle {
     private boolean deleteConversationLock;
     private List<HotMatchesObject> hotMatchesObjectList;
     private View shadowView;
+    private LinearLayout hotMatchesLayout;
 
     private AppBarLayout inboxAppBar;
 
@@ -145,8 +147,12 @@ public class MessagesFragment extends FragmentWithTitle {
             else
                 hotMatchesObjectList.clear();
 
-            hotMatchesObjectList.addAll(HotMatchesDatasource.getInstance(getContext()).getHotMatches());
-            mAdapter2.notifyDataSetChanged();
+            if (HotMatchesDatasource.getInstance(getContext()).getHotMatches().size() == 0) {
+                 mRecyclerView1.setVisibility(View.GONE);
+            } else {
+                hotMatchesObjectList.addAll(HotMatchesDatasource.getInstance(getContext()).getHotMatches());
+                mAdapter2.notifyDataSetChanged();
+            }
         }
     };
 
@@ -199,7 +205,7 @@ public class MessagesFragment extends FragmentWithTitle {
         // Create new views (invoked by the layout manager)
         @Override
         public GridRecyclerAdapter.ViewHolder onCreateViewHolder(ViewGroup parent,
-                                                                                    int viewType) {
+                                                                 int viewType) {
             // create a new view
             View v = LayoutInflater.from(parent.getContext())
                     .inflate(R.layout.matches_screen_hot_matches, parent, false);
@@ -271,12 +277,13 @@ public class MessagesFragment extends FragmentWithTitle {
             @Override
             public void run() {
                 if (PriveTalkUtilities.checkIfPromotedUsersIsScrollable(mRecyclerView1, mAdapter)) {
-                    mRecyclerView1.scrollBy(1, 0);
+                    // mRecyclerView1.scrollBy(1, 0);
                 }
                 handler.postDelayed(this, 15);
             }
         };
     }
+
     //for Hot matches
     private LongPressAndClickListener newLongPressAndClickListener() {
         return new LongPressAndClickListener(hand) {
@@ -304,7 +311,7 @@ public class MessagesFragment extends FragmentWithTitle {
                     //disable recyclerview touch events
                     mRecyclerView1.setEnabled(false);
                     mRecyclerView1.setClickable(false);
-                   // mGridLayoutManager.setCanScroll(false);
+                    // mGridLayoutManager.setCanScroll(false);
 
 
                     //get view to create new bitmap
@@ -415,7 +422,7 @@ public class MessagesFragment extends FragmentWithTitle {
                     shadowView.setVisibility(View.INVISIBLE);
 
                     if (canDelete) {
-                       // hideMatch((int) v.getTag(R.id.user_id_tag), (int) v.getTag(R.id.position_tag), v); //TBD
+                        // hideMatch((int) v.getTag(R.id.user_id_tag), (int) v.getTag(R.id.position_tag), v); //TBD
                         ((RelativeLayout) rootView).removeView(bitmapImageView);
 //
 //                        mRecyclerView1.setEnabled(true);
@@ -454,7 +461,7 @@ public class MessagesFragment extends FragmentWithTitle {
 
                                 mRecyclerView1.setEnabled(true);
                                 mRecyclerView1.setClickable(true);
-                              //  mGridLayoutManager.setCanScroll(true);
+                                //  mGridLayoutManager.setCanScroll(true);
                             }
                         }, 250);
 
@@ -607,7 +614,7 @@ public class MessagesFragment extends FragmentWithTitle {
         });
 
 //        inboxSearchView = rootView.findViewById(R.id.inboxSearchView);
-        inboxAppBar = (AppBarLayout) rootView.findViewById(R.id.inboxAppBar);
+        // = (AppBarLayout) rootView.findViewById(R.id.inboxAppBar); //for hot matches
 //        mToolbar = (CollapsingToolbarLayout) rootView.findViewById(R.id.inboxCollapsing);
 
         mRecyclerView = (RecyclerView) rootView.findViewById(R.id.inboxRecyclerView);
@@ -626,11 +633,12 @@ public class MessagesFragment extends FragmentWithTitle {
         mRecyclerView.post(new Runnable() {
             @Override
             public void run() {
-                topRecyclerHeight = mRecyclerView.getHeight() /*+ 350*/; //for Hot matches
+                // topRecyclerHeight = mRecyclerView.getHeight() /*+ 350*/; //for Hot matches
 
-              /*  inboxRecyclerView.setAdapter(inboxRecyclerAdapter);
+                inboxRecyclerView.setAdapter(inboxRecyclerAdapter);
 
-                CoordinatorLayout.LayoutParams params2 = (CoordinatorLayout.LayoutParams) inboxRecyclerView.getLayoutParams();
+                //for hot matches
+               /* CoordinatorLayout.LayoutParams params2 = (CoordinatorLayout.LayoutParams) inboxRecyclerView.getLayoutParams();
                 params2.setMargins(0, -topRecyclerHeight, 0, topRecyclerHeight);
                 inboxRecyclerView.setLayoutParams(params2);
 
@@ -646,7 +654,8 @@ public class MessagesFragment extends FragmentWithTitle {
         inboxRecyclerView.setLayoutManager(inboxLayoutManager);
         inboxRecyclerAdapter = new InboxRecyclerAdapter();
 
-        inboxAppBar.addOnOffsetChangedListener(new AppBarStateChangeListener() {
+        //for hot matches
+      /*  inboxAppBar.addOnOffsetChangedListener(new AppBarStateChangeListener() {
             @Override
             public void onStateChanged(AppBarLayout appBarLayout, State state) {
                 if (state == State.EXPANDED)
@@ -657,7 +666,7 @@ public class MessagesFragment extends FragmentWithTitle {
                 }
 //                System.out.println(state.name());
             }
-        });
+        });*/
 
         PriveTalkEditText editText = (PriveTalkEditText) rootView.findViewById(R.id.searchContext);
         editText.addTextChangedListener(new TextWatcher() {
@@ -701,20 +710,8 @@ public class MessagesFragment extends FragmentWithTitle {
         mRecyclerView1.post(new Runnable() {
             @Override
             public void run() {
-                topRecyclerHeight = mRecyclerView.getHeight() + 320;
+                // topRecyclerHeight = mRecyclerView.getHeight() + 320;
 
-                mRecyclerView1.setAdapter(mAdapter2);
-
-                CoordinatorLayout.LayoutParams params2 = (CoordinatorLayout.LayoutParams) inboxRecyclerView.getLayoutParams();
-                params2.setMargins(0, -topRecyclerHeight, 0, topRecyclerHeight);
-                inboxRecyclerView.setLayoutParams(params2);
-
-                //set top margin to appbarlayout
-                CoordinatorLayout.LayoutParams params = (CoordinatorLayout.LayoutParams) inboxAppBar.getLayoutParams();
-                params.setMargins(0, topRecyclerHeight, 0, 0);
-                inboxAppBar.setLayoutParams(params);
-
-               topRecyclerHeight = mRecyclerView.getHeight();
                 mRecyclerView1.setAdapter(mAdapter2);
             }
         });
@@ -749,13 +746,13 @@ public class MessagesFragment extends FragmentWithTitle {
         @Override
         public void onBindViewHolder(InboxRecyclerAdapter.ViewHolder holder, int position) {
 
-            if (position == 0 || position == 1)
+          /*  if (position == 0 || position == 1)
                 holder.view.setPadding(0, topRecyclerHeight, 0, 0);
             else
                 holder.view.setPadding(0, 0, 0, 0);
 
             holder.layout1.setTranslationX(0);
-            holder.view.setPadding(leftAndRightPadding, topAndBottomPadding + ((position == 0) ? topRecyclerHeight : 0), leftAndRightPadding, topAndBottomPadding);
+            holder.view.setPadding(leftAndRightPadding, topAndBottomPadding + ((position == 0) ? topRecyclerHeight : 0), leftAndRightPadding, topAndBottomPadding);*/
 
             holder.verifiedProfile.setColorFilter((conversationObjects.get(position).senderVerificationLevel > 0) ? colorGreen : colorGray, PorterDuff.Mode.SRC_IN);
             holder.royalUser.setColorFilter((conversationObjects.get(position).senderVerificationLevel > 1) ? colorGreen : colorGray, PorterDuff.Mode.SRC_IN);

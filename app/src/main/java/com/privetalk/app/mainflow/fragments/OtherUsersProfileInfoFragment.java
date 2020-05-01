@@ -379,14 +379,17 @@ public class OtherUsersProfileInfoFragment extends FragmentWithTitle {
 
         flameImageView.changeHotness(otherUserObject.hotnessPercentage);
 
-        if (otherUserObject.isHot) {
-            isHot=true;
-            isCold=false;
+        if (!otherUserObject.isHot && !otherUserObject.isCold) {
+            isHot = false;
+            isCold = false;
+        } else if (otherUserObject.isHot && !otherUserObject.isCold) {
+            isHot = true;
+            isCold = false;
             imageHot.setImageResource(R.drawable.alpha_flame);
             imageCold.setImageResource(R.drawable.alpha_snow);
         } else {
-            isHot=false;
-            isCold=true;
+            isHot = false;
+            isCold = true;
             imageHot.setImageResource(R.drawable.flames_icon);
             imageCold.setImageResource(R.drawable.favorites_icon);
         }
@@ -720,7 +723,7 @@ public class OtherUsersProfileInfoFragment extends FragmentWithTitle {
         }
 
         sendVoteRequest = new JsonObjectRequest(com.android.volley.Request.Method.POST, String.format(Links.CREATE_MATCH, partner_id), jsonObject, new Response.Listener<JSONObject>() {
-                @Override
+            @Override
             public void onResponse(JSONObject response) {
                 if (isHot && !isCold) {
                     imageHot.setImageResource(R.drawable.alpha_flame);

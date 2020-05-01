@@ -10,7 +10,6 @@
         android:layout_height="wrap_content"
         android:padding="10dp">
 
-
         <androidx.percentlayout.widget.PercentRelativeLayout
             android:id="@+id/extraLayout"
             android:layout_width="match_parent"
@@ -22,11 +21,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_alignParentTop="true"
-                android:layout_marginTop="-4dp"
+                android:layout_centerHorizontal="true"
                 android:scaleType="centerCrop"
                 android:src="@drawable/dummy_img"
                 app:civ_border_color="#00000000"
-                app:civ_border_width="0dp" />
+                app:civ_border_width="0dp"/>
 
             <ImageView
                 android:id="@+id/gradientShadow"
@@ -56,7 +55,7 @@
                 android:background="@android:color/white"
                 android:gravity="center"
 
-                android:maxWidth="70dp"
+                android:maxWidth="60dp"
                 android:singleLine="true"
                 android:text="not set"
                 android:textColor="@color/welcome_text"
