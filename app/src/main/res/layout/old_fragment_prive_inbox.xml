@@ -9,7 +9,6 @@
         android:id="@+id/inboxUsersProfiles"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/hot_matches_layout"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
     <com.google.android.material.appbar.AppBarLayout
@@ -27,7 +26,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:contentScrim="@android:color/white"
-            android:layout_below="@+id/view"
             app:layout_scrollFlags="exitUntilCollapsed|scroll|snap">
 
             <include
@@ -47,7 +45,6 @@
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.percentlayout.widget.PercentRelativeLayout
-        android:id="@+id/percentRelativeLayout2"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -58,9 +55,8 @@
             android:orientation="horizontal"
             app:layout_heightPercent="15%">
 
-            <include
-                android:id="@+id/addMePromote"
-                layout="@layout/row_promoted_users" />
+            <include layout="@layout/row_promoted_users"
+                android:id="@+id/addMePromote"/>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/inboxRecyclerView"
@@ -71,32 +67,18 @@
         </LinearLayout>
 
         <View
-            android:id="@+id/view"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_marginTop="5dp"
-            android:layout_below="@+id/hot_matches_layout"
+            android:layout_below="@+id/addMeHolder"
             android:background="#993C8DC7" />
 
-        <LinearLayout
-            android:id="@+id/hot_matches_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/addMeHolder"
-            app:layout_heightPercent="15%">
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/hotmatchesUsersProfiles"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
 
         <ProgressBar
-            android:id="@+id/progressBar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:visibility="gone" />
+            android:id="@+id/progressBar"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
     </androidx.percentlayout.widget.PercentRelativeLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

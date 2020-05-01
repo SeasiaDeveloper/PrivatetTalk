@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="100dp"
+    android:layout_height="100dp">
+
+    <com.privetalk.app.utilities.SquarePercentageLayout
+        android:id="@+id/hotMatchesMainView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+
+
+        <androidx.percentlayout.widget.PercentRelativeLayout
+            android:id="@+id/extraLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/hotmatchesProfilePicture"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="-4dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/dummy_img"
+                app:civ_border_color="#00000000"
+                app:civ_border_width="0dp" />
+
+            <ImageView
+                android:id="@+id/gradientShadow"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@+id/hotmatchesUserName"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="-3dp"
+                android:src="@drawable/gradient_shadow"
+                app:layout_heightPercent="26%"
+                app:layout_widthPercent="83.5%" />
+
+            <FrameLayout
+                android:id="@+id/whiteFrame"
+                android:background="@android:color/white"
+                android:layout_alignTop="@+id/hotmatchesUserName"
+                android:layout_alignBottom="@+id/hotmatchesUserName"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"></FrameLayout>
+
+            <com.privetalk.app.utilities.PriveTalkTextView
+                android:id="@+id/hotmatchesUserName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/hotmatchesProfilePicture"
+                android:layout_centerHorizontal="true"
+                android:background="@android:color/white"
+                android:gravity="center"
+
+                android:maxWidth="70dp"
+                android:singleLine="true"
+                android:text="not set"
+                android:textColor="@color/welcome_text"
+                android:textSize="8sp"
+                app:layout_heightPercent="13%"
+                app:ttf_name="@string/roboto_regular" />
+
+            <!--<net.cocooncreations.privetalk.utilities.PriveTalkTextView-->
+            <!--android:id="@+id/hotmatchesUserName"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignBottom="@+id/hotmatchesProfilePicture"-->
+            <!--android:layout_centerHorizontal="true"-->
+            <!--android:background="@android:color/white"-->
+            <!--android:gravity="center"-->
+            <!--android:paddingBottom="3dp"-->
+            <!--android:text="Ms Piggie"-->
+            <!--android:textColor="@color/welcome_text"-->
+            <!--android:textSize="13sp"-->
+            <!--app:layout_heightPercent="13%"-->
+            <!--app:ttf_name="@string/roboto_regular" />-->
+
+        </androidx.percentlayout.widget.PercentRelativeLayout>
+        <!--hotmatches_profile_shadow-->
+
+        <com.privetalk.app.utilities.SquareImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/hotmatchesProfilePicture"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/oval_blue_border" />
+
+        <androidx.percentlayout.widget.PercentRelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/extraLayout"
+            android:gravity="center"
+            app:layout_heightPercent="15%"
+            app:layout_marginBottomPercent="8.9%">
+
+            <ImageView
+                android:id="@+id/hotmatchesCrow"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/not_royal_user"
+                app:layout_marginRightPercent="2%"
+                app:layout_marginTopPercent="5%"
+                app:layout_widthPercent="12%" />
+
+            <ImageView
+                android:id="@+id/hotmatchesUserTick1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center_vertical"
+                android:layout_toRightOf="@+id/hotmatchesCrow"
+                android:scaleType="fitCenter"
+                android:src="@drawable/tick_icon"
+                app:layout_heightPercent="45%"
+                app:layout_widthPercent="10%" />
+
+            <ImageView
+                android:id="@+id/hotmatchesUserTick2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center_vertical"
+                android:layout_toRightOf="@+id/hotmatchesUserTick1"
+                android:scaleType="fitCenter"
+                android:src="@drawable/tick_icon"
+                app:layout_heightPercent="45%"
+                app:layout_widthPercent="10%" />
+
+            <ImageView
+                android:id="@+id/hotmatchesUserTick3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center_vertical"
+                android:layout_toRightOf="@+id/hotmatchesUserTick2"
+                android:scaleType="fitCenter"
+                android:src="@drawable/tick_icon"
+                android:tint="@color/tick_green"
+                app:layout_heightPercent="50%"
+                app:layout_widthPercent="10%" />
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_toRightOf="@+id/hotmatchesUserTick3"
+                app:layout_marginLeftPercent="2%"
+                app:layout_marginTopPercent="5%"
+                app:layout_widthPercent="12%">
+
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/oval_blue" />
+
+                <com.privetalk.app.utilities.PriveTalkTextView
+                    android:id="@+id/hotmatchesUserAge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_gravity="center"
+                    android:text="31"
+                    android:textColor="@android:color/white"
+                    android:textSize="5sp"
+                    app:ttf_name="@string/roboto_regular" />
+
+            </FrameLayout>
+
+
+        </androidx.percentlayout.widget.PercentRelativeLayout>
+
+
+        <ImageView
+            android:id="@+id/hotmatchesUserStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:src="@drawable/hot_matches_fire"
+            app:layout_heightPercent="15%"
+            app:layout_marginRightPercent="17%"
+            app:layout_marginTopPercent="0%"
+            app:layout_widthPercent="20%" />
+
+
+    </com.privetalk.app.utilities.SquarePercentageLayout>
+
+</FrameLayout>

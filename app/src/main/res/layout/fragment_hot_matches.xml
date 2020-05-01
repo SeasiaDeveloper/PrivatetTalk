@@ -5,6 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/hotmatchesUsersProfiles"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true" />
+
     <LinearLayout
         android:id="@+id/addMeHolder"
         android:layout_width="match_parent"
@@ -30,20 +36,12 @@
         android:layout_below="@+id/addMeHolder"
         android:background="#993C8DC7" />
 
-
-
     <FrameLayout
         android:id="@+id/shadowView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#88000000"
-        android:visibility="invisible" >
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/hotmatchesUsersProfiles"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-    </FrameLayout>
+        android:visibility="invisible" />
 
     <ImageView
         android:id="@+id/removeMatch"
