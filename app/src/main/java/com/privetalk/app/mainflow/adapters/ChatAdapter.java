@@ -128,6 +128,7 @@ public class ChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                 public void onClick(View view, MotionEvent event) {
                     Bundle bundle = new Bundle();
                     bundle.putInt(PriveTalkConstants.KEY_OTHER_USER_ID, conversationObject.partnerID);
+                    bundle.putString(PriveTalkConstants.OTHER_USER_PROFILE_FROM, "other");
                     PriveTalkUtilities.changeFragment(mActivity, true, PriveTalkConstants.OTHER_USER_PROFILE_INFO, bundle);
                 }
             });

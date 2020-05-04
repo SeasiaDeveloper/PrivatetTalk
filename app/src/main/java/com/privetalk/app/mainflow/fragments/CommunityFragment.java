@@ -90,6 +90,12 @@ public class CommunityFragment extends FragmentWithTitle {
         public void onReceive(Context context, Intent intent) {
             if (mAdapter != null)
                 mAdapter.refreshData();
+
+            //load profile pic to promote view
+            Glide.with(getContext())
+                    .load(CurrentUserPhotosDatasource.getInstance(getContext()).checkProfilePic(getContext())!=null?
+                            CurrentUserPhotosDatasource.getInstance(getContext()).checkProfilePic(getContext()).square_thumb : "")
+                    .error(R.drawable.dummy_img).into((ImageView) rootView.findViewById(R.id.addMeImage));
         }
     };
 
@@ -165,12 +171,6 @@ public class CommunityFragment extends FragmentWithTitle {
 
         initViews();
 
-        //load profile pic to promote view
-        Glide.with(getContext())
-                .load(CurrentUserPhotosDatasource.getInstance(getContext()).checkProfilePic(getContext())!=null?
-                        CurrentUserPhotosDatasource.getInstance(getContext()).checkProfilePic(getContext()).square_thumb : "")
-                .error(R.drawable.dummy_img).into((ImageView) rootView.findViewById(R.id.addMeImage));
-
         getCommunityUsers();
 
         return rootView;
@@ -230,6 +230,7 @@ public class CommunityFragment extends FragmentWithTitle {
             clearSearchFiltesButton.setVisibility(View.VISIBLE);
             fetchCommunity(SEARCH_COMMUNITY);
         }
+
     }
 
 
@@ -381,6 +382,7 @@ public class CommunityFragment extends FragmentWithTitle {
                 public void onClick(View v) {
                     Bundle bundle = new Bundle();
                     bundle.putInt(PriveTalkConstants.KEY_OTHER_USER_ID, ((int) v.getTag(R.id.user_id_tag)));
+                    bundle.putString(PriveTalkConstants.OTHER_USER_PROFILE_FROM, "other");
                     PriveTalkUtilities.changeFragment(getContext(), true, PriveTalkConstants.OTHER_USER_PROFILE_INFO, bundle);
                 }
             });

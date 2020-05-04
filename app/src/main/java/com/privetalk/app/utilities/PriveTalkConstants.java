@@ -82,6 +82,7 @@ public class PriveTalkConstants {
     public static final String BACK_BUTTON = "back-button";
     public static final String HIDE_KEYBOARD = "hide-keyboard";
     public static final String KEY_OTHER_USER_ID = "other_user_id";
+    public static final String OTHER_USER_PROFILE_FROM = "other_user_profile_from";
     public static final String KEY_PUSHBOTS_SUBSCRIPTION = "pushbots_subscribed";
     public static final String KEY_SEARCH_FILTER = "search_filter";
     public static final String KEY_EVENT_TYPE = "event_type";

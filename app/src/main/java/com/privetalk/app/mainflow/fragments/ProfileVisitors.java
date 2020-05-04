@@ -329,6 +329,7 @@ public class ProfileVisitors extends FragmentWithTitle {
                         if (currentUser.royal_user) {
                             Bundle bundle = new Bundle();
                             bundle.putInt(PriveTalkConstants.KEY_OTHER_USER_ID, ((int) v.getTag(R.id.user_id_tag)));
+                            bundle.putString(PriveTalkConstants.OTHER_USER_PROFILE_FROM, "other");
                             PriveTalkUtilities.changeFragment(getContext(), true, PriveTalkConstants.OTHER_USER_PROFILE_INFO, bundle);
                         } else {
                             showRoyalDialog();

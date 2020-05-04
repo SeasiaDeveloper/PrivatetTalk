@@ -291,6 +291,7 @@ public class MessagesFragment extends FragmentWithTitle {
             public void OnClick(View v) {
                 Bundle bundle = new Bundle();
                 bundle.putInt("other_user_id", ((int) v.getTag(R.id.user_id_tag)));
+                bundle.putString(PriveTalkConstants.OTHER_USER_PROFILE_FROM, "hot_matches");
                 PriveTalkUtilities.changeFragment(getContext(), true, PriveTalkConstants.OTHER_USER_PROFILE_INFO, bundle);
             }
 
@@ -844,6 +845,7 @@ public class MessagesFragment extends FragmentWithTitle {
                     public void onClick(View view, MotionEvent event) {
                         Bundle bundle = new Bundle();
                         bundle.putInt(PriveTalkConstants.KEY_OTHER_USER_ID, conversationObjects.get((int) view.getTag(R.id.position_tag)).partnerID);
+                        bundle.putString(PriveTalkConstants.OTHER_USER_PROFILE_FROM, "other");
                         PriveTalkUtilities.changeFragment(getContext(), true, PriveTalkConstants.OTHER_USER_PROFILE_INFO, bundle);
                     }
                 });

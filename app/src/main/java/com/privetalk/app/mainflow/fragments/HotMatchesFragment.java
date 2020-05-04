@@ -491,6 +491,7 @@ public class HotMatchesFragment extends FragmentWithTitle {
             public void OnClick(View v) {
                 Bundle bundle = new Bundle();
                 bundle.putInt("other_user_id", ((int) v.getTag(R.id.user_id_tag)));
+                bundle.putString(PriveTalkConstants.OTHER_USER_PROFILE_FROM, "other");
                 PriveTalkUtilities.changeFragment(getContext(), true, PriveTalkConstants.OTHER_USER_PROFILE_INFO, bundle);
             }
 

@@ -207,10 +207,10 @@ public class CreateAccountActivity extends AppCompatActivity implements
 
         googleApiStuff();
         initViews();
-        //myBirtday.setText("28/08/1992");
+       /* myBirtday.setText("28/08/1992");
         myBirthdayTick.setColorFilter(ContextCompat.getColor(CreateAccountActivity.this,
                 R.color.verification_green), PorterDuff.Mode.SRC_IN);
-        myBirthdayTick.setTag(true);
+        myBirthdayTick.setTag(true);*/
         //get location
         getLocation();
     }

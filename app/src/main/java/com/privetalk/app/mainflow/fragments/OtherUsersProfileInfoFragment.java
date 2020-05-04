@@ -172,6 +172,7 @@ public class OtherUsersProfileInfoFragment extends FragmentWithTitle {
     private ImageView imageCold, imageHot;
     private Boolean isHot = false, isCold = false;
     private JsonObjectRequest sendVoteRequest;
+    private String fromWhere;
     private boolean hasProfilePicture;
 
     private BroadcastReceiver utilitiesReceiver = new BroadcastReceiver() {
@@ -205,6 +206,7 @@ public class OtherUsersProfileInfoFragment extends FragmentWithTitle {
         if (bundle != null) {
             otherUsedID = bundle.getInt(PriveTalkConstants.KEY_OTHER_USER_ID);
             setOtherUserVisited(String.valueOf(otherUsedID));
+            fromWhere = bundle.getString(PriveTalkConstants.OTHER_USER_PROFILE_FROM);
         }
 
         currentUser = CurrentUserDatasource.getInstance(getContext()).getCurrentUserInfo();
@@ -370,6 +372,15 @@ public class OtherUsersProfileInfoFragment extends FragmentWithTitle {
 
         imageRadius = getResources().getDimensionPixelOffset(R.dimen.photo_view_pager_width) / 2;
         pagerMargin = getResources().getDimensionPixelSize(R.dimen.photo_view_pager_width_top_margin);
+
+        if (fromWhere.equalsIgnoreCase("hot_matches")) {
+            sendMessage.setVisibility(View.VISIBLE);
+            imageCold.setVisibility(View.GONE);
+        } else {
+            sendMessage.setVisibility(View.GONE);
+            imageCold.setVisibility(View.VISIBLE);
+        }
+
 
     }
 

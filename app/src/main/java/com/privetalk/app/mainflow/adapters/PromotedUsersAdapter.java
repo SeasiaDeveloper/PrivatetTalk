@@ -90,6 +90,7 @@ public class PromotedUsersAdapter extends RecyclerView.Adapter<PromotedUsersAdap
                 {
                     Bundle bundle = new Bundle();
                     bundle.putInt("other_user_id", promotedUsersObjects.get((int) view.getTag(R.id.position_tag)).id);
+                    bundle.putString(PriveTalkConstants.OTHER_USER_PROFILE_FROM, "other");
                     PriveTalkUtilities.changeFragment(mContext, true, PriveTalkConstants.OTHER_USER_PROFILE_INFO, bundle);
                 }
             }

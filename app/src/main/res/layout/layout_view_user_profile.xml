@@ -8,22 +8,22 @@
     android:clipChildren="false"
     android:clipToPadding="false">
 
+
     <com.privetalk.app.utilities.SquareViewPager
         android:id="@+id/photoViewpager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
+
         android:background="@drawable/dummy_img"
         android:padding="1dp" />
-
 
     <com.privetalk.app.utilities.SquareImageView
         android:id="@+id/usersProfileImageView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:src="@drawable/hot_wheel" />
 
@@ -35,30 +35,31 @@
 
     <RelativeLayout
         android:id="@+id/layVerified"
-        android:visibility="gone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="-1dp"
+        android:layout_alignParentTop="true"
         android:clipChildren="false"
         android:clipToPadding="false"
-        app:layout_heightPercent="13.2%"
+        android:visibility="gone"
         app:layout_marginLeftPercent="38.5%"
+        app:layout_heightPercent="9.5%"
+        android:layout_marginTop="5dp"
         app:layout_widthPercent="24.831%">
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/hot_wheel_name_view" />
+            android:src="@drawable/verified_image_icon" />
 
         <LinearLayout
-
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_centerInParent="true"
             android:gravity="center"
             android:orientation="vertical"
             android:paddingLeft="3dp"
-            android:paddingRight="3dp">
+            android:paddingRight="3dp"
+            android:visibility="gone">
 
             <com.privetalk.app.utilities.PriveTalkTextView
                 android:id="@+id/tvVeriied"
@@ -149,8 +150,8 @@
         android:id="@+id/commonFriendsIcon"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:layout_alignRight="@+id/usersProfileImageView"
         android:layout_below="@+id/hotWheelrightTicks"
+        android:layout_alignRight="@+id/usersProfileImageView"
         android:layout_centerInParent="true"
         android:padding="3dp"
         android:src="@drawable/common_fb_friends_icon"
@@ -165,8 +166,8 @@
         android:id="@+id/commonFriendsCount"
         android:layout_width="11dp"
         android:layout_height="11dp"
-        android:layout_alignBottom="@+id/commonFriendsIcon"
         android:layout_alignLeft="@+id/commonFriendsIcon"
+        android:layout_alignBottom="@+id/commonFriendsIcon"
         android:background="@drawable/circle_red_notifications"
         android:gravity="center"
         android:text="0"
@@ -186,11 +187,11 @@
         android:id="@+id/commonInterestsIcon"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:layout_alignRight="@+id/usersProfileImageView"
         android:layout_below="@+id/commonFriendsIcon"
+        android:layout_alignRight="@+id/usersProfileImageView"
         android:layout_centerInParent="true"
-        android:layout_marginRight="25dp"
         android:layout_marginTop="2dp"
+        android:layout_marginRight="25dp"
         android:padding="3dp"
         android:src="@drawable/profile_interests_activities"
         android:tint="@android:color/white"
@@ -217,7 +218,6 @@
         app:layout_marginTopPercent="2%"
         app:layout_widthPercent="3.2%"
         app:ttf_name="@string/roboto_regular" />
-
 
     <!-- **********************-->
     <!-- User Distance textview-->
