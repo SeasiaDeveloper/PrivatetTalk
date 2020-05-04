@@ -551,7 +551,7 @@
     <string name="already_have_code">You already have verification code</string>
     <string name="problem_verifying_email">There was a problem verifying email address</string>
     <string name="enable_gps_msg">Please check if you have your location services enabled and that you have GPS signal</string>
-    <string name="must_accept_terms_and_contitions">You must fill all field and accept Terms and Conditions first</string>
+    <string name="must_accept_terms_and_contitions">You must fill all fields first</string>
     <string name="error_getting_img">There was an error while opening image</string>
     <string name="already_royal_user">You can\'t purchase a Royal User Plan. You are already a Royal User.</string>
     <string name="error_while_opening_img">There was an error while opening image</string>

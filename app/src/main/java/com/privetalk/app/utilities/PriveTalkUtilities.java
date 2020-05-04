@@ -839,7 +839,7 @@ public class PriveTalkUtilities {
         JsonArrayRequest getNotifications = new JsonArrayRequest(JsonArrayRequest.Method.GET, Links.NOTIFICATIONS, new JSONArray(), new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(final JSONArray response) {
-//                System.out.println("Promoted Users: " + response);
+               System.out.println("Promoted Users: " + response);
                 new AsyncTask<Void, Void, Void>() {
                     @Override
                     protected Void doInBackground(Void... params) {

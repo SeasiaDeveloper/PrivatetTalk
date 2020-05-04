@@ -73,6 +73,7 @@
                     android:layout_alignParentLeft="true"
                     android:background="@drawable/oval_blue_border"
                     android:padding="15dp"
+                    android:visibility="visible"
                     android:src="@drawable/alpha_snow" />
 
                 <ImageView

@@ -207,7 +207,7 @@ public class CreateAccountActivity extends AppCompatActivity implements
 
         googleApiStuff();
         initViews();
-        myBirtday.setText("28/08/1992");
+        //myBirtday.setText("28/08/1992");
         myBirthdayTick.setColorFilter(ContextCompat.getColor(CreateAccountActivity.this,
                 R.color.verification_green), PorterDuff.Mode.SRC_IN);
         myBirthdayTick.setTag(true);
@@ -465,13 +465,13 @@ public class CreateAccountActivity extends AppCompatActivity implements
             }
         });
 
-       /* myBirtday.setOnTouchListener(new FadeOnTouchListener() {
+        myBirtday.setOnTouchListener(new FadeOnTouchListener() {
             @Override
             public void onClick(View view, MotionEvent event) {
                 DialogFragment dialogFragment = new DatePickerFragment();
                 dialogFragment.show(getSupportFragmentManager(), "start_date_picker");
             }
-        });*/
+        });
 
 
         myEmail.addTextChangedListener(new TextWatcher() {
@@ -1049,14 +1049,11 @@ public class CreateAccountActivity extends AppCompatActivity implements
         }
 
         Map<String, Object> postParam = new HashMap<>();
-      //  postParam.put("email", currentUser.email);
-        postParam.put("email", "jsyall12345@gmail.com");
-
+        postParam.put("email", currentUser.email);
+       // postParam.put("email", "Harsimran@gmail.com");
         //postParam.put("password","Abc@123"); //password.getText().toString()
-       // postParam.put("name", currentUser.name);
-
-        postParam.put("name", "Romy Syall123456");
-
+        postParam.put("name", currentUser.name);
+       // postParam.put("name", "Harsimran Singh");
         postParam.put("looking_for",lookingForValue);//((boolean) lookingGenreFemale.getTag() && (boolean) lookingGenreMale.getTag()) ? 0 : ((boolean) lookingGenreMale.getTag()) ? 1 : 2);
         //  postParam.put("gender", ((boolean) myGenreMale.getTag()) ? 1 : 2);//commented code
         postParam.put("gender", genderValue);

@@ -169,7 +169,7 @@ public class MainActivity extends AppCompatActivity {
                                 } catch (JSONException e) {
                                     e.printStackTrace();
                                 }
-                                PriveTalkUtilities.postJsonObject(Links.SUBSCRIBE, jsonObject);
+                                PriveTalkUtilities.postJsonObject(Links.SUBSCRIBE, jsonObject); //commented now
                                 break;
                             case Purchase.REFUNDED:
                                 break;
@@ -631,7 +631,7 @@ public class MainActivity extends AppCompatActivity {
         if (!PriveTalkUtilities.isNetworkConnected())
             showNoNetworkDialog();
 
-        PriveTalkUtilities.sendLocationToServer();
+       PriveTalkUtilities.sendLocationToServer(); //commented now
         PriveTalkUtilities.getAttributes();
         PriveTalkUtilities.postJsonObject(Links.GO_ONLINE);
         PriveTalkUtilities.getGlobalTimeFromServer();
@@ -808,8 +808,16 @@ public class MainActivity extends AppCompatActivity {
 
                     CurrentUserPhotoObject profilePhoto = CurrentUserPhotosDatasource.getInstance(profilePic.getContext()).getProfilePhoto();
 
-                    if (profilePhoto != null)
+                    /*if (profilePhoto != null)
+                    {
                         Glide.with(profilePic.getContext()).load(profilePhoto.square_thumb).error(R.drawable.dummy_img).into(profilePic);
+                    }*/
+
+                    if (CurrentUserPhotosDatasource.getInstance(profilePic.getContext()).checkProfilePic(profilePic.getContext())!=null) {
+                        Glide.with(profilePic.getContext()).load(CurrentUserPhotosDatasource.getInstance(profilePic.getContext()).checkProfilePic(profilePic.getContext()).square_thumb).error(R.drawable.dummy_img).into(profilePic);
+                    } else {
+                        Glide.with(profilePic.getContext()).load(R.drawable.dummy_img).error(R.drawable.dummy_img).into(profilePic);
+                    }
 
                     TextView drawerUserName = (TextView) headerViewHolder.itemView.findViewById(R.id.drawerUserName);
                     CurrentUser currentUser = CurrentUserDatasource.getInstance(getApplicationContext()).getCurrentUserInfo();

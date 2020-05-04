@@ -5,7 +5,7 @@ package com.privetalk.app.utilities;
  */
 public class Links {
 
-    public static final String MAIN_URL = "http://np.seasiafinishingschool.com:7083";
+    public static final String MAIN_URL = "http://203.100.79.159:7083"; // http://np.seasiafinishingschool.com:7083
 
    //public static final String MAIN_URL = "https://privetalk.herokuapp.com";
 //testing url

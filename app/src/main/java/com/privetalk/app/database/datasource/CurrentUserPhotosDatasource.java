@@ -57,10 +57,9 @@ public class CurrentUserPhotosDatasource {
             datasourceLock.acquire();
             try {
                 cursor = database.query(PriveTalkTables.CurrentUserPhotosTable.TABLE_NAME, allColumns,
-                        PriveTalkTables.CurrentUserPhotosTable.IS_MAIN_PROFILE_PHOTO + " = '" + 0 + "'", null, null, null,
+                        /*PriveTalkTables.CurrentUserPhotosTable.IS_MAIN_PROFILE_PHOTO + " = '" + 0 + "'"*/null, null, null, null,
                         PriveTalkTables.CurrentUserPhotosTable.ID + " DESC");
-                cursor1 = database.query(PriveTalkTables.CurrentUserPhotosTable.TABLE_NAME, allColumns,
-                        PriveTalkTables.CurrentUserPhotosTable.IS_MAIN_PROFILE_PHOTO + " = '" + 1 + "'", null, null, null, null);
+                //   cursor1 = database.query(PriveTalkTables.CurrentUserPhotosTable.TABLE_NAME, allColumns,PriveTalkTables.CurrentUserPhotosTable.IS_MAIN_PROFILE_PHOTO + " = '" + 1 + "'", null, null, null, null);
             } finally {
                 datasourceLock.release();
             }
@@ -69,7 +68,7 @@ public class CurrentUserPhotosDatasource {
             ex.printStackTrace();
         }
 
-        if (cursor1 != null) {
+     /*   if (cursor1 != null) {
             if (cursor1.moveToFirst()) {
                 do {
                     currentUserPhotoObjectArrayList.add(new CurrentUserPhotoObject(cursor1));
@@ -77,7 +76,7 @@ public class CurrentUserPhotosDatasource {
 
             }
             cursor1.close();
-        }
+        }*/
 
         if (cursor != null) {
             if (cursor.moveToFirst()) {
@@ -252,7 +251,7 @@ public class CurrentUserPhotosDatasource {
         try {
             datasourceLock.acquire();
             try {
-                cursor = database.query(PriveTalkTables.CurrentUserPhotosTable.TABLE_NAME, allColumns, PriveTalkTables.CurrentUserPhotosTable.IS_MAIN_PROFILE_PHOTO + " > '0'", null, null, null, null);
+                cursor = database.query(PriveTalkTables.CurrentUserPhotosTable.TABLE_NAME, allColumns, PriveTalkTables.CurrentUserPhotosTable.IS_MAIN_PROFILE_PHOTO + " > '0'" /*+ " AND " + PriveTalkTables.CurrentUserPhotosTable.VERIFIED_PHOTO + " > '0'"*/, null, null, null, null);
             } finally {
                 datasourceLock.release();
             }
@@ -269,6 +268,16 @@ public class CurrentUserPhotosDatasource {
         }
 
         return currentUserPhotoObject;
+    }
+
+    public CurrentUserPhotoObject checkProfilePic(Context context) {
+        if (CurrentUserPhotosDatasource.getInstance(context).getProfilePhoto() != null && CurrentUserPhotosDatasource.getInstance(context).hasVerfiedPhoto()) {
+            return CurrentUserPhotosDatasource.getInstance(context).getProfilePhoto();
+        } else if (getCurrentUserPhotos().size() > 0) {
+            return getCurrentUserPhotos().get(getCurrentUserPhotos().size() - 1);
+        } else {
+            return null;
+        }
     }
 
     public void deletePhoto(CurrentUserPhotoObject currentUserPhotoObject1) {

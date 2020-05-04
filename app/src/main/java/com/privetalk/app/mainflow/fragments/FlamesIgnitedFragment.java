@@ -191,9 +191,15 @@ public class FlamesIgnitedFragment extends FragmentWithTitle {
 
         initViews();
 
-        Glide.with(getContext())
+
+       /* Glide.with(getContext())
                 .load(CurrentUserPhotosDatasource.getInstance(getContext()).getProfilePhoto() != null ?
                         CurrentUserPhotosDatasource.getInstance(getContext()).getProfilePhoto().square_thumb : "")
+                .error(R.drawable.dummy_img).into((ImageView) rootView.findViewById(R.id.addMeImage));*/
+
+        Glide.with(getContext())
+                .load(CurrentUserPhotosDatasource.getInstance(getContext()).checkProfilePic(getContext()) != null ?
+                        CurrentUserPhotosDatasource.getInstance(getContext()).checkProfilePic(getContext()).square_thumb : "")
                 .error(R.drawable.dummy_img).into((ImageView) rootView.findViewById(R.id.addMeImage));
 
         //show instructions if not viewed again
@@ -353,13 +359,13 @@ public class FlamesIgnitedFragment extends FragmentWithTitle {
         mLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
         mLayoutManager.setAutoMeasureEnabled(false);
         mRecyclerView.setLayoutManager(mLayoutManager);
-
-        mAdapter.setImageViewSize(new PromotedUsersAdapter.Callback() {
+        mRecyclerView.setAdapter(mAdapter);
+       /* mAdapter.setImageViewSize(new PromotedUsersAdapter.Callback() {
             @Override
             public void done() {
                 mRecyclerView.setAdapter(mAdapter);
             }
-        }, mRecyclerView);
+        }, mRecyclerView);*/
 
 
 //        photosRecyclerView = (RecyclerView) rootView.findViewById(R.id.smallPhotosRecyclerView);
@@ -498,7 +504,7 @@ public class FlamesIgnitedFragment extends FragmentWithTitle {
     private void sendVote(boolean is_hot, int partner_id) {
 
         if (partner_id == -1)
-            return;
+        return;
 
         JSONObject jsonObject = new JSONObject();
         try {

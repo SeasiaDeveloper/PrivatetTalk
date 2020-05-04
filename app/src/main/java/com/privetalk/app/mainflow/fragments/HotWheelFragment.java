@@ -202,8 +202,8 @@ public class HotWheelFragment extends FragmentWithTitle {
         loadDataToViews();
 
         Glide.with(getContext())
-                .load(CurrentUserPhotosDatasource.getInstance(getContext()).getProfilePhoto() != null ?
-                        CurrentUserPhotosDatasource.getInstance(getContext()).getProfilePhoto().square_thumb : "")
+                .load(CurrentUserPhotosDatasource.getInstance(getContext()).checkProfilePic(getContext()) != null ?
+                        CurrentUserPhotosDatasource.getInstance(getContext()).checkProfilePic(getContext()).square_thumb : "")
                 .error(R.drawable.dummy_img).into((ImageView) rootView.findViewById(R.id.addMeImage));
 
 
@@ -378,12 +378,14 @@ public class HotWheelFragment extends FragmentWithTitle {
         mLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
         mLayoutManager.setAutoMeasureEnabled(false);
         mRecyclerView.setLayoutManager(mLayoutManager);
-        mAdapter.setImageViewSize(new PromotedUsersAdapter.Callback() {
+        mRecyclerView.setAdapter(mAdapter);
+
+    /*    mAdapter.setImageViewSize(new PromotedUsersAdapter.Callback() {
             @Override
             public void done() {
                 mRecyclerView.setAdapter(mAdapter);
             }
-        }, mRecyclerView);
+        }, mRecyclerView);*/
 
 
         flameVoteImageView = rootView.findViewById(R.id.flameVoteImageView);

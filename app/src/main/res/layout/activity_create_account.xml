@@ -81,7 +81,7 @@
                     android:layout_toLeftOf="@+id/myBirthdayTick"
                     android:background="@drawable/gradient_rectangle_border"
                     android:gravity="center_vertical"
-                    android:hint="@string/my_age"
+                    android:hint="@string/my_birthday"
                     android:paddingLeft="10dp"
                     android:singleLine="true"
                     android:textColor="@color/welcome_text"

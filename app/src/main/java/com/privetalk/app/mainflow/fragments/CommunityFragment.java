@@ -8,12 +8,14 @@ import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
+
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -165,8 +167,8 @@ public class CommunityFragment extends FragmentWithTitle {
 
         //load profile pic to promote view
         Glide.with(getContext())
-                .load(CurrentUserPhotosDatasource.getInstance(getContext()).getProfilePhoto() != null ?
-                        CurrentUserPhotosDatasource.getInstance(getContext()).getProfilePhoto().square_thumb : "")
+                .load(CurrentUserPhotosDatasource.getInstance(getContext()).checkProfilePic(getContext())!=null?
+                        CurrentUserPhotosDatasource.getInstance(getContext()).checkProfilePic(getContext()).square_thumb : "")
                 .error(R.drawable.dummy_img).into((ImageView) rootView.findViewById(R.id.addMeImage));
 
         getCommunityUsers();
@@ -267,12 +269,13 @@ public class CommunityFragment extends FragmentWithTitle {
         mLayoutManager.setAutoMeasureEnabled(false);
 
         promotedUsersRecyclerView.setLayoutManager(mLayoutManager);
-        mAdapter.setImageViewSize(new PromotedUsersAdapter.Callback() {
+        promotedUsersRecyclerView.setAdapter(mAdapter);
+        /*mAdapter.setImageViewSize(new PromotedUsersAdapter.Callback() {
             @Override
             public void done() {
-                promotedUsersRecyclerView.setAdapter(mAdapter);
+                    promotedUsersRecyclerView.setAdapter(mAdapter);
             }
-        }, promotedUsersRecyclerView);
+        }, promotedUsersRecyclerView);*/
 
 
         //Set adapter to 2nd RecyclerView after first RecyclerView created so top Padding can be calculated
@@ -336,6 +339,7 @@ public class CommunityFragment extends FragmentWithTitle {
             public ImageView userStatus;
             public ImageView royalUserIcon;
 
+
             public ViewHolder(View v) {
                 super(v);
                 view = v;
@@ -356,15 +360,12 @@ public class CommunityFragment extends FragmentWithTitle {
             colorWhite = Color.WHITE;
         }
 
-
         public void refresh() {
             if (progressBar != null && progressBar.isShown())
                 progressBar.setVisibility(View.GONE);
             communityUsersObjects.clear();
             communityUsersObjects.addAll(CommunityUsersDatasourse.getInstance(getContext()).getCommunityUsers());
             notifyDataSetChanged();
-
-
         }
 
 
@@ -388,7 +389,6 @@ public class CommunityFragment extends FragmentWithTitle {
             return vh;
         }
 
-
         // Replace the contents of a view (invoked by the layout manager)
         @Override
         public void onBindViewHolder(ViewHolder holder, int position) {
@@ -396,7 +396,6 @@ public class CommunityFragment extends FragmentWithTitle {
             holder.view.setPadding(0, (position == 0 || position == 1) ? topRecycleHeight : 0, 0, 0);
 
             holder.userProfilePicture.setImageDrawable(null);
-
             communityUsersObjects.get(position).wasSeen = true;
 
             //set userid tag for touch listener
@@ -436,8 +435,8 @@ public class CommunityFragment extends FragmentWithTitle {
 
     private void fetchCommunity(int requestType) {
 
-//        if (requestType == ALL_RESULTS && !CommunityUsersDatasourse.getInstance(getContext()).isEmpty())
-//            return;
+      /*  if (requestType == ALL_RESULTS && !CommunityUsersDatasourse.getInstance(getContext()).isEmpty())
+            return;*/
 
         String URL = "";
         JSONObject obj = new JSONObject();
@@ -475,7 +474,7 @@ public class CommunityFragment extends FragmentWithTitle {
             @Override
             public void onResponse(final JSONArray response) {
                 progressBar.setVisibility(View.GONE);
-                Log.d("CommunityJSON", " result" + response);
+                Log.d("CommunityJSON", "community_result" + response);
 
                 parseCommunityObjects = new AsyncTask<Void, Void, Void>() {
                     @Override
@@ -495,6 +494,7 @@ public class CommunityFragment extends FragmentWithTitle {
 
                     @Override
                     protected void onPostExecute(Void aVoid) {
+                        Log.d("onPostExecute", " result" + response);
                         if (communityUsersAdapter != null)
                             communityUsersAdapter.refresh();
                     }

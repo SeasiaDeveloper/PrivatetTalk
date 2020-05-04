@@ -541,9 +541,14 @@ public class MessagesFragment extends FragmentWithTitle {
 
         initViews();
 
-        Glide.with(getContext())
-                .load(CurrentUserPhotosDatasource.getInstance(getContext()).getProfilePhoto() != null ?
+       /* Glide.with(getContext())
+                .load(CurrentUserPhotosDatasource.getInstance(getContext()).getProfilePhoto() != null && CurrentUserPhotosDatasource.getInstance(getContext()).hasVerfiedPhoto()?
                         CurrentUserPhotosDatasource.getInstance(getContext()).getProfilePhoto().square_thumb : "")
+                .error(R.drawable.dummy_img).into((ImageView) rootView.findViewById(R.id.addMeImage));
+*/
+        Glide.with(getContext())
+                .load(CurrentUserPhotosDatasource.getInstance(getContext()).checkProfilePic(getContext())!=null?
+                        CurrentUserPhotosDatasource.getInstance(getContext()).checkProfilePic(getContext()).square_thumb : "")
                 .error(R.drawable.dummy_img).into((ImageView) rootView.findViewById(R.id.addMeImage));
 
 
@@ -621,14 +626,14 @@ public class MessagesFragment extends FragmentWithTitle {
         mLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
         mLayoutManager.setAutoMeasureEnabled(false);
         mRecyclerView.setLayoutManager(mLayoutManager);
-
-        mAdapter.setImageViewSize(new PromotedUsersAdapter.Callback() {
+        mRecyclerView.setAdapter(mAdapter);
+       /* mAdapter.setImageViewSize(new PromotedUsersAdapter.Callback() {
             @Override
             public void done() {
                 mRecyclerView.setAdapter(mAdapter);
             }
         }, mRecyclerView);
-
+*/
         //after top (horizontal) recyclerview draws, get height to use for padding and margins to other views
         mRecyclerView.post(new Runnable() {
             @Override
@@ -699,13 +704,13 @@ public class MessagesFragment extends FragmentWithTitle {
         mGridLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
         mAdapter2 = new GridRecyclerAdapter();
         mRecyclerView1.setLayoutManager(mGridLayoutManager);
-
-        mAdapter.setImageViewSize(new PromotedUsersAdapter.Callback() {
+        mRecyclerView1.setAdapter(mAdapter2);
+      /*  mAdapter.setImageViewSize(new PromotedUsersAdapter.Callback() {
             @Override
             public void done() {
                 mRecyclerView1.setAdapter(mAdapter2);
             }
-        }, mRecyclerView1);
+        }, mRecyclerView1);*/
 
         mRecyclerView1.post(new Runnable() {
             @Override

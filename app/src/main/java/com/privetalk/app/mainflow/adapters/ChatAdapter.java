@@ -80,7 +80,10 @@ public class ChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             conversationObject.partnerID = partnerID;
         }
 
-        profilePhoto = CurrentUserPhotosDatasource.getInstance(mActivity).getProfilePhoto();
+       // profilePhoto = CurrentUserPhotosDatasource.getInstance(mActivity).getProfilePhoto();
+        if (CurrentUserPhotosDatasource.getInstance(mActivity).checkProfilePic(mActivity)!=null) {
+            profilePhoto = CurrentUserPhotosDatasource.getInstance(mActivity).checkProfilePic(mActivity);
+        }
 
         messageObjects = MessageDatasource.getInstance(mActivity).getMessagesWithUserId(conversationObject.partnerID);
         numberOfMessagesSent = MessageDatasource.getInstance(mActivity).numberOfMessagesSent(conversationObject.partnerID);

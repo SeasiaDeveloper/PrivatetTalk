@@ -535,7 +535,7 @@
     <string name="already_have_code">Έχετε ήδη κωδικό πιστοποίησης</string>
     <string name="problem_verifying_email">Υπήρξε ένα πρόβλημα με την επιβεβαίωση του email</string>
     <string name="enable_gps_msg">Παρακαλώ ελέγξτε οτι έχετε ενεργοποιημένο το GPS</string>
-    <string name="must_accept_terms_and_contitions">Πρέπει να συμπληρώσετε όλα τα πεδία και να αποδεχτείτε τους όρους πρώτα</string>
+    <string name="must_accept_terms_and_contitions">Πρέπει πρώτα να συμπληρώσετε όλα τα πεδία</string>
     <string name="error_getting_img">Υπήρξε ένα πρόβλημα κατά το άνοιγμα της φωτογραφίας</string>
     <string name="already_royal_user">Είσαστε ήδη Royal User.</string>
     <string name="error_while_opening_img">Υπήρξε ένα πρόβλημα κατά το άνοιγμα της φωτογραφίας</string>
