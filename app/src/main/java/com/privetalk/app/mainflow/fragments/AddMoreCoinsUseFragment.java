@@ -340,28 +340,29 @@ public class AddMoreCoinsUseFragment extends FragmentWithTitle {
         @Override
         public void onClick(View view, MotionEvent event) {
 
-            final CoinsPlan coinsPlan = (CoinsPlan) view.getTag();
-            final String stringie = coinsPlan.id == 1 ? String.valueOf(coinsPlan.extra_coins + (int) (planAcoins.getTag() == null ? coinsPlan.coins : planAcoins.getTag())) :
-                    coinsPlan.id == 2 ? String.valueOf(coinsPlan.extra_coins + (int) (planBcoins.getTag() == null ? coinsPlan.coins : planBcoins.getTag())) :
-                            String.valueOf(coinsPlan.extra_coins + (int) (planCcoins.getTag() == null ? coinsPlan.coins : planCcoins.getTag()));
+           if(view.getTag()!=null) {
+               final CoinsPlan coinsPlan = (CoinsPlan) view.getTag();
+               final String stringie = coinsPlan.id == 1 ? String.valueOf(coinsPlan.extra_coins + (int) (planAcoins.getTag() == null ? coinsPlan.coins : planAcoins.getTag())) :
+                       coinsPlan.id == 2 ? String.valueOf(coinsPlan.extra_coins + (int) (planBcoins.getTag() == null ? coinsPlan.coins : planBcoins.getTag())) :
+                               String.valueOf(coinsPlan.extra_coins + (int) (planCcoins.getTag() == null ? coinsPlan.coins : planCcoins.getTag()));
 
-            new AlertDialog.Builder(getContext()).setTitle(getString(R.string.you_are_about_to) + stringie + getString(R.string.coins_skett))
-                    .setMessage(getString(R.string.are_you_sure_purchase) + stringie + getString(R.string.coins_question))
-                    .setNegativeButton(getString(R.string.cancel), new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            dialog.dismiss();
-                        }
-                    }).setPositiveButton(getString(R.string.purchase), new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    if (coinsPlan != null)
-                        mHelper.launchPurchaseFlow(getActivity(), coinsPlan.android_product_id, RC_REQUEST, mPurchaseFinishedListener
-                                , CurrentUserDatasource.getInstance(getContext()).getCurrentUserInfo().userID + "payload");
-                    rootView.setDisplayedChild(0);
-                }
-            }).create().show();
-
+               new AlertDialog.Builder(getContext()).setTitle(getString(R.string.you_are_about_to) + stringie + getString(R.string.coins_skett))
+                       .setMessage(getString(R.string.are_you_sure_purchase) + stringie + getString(R.string.coins_question))
+                       .setNegativeButton(getString(R.string.cancel), new DialogInterface.OnClickListener() {
+                           @Override
+                           public void onClick(DialogInterface dialog, int which) {
+                               dialog.dismiss();
+                           }
+                       }).setPositiveButton(getString(R.string.purchase), new DialogInterface.OnClickListener() {
+                   @Override
+                   public void onClick(DialogInterface dialog, int which) {
+                       if (coinsPlan != null)
+                           mHelper.launchPurchaseFlow(getActivity(), coinsPlan.android_product_id, RC_REQUEST, mPurchaseFinishedListener
+                                   , CurrentUserDatasource.getInstance(getContext()).getCurrentUserInfo().userID + "payload");
+                       rootView.setDisplayedChild(0);
+                   }
+               }).create().show();
+           }
         }
     };
 

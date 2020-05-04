@@ -301,6 +301,7 @@ public class CreateAccountActivity extends AppCompatActivity implements
         myName = (PriveTalkEditText) findViewById(R.id.myName);
         myBirtday = (PriveTalkTextView) findViewById(R.id.myBirthday);
         myLocation = (PriveTalkEditText) findViewById(R.id.myLocation);
+        myLocation.setEnabled(false);
         //myGenre = (PriveTalkTextView) findViewById(R.id.myGenre);
        // lookingFor = (PriveTalkTextView) findViewById(R.id.lookingFor);
         password = (PriveTalkEditText) findViewById(R.id.password);
