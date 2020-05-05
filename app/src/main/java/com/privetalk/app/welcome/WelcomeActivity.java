@@ -226,9 +226,10 @@ public class WelcomeActivity extends AppCompatActivity implements GoogleApiClien
 
                                 CurrentUser currentUser = new CurrentUser(object);
                                 Intent intent = new Intent(WelcomeActivity.this, CreateAccountActivity.class);
+                                intent.putExtra(PriveTalkConstants.LOGIN_WITH_EMAIL, false);
                                 Bundle bundle = new Bundle();
                                 try {
-                                    String email = response.getJSONObject().getString("email");
+                                    String email1 = response.getJSONObject().getString("email");
                                     String gender = response.getJSONObject().getString("gender");
                                 } catch (JSONException e) {
                                     e.printStackTrace();

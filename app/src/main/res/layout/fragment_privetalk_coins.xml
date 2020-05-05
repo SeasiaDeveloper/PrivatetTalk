@@ -199,7 +199,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="32dp"
                         android:gravity="center_vertical"
-                        android:text="@string/give_virtual_gifts"
+                        android:text="@string/send_me_favourite"
                         android:textColor="@color/welcome_text"
                         android:textSize="18sp"
                         app:ttf_name="@string/roboto_bold" />

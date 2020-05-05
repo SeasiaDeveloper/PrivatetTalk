@@ -268,8 +268,6 @@
     <string name="give_virtual_gifts">Give Virtual Gifts</string>
     <string name="give_more_likes">Give more likes</string>
     <string name="send_me_favourite">Send more Favourites</string>
-
-
     <string name="virtual_gifts_message">Flirt with style by starting a convarsation with a special delivered virtual gift.</string>
     <string name="starts_more_chats">Starts More Chats Everyday</string>
     <string name="starts_more_chats_message">Get 20 more new chats once you exceed your daily limit.</string>
@@ -529,7 +527,7 @@
     <string name="impress_with_gift">Impress by sending a Gift</string>
     <string name="trust_and_higher_rank">Get trust and higher rank</string>
     <string name="trust_and_higher_rank_desc">Get an extra verification mark and rank your profile higher on the Community</string>
-    <string name="fb_text">Log in with Facebook</string>
+    <string name="fb_text">Log in with Facebook release 3</string>
 
     <string name="delete">Delete?</string>
     <string name="profile_photo_delete">Deleting this photo will make you lose your verification badge. Delete?</string>
