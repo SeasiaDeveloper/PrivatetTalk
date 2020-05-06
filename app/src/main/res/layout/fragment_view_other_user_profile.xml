@@ -43,23 +43,12 @@
                 android:padding="2dp"
                 android:src="@drawable/oval_gray_border" />
 
-            <ImageView
-                android:id="@+id/sendMessage"
-                android:layout_width="33dp"
-                android:layout_height="33dp"
-                android:layout_below="@+id/userStatus"
-                android:layout_alignRight="@+id/profileHotWheelContainer"
-                android:background="@drawable/oval_blue_border"
-                android:padding="4dp"
-                android:layout_marginTop="4dp"
-                android:visibility="visible"
-                android:src="@drawable/inbox_message_icon" />
-
 
             <RelativeLayout
                 android:id="@+id/viewUserProfileOptions"
                 android:layout_width="wrap_content"
                 android:layout_height="65dp"
+                android:layout_alignLeft="@+id/profileHotWheelContainer"
                 android:layout_alignRight="@+id/profileHotWheelContainer"
                 android:layout_below="@+id/profileHotWheelContainer"
                 android:layout_marginBottom="20dp"
@@ -67,7 +56,7 @@
                 android:paddingLeft="15dp"
                 android:paddingRight="15dp">
 
-               <!-- <ImageView
+                <ImageView
                     android:id="@+id/sendMessage"
                     android:layout_width="65dp"
                     android:layout_height="match_parent"
@@ -75,7 +64,7 @@
                     android:background="@drawable/oval_blue_border"
                     android:padding="15dp"
                     android:visibility="gone"
-                    android:src="@drawable/inbox_message_icon" />-->
+                    android:src="@drawable/inbox_message_icon" />
 
                 <ImageView
                     android:id="@+id/iconCold"

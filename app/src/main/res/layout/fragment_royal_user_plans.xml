@@ -341,7 +341,7 @@
                 android:layout_alignParentLeft="true"
                 android:layout_centerVertical="true"
                 android:orientation="vertical"
-                android:layout_marginLeft="100dp">
+                android:layout_marginLeft="90dp">
 
                 <com.privetalk.app.utilities.PriveTalkTextView
                     android:layout_width="wrap_content"
@@ -356,6 +356,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@android:color/black"
+                    android:layout_marginLeft="2dp"
                     android:textSize="14.5sp"
                     app:ttf_name="@string/roboto_regular" />
 

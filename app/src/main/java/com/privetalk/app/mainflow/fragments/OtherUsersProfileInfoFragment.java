@@ -375,8 +375,10 @@ public class OtherUsersProfileInfoFragment extends FragmentWithTitle {
 
         if (fromWhere.equalsIgnoreCase("hot_matches")) {
             sendMessage.setVisibility(View.VISIBLE);
+            imageCold.setVisibility(View.GONE);
         } else {
             sendMessage.setVisibility(View.GONE);
+            imageCold.setVisibility(View.VISIBLE);
         }
 
 
