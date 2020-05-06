@@ -621,7 +621,7 @@ public class ProfileFragment extends FragmentWithTitle {
 
 //                        popupProfilePictureButton.setEnabled(!(currentUser.photos_verified && CurrentUserPhotosDatasource.getInstance(getContext()).hasVerfiedPhoto()));
         popupProfilePictureButton.setEnabled(!currentUser.photos_verified);
-        popupSocialMediaButton.setEnabled(true); //!currentUser.social_verified
+        popupSocialMediaButton.setEnabled(!currentUser.social_verified);
         popupRoyalUserButton.setEnabled(!currentUser.royal_user);
 
         FadeOnTouchListener listener = new FadeOnTouchListener() {

@@ -671,5 +671,9 @@
     <string name="no_results">No Results</string>
 
     <string name="login_with_instagram">Login with Instagram</string>
+
+    <string name="acra_toast_text">Crash found. Please click OK to send report to developer</string>
+    <string name="crash_toast_text">Sending crash report to developer</string>
+    <string name="crash_report_title">Prive Talk</string>
 </resources>
 

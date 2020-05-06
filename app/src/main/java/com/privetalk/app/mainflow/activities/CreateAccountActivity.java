@@ -1086,6 +1086,7 @@ public class CreateAccountActivity extends AppCompatActivity implements
             postParam.put("skip_verification", true);
         }
 
+
         System.out.println("Registration Params: " + (new JSONObject(postParam)).toString());
 
         registerUserRequest = new JsonObjectRequest(Request.Method.POST,

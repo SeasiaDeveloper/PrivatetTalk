@@ -2,24 +2,19 @@ package com.privetalk.app;
 
 import android.app.Application;
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Build;
-
 import androidx.multidex.MultiDex;
-
 import com.crashlytics.android.Crashlytics;
 import com.crashlytics.android.answers.Answers;
 import com.crashlytics.android.answers.CustomEvent;
 import com.flurry.android.FlurryAgent;
-import com.privetalk.app.services.GetLocationService;
 import com.privetalk.app.utilities.PriveTalkConstants;
 import com.privetalk.app.utilities.customHandler;
 import com.pushbots.push.Pushbots;
 import com.vk.sdk.VKSdk;
-
 import io.fabric.sdk.android.Fabric;
 import pl.aprilapps.easyphotopicker.EasyImage;
 
