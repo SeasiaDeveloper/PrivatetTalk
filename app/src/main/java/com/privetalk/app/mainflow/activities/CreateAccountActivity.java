@@ -1089,7 +1089,7 @@ public class CreateAccountActivity extends AppCompatActivity implements
 
         System.out.println("Registration Params: " + (new JSONObject(postParam)).toString());
 
-        Toast.makeText(this,(new JSONObject(postParam)).toString(),Toast.LENGTH_LONG).show();
+       // Toast.makeText(this,(new JSONObject(postParam)).toString(),Toast.LENGTH_LONG).show();
 
         registerUserRequest = new JsonObjectRequest(Request.Method.POST,
                 Links.REGISTER, new JSONObject(postParam),
