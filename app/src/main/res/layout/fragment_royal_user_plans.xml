@@ -92,7 +92,7 @@
                 android:layout_alignParentLeft="true"
                 android:layout_centerVertical="true"
                 android:orientation="vertical"
-                android:layout_marginLeft="35dp">
+                android:layout_marginLeft="38dp">
 
                 <com.privetalk.app.utilities.PriveTalkTextView
                     android:layout_width="wrap_content"
@@ -170,7 +170,7 @@
                 android:layout_alignParentLeft="true"
                 android:layout_centerVertical="true"
                 android:orientation="vertical"
-                android:layout_marginLeft="35dp">
+                android:layout_marginLeft="38dp">
 
                 <com.privetalk.app.utilities.PriveTalkTextView
                     android:layout_width="wrap_content"
@@ -260,7 +260,7 @@
                android:layout_alignParentLeft="true"
                android:layout_centerVertical="true"
                android:orientation="vertical"
-               android:layout_marginLeft="35dp">
+               android:layout_marginLeft="38dp">
 
                 <com.privetalk.app.utilities.PriveTalkTextView
                     android:layout_width="wrap_content"
@@ -341,7 +341,7 @@
                 android:layout_alignParentLeft="true"
                 android:layout_centerVertical="true"
                 android:orientation="vertical"
-                android:layout_marginLeft="93dp">
+                android:layout_marginLeft="100dp">
 
                 <com.privetalk.app.utilities.PriveTalkTextView
                     android:layout_width="wrap_content"

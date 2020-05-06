@@ -193,6 +193,10 @@ public class BoostPopularityFragment extends FragmentWithTitle {
                                 }).create().show();
                     }
                 }
+                else
+                {
+                    Toast.makeText(getActivity(),getResources().getString(R.string.boost_tv),Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
