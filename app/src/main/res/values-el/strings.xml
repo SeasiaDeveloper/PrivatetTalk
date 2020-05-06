@@ -264,6 +264,12 @@
     <string name="get_featured_and_promoted_message">Διαφήμισε το προφίλ σου σε άλλους χρήστες στην περιοχή σου.</string>
     <string name="give_virtual_gifts">Στείλε Εικονικά Δώρα</string>
     <string name="virtual_gifts_message">Φλέρταρε με στύλ ξεκινώντας την συνομιλία σου με ένα εικονικό Δώρο.</string>
+
+    <string name="give_more_likes">Δώστε περισσότερες επισημάνσεις "μου αρέσει"</string>
+    <string name="send_me_favourite">Στείλτε περισσότερα Αγαπημένα</string>
+    <string name="more_exposure">Αποκτήστε περισσότερη έκθεση</string>
+    <string name="boost_tv">Ανεβάστε τουλάχιστον μία εικόνα για ενίσχυση</string>
+
     <string name="starts_more_chats">Περισσότερες Συνομιλίες Κάθε</string>
     <string name="starts_more_chats_message">Ξεκίνησε 20 νέες συνομιλίες μόλις φτάσεις το ημερήσιο όριο.</string>
     <string name="more_chances_message">Get more plays and get shown more on the Hot Wheel©, giving you more chances to get a hot match.</string>

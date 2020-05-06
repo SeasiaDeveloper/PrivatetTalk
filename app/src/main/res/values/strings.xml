@@ -244,6 +244,8 @@
     <string name="what_you_get_as_royal">What you get as a {b}Royal User{/b}</string>
     <string name="see_everything_message"><![CDATA[Get to see your Profile Visitors, who added you as Favourite & who said you\'re hot on Flames Ignited.]]></string>
     <string name="see_everything">See Everything</string>
+    <string name="more_exposure">Get more exposure</string>
+
     <string name="set_expiration_timers">Set Expiration Timers</string>
     <string name="expiration_timers_message">Choose for how long your text and images are to be shared (from 3 seconds up to 7 days).</string>
     <string name="priority_messages">Priority Messages</string>
@@ -264,6 +266,8 @@
     <string name="get_featured_and_promoted">Get Featured and Promoted</string>
     <string name="get_featured_and_promoted_message">Get your profile promoted to all PriveTalk users in your broader area.</string>
     <string name="give_virtual_gifts">Give Virtual Gifts</string>
+    <string name="give_more_likes">Give more likes</string>
+    <string name="send_me_favourite">Send more Favourites</string>
     <string name="virtual_gifts_message">Flirt with style by starting a convarsation with a special delivered virtual gift.</string>
     <string name="starts_more_chats">Starts More Chats Everyday</string>
     <string name="starts_more_chats_message">Get 20 more new chats once you exceed your daily limit.</string>
@@ -479,7 +483,7 @@
     <string name="instagram_client_secret">ccdeea695c9c7482e90636669897ced0</string>  <!--93f21dcd8610d74e703fb190385a14b9-->
     <string name="instagram_authorization_code">authorization_code/</string>
     <string name="instagram_grant_type">authorization_code</string>
-
+    <string name="boost_tv">Please upload atleast one picture to boost</string>
     <string name="chooseLocation">Choose your Location</string>
     <string name="you_are_about_deactivate_title">You are about to deactivate your account</string>
     <string name="are_you_sure_deactivate">You may lose all PT feautures and benefits permanently. Are you sure?</string>

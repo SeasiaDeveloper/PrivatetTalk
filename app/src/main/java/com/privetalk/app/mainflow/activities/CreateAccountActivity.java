@@ -168,7 +168,7 @@ public class CreateAccountActivity extends AppCompatActivity implements
         setContentView(R.layout.activity_create_account);
         mHandler = new android.os.Handler();
         verificationCodeRelative = (RelativeLayout) findViewById(R.id.verificationCodeRelative);
-        loginWithEmail = getIntent().getBooleanExtra(PriveTalkConstants.LOGIN_WITH_EMAIL, false);
+      //  loginWithEmail = getIntent().getBooleanExtra(PriveTalkConstants.LOGIN_WITH_EMAIL, false);
         toolbar = (Toolbar) findViewById(R.id.mToolbar);
         setSupportActionBar(toolbar);
         actionBar = getSupportActionBar();
@@ -189,7 +189,7 @@ public class CreateAccountActivity extends AppCompatActivity implements
         }
         if (currentUser == null) currentUser = new CurrentUser();
         if (currentUser.email == null || currentUser.email.isEmpty()) {
-            loginWithEmail = true;
+            //loginWithEmail = true;
         }
 
         //gender spinner
@@ -301,6 +301,7 @@ public class CreateAccountActivity extends AppCompatActivity implements
         myName = (PriveTalkEditText) findViewById(R.id.myName);
         myBirtday = (PriveTalkTextView) findViewById(R.id.myBirthday);
         myLocation = (PriveTalkEditText) findViewById(R.id.myLocation);
+        myLocation.setEnabled(false);
         //myGenre = (PriveTalkTextView) findViewById(R.id.myGenre);
        // lookingFor = (PriveTalkTextView) findViewById(R.id.lookingFor);
         password = (PriveTalkEditText) findViewById(R.id.password);
@@ -1051,7 +1052,7 @@ public class CreateAccountActivity extends AppCompatActivity implements
         Map<String, Object> postParam = new HashMap<>();
         postParam.put("email", currentUser.email);
        // postParam.put("email", "Harsimran@gmail.com");
-        //postParam.put("password","Abc@123"); //password.getText().toString()
+       // postParam.put("password","mind@123"); //password.getText().toString()
         postParam.put("name", currentUser.name);
        // postParam.put("name", "Harsimran Singh");
         postParam.put("looking_for",lookingForValue);//((boolean) lookingGenreFemale.getTag() && (boolean) lookingGenreMale.getTag()) ? 0 : ((boolean) lookingGenreMale.getTag()) ? 1 : 2);
@@ -1088,6 +1089,8 @@ public class CreateAccountActivity extends AppCompatActivity implements
 
 
         System.out.println("Registration Params: " + (new JSONObject(postParam)).toString());
+
+       // Toast.makeText(this,(new JSONObject(postParam)).toString(),Toast.LENGTH_LONG).show();
 
         registerUserRequest = new JsonObjectRequest(Request.Method.POST,
                 Links.REGISTER, new JSONObject(postParam),

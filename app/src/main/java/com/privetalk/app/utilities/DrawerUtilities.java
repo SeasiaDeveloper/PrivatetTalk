@@ -68,7 +68,7 @@ public class DrawerUtilities {
                 loadFragment(activity, profileVisitors, titleName);
                 break;
             case FLAMES_IGNITED:
-              /*  HotMatchesFragment hotMatchesFragment = new HotMatchesFragment();
+               /* HotMatchesFragment hotMatchesFragment = new HotMatchesFragment();
                 loadFragment(activity, hotMatchesFragment, titleName);*/
 
                 FlamesIgnitedFragment flamesIgnitedFragment = new FlamesIgnitedFragment();

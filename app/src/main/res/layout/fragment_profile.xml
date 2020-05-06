@@ -215,6 +215,7 @@
                 android:id="@+id/trueProfileWeeklyAwardsContainer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:visibility="gone"
                 android:layout_below="@+id/profileWeeklyAwardsContainer"
                 android:layout_marginLeft="-5dp"
                 android:layout_marginRight="-5dp"
@@ -524,6 +525,7 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:visibility="gone"
                 android:layout_alignParentRight="true"
                 android:layout_below="@+id/trueProfileWeeklyAwardsContainer"
                 android:orientation="horizontal">
@@ -543,7 +545,6 @@
                     android:layout_marginLeft="2dp"
                     android:textColor="@android:color/black"
                     android:textSize="14sp"
-                    android:visibility="gone"
                     app:ttf_name="@string/roboto_light" />
             </LinearLayout>
 
