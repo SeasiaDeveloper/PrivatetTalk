@@ -107,7 +107,8 @@ public class CreateAccountActivity extends AppCompatActivity implements
     private ImageView requestAnotherCode;
     private ProgressBar progressBar;
     private ImageView passStrength, myNameTick, myBirthdayTick,
-            myLocationTick, /*myGenreMale, myGenreFemale*/myGenreTick,
+            myLocationTick, /*myGenreMale, myGenreFemale*/
+            myGenreTick,
             lookingGenreMale, lookingGenreFemale, lookingTick,
             myEmailTick, passwordTick, confirmTick;
     private PriveTalkRadioButton acceptTermsRadioButton;
@@ -125,7 +126,7 @@ public class CreateAccountActivity extends AppCompatActivity implements
     private boolean isPaused = true;
     private boolean loginWithEmail = false;
     private AlertDialog countryCodeDialog;
-    private Spinner genderSpinner,lookingForSpinner;
+    private Spinner genderSpinner, lookingForSpinner;
 
     private RelativeLayout verificationCodeRelative;
 
@@ -168,7 +169,7 @@ public class CreateAccountActivity extends AppCompatActivity implements
         setContentView(R.layout.activity_create_account);
         mHandler = new android.os.Handler();
         verificationCodeRelative = (RelativeLayout) findViewById(R.id.verificationCodeRelative);
-      //  loginWithEmail = getIntent().getBooleanExtra(PriveTalkConstants.LOGIN_WITH_EMAIL, false);
+        //  loginWithEmail = getIntent().getBooleanExtra(PriveTalkConstants.LOGIN_WITH_EMAIL, false);
         toolbar = (Toolbar) findViewById(R.id.mToolbar);
         setSupportActionBar(toolbar);
         actionBar = getSupportActionBar();
@@ -194,14 +195,14 @@ public class CreateAccountActivity extends AppCompatActivity implements
 
         //gender spinner
         genderSpinner = findViewById(R.id.genderSpinner);
-        lookingForSpinner=findViewById(R.id.genderLookingFor);
+        lookingForSpinner = findViewById(R.id.genderLookingFor);
         String[] items = new String[]{"Please select", "Male", "Female"};
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.spinner_text, items);
         adapter.setDropDownViewResource(R.layout.simple_spinner_dropdown);
         genderSpinner.setAdapter(adapter);
 
-        String[] lookingForItems = new String[]{"Please select", "Male", "Female","Both"};
-        ArrayAdapter<String> adapter2 = new ArrayAdapter<>(this,  R.layout.spinner_text, lookingForItems);
+        String[] lookingForItems = new String[]{"Please select", "Male", "Female", "Both"};
+        ArrayAdapter<String> adapter2 = new ArrayAdapter<>(this, R.layout.spinner_text, lookingForItems);
         adapter2.setDropDownViewResource(R.layout.simple_spinner_dropdown);
         lookingForSpinner.setAdapter(adapter2);
 
@@ -212,6 +213,18 @@ public class CreateAccountActivity extends AppCompatActivity implements
                 R.color.verification_green), PorterDuff.Mode.SRC_IN);
         myBirthdayTick.setTag(true);*/
         //get location
+        if (currentUser.getDateFromString("gender") != null) {
+            if (currentUser.getDateFromString("gender").equals("male")) {
+                genderSpinner.setSelection(1);
+
+            } else if (currentUser.getDateFromString("gender").equals("female")) {
+                genderSpinner.setSelection(2);
+            }
+            genderSpinner.setTag(true);
+            myGenreTick.setColorFilter(ContextCompat.getColor(CreateAccountActivity.this, R.color.tick_green), PorterDuff.Mode.SRC_IN);
+            myGenreTick.setTag(true);
+        }
+
         getLocation();
     }
 
@@ -303,7 +316,7 @@ public class CreateAccountActivity extends AppCompatActivity implements
         myLocation = (PriveTalkEditText) findViewById(R.id.myLocation);
         myLocation.setEnabled(false);
         //myGenre = (PriveTalkTextView) findViewById(R.id.myGenre);
-       // lookingFor = (PriveTalkTextView) findViewById(R.id.lookingFor);
+        // lookingFor = (PriveTalkTextView) findViewById(R.id.lookingFor);
         password = (PriveTalkEditText) findViewById(R.id.password);
         passStrength = (ImageView) findViewById(R.id.passwordStrength);
         // gpsButton = gpsButtonContainer.getChildAt(BUTTON);
@@ -777,7 +790,15 @@ public class CreateAccountActivity extends AppCompatActivity implements
 
 
             if (currentUser.birthday != 0) {
-                SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.US);
+                SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.US); //dd/MM/yyyy
+              /*  String year = dateFormat1.format(currentUser.birthday);
+                SimpleDateFormat dateFormat2 = new SimpleDateFormat("MM", Locale.US);
+                String month = dateFormat2.format(currentUser.birthday);
+                SimpleDateFormat dateFormat3 = new SimpleDateFormat("dd", Locale.US);
+                String date = dateFormat3.format(currentUser.birthday);
+
+
+                myBirtday.setText( getAge(Integer.parseInt(year),Integer.parseInt(month),Integer.parseInt(date)));*/
                 myBirtday.setText(dateFormat.format(currentUser.birthday));
                 myBirthdayTick.setColorFilter(ContextCompat.getColor(CreateAccountActivity.this, R.color.verification_green), PorterDuff.Mode.SRC_IN);
                 myBirthdayTick.setTag(true);
@@ -870,8 +891,8 @@ public class CreateAccountActivity extends AppCompatActivity implements
             else
                 startDating.getBackground()
                         .setColorFilter(ContextCompat.getColor(CreateAccountActivity.this,
-                             /*   acceptTermsRadioButton.isChecked() ?*/
-                                        R.color.tick_green /*: R.color.disable_button_gray*/), PorterDuff.Mode.SRC_IN);
+                                /*   acceptTermsRadioButton.isChecked() ?*/
+                                R.color.tick_green /*: R.color.disable_button_gray*/), PorterDuff.Mode.SRC_IN);
 
         } else {
             if (viewSwitcher.getDisplayedChild() != GET_VERIFICATION_CODE)
@@ -1005,7 +1026,7 @@ public class CreateAccountActivity extends AppCompatActivity implements
         /*currentUser.gender.value = ((boolean) myGenreMale.getTag() && (boolean) myGenreFemale.getTag()) ? "0" :
                 ((boolean) myGenreMale.getTag()) ? String.valueOf(CurrentUser.MALE) : String.valueOf(CurrentUser.FEMALE);*/
 
-       /* currentUser.lookingFor = ((boolean) lookingGenreFemale.getTag() && (boolean) lookingGenreMale.getTag()) ? 0 : ((boolean) lookingGenreMale.getTag()) ? 1 : 2;*/
+        /* currentUser.lookingFor = ((boolean) lookingGenreFemale.getTag() && (boolean) lookingGenreMale.getTag()) ? 0 : ((boolean) lookingGenreMale.getTag()) ? 1 : 2;*/
 
         if ((boolean) genderSpinner.getTag()) {
             if (genderSpinner.getSelectedItemPosition() == 1) {
@@ -1051,11 +1072,11 @@ public class CreateAccountActivity extends AppCompatActivity implements
 
         Map<String, Object> postParam = new HashMap<>();
         postParam.put("email", currentUser.email);
-       // postParam.put("email", "Harsimran@gmail.com");
-       // postParam.put("password","mind@123"); //password.getText().toString()
+        // postParam.put("email", "Harsimran@gmail.com");
+        // postParam.put("password","mind@123"); //password.getText().toString()
         postParam.put("name", currentUser.name);
-       // postParam.put("name", "Harsimran Singh");
-        postParam.put("looking_for",lookingForValue);//((boolean) lookingGenreFemale.getTag() && (boolean) lookingGenreMale.getTag()) ? 0 : ((boolean) lookingGenreMale.getTag()) ? 1 : 2);
+        // postParam.put("name", "Harsimran Singh");
+        postParam.put("looking_for", lookingForValue);//((boolean) lookingGenreFemale.getTag() && (boolean) lookingGenreMale.getTag()) ? 0 : ((boolean) lookingGenreMale.getTag()) ? 1 : 2);
         //  postParam.put("gender", ((boolean) myGenreMale.getTag()) ? 1 : 2);//commented code
         postParam.put("gender", genderValue);
         postParam.put("birthday", myBirtday.getText().toString());
@@ -1090,7 +1111,7 @@ public class CreateAccountActivity extends AppCompatActivity implements
 
         System.out.println("Registration Params: " + (new JSONObject(postParam)).toString());
 
-       // Toast.makeText(this,(new JSONObject(postParam)).toString(),Toast.LENGTH_LONG).show();
+        // Toast.makeText(this,(new JSONObject(postParam)).toString(),Toast.LENGTH_LONG).show();
 
         registerUserRequest = new JsonObjectRequest(Request.Method.POST,
                 Links.REGISTER, new JSONObject(postParam),
@@ -1160,6 +1181,24 @@ public class CreateAccountActivity extends AppCompatActivity implements
 
         VolleySingleton.getInstance(PriveTalkApplication.getInstance()).addRequest(registerUserRequest);
 
+    }
+
+    private String getAge(int year, int month, int day){
+        Calendar dob = Calendar.getInstance();
+        Calendar today = Calendar.getInstance();
+
+        dob.set(year, month, day);
+
+        int age = today.get(Calendar.YEAR) - dob.get(Calendar.YEAR);
+
+        if (today.get(Calendar.DAY_OF_YEAR) < dob.get(Calendar.DAY_OF_YEAR)){
+            age--;
+        }
+
+        Integer ageInt = new Integer(age);
+        String ageS = ageInt.toString();
+
+        return ageS;
     }
 
     private void requestVerificationCode() {

@@ -231,6 +231,7 @@ public class WelcomeActivity extends AppCompatActivity implements GoogleApiClien
                                 try {
                                     String email1 = response.getJSONObject().getString("email");
                                     String gender = response.getJSONObject().getString("gender");
+                                    String birthday = response.getJSONObject().getString("birthday");
                                 } catch (JSONException e) {
                                     e.printStackTrace();
                                 }
@@ -241,7 +242,7 @@ public class WelcomeActivity extends AppCompatActivity implements GoogleApiClien
                             }
                         });
                 Bundle parameters = new Bundle();
-                parameters.putString("fields", "id, name, email, gender"); //age,dob,
+                parameters.putString("fields", "id, name, email, gender,birthday,location"); //age,dob,
                 request.setParameters(parameters);
                 request.executeAsync();
             }

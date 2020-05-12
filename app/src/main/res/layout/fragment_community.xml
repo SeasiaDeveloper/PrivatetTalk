@@ -15,10 +15,11 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_alignParentBottom="true"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+          />
 
         <RelativeLayout
             android:layout_width="match_parent"
+            android:id="@+id/search_layout"
             android:layout_height="40dp"
             android:layout_gravity="end|bottom"
             android:layout_marginBottom="10dp"
@@ -26,9 +27,7 @@
             android:layout_marginRight="10dp"
             android:background="@drawable/search_filter_background"
             app:layout_behavior="com.privetalk.app.utilities.RelativeLayoutBehavior"
-            app:layout_collapseMode="pin"
-            app:layout_scrollFlags="snap">
-
+            app:layout_collapseMode="none">
 
             <LinearLayout
                 android:id="@+id/searchFilter"
