@@ -12,7 +12,7 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.INTERNET" />f
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.VIBRATE" />
@@ -144,6 +144,7 @@
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
+
         <meta-data
             android:name="io.fabric.ApiKey"
             android:value="fc28daa006d070c30ddc7a042b15c3a662521488" />
@@ -151,8 +152,8 @@
         <!-- Location Service-->
         <service android:name="com.privetalk.app.services.GetLocationService" />
         <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="@string/google_api_key" />
+            android:name="com.google.android.maps.v2.API_KEY"
+            android:value="@string/google_map_key" />
 
         <!-- Locale changed receiver-->
         <receiver android:name=".utilities.LocaleChangeReceiver">

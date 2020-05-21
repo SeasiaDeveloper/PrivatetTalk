@@ -189,7 +189,7 @@ public class ProfileEditActivitiesListFragment extends FragmentWithTitle impleme
 
     @Override
     protected String getActionBarTitle() {
-        return getResources().getStringArray(R.array.activities_array)[fragmentPosition].replace(":", "");
+        return null;//getResources().getStringArray(R.array.activities_array)[fragmentPosition].replace(":", "");
     }
 
     @Override

@@ -84,17 +84,26 @@
                 android:weightSum="3">
 
                 <Button
+                    android:id="@+id/btnFbLogin"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
-                    android:id="@+id/btnFbLogin"
                     android:textColor="#ffffff"
                     android:background="@drawable/background"
-                    android:text="LOG IN WITH FACEBOOK" />
+                    android:text="@string/fb_text"
+                    android:visibility="gone"/>
 
                 <ImageView
                     android:id="@+id/facebookLogin"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:padding="10dp"
+                    android:src="@drawable/facebook_icon"
+                    android:visibility="gone" />
+
+                <ImageView
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -109,7 +118,7 @@
                     android:layout_weight="1"
                     android:padding="10dp"
                     android:src="@drawable/google_plus_icon"
-                    android:visibility="gone" />
+                    android:visibility="visible" />
 
 
                 <ImageView

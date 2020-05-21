@@ -74,6 +74,7 @@ import com.privetalk.app.utilities.VolleySingleton;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -791,14 +792,6 @@ public class CreateAccountActivity extends AppCompatActivity implements
 
             if (currentUser.birthday != 0) {
                 SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.US); //dd/MM/yyyy
-              /*  String year = dateFormat1.format(currentUser.birthday);
-                SimpleDateFormat dateFormat2 = new SimpleDateFormat("MM", Locale.US);
-                String month = dateFormat2.format(currentUser.birthday);
-                SimpleDateFormat dateFormat3 = new SimpleDateFormat("dd", Locale.US);
-                String date = dateFormat3.format(currentUser.birthday);
-
-
-                myBirtday.setText( getAge(Integer.parseInt(year),Integer.parseInt(month),Integer.parseInt(date)));*/
                 myBirtday.setText(dateFormat.format(currentUser.birthday));
                 myBirthdayTick.setColorFilter(ContextCompat.getColor(CreateAccountActivity.this, R.color.verification_green), PorterDuff.Mode.SRC_IN);
                 myBirthdayTick.setTag(true);
@@ -1014,6 +1007,10 @@ public class CreateAccountActivity extends AppCompatActivity implements
     }
 
     private void registerUser() {
+      /*  if (Integer.parseInt(PriveTalkUtilities.getAge(currentUser.birthday)) < 18) {
+            Toast.makeText(CreateAccountActivity.this, R.string.you_must_be_eighteen, Toast.LENGTH_SHORT).show();
+            return;
+        }*/
 
         startDatingSwitcher.setDisplayedChild(PROGRESSBAR);
 
@@ -1183,7 +1180,7 @@ public class CreateAccountActivity extends AppCompatActivity implements
 
     }
 
-    private String getAge(int year, int month, int day){
+    private String getAge(int year, int month, int day) {
         Calendar dob = Calendar.getInstance();
         Calendar today = Calendar.getInstance();
 
@@ -1191,7 +1188,7 @@ public class CreateAccountActivity extends AppCompatActivity implements
 
         int age = today.get(Calendar.YEAR) - dob.get(Calendar.YEAR);
 
-        if (today.get(Calendar.DAY_OF_YEAR) < dob.get(Calendar.DAY_OF_YEAR)){
+        if (today.get(Calendar.DAY_OF_YEAR) < dob.get(Calendar.DAY_OF_YEAR)) {
             age--;
         }
 

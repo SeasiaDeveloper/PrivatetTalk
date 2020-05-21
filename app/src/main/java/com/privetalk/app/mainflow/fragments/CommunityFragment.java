@@ -21,6 +21,7 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.TranslateAnimation;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
@@ -85,6 +86,8 @@ public class CommunityFragment extends FragmentWithTitle {
     private AsyncTask<Void, Void, Void> parseCommunityObjects;
     private boolean fragmentPaused = true;
     private RelativeLayout searchLayout;
+    private boolean executedOnce = false;
+    private boolean forFirstPosition = false;
 
     private BroadcastReceiver promotedUsersDownloaded = new BroadcastReceiver() {
         @Override
@@ -94,7 +97,7 @@ public class CommunityFragment extends FragmentWithTitle {
 
             //load profile pic to promote view
             Glide.with(getContext())
-                    .load(CurrentUserPhotosDatasource.getInstance(getContext()).checkProfilePic(getContext())!=null?
+                    .load(CurrentUserPhotosDatasource.getInstance(getContext()).checkProfilePic(getContext()) != null ?
                             CurrentUserPhotosDatasource.getInstance(getContext()).checkProfilePic(getContext()).square_thumb : "")
                     .error(R.drawable.dummy_img).into((ImageView) rootView.findViewById(R.id.addMeImage));
         }
@@ -247,7 +250,7 @@ public class CommunityFragment extends FragmentWithTitle {
     private void initViews() {
 
         progressBar = rootView.findViewById(R.id.progressBar);
-
+        searchLayout = rootView.findViewById(R.id.search_layout);
         addmeView = rootView.findViewById(R.id.addMePromote);
         addmeView.setOnTouchListener(new FadeOnTouchListener() {
             @Override
@@ -319,6 +322,54 @@ public class CommunityFragment extends FragmentWithTitle {
             }
         });
 
+        communityUsersRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                if (mGridLayoutManager.findFirstVisibleItemPosition() == 0) {
+                    if (!forFirstPosition) {
+                        if (searchLayout.getVisibility() == View.GONE) {
+                            slideUp(searchLayout);
+                        }
+                        executedOnce = false;
+                        forFirstPosition = true;
+                    }
+                } else {
+                    if (!executedOnce) {
+                        slideDown(searchLayout);
+                        searchLayout.setVisibility(View.GONE);
+                        executedOnce = true;
+                        forFirstPosition = false;
+                    }
+                }
+            }
+        });
+
+    }
+
+    // slide the view from below itself to the current position
+    public void slideUp(View view) {
+        view.setVisibility(View.VISIBLE);
+        TranslateAnimation animate = new TranslateAnimation(
+                0,                 // fromXDelta
+                0,                 // toXDelta
+                view.getHeight(),  // fromYDelta
+                0);                // toYDelta
+        animate.setDuration(500);
+        // animate.setFillAfter(true);
+        view.startAnimation(animate);
+    }
+
+    // slide the view from its current position to below itself
+    public void slideDown(View view) {
+        TranslateAnimation animate = new TranslateAnimation(
+                0,                 // fromXDelta
+                0,                 // toXDelta
+                0,                 // fromYDelta
+                view.getHeight()); // toYDelta
+        animate.setDuration(500);
+        // animate.setFillAfter(true);
+        view.startAnimation(animate);
     }
 
 

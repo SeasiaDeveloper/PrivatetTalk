@@ -5,7 +5,9 @@ import android.content.Context;
 import android.database.Cursor;
 import android.util.Log;
 
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.plus.model.people.Person;
+import com.google.gson.JsonObject;
 import com.privetalk.app.PriveTalkApplication;
 import com.privetalk.app.database.PriveTalkTables;
 import com.privetalk.app.database.datasource.CurrentUserDetailsDatasource;
@@ -284,6 +286,41 @@ public class CurrentUser implements Serializable {
         this.gplus_id = currentPerson.getId();
 
     }
+
+    public CurrentUser(GoogleSignInAccount currentPerson, String email) {
+
+        //get gender
+        /*if (currentPerson.hasGender())
+            this.gender = AttributesObject.getAttributeObject(currentPerson.getGender(), PriveTalkTables.AttributesTables.TABLES_NAME[PriveTalkTables.AttributesTables.GENDERS]);
+        else
+            this.gender = new AttributesObject();*/
+
+
+        //get birthday
+     /*   if (currentPerson.hasBirthday()) {
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
+            try {
+                this.birthday = dateFormat.parse(currentPerson.getBirthday()).getTime();
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+        }*/
+
+        //get name
+        if (currentPerson.getDisplayName()!=null)
+            this.name = currentPerson.getDisplayName();
+
+        //get location
+     /*   if (currentPerson.hasCurrentLocation())
+            this.location = currentPerson.getCurrentLocation();*/
+
+        //get mail
+        this.email = email;
+
+        this.gplus_id = currentPerson.getId();
+
+    }
+
 
     public CurrentUser() {
         this.currentUserDetails = new CurrentUserDetails();

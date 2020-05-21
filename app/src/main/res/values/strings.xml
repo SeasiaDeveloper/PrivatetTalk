@@ -12,7 +12,7 @@
 <!--
     <string name="google_api_key">AIzaSyA2lR8ZYNmapLFWT_Ess-0rBp5h-JBioJE</string>
 -->
-
+    <string name="google_map_key">AIzaSyBk1SwHXAd_8Bg0DSqJwx1gN9phK25MgjE</string>
 
     <!-- stringies-->
     <string name="action_settings">Settings</string>
@@ -78,7 +78,7 @@
     <string name="profile_age">Age</string>
     <string name="profile_relationship">Relationship</string>
     <string name="profile_sexuality">Sexuality</string>
-    <string name="facebook_app_id">924058131427036</string>  //1223656987651000
+    <string name="facebook_app_id">1223656987651000</string>  //924058131427036
 
     <string name="profile_appearance">Appearance</string>
     <string name="profileWork">Work</string>
@@ -646,7 +646,7 @@
     <string name="view">View</string>
     <string name="more">More</string>
     <string name="within_km">within\n{b}30 km{/b}</string>
-    <string name="royal_user_filters">{b}Rolyal User{/b} Filters</string>
+    <string name="royal_user_filters">{b}Royal User{/b} Filters</string>
     <string name="expires_in">"Expires in"</string>
     <string name="day_letter">"{b}D{/b} "</string>
     <string name="hour_letter">"{b}h{/b} "</string>
