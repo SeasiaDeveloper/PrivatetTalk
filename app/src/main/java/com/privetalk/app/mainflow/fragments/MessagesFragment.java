@@ -36,6 +36,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.BounceInterpolator;
 import android.view.animation.DecelerateInterpolator;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -136,6 +137,8 @@ public class MessagesFragment extends FragmentWithTitle {
     private float intitialX = 0;
     private View removeMatchBucket;
     private Animation bucketAnimation;
+    private RelativeLayout noProfileVisitorsLayout;
+    private PriveTalkTextView btnPromoteYourself;
 
     //for Hot matches
     private BroadcastReceiver hotMatchesDownloaded = new BroadcastReceiver() {
@@ -612,6 +615,17 @@ public class MessagesFragment extends FragmentWithTitle {
 
         progressBar = rootView.findViewById(R.id.progressBar);
         addmeView = rootView.findViewById(R.id.addMePromote);
+        noProfileVisitorsLayout = rootView.findViewById(R.id.no_profile_visitors_layout);
+        btnPromoteYourself=rootView.findViewById(R.id.promote_yourself);
+        btnPromoteYourself.setOnTouchListener(new FadeOnTouchListener() {
+            @Override
+            public void onClick(View view, MotionEvent event) {
+                PriveTalkUtilities.changeFragment(getContext(), true, PriveTalkConstants.HOT_WHEEL_FRAGMENT);
+            }
+        });
+
+
+
         addmeView.setOnTouchListener(new FadeOnTouchListener() {
             @Override
             public void onClick(View view, MotionEvent event) {

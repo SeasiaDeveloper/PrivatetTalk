@@ -679,5 +679,11 @@
     <string name="acra_toast_text">Crash found. Please click OK to send report to developer</string>
     <string name="crash_toast_text">Sending crash report to developer</string>
     <string name="crash_report_title">Prive Talk</string>
+
+
+   <!-- profile visitors screen-->
+    <string name="profile_visitors_screen">Profile Visitors</string>
+    <string name="promote_your_self">Promote your self</string>
+    <string name="looks_like">Looks like you don\'t have any Profile Visitors right now.Promote your profile and get seen by all PriveTalk users nearby!</string>
 </resources>
 

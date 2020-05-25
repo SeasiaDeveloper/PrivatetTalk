@@ -1166,14 +1166,14 @@ public class SearchFilterFragment extends FragmentWithTitle implements
         JSONObject obj = new JSONObject();
 
         try {
-            if (((boolean) maleIcon.getTag() && (boolean) femaleIcon.getTag()) ||
+           /* if (((boolean) maleIcon.getTag() && (boolean) femaleIcon.getTag()) ||
                     (!(boolean) maleIcon.getTag() && !(boolean) femaleIcon.getTag()))
                 obj.put("looking_for", 0);
             else
-                obj.put("looking_for", ((boolean) maleIcon.getTag()) ? 1 : 2);
+                obj.put("looking_for", ((boolean) maleIcon.getTag()) ? 1 : 2);*/
 
 
-            boolean isLocationSet = LocationUtilities.getSelectedLongitude() != 0f && LocationUtilities.getSelectedLatitude() != 0f;
+           /* boolean isLocationSet = LocationUtilities.getSelectedLongitude() != 0f && LocationUtilities.getSelectedLatitude() != 0f;
 
             JSONObject location = new JSONObject();
 
@@ -1195,14 +1195,14 @@ public class SearchFilterFragment extends FragmentWithTitle implements
             if (iso == null || iso.isEmpty())
                 iso = LocationUtilities.getCountryCode();
 
-            location.put("longitude",/*"31.5143"*/ isLocationSet ? lng : LocationUtilities.getLongitude());
-            location.put("latitude",/*"75.9115"*/ isLocationSet ? lat : LocationUtilities.getLatitude());
+            location.put("longitude",isLocationSet ? lng : LocationUtilities.getLongitude()); //"31.5143"
+            location.put("latitude",isLocationSet ? lat : LocationUtilities.getLatitude()); //"75.9115"
             location.put("iso_country_code", iso );
             location.put("radius", radius);
 
 
             Log.d("Community", location.toString());
-            obj.put("location", location);
+            obj.put("location", location);*/
 
             JSONObject age = new JSONObject();
             age.put("min_age", minAge);

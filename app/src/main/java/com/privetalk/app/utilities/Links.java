@@ -8,8 +8,8 @@ public class Links {
     public static final String MAIN_URL = "http://203.100.79.159:7083"; // http://np.seasiafinishingschool.com:7083
 
    //public static final String MAIN_URL = "https://privetalk.herokuapp.com";
-//testing url
-//    public static final String MAIN_URL = "http://192.168.5.194:8000";
+   //testing url
+   //public static final String MAIN_URL = "http://192.168.5.194:8000";
 
     public static final String VERIFY = MAIN_URL + "/api/accounts/verify/";
 

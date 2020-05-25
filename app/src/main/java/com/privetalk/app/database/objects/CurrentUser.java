@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.util.Log;
 
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.plus.model.people.Person;
 import com.privetalk.app.PriveTalkApplication;
 import com.privetalk.app.database.PriveTalkTables;
@@ -171,6 +172,41 @@ public class CurrentUser implements Serializable {
 //        this.fb_id = object.optString("id");
 //        this.fb_username = object.optString("name");
     }
+
+    public CurrentUser(GoogleSignInAccount currentPerson, String email,String birthday,int gender) {
+
+        //get gender
+        if (gender!=0)
+            this.gender = AttributesObject.getAttributeObject(gender, PriveTalkTables.AttributesTables.TABLES_NAME[PriveTalkTables.AttributesTables.GENDERS]);
+        else
+            this.gender = new AttributesObject();
+
+
+        //get birthday
+        if (birthday!=null) {
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
+            try {
+                this.birthday = dateFormat.parse(birthday).getTime();
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+        }
+
+        //get name
+        if (currentPerson.getDisplayName()!=null)
+            this.name = currentPerson.getDisplayName();
+
+        //get location
+     /*   if (currentPerson.hasCurrentLocation())
+            this.location = currentPerson.getCurrentLocation();*/
+
+        //get mail
+        this.email = email;
+
+        this.gplus_id = currentPerson.getId();
+
+    }
+
 
     public CurrentUser(JSONObject response, String token, String mail) {
 

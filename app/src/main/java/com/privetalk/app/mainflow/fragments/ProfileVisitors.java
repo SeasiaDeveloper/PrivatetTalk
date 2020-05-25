@@ -9,6 +9,7 @@ import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
+
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
@@ -16,11 +17,14 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
 import com.android.volley.Request;
 import com.bumptech.glide.Glide;
@@ -65,6 +69,7 @@ public class ProfileVisitors extends FragmentWithTitle {
     private List<ProfileVisitorsObject> todayVisitorsList;
     private List<ProfileVisitorsObject> weekVisitorsList;
     private View progressBar;
+    private RelativeLayout noProfileVisitorsLayout;
     private BroadcastReceiver profileVisitorsDownloaded = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
@@ -79,6 +84,13 @@ public class ProfileVisitors extends FragmentWithTitle {
             todayVisitorsList.addAll(ProfileVisitorsDatasource.getInstance(getContext()).getTodayVisitors());
             weekVisitorsList.addAll(ProfileVisitorsDatasource.getInstance(getContext()).getWeekVisitors());
             mAdapter2.notifyDataSetChanged();
+
+            if (todayVisitorsList.size() == 0 && weekVisitorsList.size() == 0) {
+                noProfileVisitorsLayout.setVisibility(View.VISIBLE);
+            } else {
+                noProfileVisitorsLayout.setVisibility(View.GONE);
+            }
+
 
         }
     };
@@ -147,7 +159,7 @@ public class ProfileVisitors extends FragmentWithTitle {
                 .error(R.drawable.dummy_img).into((ImageView) rootView.findViewById(R.id.addMeImage));*/
 
         Glide.with(getContext())
-                .load(CurrentUserPhotosDatasource.getInstance(getContext()).checkProfilePic(getContext())!=null?
+                .load(CurrentUserPhotosDatasource.getInstance(getContext()).checkProfilePic(getContext()) != null ?
                         CurrentUserPhotosDatasource.getInstance(getContext()).checkProfilePic(getContext()).square_thumb : "")
                 .error(R.drawable.dummy_img).into((ImageView) rootView.findViewById(R.id.addMeImage));
 
@@ -211,6 +223,7 @@ public class ProfileVisitors extends FragmentWithTitle {
 
         progressBar = rootView.findViewById(R.id.progressBar);
         addmeView = rootView.findViewById(R.id.addMePromote);
+        noProfileVisitorsLayout = rootView.findViewById(R.id.no_profile_visitors_layout);
         addmeView.setOnTouchListener(new FadeOnTouchListener() {
             @Override
             public void onClick(View view, MotionEvent event) {

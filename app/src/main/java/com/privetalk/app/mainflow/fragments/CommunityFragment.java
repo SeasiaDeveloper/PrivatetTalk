@@ -22,6 +22,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -83,7 +84,7 @@ public class CommunityFragment extends FragmentWithTitle {
     private JsonArrayRequest getCommunityRequest;
     private AsyncTask<Void, Void, Void> parseCommunityObjects;
     private boolean fragmentPaused = true;
-
+    private RelativeLayout searchLayout;
 
     private BroadcastReceiver promotedUsersDownloaded = new BroadcastReceiver() {
         @Override

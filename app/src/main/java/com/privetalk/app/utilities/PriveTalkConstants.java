@@ -34,6 +34,7 @@ public class PriveTalkConstants {
     public static final int MAP_FRAGMENT_ID = 14;
     public static final int SETTINGS_FRAGMENT = 15;
     public static final int PROFILE_FRAGMENT = 16;
+    public static final int HOT_WHEEL_FRAGMENT = 17;
 
     public static final String ACTION_BAR_TITLE = "action-bar-title";
 
@@ -121,8 +122,8 @@ public class PriveTalkConstants {
     DIAFORA
      */
 
-    public static final int MINIMUM_SEARCH_DISTANCE = 30;
-    public static final int MAXIMUM_SEARCH_DISTANCE = 150;
+    public static final int MINIMUM_SEARCH_DISTANCE = 20; //30
+    public static final int MAXIMUM_SEARCH_DISTANCE = 200; //150
     public static final int MINIMUM_AGE = 18;
     public static final int MAXIMUM_AGE = 80;
     public static final int MINIMUM_HEGHT = 142;

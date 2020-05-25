@@ -91,7 +91,8 @@
                     android:id="@+id/btnFbLogin"
                     android:textColor="#ffffff"
                     android:background="@drawable/background"
-                    android:text="LOG IN WITH FACEBOOK" />
+                    android:text="LOG IN WITH FACEBOOK"
+                    android:visibility="gone"/>
 
                 <ImageView
                     android:id="@+id/facebookLogin"
@@ -109,7 +110,7 @@
                     android:layout_weight="1"
                     android:padding="10dp"
                     android:src="@drawable/google_plus_icon"
-                    android:visibility="gone" />
+                    android:visibility="visible" />
 
 
                 <ImageView

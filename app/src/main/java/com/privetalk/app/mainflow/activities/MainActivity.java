@@ -65,6 +65,7 @@ import com.privetalk.app.mainflow.fragments.ChatFragments;
 import com.privetalk.app.mainflow.fragments.CommunityFragment;
 import com.privetalk.app.mainflow.fragments.FullScreenMyPicturesFragment;
 import com.privetalk.app.mainflow.fragments.FullScreenOtherUsersFragment;
+import com.privetalk.app.mainflow.fragments.HotWheelFragment;
 import com.privetalk.app.mainflow.fragments.MessagesFragment;
 import com.privetalk.app.mainflow.fragments.OtherUsersProfileInfoFragment;
 import com.privetalk.app.mainflow.fragments.ProfileFragment;
@@ -1077,6 +1078,9 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 case PriveTalkConstants.PROFILE_FRAGMENT:
                     fragment = new ProfileFragment();
+                    break;
+                case PriveTalkConstants.HOT_WHEEL_FRAGMENT:
+                    fragment= new HotWheelFragment();
                     break;
                 default:
                     fragment = new Fragment();

@@ -40,7 +40,8 @@
                 <!-- *********** -->
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="50dp">
+                    android:layout_height="50dp"
+                    android:visibility="gone">
 
                     <ImageView
                         android:id="@+id/searchFemale"
@@ -84,7 +85,8 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="45dp"
-                    android:layout_marginTop="15dp">
+                    android:layout_marginTop="15dp"
+                    android:visibility="gone">
 
 
                     <ViewSwitcher
@@ -92,7 +94,8 @@
                         android:layout_width="40dp"
                         android:layout_height="45dp"
                         android:layout_alignParentRight="true"
-                        android:layout_toLeftOf="@+id/myLocationTick">
+                        android:layout_toLeftOf="@+id/myLocationTick"
+                        android:visibility="gone">
 
                         <LinearLayout
                             android:layout_width="40dp"
@@ -136,7 +139,8 @@
                         android:text="@string/or"
                         android:textColor="@color/welcome_text"
                         android:textSize="20sp"
-                        app:ttf_name="@string/roboto_bold" />
+                        app:ttf_name="@string/roboto_bold"
+                        android:visibility="gone"/>
 
                     <com.privetalk.app.utilities.PriveTalkEditText
                         android:id="@+id/searchLocation"
@@ -151,7 +155,8 @@
                         android:paddingLeft="5dp"
                         android:paddingRight="5dp"
                         android:textColor="@android:color/black"
-                        app:ttf_name="@string/roboto_regular" />
+                        app:ttf_name="@string/roboto_regular"
+                        android:visibility="gone"/>
 
                 </RelativeLayout>
 
@@ -309,7 +314,8 @@
                 android:text="@string/royal_user_filters"
                 android:textColor="@color/welcome_text"
                 android:textSize="23sp"
-                app:ttf_name="@string/roboto_light" />
+                app:ttf_name="@string/roboto_light"
+                android:visibility="gone"/>
 
 
             <!-- *********** -->
@@ -324,7 +330,8 @@
                 android:clipChildren="false"
                 android:clipToPadding="false"
                 android:orientation="vertical"
-                android:padding="15dp">
+                android:padding="15dp"
+                android:visibility="gone">
 
 
                 <!-- ************** -->

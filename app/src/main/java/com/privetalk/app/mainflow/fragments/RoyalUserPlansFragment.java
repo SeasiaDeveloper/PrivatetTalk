@@ -100,20 +100,23 @@ public class RoyalUserPlansFragment extends FragmentWithTitle {
                 String currency = inventory.getSkuDetails(SKU_PLAN_A).getPrice().substring(0, 1);
 
                 currency = isNumeric(currency) ? "€" : currency;
+                oneMonthPlan.setText(getDiscount(currency, Float.parseFloat(inventory.getSkuDetails(SKU_PLAN_A).getmPriceAmountMicros()) / 1000000f));
+                threeMonthPlan.setText(getDiscount(currency, Float.parseFloat(inventory.getSkuDetails(SKU_PLAN_B).getmPriceAmountMicros())/ 3000000f));
+                sixMonthPlan.setText(getDiscount(currency, Float.parseFloat(inventory.getSkuDetails(SKU_PLAN_C).getmPriceAmountMicros()) / 6000000f));
+                twelveMonthPlan.setText(getDiscount(currency, Float.parseFloat(inventory.getSkuDetails(SKU_PLAN_D).getmPriceAmountMicros()) / 12000000f));
 
-                oneMonthPlan.setText(getDiscount(currency, (float) inventory.getSkuDetails(SKU_PLAN_A).getmPriceAmountMicros() / 1000000f));
-
-                threeMonthPlan.setText(getDiscount(currency, (float) inventory.getSkuDetails(SKU_PLAN_B).getmPriceAmountMicros() / 3000000f));
-
+                /*threeMonthPlan.setText(getDiscount(currency, (float) invecontory.getSkuDetails(SKU_PLAN_B).getmPriceAmountMicros() / 3000000f));
                 sixMonthPlan.setText(getDiscount(currency, (float) inventory.getSkuDetails(SKU_PLAN_C).getmPriceAmountMicros() / 6000000f));
+                twelveMonthPlan.setText(getDiscount(currency, (float) inventory.getSkuDetails(SKU_PLAN_D).getmPriceAmountMicros() / 12000000f));*/
 
-                twelveMonthPlan.setText(getDiscount(currency, (float) inventory.getSkuDetails(SKU_PLAN_D).getmPriceAmountMicros() / 12000000f));
+                float oneMonthPrice = Float.parseFloat(inventory.getSkuDetails(SKU_PLAN_A).getmPriceAmountMicros());
+               /*  threeMonthsDiscount.setText(getDiscountPercentage(Float.parseFloat(threeMonthPlanData) / 3, oneMonthPrice));
+                sixMonthsDiscount.setText(getDiscountPercentage(Float.parseFloat(sixMonthPlanData) / 6, oneMonthPrice));
+                tweelveMonthsDiscount.setText(getDiscountPercentage(Float.parseFloat(twelveMonthPlanData) / 12, oneMonthPrice));*/
 
-                float oneMonthPrice = inventory.getSkuDetails(SKU_PLAN_A).getmPriceAmountMicros();
-
-                threeMonthsDiscount.setText(getDiscountPercentage(inventory.getSkuDetails(SKU_PLAN_B).getmPriceAmountMicros() / 3, oneMonthPrice));
-                sixMonthsDiscount.setText(getDiscountPercentage(inventory.getSkuDetails(SKU_PLAN_C).getmPriceAmountMicros() / 6, oneMonthPrice));
-                tweelveMonthsDiscount.setText(getDiscountPercentage(inventory.getSkuDetails(SKU_PLAN_D).getmPriceAmountMicros() / 12, oneMonthPrice));
+                threeMonthsDiscount.setText(getDiscountPercentage(Float.parseFloat(inventory.getSkuDetails(SKU_PLAN_B).getmPriceAmountMicros())  / 3,oneMonthPrice));
+                sixMonthsDiscount.setText(getDiscountPercentage(Float.parseFloat(inventory.getSkuDetails(SKU_PLAN_C).getmPriceAmountMicros())  / 6,oneMonthPrice));
+                tweelveMonthsDiscount.setText(getDiscountPercentage(Float.parseFloat(inventory.getSkuDetails(SKU_PLAN_D).getmPriceAmountMicros())  / 12, oneMonthPrice));
 
             }catch (Exception ex){
                 ex.printStackTrace();

@@ -5,11 +5,13 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentSender;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.Signature;
 import android.content.res.Configuration;
-import android.media.MediaCas;
 import android.net.Uri;
 import android.os.Bundle;
-
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
@@ -17,8 +19,10 @@ import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.os.Environment;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Base64;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -37,26 +41,48 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
 import com.facebook.FacebookSdk;
 import com.facebook.GraphRequest;
 import com.facebook.GraphResponse;
-import com.facebook.Profile;
-import com.facebook.ProfileTracker;
+import com.facebook.HttpMethod;
+import com.facebook.login.LoginBehavior;
 import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
+import com.google.android.gms.auth.api.Auth;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.common.api.CommonStatusCodes;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.ResultCallback;
-import com.google.android.gms.common.api.internal.StatusCallback;
+import com.google.android.gms.common.api.Scope;
 import com.google.android.gms.plus.People;
-import com.google.android.gms.plus.Plus;
-import com.google.android.gms.plus.model.people.Person;
 import com.google.android.gms.plus.model.people.PersonBuffer;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+
+import com.google.api.client.auth.oauth2.Credential;
+import com.google.api.client.extensions.java6.auth.oauth2.AuthorizationCodeInstalledApp;
+import com.google.api.client.extensions.jetty.auth.oauth2.LocalServerReceiver;
+import com.google.api.client.googleapis.auth.oauth2.GoogleAuthorizationCodeFlow;
+import com.google.api.client.googleapis.auth.oauth2.GoogleClientSecrets;
+import com.google.api.client.http.javanet.NetHttpTransport;
+import com.google.api.client.json.JsonFactory;
+import com.google.api.client.json.jackson2.JacksonFactory;
+import com.google.api.client.util.store.FileDataStoreFactory;
+import com.google.api.services.people.v1.PeopleServiceScopes;
+import com.google.api.services.people.v1.model.Birthday;
+import com.google.api.services.people.v1.model.Gender;
+import com.google.api.services.people.v1.model.Person;
 import com.privetalk.app.PriveTalkApplication;
 import com.privetalk.app.R;
 import com.privetalk.app.database.datasource.CurrentUserDatasource;
@@ -90,11 +116,20 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.concurrent.ExecutionException;
 
 public class WelcomeActivity extends AppCompatActivity implements GoogleApiClient.ConnectionCallbacks,
         GoogleApiClient.OnConnectionFailedListener, ResultCallback<People.LoadPeopleResult> {
@@ -129,12 +164,22 @@ public class WelcomeActivity extends AppCompatActivity implements GoogleApiClien
     private int previousPosition = 0;
     private JsonObjectRequest userLogIn;
     private JsonObjectRequest currentUserInfoRequest;
+    private GoogleSignInClient mGoogleSignInClient;
+   // public static String clientId = "213866313212-1eskpukj2nqq3fic264u08pk3ovq5l91.apps.googleusercontent.com";
+
+    public static String clientId = "44912591925-ds836oifoqtm27iiugtf6tq4t6tv0auo.apps.googleusercontent.com";
+    public static String clientSecret = "anwJpxhEDsl4rdVgu4eouZQ9";
+    private static final List<String> SCOPES = Arrays.asList(PeopleServiceScopes.USER_BIRTHDAY_READ);
+    private static final String CREDENTIALS_FILE_PATH = "credentials.json";
+    public static final JsonFactory JSON_FACTORY = JacksonFactory.getDefaultInstance();
+    private static final String TOKENS_DIRECTORY_PATH = "tokens";
+    public static Context mContext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
-
+        mContext = WelcomeActivity.this;
         Configuration c = getResources().getConfiguration();
         if (c.fontScale > 1f)
             c.fontScale = 1f;
@@ -143,6 +188,25 @@ public class WelcomeActivity extends AppCompatActivity implements GoogleApiClien
 
         googleApiStuff();
 
+        PackageInfo info;
+        try {
+            info = getPackageManager().getPackageInfo("com.you.name", PackageManager.GET_SIGNATURES);
+            for (Signature signature : info.signatures) {
+                MessageDigest md;
+                md = MessageDigest.getInstance("SHA");
+                md.update(signature.toByteArray());
+                String something = new String(Base64.encode(md.digest(), 0));
+                //String something = new String(Base64.encodeBytes(md.digest()));
+                Log.e("hash key", something);
+            }
+        } catch (PackageManager.NameNotFoundException e1) {
+            Log.e("name not found", e1.toString());
+        } catch (NoSuchAlgorithmException e) {
+            Log.e("no such an algorithm", e.toString());
+        } catch (Exception e) {
+            Log.e("exception", e.toString());
+        }
+
         facebookStuff();
 
         getViews();
@@ -150,7 +214,6 @@ public class WelcomeActivity extends AppCompatActivity implements GoogleApiClien
         //if user already saw welcome screens
         if (getSharedPreferences(PriveTalkConstants.PREFERENCES, Context.MODE_PRIVATE).getBoolean(PriveTalkConstants.KEY_WELCOME_SCREENS, false))
             viewPager.setCurrentItem(FRAGMENT_CREATE_ACCOUNT);
-
 
         /*private Session.StatusCallback callback =
                 new com.facebook.Session.StatusCallback()
@@ -173,6 +236,79 @@ public class WelcomeActivity extends AppCompatActivity implements GoogleApiClien
             super.onBackPressed();
     }
 
+    /**
+     * Creates an authorized Credential object.
+     *
+     * @param HTTP_TRANSPORT The network HTTP Transport.
+     * @return An authorized Credential object.
+     * @throws IOException If the credentials.json file cannot be found.
+     */
+    public static Credential getCredentials(final NetHttpTransport HTTP_TRANSPORT) throws IOException {
+        // Load client secrets.
+        InputStream in = mContext.getAssets().open("credentials.json");
+        if (in == null) {
+            throw new FileNotFoundException("Resource not found: " + CREDENTIALS_FILE_PATH);
+        }
+        GoogleClientSecrets clientSecrets = GoogleClientSecrets.load(JSON_FACTORY, new InputStreamReader(in));
+
+        File tokenFolder = new File(Environment.getExternalStorageDirectory() +
+                File.separator + TOKENS_DIRECTORY_PATH);
+        if (!tokenFolder.exists()) {
+            tokenFolder.mkdirs();
+        }
+        // Build flow and trigger user authorization request.
+        GoogleAuthorizationCodeFlow flow = new GoogleAuthorizationCodeFlow.Builder(
+                HTTP_TRANSPORT, JSON_FACTORY, clientSecrets, SCOPES)
+                .setDataStoreFactory(new FileDataStoreFactory(tokenFolder))
+                .setAccessType("offline")
+                .build();
+
+    /*    AuthorizationCodeInstalledApp abc = new AuthorizationCodeInstalledApp(flow, new LocalServerReceiver()) {
+            @Override
+            protected void onAuthorization(AuthorizationCodeRequestUrl authorizationUrl) throws IOException {
+                String url = authorizationUrl.build();
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                mContext.startActivity(browserIntent);
+            }
+        };
+
+        return abc.authorize("user").setAccessToken("user");*/
+
+
+        return new AuthorizationCodeInstalledApp(flow, new LocalServerReceiver()).authorize("user");
+    }
+
+/*    public static void main(String... args) throws IOException, GeneralSecurityException {
+        // Build a new authorized API client service.
+        final NetHttpTransport HTTP_TRANSPORT = GoogleNetHttpTransport.newTrustedTransport();
+        PeopleService service = new PeopleService.Builder(HTTP_TRANSPORT, JSON_FACTORY, getCredentials(HTTP_TRANSPORT))
+                .setApplicationName(APPLICATION_NAME)
+                .build();
+
+        // Request 10 connections.
+        ListConnectionsResponse response = service.people().connections()
+                .list("people/me")
+                .setPageSize(10)
+                .setPersonFields("names,emailAddresses")
+                .execute();
+
+        // Print display name of connections if available.
+        List<Person> connections = response.getConnections();
+        if (connections != null && connections.size() > 0) {
+            for (Person person : connections) {
+                List<Name> names = person.getNames();
+                if (names != null && names.size() > 0) {
+                    System.out.println("Name: " + person.getNames().get(0)
+                            .getDisplayName());
+                } else {
+                    System.out.println("No names available for connection.");
+                }
+            }
+        } else {
+            System.out.println("No connections found.");
+        }
+    }*/
+
     @Override
     protected void onPause() {
         if (userLogIn != null)
@@ -188,21 +324,72 @@ public class WelcomeActivity extends AppCompatActivity implements GoogleApiClien
 
     //initialize google api client
     private void googleApiStuff() {
-        //create a new google api client for google plus
+        Scope myScope = new Scope("https://www.googleapis.com/auth/user.birthday.read");
+        Scope myScope2 = new Scope("https://www.googleapis.com/auth/user.gender.read");
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestScopes(new Scope(PeopleServiceScopes.USERINFO_PROFILE), myScope, myScope2)
+                .requestIdToken(clientId)
+                .requestEmail()
+                // The serverClientId is an OAuth 2.0 web client ID, u can get this from google api console like any other api key
+                .requestServerAuthCode(clientId)
+                .requestProfile()
+                .build();
         mGoogleApiClient = new GoogleApiClient.Builder(this)
+                .enableAutoManage(this /* FragmentActivity */, this /* OnConnectionFailedListener */)
+                .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
+                .build();//GoogleSignIn.getClient(this, gso);
+        mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
+
+        GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(WelcomeActivity.this);
+        if (account != null) {
+            mGoogleSignInClient.signOut().addOnCompleteListener(WelcomeActivity.this, new OnCompleteListener<Void>() {
+                @Override
+                public void onComplete(@NonNull Task<Void> task) {
+                    //sign out successfully
+                }
+            });
+        }
+
+        //create a new google api client for google plus
+    /*    mGoogleApiClient = new GoogleApiClient.Builder(this)
                 .addConnectionCallbacks(this)
                 .addOnConnectionFailedListener(this).addApi(Plus.API)
                 .addScope(Plus.SCOPE_PLUS_PROFILE)
-                .addScope(Plus.SCOPE_PLUS_LOGIN).build();
+                .addScope(Plus.SCOPE_PLUS_LOGIN).build();*/
+    }
+
+    public void logOut() {
+        AccessToken.setCurrentAccessToken(null);
+        if (LoginManager.getInstance() != null) {
+            LoginManager.getInstance().logOut();
+        }
+    }
+
+    public void disconnectFromFacebook() {
+
+        if (AccessToken.getCurrentAccessToken() == null) {
+            return; // already logged out
+        }
+
+        new GraphRequest(AccessToken.getCurrentAccessToken(), "/me/permissions/", null, HttpMethod.DELETE, new GraphRequest
+                .Callback() {
+            @Override
+            public void onCompleted(GraphResponse graphResponse) {
+
+                LoginManager.getInstance().logOut();
+
+            }
+        }).executeAsync();
     }
 
     //initialize facebook login button
     private void facebookStuff() {
-
+        //logOut();
         //initialize facebook sdk
         FacebookSdk.sdkInitialize(getApplicationContext());
 
         facebookLoginButton = new LoginButton(this);
+        facebookLoginButton.setLoginBehavior(LoginBehavior.WEB_VIEW_ONLY);
         callbackManager = CallbackManager.Factory.create();
         // Set permissions
         facebookLoginButton.setReadPermissions(Arrays.asList("public_profile, email")); //"user_friends, public_profile, email"
@@ -230,7 +417,8 @@ public class WelcomeActivity extends AppCompatActivity implements GoogleApiClien
                                 Bundle bundle = new Bundle();
                                 try {
                                     String email1 = response.getJSONObject().getString("email");
-                                    String gender = response.getJSONObject().getString("gender");
+                                    //String gender = response.getJSONObject().getString("gender");
+                                    //String birthday = response.getJSONObject().getString("birthday");
                                 } catch (JSONException e) {
                                     e.printStackTrace();
                                 }
@@ -241,7 +429,7 @@ public class WelcomeActivity extends AppCompatActivity implements GoogleApiClien
                             }
                         });
                 Bundle parameters = new Bundle();
-                parameters.putString("fields", "id, name, email, gender"); //age,dob,
+                parameters.putString("fields", "id, name, email, gender,birthday,location"); //age,dob,
                 request.setParameters(parameters);
                 request.executeAsync();
             }
@@ -274,9 +462,19 @@ public class WelcomeActivity extends AppCompatActivity implements GoogleApiClien
         RESULT CODE AFTER GOOGLE ACCOUNT SIGN IN
          */
         if (requestCode == RC_SIGN_IN || requestCode == REQUEST_CODE_RESOLVE_ERR) {
-            if (!mGoogleApiClient.isConnecting()) {
-                mGoogleApiClient.connect();
+            GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
+            if (result.isSuccess()) {
+                Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
+                handleSignInResult(task);
+
+            } else {
+                PriveTalkUtilities.showSomethingWentWrongDialog(getApplicationContext());
+               /* Toast.makeText(this, "SignIn: failed!" + result.getStatus(),
+                        Toast.LENGTH_SHORT).show();*/
             }
+            /*if (!mGoogleApiClient.isConnecting()) {
+                mGoogleApiClient.connect();
+            }*/
         }
 
         /*
@@ -344,6 +542,76 @@ public class WelcomeActivity extends AppCompatActivity implements GoogleApiClien
     }
 
 
+    private void handleSignInResult(Task<GoogleSignInAccount> completedTask) {
+        try {
+            // Google Sign In was successful, authenticate with Firebase
+            GoogleSignInAccount account = completedTask.getResult(ApiException.class);
+            if (account != null)
+            // execute AsyncTask to get data from Google People API
+            {
+                Person personData;
+                String birthdayValue = "";
+                int genderValue = 0;
+                try {
+                    personData = new GoogleAdditionalDetailsTask().execute(account).get();
+                    for (Birthday birthday : personData.getBirthdays()) {
+                        if (birthday.getDate().size() == 3) {
+                            int day = birthday.getDate().getDay();
+                            int month = birthday.getDate().getMonth();
+                            int year = birthday.getDate().getYear();
+                            birthdayValue = year + "-" + month + "-" + day; //"yyyy-MM-dd"
+                        }
+                    }
+
+                    for (Gender gender : personData.getGenders()) {
+                        if (gender.getValue().equalsIgnoreCase("male")) {
+                            genderValue = 1;
+                        } else if (gender.getValue().equalsIgnoreCase("female"))
+                            genderValue = 2;
+                    }
+
+                    CurrentUser currentUser = new CurrentUser(account, account.getEmail(), birthdayValue, genderValue);
+                    Intent intent = new Intent(WelcomeActivity.this, CreateAccountActivity.class);
+                    Bundle bundle = new Bundle();
+                    bundle.putSerializable(PriveTalkConstants.BUNDLE_CURRENT_USER, currentUser);
+                    intent.putExtras(bundle);
+                    startActivity(intent);
+                } catch (ExecutionException e) {
+                    e.printStackTrace();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            /*if (account == null) {
+                PriveTalkUtilities.showSomethingWentWrongDialog(getApplicationContext());
+                return;
+            }
+
+            try {
+                CurrentUser currentUser =new CurrentUser(account,account.getEmail());
+                Intent intent = new Intent(WelcomeActivity.this, CreateAccountActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putSerializable(PriveTalkConstants.BUNDLE_CURRENT_USER, currentUser);
+                intent.putExtras(bundle);
+                startActivity(intent);
+
+            } catch (Exception e) {
+                e.printStackTrace();
+                createAccountDialog.googleLoginButton.setEnabled(true);
+            }*/
+            // Signed in successfully, show authenticated UI.
+            //   updateUI(account);
+        } catch (ApiException e) {
+            // The ApiException status code indicates the detailed failure reason.
+            // Please refer to the GoogleSignInStatusCodes class reference for more information.
+            // Log.w(TAG, "signInResult:failed code=" + e.getStatusCode());
+            //  updateUI(null);
+        }
+
+    }
+
+
     @Override
     protected void onStop() {
         if (mGoogleApiClient.isConnected())
@@ -388,7 +656,7 @@ public class WelcomeActivity extends AppCompatActivity implements GoogleApiClien
     }
 
     public void logInFacebook() {
-      facebookLoginButton.performClick();
+        facebookLoginButton.performClick();
     }
 
     //create a new account dialog
@@ -681,12 +949,11 @@ public class WelcomeActivity extends AppCompatActivity implements GoogleApiClien
     //get all user information available in google+
     private void getUserInfoGooglePlus() {
 
-        Plus.PeopleApi.loadVisible(mGoogleApiClient, null).setResultCallback(this);
+     /*   Plus.PeopleApi.loadVisible(mGoogleApiClient, null).setResultCallback(this);
 
         if (Plus.PeopleApi.getCurrentPerson(mGoogleApiClient) != null) {
 
-            Person currentPerson = Plus.PeopleApi
-                    .getCurrentPerson(mGoogleApiClient);
+            Person currentPerson = Plus.PeopleApi.getCurrentPerson(mGoogleApiClient);
 
             if (currentPerson == null) {
                 PriveTalkUtilities.showSomethingWentWrongDialog(getApplicationContext());
@@ -706,7 +973,7 @@ public class WelcomeActivity extends AppCompatActivity implements GoogleApiClien
                 e.printStackTrace();
                 createAccountDialog.googleLoginButton.setEnabled(true);
             }
-        }
+        }*/
     }
 
 
@@ -972,11 +1239,16 @@ public class WelcomeActivity extends AppCompatActivity implements GoogleApiClien
                 @Override
                 public void onClick(View view, MotionEvent event) {
                     googleLoginButton.setEnabled(false);
-                    if (mGoogleApiClient.isConnected()) {
+
+                    // Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
+                    Intent signInIntent = mGoogleSignInClient.getSignInIntent();
+                    startActivityForResult(signInIntent, RC_SIGN_IN);
+                    mGoogleApiClient.connect();
+                    /*if (mGoogleApiClient.isConnected()) {
                         getUserInfoGooglePlus();
                     } else {
                         mGoogleApiClient.connect();
-                    }
+                    }*/
                 }
             });
 
@@ -1030,3 +1302,4 @@ public class WelcomeActivity extends AppCompatActivity implements GoogleApiClien
     }
 
 }
+

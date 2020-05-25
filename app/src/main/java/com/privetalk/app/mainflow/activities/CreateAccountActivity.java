@@ -1053,7 +1053,7 @@ public class CreateAccountActivity extends AppCompatActivity implements
         postParam.put("email", currentUser.email);
        // postParam.put("email", "Harsimran@gmail.com");
        // postParam.put("password","mind@123"); //password.getText().toString()
-        postParam.put("name", currentUser.name);
+        postParam.put("name",currentUser.name);
        // postParam.put("name", "Harsimran Singh");
         postParam.put("looking_for",lookingForValue);//((boolean) lookingGenreFemale.getTag() && (boolean) lookingGenreMale.getTag()) ? 0 : ((boolean) lookingGenreMale.getTag()) ? 1 : 2);
         //  postParam.put("gender", ((boolean) myGenreMale.getTag()) ? 1 : 2);//commented code

@@ -677,5 +677,10 @@
 
     <string name="login_with_instagram">Συνδεθείτε με το Instagram</string>
 
+    <!-- profile visitors screen-->
+    <string name="profile_visitors_screen">Επισκέπτες προφίλ</string>
+    <string name="promote_your_self">Προωθήστε τον εαυτό σας</string>
+    <string name="looks_like">Φαίνεται ότι δεν έχετε επισκέπτες προφίλ αυτήν τη στιγμή.Προωθήστε το προφίλ σας και δείτε όλους τους χρήστες του PriveTalk κοντά!</string>
+
 </resources>
 

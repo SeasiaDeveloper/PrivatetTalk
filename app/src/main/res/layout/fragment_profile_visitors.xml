@@ -12,6 +12,78 @@
         android:layout_height="match_parent"
         android:layout_alignParentBottom="true" />
 
+    <RelativeLayout
+        android:id="@+id/no_profile_visitors_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/search_filter_background"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:id="@+id/layout_for_upper_margin"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:orientation="horizontal"
+            android:visibility="invisible"></LinearLayout>
+
+        <com.privetalk.app.utilities.PriveTalkTextView
+            android:id="@+id/heading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/layout_for_upper_margin"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="@string/profile_visitors_screen"
+            android:textColor="@color/welcome_text"
+            android:textSize="25sp"
+            app:ttf_name="@string/roboto_light" />
+
+        <LinearLayout
+            android:id="@+id/imageEye"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_centerInParent="true"
+            android:gravity="center_horizontal">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:src="@drawable/eye_icon" />
+
+        </LinearLayout>
+
+
+        <com.privetalk.app.utilities.PriveTalkTextView
+            android:id="@+id/text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imageEye"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="@string/looks_like"
+            android:textColor="@color/welcome_text"
+            android:textSize="20sp"
+            app:ttf_name="@string/roboto_light" />
+
+
+        <com.privetalk.app.utilities.PriveTalkTextView
+            android:id="@+id/promote_yourself"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/rounded_button_green"
+            android:gravity="center"
+            android:text="@string/promote_your_self"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            app:ttf_name="@string/roboto_bold" />
+
+    </RelativeLayout>
+
     <LinearLayout
         android:id="@+id/addMeHolder"
         android:layout_width="match_parent"
@@ -32,6 +104,7 @@
     </LinearLayout>
 
     <View
+        android:id="@+id/view"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_below="@+id/addMeHolder"
@@ -50,7 +123,5 @@
             android:layout_gravity="center" />
 
     </FrameLayout>
-
-
 
 </androidx.percentlayout.widget.PercentRelativeLayout>
